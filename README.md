@@ -26,6 +26,7 @@ $ make cleanall # Deletes LaTeX intermediate files and output files (PDFs)
 ```bash
 $ cd sheets/1
 $ latexmk -pdf jvk-blatt1.tex # Compiles the exercise sheet
+$ # Compiles the solution sheet:
 $ latexmk -pdf -pdflatex='pdflatex %O "\def\jvksolutions{} \input{%S}"' -jobname=jvk-blatt1-lsg jvk-blatt1.tex
 ```
 
