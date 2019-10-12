@@ -1,0 +1,582 @@
+\begin{questions}
+
+    \titledquestion{Rekursion}
+    Rekursion ist der Fachbegriff dafür, wenn eine Operation sich selbst aufruft.
+    \begin{lstlisting}[language=Java]
+public void recursive(){
+    recursive();
+}
+    \end{lstlisting}
+
+    Aber damit die Operation sich nicht unendlich lange aufhängt benötigt man eine sog. Abbruchbedingung \textbf{bevor} der Rekursionsaufruf stattfindet.
+
+    \begin{lstlisting}[language=Java]
+public void recursive(int interationsLeft){
+    if(iterationsLeft > 0){
+        iterationLeft--;
+        recursive(iterationLeft);
+    }
+}
+    \end{lstlisting}
+
+    Die Fibonacci Folge beginnt mit $F_1 = 1$ und $F_2 = 1$. Ab dann ist $F_X = F_{X-1} + F_{X-2}$.
+
+    Schreibe eine rekursive Funktion \texttt{fibonancci(int n)}, welche das n-te Element der Fibonacci Folge berechnet.
+    \titledquestion{1D-Arrays}
+
+    In manchen Fällen braucht man mehrere gleiche Variablen. Bei einfachen Fällen ist dies noch leicht um zu setzten, wenn man aber zum Beispiel die Pillen auf jedem Feld zählen muss brauch man dafür bei einem 10x10 Blöcke großen Feld circa 100 Variablen.
+
+    \begin{lstlisting}
+    int anzahlPillenFeld0 = 0;
+    int anzahlPillenFeld1 = 0;
+    int anzahlPillenFeld2 = 0;
+    int anzahlPillenFeld3 = 0;
+    ...
+    \end{lstlisting}
+
+    Dies ist natürlich unnötig und kompliziert sowie sehr unübersichtlich. Deshalb gibt es 'Massenvariablen' sogenannte Arrays. Diese fassen mehrere Variablen unter einem Namen zusammen. An die einzelnen Variablen kommt man dann über einen Index heran. Das bedeutet alle Variablen die dort zusammen gefasst werden, sind von 0 bis n-1 durchnummerriert.
+
+    \begin{lstlisting}
+    // Diese Zeile legt ein Array aus Integern der Größe 100 an, dass bedeutet es gibt die Variablen 0 bis 99.
+    int[] anzahlPillen = new int[100];
+
+    // Um auf eine einzelne Variable zuzugreifen benötigt man Eckige-Klammern und schreibt zwischen sie nen Index der
+    // gewünschten Variable. Danach verhält es sich wie jede andere Variable.
+    anzahlPillen[0] = 10;
+    anzahlPillen[1] = anzahlPillen[0];
+    anzahlPillen[2] = anzahlPillen[0] + 10;
+    \end{lstlisting}
+
+    Man kann ein Array nicht nur über die Anzahl der Variablen, sondern auch über seinen Inhalt definieren. Wichtig ist nur dass sich die Anzahl der Elemente nicht ändern kann.
+
+    \begin{lstlisting}
+    int[] zielKoordinate[] = {
+        2, 10
+    }
+    \end{lstlisting}
+
+    \begin{parts}
+        \part{1D Kartogaphie}
+        Laufe alle Felder der gegebenen Reihe ab und speichere in ein boolean Array, true falls das Feld eine Pille enthält und sonst false. Gebe am Ende alle Elemente des Arrays aus.
+
+        \part{Wegbeschreibung}
+        Laufe für jeden Wert im unten gegebenen Array
+
+    \end{parts}
+
+
+    \titledquestion{2D-Arrays}
+
+    Manchmal benötigt man auch ein so genanntes 2-Dimensionales Array also ein Array von Arrays. Es wäre auch vergleichbar mit einer Tabelle von Werten. Ein Beispiel für die Verwendung von einem 2D-Array wäre wenn man ein Array von Koordinaten haben möchte.
+
+    \begin{lstlisting}
+        // Dies geht natürlich auch über die Arraygröße:
+        int zielKoordinatenA = new int[3][2];
+        zielKoordinatenA[0][0] = 1;
+        zielKoordinatenA[0][1] = 2;
+        zielKoordinatenA[1][0] = 3;
+        zielKoordinatenA[1][1] = 4;
+        zielKoordinatenA[2][0] = 5;
+        zielKoordinatenA[2][1] = 6;
+
+        // Oder seine Werte
+        int zielKoordinatenB = {
+            {1, 2},
+            {3, 4},
+            {5, 6}
+        }
+
+        // Die Arrays zielKoordinatenA und zielKoordinatenB haben die selbe Größe und den selben Inhalt.
+    \end{lstlisting}
+
+    \begin{parts}
+        \part{2D Kartogaphie}
+        Bilde das gegebene 6x3 Rechteck als 2D-Integer-Array wieder wobei jeder int die Anzahl der Pillen in dem jeweiligen Feld entsprechen.
+
+        \part{Schachbrett}
+        Ein Schachbrett besteht aus einen 8x8 gro{\ss}en Spielfeld, das abwechselnd aus schwarzen und weißen Feldern besteht. Entwerfe einen Algorithmus, der ein Schachbrett auf der Konsole ausgibt. F\"urs Spielfeld wird hierf\"ur ein ganzzahliges, zweidimensionales Array definiert. Als Werte f\"ur wei{\ss} soll hierbei 1, f\"ur schwarz 0 verwendet werden.
+    \end{parts}
+
+    \titledquestion{Arrays and Loops}
+
+
+    \titledquestion{For-Each Loops}
+    For-Each Loops stellen eine einfache Möglichkeit dar, über ein Arrray oder eine Collection vollständig zu iterieren. Mit folgendem Code können alle Elemente des Arrays, nacheinander ausgegebn werden.
+
+    \begin{lstlisting}
+    // Definiere Array
+    String[] bspArray = {"Beispiel", "Hallo", "Test"};
+
+    // Iteriere über alle Elemente
+    for (String s: bspArray) {
+        //Gebe für jedes Element s aus
+        System.out.println(s);
+    }
+    \end{lstlisting}
+
+    \begin{parts}
+        \part{Syncronized Dancing}
+        Lass die vorgegebene Reihe von Neos gleichzeitig ein Quadrat ablaufen.
+        \begin{solution}
+            \begin{lstlisting}
+            for (int i = 0; i < 4; i++) {
+                for (Neo neo : neos) {
+                    neo.forward(); //1 bis n-mal
+                    neo.turnRight();
+                }
+            }
+            \end{lstlisting}
+        \end{solution}
+    \end{parts}
+
+    \titledquestion{Polymorphie}
+    Schreibe
+
+    \titledquestion{Casting}
+
+        \titledquestion{Schach}
+    Ziel dieser Aufgabe ist es ein eigenes kleines Schach Spiel in der Konsole zu spielen zu programmieren. Man kann es ohne Hilfe versuchen oder sich an die folgenden Teilaufgaben zu halten, die als Hilfestellung gedacht ist.
+
+    \begin{parts}
+        \part{System.out.print()}
+        Mit dem Befehl \texttt{Sytem.out.print(String)} kann man einen String in der Konsole ausgeben. Alternativ kann man \texttt{String.out.println(String)} verwenden. Finde heraus was der Unterschied ist.
+        \part{}
+        Schreibe eine Klasse \texttt{Spielfeld}, welches die Position aller Figuren speichert
+        \part{}
+        Schreibe eine Methode, welche wenn sie ausgeführt wird, den Stand des Spielfelds in der Konsole ausgibt.
+        \part{}
+        Schreibe eine Klasse, welche eine Position auf dem Spielfeld repräsentiert.
+        \part{}
+        Schreibe eine abstrakte Klasse Figur, mit der abstrakten Abfrage \texttt{validateMove()}, die als Attribute 2 Positionen. Die Rückgabe der Methode ist ein Boolean, der Angibt ob die Figur den Zug von der ersten zur zweiten Position durchführen darf.
+        \part{}
+        Schreibe eine Methode \texttt{move()} in Spielfeld, die zwei Positionen erhält, mit \texttt{validateMove()} überprüft ob der Zug erlaubt ist und ausführt oder eine Fehlermeldung in die Konsole schreibt.
+
+        Denke daran eine Figur zu entfernen, wenn sie geschlagen wird. Das kann in einer eigenen Methode passieren
+        \part{}
+        Erstelle das Klassenattribut \texttt{private Scanner scan = new Scanner(System.in);}.
+
+        Die Operation  \texttt{scan.nextLine()} erhält nun einen String, mit der nächsten Zeile die der Nutzer in die Konsole schreibt. Nutze das um eine Input Operation zu schreiben, welche den Text nimmt und in zwei Positionen umwandelt, welche an \texttt{move()} weitergegeben werden.
+
+        \part{}
+        Erweitern sie die \texttt{validateMove()} so, dass sie verhindert, das Figuren bewegt werden die gerade nicht am Zug sind.
+
+        \part{} Erweitern sie ihr Spiel, so dass es beendet wird und eine Nachricht ausgibt, wenn der König geschlagen wird
+
+    \end{parts}
+
+    \titledquestion{Tic Tac Toe}
+    Schreibe das Spiel Tic Tac Toe in der Konsole. Das erkennt wenn ein Spieler gewonnen hat.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Old Blatt 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \titledquestion{Hallo Welt \& Konsole}
+    Erstelle ein neues Projekt mit dem Namen \texttt{HelloJava}.
+    Erzeuge in diesem Projekt eine neue Klasse \texttt{HelloJava}.
+    \begin{parts}
+        \part Schreibe die \texttt{main}-Methode in die Klasse und teste, ob das Programm kompiliert.
+        \begin{lstlisting}
+public class HelloJava {
+        public static void main(String[] args) {
+
+        }
+}
+        \end{lstlisting}
+        \begin{solution}
+            Fehlerquellen: Klammern, Tippfehler in der \texttt{main}-Methode, [\ ] vergessen, \texttt{main}-Methode außerhalb der Klasse
+        \end{solution}
+
+        \part Füge nun folgende Zeile innerhalb der Klammern der \texttt{main}-Methode ein. Wenn du alles richtig gemacht hast, sollte das Programm kompilieren und in der Konsole eine \texttt{42} erscheinen.
+        \begin{lstlisting}
+            System.out.println(42);
+        \end{lstlisting}
+        \begin{solution}
+            Hier sollte geschaut werden, dass der Datentyp \texttt{int} genutzt wird.
+        \end{solution}
+        \part Übungen:
+        \begin{itemize}
+            \item Lösche \texttt{42} aus \texttt{System.out.println(42);}.\\
+            Erwartet: Keine sichtbare Ausgabe.
+            \item Ersetze \texttt{42} durch \texttt{42, 42}.\\
+            Erwartet: Fehler beim Kompilieren, \texttt{println} erwartet genau ein Argument.
+            \item Ersetze \texttt{42} durch \texttt{42.0}.\\
+            Erwartet: Ausgabe im Format eines \texttt{double}, \texttt{42.0}.
+            \begin{solution}
+                Hier sollte geschaut werden, dass der Datentyp \texttt{double} genutzt wird.
+            \end{solution}
+            \item Ersetze \texttt{42} durch andere Zahlen.
+            % \\
+            \item Ersetze \texttt{42} durch \texttt{"42"}.\\
+            Erwartet: gleiche Ausgabe wie bei der einzelnen Zahl, Eclipse färbt \texttt{"42"} im Code aber anders ein.
+
+            \begin{solution}
+                Hier sollten nun \texttt{String}s verwendet werden
+            \end{solution}
+
+            \item Ersetze \texttt{"42"} durch \texttt{"Hello Java"}.\\
+            Erwartet: \texttt{Hello Java} steht in der Konsole.
+            \item Ersetze \texttt{"Hello Java"} durch \texttt{Hello Java}.\\
+            Erwartet: Fehler beim Kompilieren, Text wird als Code behandelt.
+            \item Ersetze \texttt{Hello Java} durch \texttt{"Hello \grqq n Java"}.\\
+            Erwartet: die Wörter werden in Zeilen aufgeteilt.
+            \item Teste auch die Wirkung von \texttt{\grqq t}, \texttt{\grqq \grqq}, \texttt{\grqq "} zwischen den Anführungszeichen.
+
+            \begin{solution}
+                \texttt{\textbackslash t} : Tabulator / Einrückung. \\
+                \texttt{\grqq \grqq} Zeichnet ein Backslash (Escaped den Backslash). \\
+                \texttt{\grqq "} : Escaped die Anführungszeichen.
+            \end{solution}
+
+            \item Kopiere die komplette Zeile mit dem \texttt{println}-Befehl und füge sie direkt unter dieser Zeile ein weiteres Mal ein.\\
+            Erwartet: Ausgabe verdoppelt
+            \item Was passiert, wenn man in der oberen Zeile das \texttt{ln} von \texttt{println} löscht?
+            \item Zeichne einen Smiley in die Konsole
+
+            \begin{solution}
+                Als Smiley kann ein Doppelpunkt Klammer zu ausgegeben werden.
+                \begin{lstlisting}
+                    System.out.println(":)");
+                \end{lstlisting}
+                Aufpassen das auch die Anführungszeichen bei der letzten Punkt dabei sind! Diese kann man durch Escapen erzeugen.
+            \end{solution}
+
+            \item Versuche nun folgenden Text auf der Konsole auszugeben:\\
+            \texttt{
+                Java Vorkurs 2017\\
+                Fachgruppe: "Herzlich Willkommen an der Universitaet Stuttgart."
+            }
+            \begin{solution}
+                \begin{lstlisting}
+                    System.out.println("Java Vorkurs 2017");
+                    System.out.println("Fachgruppe: \" Herzlich Willkommen an der Universitaet Stuttgart.\"");
+                \end{lstlisting}
+                Aufpassen das auch die Anführungszeichen bei der letzten Punkt dabei sind! Diese kann man durch Escapen erzeugen.
+            \end{solution}
+        \end{itemize}
+    \end{parts}
+
+\titledquestion{User Input}
+Bis jetzt hast du alle Eingaben direkt in den Code schreiben müssen und konntest nicht auf etwaige Eingaben reagieren. Allerdings ist es auch in Java m\"oglich Eingaben \"uber die Konsole einzulesen und im Programm zu verwenden.\\
+Erstelle zunächst eine neue Klasse \texttt{KonsolenEingabe} mit eigener \texttt{main}-Methode.\\
+Du kannst dann folgende Methoden verwenden, um einen \texttt{String}, \texttt{int} oder einen \texttt{double} auszulesen:
+
+\begin{lstlisting}
+import java.util.Scanner;
+Scanner scanner = new Scanner(System.in);
+
+// Liest einen int Wert ein und weist ihn zahl zu
+int zahl = scanner.nextInt();
+
+// Liest einen double Wert ein und weist ihn fzahl zu
+double fzahl = scanner.nextDouble();
+
+// Liest einen String ein und weist ihn text zu
+String text = scanner.nextLine();
+\end{lstlisting}
+
+\textbf{Bemerkung:} Die obigen Funktionen musst du jetzt noch nicht verstehen. Du kannst sie einfach aufrufen, falls du die gegebene Klasse \texttt{UserInput} im selben Projekt hast. Du musst sie dann nur noch aufrufen, wann immer du eine Eingabe vom Nutzer haben möchtest.
+
+\begin{parts}
+    \part Schreibe einen Echobot, der dir alles nochmal in der Konsole ausgibst, was du schreibst. Benutze dafür die \texttt{readString} Methode. Vergiss nicht, am Anfang des Programms einen Hinweis für den Benutzer auf der Konsole auszugeben, dass das Programm bereit ist.
+    %\textbf{Fehlerquellen}: Komma bei doubles, Klammerung beim Kopieren kaputt gegangen, usw.
+
+    \part Schreibe ein Programm, dass den Flächeninhalt eines Rechtecks berechnet. Nutze dazu die \texttt{nextInt} Funktion um die Eingaben zur Laufzeit machen zu können.
+
+    \part Ändere obiges Programm so, dass es \texttt{nextDouble} verwendet.
+\end{parts}
+
+\titledquestion{Tausch von Variablen}
+Erstelle eine neue Klasse mit dem Namen \texttt{Tausch} und einer \texttt{main}-Methode.\\
+Erstelle zwei Variablen \texttt{a} und \texttt{b} vom Typ \texttt{int} und initialisiere sie mit unterschiedlichen Werten.
+\begin{parts}
+    \part Gebe beide Werte auf der Konsole aus.
+    \part Erstelle eine dritte Variable vom Typ \texttt{int} mit dem Namen \texttt{temp}.
+    \part Tausche die Werte von \texttt{a} und \texttt{b} mithilfe der dritten Variable \texttt{temp} und gebe die neuen Werte von \texttt{a} und \texttt{b} nach dem Tausch ebenfalls auf der Konsole aus.
+\end{parts}
+
+\titledquestion{Casten}
+Manchmal ist es nötig, Typen zu konvertieren. In Java nennt man dies Casten.
+
+\begin{parts}
+    \part Erstelle eine neue Klasse mit dem Namen \texttt{Casten}. Und lege die \texttt{main}-Methode an.\\
+    Deklariere innerhalb der \texttt{main}-Methode eine Variable vom Typ \texttt{int} mit dem Namen \texttt{zahl1} und initialisiere den Wert auf 42. Des Weiteren wird eine Variable vom Typ \texttt{double} mit dem Namen \texttt{zahl2} benötigt. Diese Variable soll mit dem Wert der Variable \texttt{zahl1} initialisiert werden.
+    Füge am besten noch zwei \texttt{println} Befehle hinzu, um die Werte der Zahlen auszugeben. \\
+    Starte das Programm, welchen Wert hat die Variable \texttt{zahl2}? Was ist der Unterschied zwischen \texttt{zahl1} und \texttt{zahl2}?
+    \begin{solution}
+        Die main Methode sollte nun so aussehen:
+        \begin{lstlisting}
+        public static void main(String[] args) {
+        int zahl1;
+        zahl1 = 42;
+
+        double zahl2;
+        zahl2 = zahl1;
+
+        System.out.println(zahl1);
+        System.out.println(zahl2);
+        }
+        \end{lstlisting}
+        Die Ausgabe sollte nun 42 und 42.0 enthalten.
+    \end{solution}
+
+    \part Drehe jetzt das Ganze um: Weise nach den \texttt{println} Befehlen der Variable \texttt{zahl2} den Wert 42.0 zu und danach der Variable \texttt{zahl1} den Wert \texttt{zahl2}. Schreibe danach zwei weitere \texttt{println}-Befehle für die beiden Variablen.\\
+    \textbf{Achtung:} Es wird hier eine Fehlermeldung auftreten. Woran liegt das? Was ist das Problem?
+    \begin{solution}
+        Erwartung: Das Programm kompiliert nicht und die Zeile mit der Zuweisung von \texttt{zahl2} zu \texttt{zahl1} ist rot unterkringelt.\\
+        Dies liegt daran, dass ein Integer nur Ganzzahlen speichern kann und Kommawerte nicht automatisch in Ganzzahlen umgewandelt werden, da eventuell Daten verlohren gehen könnten.
+    \end{solution}
+
+    \part Um aus einer Fließkommazahl eine Ganzzahl zu machen, braucht Java die Bestätigung, dass die Ziffern hinter dem Komma wegfallen dürfen, um einen ungewollten Datenverlust zu vermeiden. Dies geschieht indem man vor den Wert vom Typ \texttt{float} den benötigten Typ, in diesem Fall ein \texttt{int}, in Klammern setzt. Diesen Vorgang bezeichnet man als \textbf{casten}. \\
+    Behebe nun diesen Fehler aus Aufgabenteil (b).
+
+    \begin{solution}
+        \begin{lstlisting}
+        zahl1 = (int) zahl2;
+        \end{lstlisting}
+
+        Erwartet: Ausgabe 42 und 42.0 und 42 und 42.0.\\
+        Fehlerquellen: Klammern falsch gesetzt, Datentypen falsch (vor allem im cast), \texttt{zahl1} und \texttt{zahl2} vertauscht.
+    \end{solution}
+
+    \part Übungen:
+    \begin{itemize}
+        \item Probiere, anstatt \texttt{double}, auch Datentypen wie z.B. \texttt{long} zu casten.
+        \item \texttt{double} und \texttt{float} stehen in einer ähnlichen Beziehung wie \texttt{int} und \texttt{long}. In welche Richtung muss man casten, in welche Richtung geht das ohne Cast?
+        \item Kann man auch von \texttt{boolean} nach \texttt{int} casten?
+        \item Was passiert, wenn man den String \texttt{"Hello world"} nach \texttt{int} casted?
+        \item Stelle sicher, dass die Variable \texttt{zahl1} vom Typ \texttt{int}.
+        ist. Weise \texttt{zahl1} diesmal große Zahlen zu. Ab wann generiert Eclipse eine Fehlermeldung beim Kompilieren (siehe auch Aufgabe 3 in den Teilaufgaben)? Woran kann dies liegen?
+        \begin{solution}
+            Im letzten Punkt soll erkannt werden, dass irgendwann kein \texttt{int} mehr genutzt werden kann, da die Zahl zu groß ist. Es sollen Zahlen nacheinander überprüft werden.
+        \end{solution}
+    \end{itemize}
+\end{parts}
+
+\titledquestion{Logik: Boolsche Operatoren}
+Was ist der Wert des Ausdrucks?
+\begin{lstlisting}
+    !((true || !(3 / 2 + 4 < 5)) && (1 < 2 && 2 > 3 || true))
+\end{lstlisting}
+\"Uberpr\"ufe deine Antwort, indem du ein Programm schreibst, welches die L\"osung ausgibt.
+
+\titledquestion{Quadrieren}
+Schreiben Sie ein Programm, welches die Werte f\"ur $i$ und ${i}^{2}$ ausgibt.
+\begin{parts}
+    \part $i \in \{1, 2, 3, \ldots,20\}$
+    \begin{solution}
+        Ziel dieser    Aufgabe ist es, zu verstehen, dass die for-Schleife nicht nur mit 0 oder 1 beginnen kann bzw. muss, sondern auch verschiedene Startwerte haben könnte. Man darf natürlich auch bei 0 Anfangen, muss dann aber einen Offset verwenden.
+        \begin{lstlisting}
+        for(int i = 1; i <= 20; i++) {
+            System.out.println( "i: " + i + " quadriert: "+ (i * i) );
+        }
+        \end{lstlisting}
+    \end{solution}
+    \part $i \in \{170, 171, \ldots,190\}$
+    \begin{solution}
+        \begin{lstlisting}
+        for(int i = 170; i <= 190; i++) {
+            System.out.println( "i: " + i + " quadriert: "+ (i * i) );
+        }
+        \end{lstlisting}
+    \end{solution}
+\end{parts}
+
+\titledquestion{summa summarum: Schleife}
+Erstelle eine neue Klasse mit dem Namen \texttt{Summe} und einer \texttt{main}-Methode. Diese \texttt{main}-Methode soll eine \texttt{int} Variable mit dem Namen \texttt{zahl} haben und die Summe aller Zahlen (startend bei 0) bis zu einschließlich dieser Zahl berechnen. Das Ergebnis soll anschließend auf der Konsole ausgegeben werden.
+(Bspw:    zahl = 10, Ausgabe: 55)
+
+\titledquestion{Anwendung von Schleifen}
+Auf einem Konto sind 450 Euro. Wie viele Jahre dauert es, bis das Guthaben verdoppelt ist, wenn die Bank j\"ahrlich einen Zinssatz von 1.4\% erhält.%bezahlt.
+
+\begin{solution}
+    Relativ einfache    Aufgabe. Auf Datentypen achten!
+    \begin{lstlisting}
+    int anfangsKontostand = 450;
+    double aktuellerKontostand = anfangsKontostand;
+    int jahre = 0;
+    while(kontostand < (anfangsKontostand * 2)) {
+    aktuellerKontostand *= 1.014;
+    jahre++;
+    }
+    \end{lstlisting}
+\end{solution}
+
+\titledquestion{Maximum}
+\begin{parts}
+    \part Schreibe eine neue Methode mit dem Namen \texttt{maximum}, diese Methode bekommt zwei \texttt{int} Parameter \"ubergeben und soll die gr\"oßere Zahl als zur\"uckgeben.
+    \part Schreibe eine neue Methode mit dem Namen \texttt{maximumVier}, die vier \texttt{int} Parameter \"ubergeben bekommt und die gr\"oßte zur\"uckgeben soll.
+    \part Schreibe eine neue Methode mit dem Namen \texttt{maximumVierA}, die das selbe Problem wie in    Aufgabenteil (b) l\"ost, daf\"ur allerdings die Methode aus    Aufgabenteil (a) verwendet und selbst keine Zahlen vergleicht
+\end{parts}
+
+\titledquestion{Median, Durchschnitt, Arrays}
+Erstelle f\"ur diese    Aufgabe eine neue Klasse \texttt{MedianAvgAr} mit einer     \texttt{main}-Methode.
+\begin{parts}
+    \part Schreibe eine Methode mit dem Namen \texttt{average}, die ein \texttt{int} Array als Parameter \"ubergeben bekommt und den Durschschnitt der Werte in diesem Array zur\"uckgibt.
+    \part Schreibe eine Methode \texttt{minAusArray}, die ein \texttt{int} Array \"ubergeben bekommt und das kleinste Element daraus zur\"uckgibt
+    \part Schreibe eine Methode mit dem Namen \texttt{median}, die 3 Parameter \"ubergeben bekommt und den Median (das mittlere Element) zur\"uckgibt.
+\end{parts}
+
+
+
+\titledquestion{Geometrische Figuren}
+Als nächstes wollen wir Klassen für geometrische Figuren erstellen, die es ermöglichen Flächeninhalt und Umfang zu berechnen, sowie weitere Funktionalitäten zur Verfügung zu stellen.
+
+Für Kreise haben wir folgendes gegeben:
+
+\begin{lstlisting}
+public class Circle {
+    private double radius;
+
+    public Circle (double radius) {
+        this.radius = radius;
+    }
+}
+\end{lstlisting}
+
+Die Zeile \texttt{public Circle(double radius)} definiert hierbei einen Konstruktor, der den gleichen Namen wie die Klasse haben muss. Ein Konstruktor besitzt keinen Rückgabewert und kann wie eine Methode beliebig viele Parameter übergeben bekommen. Dadurch lassen sich Attribute direkt bei der Objekterzeugung initialisieren.
+
+Der Zugriffsmodifizierer \texttt{private} bei der Definition von \texttt{radius} verhindert, dass von anderen Klassen aus direkt auf den Wert von \texttt{radius} zugegriffen werden kann. Dadurch können die Attributwerte nicht unkontrolliert verändert werden. Der Zugriffsmodifizierer \texttt{public} bedeutet, dass von überall aus auf ein Attribut oder eine Methode zugegriffen werden darf.
+
+\begin{parts}
+
+    \part
+    Wir wollen nun auch Rechtecke erzeugen können. Erstelle hierzu eine Klasse \texttt{Rectangle} mit einem entsprechenden Konstruktor. Ein Rechteck soll hierbei durch zwei Seitenlängen $a$ und $b$ definiert sein.
+
+    \begin{solution}
+        \begin{lstlisting}
+        public class Rectangle{
+        private double a, b;
+        public Rectangle (double a, double b) {
+        this.a = a;
+        this.b = b;
+        }
+        }
+        \end{lstlisting}
+    \end{solution}
+
+    \part Wir wollen nun jeweils eine Methode \texttt{getCircumference} zu \texttt{Circle} und \texttt{Rectangle} hinzufügen, um den Umfang der jeweiligen Figur zu berechnen (Umfang Kreis: $U=2\pi\cdot r$, Umfang Rechteck: $U=2a+2b$). Testen Sie die Funktionalität mit einer \texttt{main}-Methode.
+
+    Hinweis: $\pi$ erhält man in Java mit \texttt{Math.PI}
+    \begin{solution}
+        \begin{lstlisting}
+    public class Circle {
+        private double radius;
+
+        public Circle (double radius) {
+        this.radius = radius;
+        }
+
+        public getCircumference () {
+        return 2*Math.PI*r;
+        }
+        }
+        public class Rectangle{
+        private double a, b;
+
+        public Rectangle (double a, double b) {
+        this.a = a;
+        this.b = b;
+        }
+
+        public getCircumference () {
+        return 2*a+2*b;
+        }
+    }
+        \end{lstlisting}
+    \end{solution}
+\end{parts}
+
+\titledquestion{Fakultät: Schleifen}
+Die Fakultät $n!$ ist nichts anderes als eine Kurzschreibweise für das Produkt $1*2*...*n$.
+Erstelle eine neue Klasse mit dem Namen \texttt{Fakult\"at} und einer \texttt{main}-Methode. Diese \texttt{main}-Methode soll eine \texttt{long} Variable mit dem Namen \texttt{zahl} haben und die Fakult\"at dieser Zahl berechnen und anschließend auf der Konsole ausgeben. Verwende den Datentyp \texttt{long} f\"ur die Variablen. Wieso macht die Verwendung diesen Datentyps hier Sinn?
+
+\begin{solution}
+    Achten auf Datentyp, Fragen welcher sinnvoll ist und wieso.
+\end{solution}
+
+\titledquestion{Rekursion, Verzweigungen, Schleifen, Funktionsaufrufe}
+Stell dir vor du startest mit den Zahlen 2 und 1. Die jeweils n\"achste Zahl ergibt sich aus dem Quotient der vorherigen Zahlen. Erstelle eine Funktion mit dem Namen \texttt{quotientenReihe}, die einen \texttt{int} Parameter bekommt, welcher angibt die wie vielte Zahl dieser Reihe berechnet werden soll. Der R\"uckgabewert dieser Funktion ist ein \texttt{double}, welcher den Wert des n-te Reihenglieds wiedergibt.
+
+\titledquestion{W\"urfel: Methoden}
+Erstelle eine neue Klasse mit dem Namen \texttt{Wuerfel} und einer \texttt{main}-Methode. Diese \texttt{main}-Methode soll einen W\"urfel simulieren, der zwei mal geworfen wird und die Augenzahlen jeweils auf der Konsole ausgeben.\\
+\textbf{Hinweis:} Um eine Zufallszahl in Java zu generieren kann die Methode \texttt{Math.random()} benutzt werden, diese liefert einen Wert vom Typ \texttt{double} im Wertebereich $[0, 1)$    zur\"uck.
+
+\titledquestion{Ratespiel: Funktionsaufruf, Verzweigungen, Schleifen}
+Erstelle eine neue Klasse \texttt{Ratespiel} mit einer \texttt{main}-Methode. Diese soll sich eine Zufallszahl zwischen 0 und 100 ausdenken, die der Nutzer nun erraten muss. Der Nutzer gibt eine Zahl ein, das Programm reagiert entsprechend mit der Ausgabe \glqq{}Zahl zu groß\grqq{}, \glqq{}Zahl zu klein\grqq{} oder \glqq{}Gl\"uckwunsch!\grqq{}. Gibt das Programm \glqq{}Zahl zu groß\grqq{} oder \glqq{}Zahl zu klein\grqq{} fragt es den Nutzer nach einer neuen Zahl, bis dieser die Zahl erraten hat.
+
+\titledquestion{Schleifen, Verzweigungen und boolsche Operatoren}
+Erstelle eine neue Klasse mit dem Namen \texttt{Rechnungen} und einer \texttt{main}-Methode.
+\begin{parts}
+    \part Erstelle eine weitere Methode mit dem Namen \texttt{ggT}, die zwei Parameter vom Typ \texttt{int} \"ubergeben bekommt und einen R\"uckgabewert vom Typ \texttt{int} besitzt. Diese Methode soll den gr\"o{\ss}ten gemeinsamen Teiler der beiden Zahlen berechnen und zur\"uckgeben.
+    \part Erstelle eine weitere Methode mit dem Namen \texttt{kgv}, die zwei Parameter vom Typ \texttt{int} übergeben bekommt und einen R\"uckgabewert vom Typ \texttt{int} besitzt. Diese Methode soll das kleinste gemeinsame Vielfache der beiden Zahlen berechnen und zur\"uckgeben. Für beispielsweise 10 und 6 wäre das kleinste gemeinsame Vielfache 30.
+    \part Erstelle eine Methode mit den Namen \texttt{primfaktorzerlegung}, die einen Parameter vom Typ \texttt{int} \"ubergeben bekommmt und keinen R\"uckgabewert besitzt. Diese Methode soll eine Primfaktorzerlegung auf die als Parameter \"ubergebene Zahl durchf\"uhren und die Primfaktoren auf der Konsole ausgeben.
+    \part Erstelle eine weitere Methode mit dem namen \texttt{isInRange}, die drei Parameter vom Typ \texttt{int} \"ubergeben bekommt und einen R\"uckgabewert vom Typ \texttt{boolean} besitzt. Die Methode soll pr\"ufen ob der letzte Parameter zwischen den ersten beiden liegt und dementsprechend \texttt{true} oder \texttt{false} zur\"ubergeben.
+\end{parts}
+
+\titledquestion{Fibonacci: Array, Schleifen}
+\begin{parts}
+    \part Schreibe ein Programm, dass die 50. Fibonacci Zahl iterativ berechnet und gebe diese aus. Die Fibonacci Zahlen sind wie folgt definiert Fib(0) = 0, Fib(1) = 1, Fib(n) = Fib(n-1) + Fib(n-2)
+    \part Speichere alle vorherhigen Zahlen in einem Array. Gebe dieses Array am Ende auf der Konsole aus.
+\end{parts}
+
+\begin{solution}
+    Achten auf Datentypen, hier kommt es zu einem Überlauf! Fib(50) = 12.586.269.
+\end{solution}
+
+\titledquestion{\texttt{for}-Schleifen}
+Schreiben Sie ein Java-Programm, dass die folgenden Summen oder Produkte berechnet
+\begin{parts}
+    \part[0]$\sum_{i=1}^{n} \frac{1}{i}$
+    \part[0]$\prod_{i=x}^{n} i$
+    \part[0]$\sum_{i=0}^{n} (\prod_{j=1}^{x-i} j)$
+    \part[0]$\sum_{i=1}^{n} i$ $|$ $i$ ungerade
+    \part[0]$\sum_{i=1}^{n} \frac{(-1)^{(i+1)}}{i}$
+\end{parts}
+
+
+
+\titledquestion{W\"orter drehen}
+\begin{parts}
+    \part Schreibe ein Programm, das ein Wort umdreht. Das Wort soll hierbei ein \texttt{char} Array sein, bei dem die erste mit der letzten, die zweite mit der vorletzten, usw. Stelle getauscht werden soll.
+    \part Versuche nun den    Aufgabenteil (a) ohne ein zus\"atliches Array zu l\"osen, also nur mit dem übergebenen Array auszukommen.
+\end{parts}
+
+\titledquestion{Umformung von Schleifen}
+Formen Sie die folgenden \texttt{for}-Schleifen in \"aquivalente \texttt{while}-Schleifen um.
+\begin{parts}
+    \part[0] \textcolor[rgb]{1,1,1}{a}
+    \begin{lstlisting}
+    ...
+    for(int i = x; i >= 0; --i) {
+    result = result * i;
+    }
+    ...
+    \end{lstlisting}
+
+    \part[0] \textcolor[rgb]{1,1,1}{a}
+    \begin{lstlisting}
+    ...
+    for(int i = 0; i !< x; ++i) {
+    z = ( 1 + 2 * i );
+    System.out.println(z);
+    }
+    ...
+    \end{lstlisting}
+
+    \part[0] \textcolor[rgb]{1,1,1}{a}
+    \begin{lstlisting}
+    ...
+    for(int i = 1; i <= x; ++i) {
+    for(int j = 1; j <= i; ++i) {
+    if( i % j == 0 ) {
+    System.out.print( j + " " );
+    }
+    }
+    System.out.println();
+    }
+    ...
+    \end{lstlisting}
+\end{parts}
+
+\end{questions}

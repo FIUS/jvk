@@ -1,0 +1,382 @@
+\newcommand\ownclass{\lstinline|MyNeo|}
+\newcommand\superclass{\lstinline|Neo|}
+
+\begin{questions}
+   % TODO:
+   %  - Aufgabe 4: "MyNeo" passend ersetzen
+   %  - \ownclass und \superclass passend bennennen (in exercise_format.tex)
+   %  - Lösungen testen und ggf verbessern
+   %  - siehe "Auf diesem Blatt"
+   %  - siehe restliche TODOs
+   %
+   % Auf diesem Blatt:
+   %  - Funktionen auslagern - Aufgabe 1
+   %  - JavaDoc - Aufgabe 2
+   %  - Vererbung mit vorgegebenen Klassen - Aufgabe 1 - TODO potentiell genauer
+   %  - Objekterzeugung
+   %  - Datentypen - Aufgabe 3 TODO
+   %  - Variablen - Aufgabe 4
+   %  - Parameter - Aufgabe 1
+   %  - Attribute - Aufgabe 5
+   %  - Konstruktor mit Parametern - Aufruf Aufgabe 4, Definition TODO
+
+    % Aufgabe 1 % TODO test solution
+
+    \renewcommand{\workingtimeMinutes}{drölf}
+    \titledquestion{Die ersten eigenen Operationen}
+    Wir wollen nun Neo ein paar neue Fähigkeiten beibringen.
+    Im Projekt für Blatt 2 findet ihr hierzu eine Klasse \ownclass{},
+    welche die Klasse \superclass{}  erweitert. In Java wird die zu erweiternde Klasse über das Schlüsselwort \lstinline{extends} angegeben.
+
+    Wir wollen nun eine neue Operation in der Klasse \ownclass{} definieren. Was Operation sind, konnten wir bereits auf Blatt 1 sehen. Beispielsweise Neos Operation \lstinline{move()}.
+
+    Als Beispiel soll die folgende Operation \texttt{moveTwice} dienen, die wir verwenden können, um zwei Schritte vorwärts zu laufen:
+    \begin{lstlisting}
+public void moveTwice() {
+    this.move();
+    this.move();
+}
+    \end{lstlisting}
+    Schauen wir uns diese Definition einmal im Detail an. Im Operationskopf.
+    \begin{itemize}
+    \item \lstinline{public} bedeutet, dass eine Operation von überall aus auf einem Objekt der Klasse aufgerufen werden kann.
+    \item \lstinline{void} (engl. ``Leere'') bedeutet, dass die Operation keinen Rückgabewert hat.
+    \item \lstinline{moveTwice} ist der Name der Operation
+    \end{itemize}
+
+    \begin{parts}
+    \part{}
+    Wie wir im letzten Blatt schon festgestellt haben, kann sich Neo nicht einfach nach rechts drehen. Das wollen wir jetzt ändern.
+    Erstelle hierzu eine Operation \lstinline{turnCounterClockwise} in \ownclass. Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung nach links (gesehen von seiner bisherigen Bewegungsrichtung) fortsetzen kann.
+
+    \begin{solution}
+    \begin{lstlisting}
+public void turnCounterClockwise() {
+    this.turnClockwise();
+    this.turnClockwise();
+    this.turnClockwise();
+}
+    \end{lstlisting}
+    \end{solution}
+
+    \part{}
+    Zusätzlich wollen wir Neo jetzt beibringen, sich um \(180^\circ\) zu drehen.
+    Erstelle hierzu eine Operation \lstinline{turnAround}.
+    Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung in die Richtung fortsetzen kann, aus der er gekommen ist.
+
+    \begin{solution}
+    \begin{lstlisting}
+public void turnBack() {
+    this.turnClockwise();
+    this.turnClockwise();
+}
+    \end{lstlisting}
+    \end{solution}
+    \end{parts}
+
+    Bei diesen beiden Operationen handelt es sich um \emph{Kommandos}, die den Zustand des Programms verändern (z.B. Neos Blickrichtung). Sie geben jedoch keine Werte an den Aufrufer der Operation zurück.
+
+    Hierfür gibt es \emph{Abfragen}. Bei diesen handelt es sich um Operationen, die einen Wert zurückgeben, dabei jedoch den Zustand des Programmes nicht verändern. Um eine Operation mit einem Rückgabewert zu definieren, erstzen wir im Kopf der Operation \lstinline{void} durch den Typ des zurückgegebenen Wertes. Um dann tatsächlich einen Wert zurückzugeben, können wir in der Operation den Befehl \lstinline{return wert;} verwenden.
+
+    Um zum Beispiel eine Operation zu schreiben, die einen passenden Gruß für Neo zurückgibt, könnten wir folgendes tun:
+    %TODO Beispiel Abfrage
+    \begin{lstlisting}
+public String getGreeting() {
+    return "Hallo, " + this.getName() + "!";
+}
+    \end{lstlisting}
+    Der Typ \lstinline{String} ist hierbei der Typ einer Zeichenkette. Er wird für Daten verwendet, die Text enthalten.
+
+    \begin{parts}
+    \setcounter{partno}{2}
+    \part{}
+    Angenommen eine Münze ist \(2\) Taler wert. Schreibe eine Abfrage \lstinline{getBalance} in \ownclass{}, die zurückgibt, wie viele Taler Neo aktuell hat.
+
+    \emph{Bemerkung:} Verwendet für diese Aufgabe den Typ \lstinline{int}. Er ist der am häufigsten verwendete Typ für Ganzzahlen. Wir schauen uns die verschiedenen Typen zu einem späteren Zeitpunkt noch genauer an.
+    \begin{solution}
+    \begin{lstlisting}
+public int getBalance() {
+    return 2 * this.getCoinsInWallet();
+}
+    \end{lstlisting}
+    \end{solution}
+    \end{parts}
+
+        Es kann vorkommen, dass wir den Kommandos oder Abfragen, die wir ausführen, zusätzliche Informationen mitgeben wollen. Hierzu können wir Werte an Operationen übergeben, die \emph{Argmente} heißen. Diese schreiben wir in die Klammern hinter dem Operationsnamen. Eine \footnote{zugegebenermaßen nicht allzu sinnvolle} Operation, die zwei Zahlen addiert, würde zum Beispiel so aussehen:
+    \begin{lstlisting}
+public int add(final int a, final int b) {
+    return a + b;
+}
+    \end{lstlisting}
+    Das \lstinline{final} hierbei bedeutet, dass wir den Wert des Arguments in der Operation nicht verändern können.
+
+    \begin{parts}
+    \setcounter{partno}{3}
+    \part{}
+    Implementiere das Kommando \lstinline{gainCoins} der Klasse \lstinline{MyNeo}, die eine Ganzzahl als Argument bekommt und die Anzahl der Coins um diesen Wert erhöht.
+
+    \emph{Hinweis:} In dieser Operation könnt ihr die Operation \lstinline{setCoinsInWallet} der Klasse \lstinline{Neo} verwenden.
+    \begin{solution}
+    \begin{lstlisting}
+public void gainCoins(final int amount) {
+    this.setCoinsInWallet(this.getCoinsInWallet() + amount);
+}
+    \end{lstlisting}
+    \end{solution}
+    \end{parts}
+
+
+    % Aufgabe 2
+    \renewcommand{\workingtimeMinutes}{10}
+    \titledquestion{Kommentare - Erklärung deines Codes}
+    In Java kann  man durch Kommentare den Code  erklären und Hinweise dazu, welche Überlegungen dahinter stehen, geben. Dies wird vor allem wichtig, wenn man sich den Code zu einem späteren Zeitpunkt noch einmal ansieht, denn die wenigsten Codeabschnitte sind absolut selbsterklärend.
+    \begin{itemize}
+        \item Einzeilige Kommentar
+    \begin{lstlisting}
+    // Alles hinter den zwei Schrägstrichen ist ein Kommentar
+    // (bis zum Ende der Zeile)
+    \end{lstlisting}
+        \item Mehrzeilige Kommentar
+        \begin{lstlisting}
+        /*
+         *   Alles von "/*" bis "* /"
+         *   ist ein Kommentar.
+         */
+    \end{lstlisting}
+        \item JavaDoc
+        \begin{lstlisting}
+        /**
+         * JavaDoc  ist ein Software-Dokumentationswerkzeug, das aus
+         * Java-Quelltexten automatisch
+         * HTML-Dokumentationsdateien erstellt.
+         *
+         * JavaDoc Kommentar beginnen mit "/**"
+         *
+         * Man schreibt JavaDoc immer als
+         * Kopfkommentar,d.h z.B vor der Operation
+         * Implementierung.
+         *
+         * Bestimmte Meta-Informationen können mit @-Tags hinzugefügt
+         * werden:
+         *
+         * @author Java-Vorkurs-Tutor
+         *
+         */
+    \end{lstlisting}
+    \end{itemize}
+    \begin{parts}
+    \part{}
+        Füge einen JavaDoc Klassenkommentar zur vorherigen Aufgabe hinzu. Füge ein JavaDoc zu den erstellten Operationen in der vorherigen Aufgabe hinzu. Jeder JavDoc Kommentar beschreibt für was die Operation/Klasse benutzt wird.
+    \part{}
+    Schreibe deinen Namen als den Autor in den Klassenkommentar
+    \part{}
+    Welche zusätzlichen @-Tags gibt es noch? Füge zum Klassenkommentar einen weiteren hinzu.
+    \end{parts}
+    \begin{solution}
+    \begin{lstlisting}
+       @author Name
+       @version, @return, @params
+
+        /**
+     * Turns Neo counter clockwise.
+     */
+    turnCounterClockwise()
+
+    /**
+     * Turns Neo around.
+     */
+    turnAround()
+
+    /**
+     * @return neo's wallet balance
+     */
+    getBalance()
+
+    /**
+     * Increases the amount of coins in neo's wallet
+     */
+    gainCoins(final int x)
+    \end{lstlisting}
+    \end{solution}
+    \begin{parts}
+    \setcounter{partno}{3}
+    \part{}
+    Neo möchte eine gerade Anzahl von Münzen auf dem Weg fallen lassen. Vervollständige \texttt{solve} in \texttt{Solution2\_4} damit Neo 5 Schritte nach vorne läuft und insgesamt 6 Münzen fallen lässt.
+    Auf jedem Feld sollte nur maximal eine Münze liegen.
+    \newline Hinweis : Schaue mal im JavaDoc von Neo nach welches Kommando man dafür benutzen kann.
+    \end{parts}
+    \begin{solution}
+    \begin{lstlisting}
+    public void solve(){
+        this.dropCoin();
+        this.move();
+        this.dropCoin();
+        this.move();
+        this.dropCoin();
+        this.move();
+        this.dropCoin();
+        this.move();
+        this.dropCoin();
+        this.move();
+        this.dropCoin();
+    }
+    \end{lstlisting}
+    \end{solution}
+    Gegeben ist der folgende Code:
+    \begin{lstlisting}
+    public void foo(){
+        this.turnClockwise();
+        this.turnClockwise();
+        this.move();
+        this.turnClockwise();
+        this.turnClockwise();
+    }
+    \end{lstlisting}
+    \begin{parts}
+    \setcounter{partno}{4}
+    \part{} Schreibe einen JavaDoc-Kommentar für die Operation \texttt{foo}.
+    \begin{solution}
+        \begin{lstlisting}
+        /**
+        * Lets the entitiy take one step back.
+        */
+        \end{lstlisting}
+    \end{solution}
+    \part{}
+    Benenne die Operation sinnvoll um. Wie kann man diese Operation verkürzen?
+
+    \emph{Hinweis:} Schaue dir hierzu noch einmal die Methoden an, die du bereits geschrieben hast.
+    \begin{solution}
+        \texttt{stepBack} would be an appropriate name.
+        Usage of \texttt{turnAround()} would make it more compact.
+    \end{solution}
+    \part{}
+    Erstelle eine JavaDoc HTML Webseite mit Eclipse
+    \begin{solution}
+        Rechtsklick aufs Projekt im Package Explorer \(\rightarrow\) Export \(\rightarrow\) Java \(\rightarrow\) JavaDoc \(\rightarrow\) Configure \(\rightarrow\) Pfad  zur javadoc.exe (Java SDK/bin) auswählen \(\rightarrow\) Browse \(\rightarrow\) Pfad  auswählen \(\rightarrow\) Finish.
+    \end{solution}
+    \end{parts}
+
+    % Aufgabe 3
+    \renewcommand{\workingtimeMinutes}{TODO}
+    \titledquestion{Datentypen}
+    Wie wir oben gesehen haben gibt es verschieden Typen, die wir zum Beispiel für Argumente und Rückgabewerte verwenden können\footnote{Wir werden später noch andere Stellen sehen, an denen Typen vorkommen.}.
+
+    Zunächst ist jede Klasse die wir oder jemand anderes definieren ein Typ. Variablen von diesem Typ können Objekte dieser Klasse oder einer ihrer Kindklassen enthalten. Eine häufig verwendete Klasse, die schon von Java definiert wurde, ist \lstinline{String}, welche Zeichenketten speichert.
+
+    Zusätzlich gibt es noch primitive Datentypen. Diese sind in der folgenden Tabelle aufgelistet:
+    \begin{table}[h!]
+        \centering
+        \begin{tabular}{c|c|c}
+        Name & Bechreibung & Werte \\
+        \hline\hline
+        \texttt{byte} & 8-Bit-Ganzzahl & \(-128,\dots, -1, 0, 1, \dots, 127\) \\
+        \texttt{short} & 16-Bit-Ganzzahl & \(-32768, \dots, -1, 0, 1, \dots, 32767\)\\
+        \texttt{int} & 32-Bit-Ganzzahl & \(-2\,147\,483\,648, \dots, -1, 0, 1, \dots ,2\,147\,483\,647\)\\
+        \texttt{long} & 64-Bit-Ganzzahl & \(-9\,223\,372\,036\,854\,775\,808, \dots, -1, 0, 1, \dots ,9\,223\,372\,036\,854\,775\,807\)\\
+        \hline
+        \texttt{float} & 32-Bit-Gleitkommazahl & \(1.3f\), \(0.7e+12f\), \(3.1415927\) \\
+        \texttt{double} & 64-Bit-Gleitkommazahl & \(1.5739\), \(0.134e+123\), \(3.141592653589793\) \\
+        \hline
+        \texttt{boolean} & Wahrheitswerte & \texttt{true}, \texttt{false} \\
+        \texttt{char} & Zeichen & \texttt{'a'}, \texttt{'B'}, \texttt{'5'}, \texttt{'('} \\
+        \end{tabular}
+        \caption{Primitive Datentypen in Java}
+        \label{tab:primitive_types}
+    \end{table}
+    % TODO Datentypen Aufgaben erstellen
+
+    % Aufgabe 4
+    \renewcommand{\workingtimeMinutes}{TODO}
+    \titledquestion{Variablen und Objekterzeugung}
+    Zunächst wollen wir uns nun einen eigenen Neo erstellen. Dies können wir tun, indem wir die folgende Zeile in eine Operation einfügen:
+    %TODO: refactor class name MyNeo in this listing and following exercise ; ?--Lion
+    \begin{lstlisting}
+MyNeo neo = new MyNeo();
+    \end{lstlisting} Hierbei ist \texttt{neo} der Name einer Variable vom Typ MyNeo. Wir erzeugen ein neues Objekt mittels dem Schlüsselwort \lstinline{new} und dem \emph{Konstruktor} der Klasse \texttt{MyNeo} und weisen dieses direkt der Variable '\texttt{neo}' zu.
+
+    Nachdem wir die Variable \lstinline{neo} definiert und initialisiert haben, können wir sie verwenden, zum Beispiel indem wir ihn wie folgt an Position \((0,0)\) auf das Spielfeld setzen:
+    \begin{lstlisting}
+sim.getPlayfield().addEntity(new Position(0, 0), neo);
+    \end{lstlisting}
+    Dafür fragen wir mit \texttt{getPlayfield()} erst das Spielfeld von der Simulation ab und sagen dann mit \texttt{addEntitiy(...)}, dass es neo an Position \((0,0)\) hinzufügen soll
+    \begin{parts}
+    \part{}
+    Erstelle zwei neue Objekte vom Typ MyNeo stelle sie nebeneinander auf das Spielfeld. Drehe beide um \(360^\circ\).
+    \begin{solution}
+    \begin{lstlisting}
+MyNeo neo1 = new MyNeo();
+MyNeo neo2 = new MyNeo();
+sim.getPlayfield().addEntity(new Position(0, 0), neo1);
+sim.getPlayfield().addEntity(new Position(0, 1), neo2);
+neo1.turnAround();
+neo2.turnAround();
+neo1.turnAround();
+neo2.turnAround();
+    \end{lstlisting}
+    \end{solution}
+    \end{parts}
+
+    Nun wollen wir einen Neo erstellen, der schon von Anfang an einige Münzen hat. Dies können wir erreichen, indem wir dem Konstruktor der Klasse \lstinline{MyNeo} die Anzahl der Münzen übergeben, die er zu Beginn haben soll. Hierfür schreiben wir diese \emph{Argumente} wie bei Operationenaufrufen in die Klammern hinter '\lstinline{new MyNeo}'.
+
+    \begin{parts}
+    \setcounter{partno}{1}
+    \part{}
+    Erstelle ein Objekt \lstinline{richNeo} vom Typ \lstinline{MyNeo}, das schon zu Beginn \(1\,000\) Münzen hat.
+    \begin{solution}
+    \begin{lstlisting}
+MyNeo richNeo = new MyNeo(1000);
+    \end{lstlisting}
+    \end{solution}
+    \part{}
+    Erstelle nun noch ein Objekt \lstinline{poorNeo} vom Typ \lstinline{MyNeo},
+    das zu Beginn keine Münzen hat.
+    Lasse \lstinline{richNeo} {\(2\)} Münzen ablegen
+    und sammle diese dann mit \lstinline{MyNeo} ein.
+    \begin{solution} %TODO try out & check
+    \begin{lstlisting}
+MyNeo richNeo = new MyNeo(1000);
+MyNeo poorNeo = new MyNeo();
+richNeo.spawn(0,0);
+poorNeo.spawn(0,0);
+richNeo.dropCoin();
+richNeo.dropCoin();
+poorNeo.collectCoin();
+poorNeo.collectCoin();
+    \end{lstlisting}
+    \end{solution}
+    \end{parts}
+
+
+    %TODO Konstruktor selber schreiben?
+
+
+   % Aufgabe 5
+   % Aufgabe
+    \renewcommand{\workingtimeMinutes}{20}
+    \titledquestion{Attribute}
+    Attribute sind Variablen die Informationen über den Zustand eines Objekts halten. Sie können Zahlen, Strings, Daten, oder auch nicht primitive Datentypen sein. Sie werden innerhalb der Klasse deklariert.
+    \begin{parts}
+    \part{}
+    Deklariere die folgende Attribute in MyNeo:
+    \begin{itemize}
+    \item age: Ganzzahl
+    \item address: Text
+    \item amountSteps: Ganzzahl
+    \end{itemize}
+    \part{}
+    getter-Query gibt den Wert für die Attribute zurück
+    \newline Erstelle für alle Attribute aus a) eine getter-Query
+    \part{}
+    Mit einer Setter-Operation werden die Attribute aktualisiert.
+    Erstelle für jeweilige Attribut aus a) eine setter-Command
+    \part{}countSteps beschreibt die Anzahl der Schritte die schon Neo gelaufen ist. Überschreibe nun das move-Command, so dass der Wert von     countSteps nach einem Schritt aktualisiert wird.
+    \part{}
+    Lösche alle zuvor erstellten setter und getter. Klicke nun mit der rechten Maustaste innerhalb der Klasse wähle \fbox{Source} $\to$ \fbox{Generate Setter and Getter...} $\to$ \fbox{hake alle Attribute oben an} $\to$ \fbox{Generate}
+    \part{}
+    Schaue dir noch einmal den Code der vorherigen Aufgabe an.
+    Verändere ihn so, dass sowohl \lstinline{richNeo} als auch \lstinline{poorNeo} Attribute der Klasse \lstinline{Solution2_4} sind.
+
+    Verschiebe ausßerdem die Anweisungen zum Erzeugen der Objekte in die prepare-Operation.
+    \end{parts}
+\end{questions}
