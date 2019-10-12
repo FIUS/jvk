@@ -1,0 +1,15 @@
+language: java
+jdk:
+- openjdk11
+jobs:
+  include:
+  - stage: test
+  - name: "Check javadoc"
+    script:
+    - mvn compile javadoc:javadoc
+  - stage: deploy
+    name: "Deploy javadoc"
+    script:
+    - .ci/deployGhPages.sh
+    on:
+      branch: master
