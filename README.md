@@ -6,10 +6,10 @@ Sheets and project for the annual Java-Vorkurs of the Fachgruppe Informatik der 
 Each exercise sheet can be compiled standalone using `pdflatex`.
 This means that it *just works* with most LaTeX IDEs.
 
-### Using `make`
+### Using GNU Make
 
 For compilation from the command line, we use GNU `make` and internally `latexmk` which is usually
-included in a LaTeX distribution.
+included in LaTeX distributions.
 
 ```bash
 $ cd sheets
@@ -21,7 +21,10 @@ $ make # Like `make build` followed by `make clean`
 $ make cleanall # Deletes LaTeX intermediate files and output files (PDFs)
 ```
 
-### Manually (without `make`)
+### On Windows (manually)
+
+Compilation without `make` might be needed for debugging the Makefile or if you're forced to use
+Windows.
 
 ```bash
 $ cd sheets/1
