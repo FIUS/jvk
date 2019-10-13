@@ -21,16 +21,28 @@ $ make # Like `make build` followed by `make clean`
 $ make cleanall # Deletes LaTeX intermediate files and output files (PDFs)
 ```
 
-### On Windows (manually)
+### Manually
 
 Compilation without `make` might be needed for debugging the Makefile or if you're forced to use
 Windows.
+The following works in `bash`, Windows `git-bash` and Windows PowerShell:
 
 ```bash
 $ cd sheets/1
-$ latexmk -pdf jvk-blatt1.tex # Compiles the exercise sheet
+$ # Compiles the exercise sheet:
+$ latexmk -pdf jvk-blatt1.tex
 $ # Compiles the solution sheet:
-$ latexmk -pdf -pdflatex='pdflatex %O "\def\jvksolutions{} \input{%S}"' -jobname=jvk-blatt1-lsg jvk-blatt1.tex
+$ latexmk -pdf '-pdflatex=pdflatex %O "\def\jvksolutions{}\input" %S' -jobname=jvk-blatt1-lsg jvk-blatt1.tex
+```
+
+And the following works in Windows `cmd`:
+
+```bat
+cd sheets/1
+:: Compiles the exercise sheet:
+latexmk -pdf jvk-blatt1.tex
+:: Compiles the solution sheet:
+latexmk -pdf "-pdflatex=pdflatex %O \def\jvksolutions{}\input %S" -jobname=jvk-blatt1-lsg jvk-blatt1.tex
 ```
 
 ## License
