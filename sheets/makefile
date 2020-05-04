@@ -19,4 +19,4 @@ cleanall: clean
 	cd $(@D) && latexmk -pdf $(*F).tex
 
 %-lsg.pdf: $$(@D)/*.tex $(TEX_DEPS_COMMON)
-	cd $(@D) && latexmk -pdf -pdflatex='pdflatex %O "\def\jvksolutions{} \input{%S}"' -jobname=$(*F)-lsg $(*F).tex
+	cd $(@D) && latexmk -pdf '-pdflatex=pdflatex %O "\def\jvksolutions{}\input" %S' -jobname=$(*F)-lsg $(*F).tex
