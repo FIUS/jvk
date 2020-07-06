@@ -55,9 +55,9 @@
 % Automatic Document inclusion %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\addexcercise}{
-    \IfFileExists{excercise-\arabic{excerciseCounter}.tex}{
+    \IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
         \begin{samepage}
-          \input{excercise-\arabic{excerciseCounter}.tex}
+          \input{exercise-\arabic{excerciseCounter}.tex}
         \end{samepage}
         \stepcounter{excerciseCounter}
         \addexcercise
