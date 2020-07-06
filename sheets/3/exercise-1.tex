@@ -1,0 +1,40 @@
+    \excercise{Logik}
+            \subexcercise Fülle die folgenden Tabellen aus:\\
+            \begin{center}
+            \begin{tabular}{ c | c }
+            A & !A \\
+            \hline
+            true & \\
+            false & \\
+            \end{tabular}
+            \quad
+            \begin{tabular}{ c | c | c }
+            A & B & A \&\& B \\
+            \hline
+            false & false & \\
+            false & true & \\
+            true & false & \\
+            true & true & \\
+            \end{tabular}
+            \quad
+            \begin{tabular}{ c | c | c }
+            A & B & A $||$ B \\
+            \hline
+            false & false & \\
+            false & true & \\
+            true & false & \\
+            true & true & \\
+            \end{tabular}\\
+            \end{center}
+
+            \subexcercise Schreibe zu jeder Aussage eine If-Anweisung, die den Wert von x überprüfen soll nach:
+            \begin{enumerate}[label=(\roman*)]
+                \item x = 12345
+                \item x $\leq$ 15
+                \item x $\neq$ 22
+                \item x $\in [0; 10]$
+                \item x $\in$ \{\texttt{Integer.MINVALUE}, ..., -2, -1, 11, 12, 13, ..., \texttt{Integer.MAXVALUE}\}\\(Alle Integer außer [0;10])
+                \item x $\in$ \{x $|$ x ist gerade\}
+            \end{enumerate}
+            \emph{Anmerkung:} Mit dem Befehl \lstinline{Logger.simout.println("...");} könnt ihr Text in die Ausgabe des Simulators schreiben.
+

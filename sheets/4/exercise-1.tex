@@ -1,0 +1,25 @@
+    \excercise{Neo im Labyrinth}
+
+    Die Agenten haben es geschafft, Neo in einem Labyrinth einzusperren.
+    Um zu entkommen, muss er die einzige Telefonzelle finden.
+    Neo erinnert sich, dass man aus jedem Labyrinth entkommen kann, wenn man immer an der rechten Wand entlangläuft.
+
+        \subexcercise Implementiere die Operation \lstinline{checkSideWall()} der Klasse \lstinline{MySmartNeo}.
+        Sie soll \lstinline{true} zurückgeben, wenn sich auf Neos rechter Seite eine Wand befindet.
+        Ansonsten soll sie \lstinline{false} zurückgeben.
+
+
+        \subexcercise Implementiere die Operation \lstinline{moveSmart()} der Klasse \lstinline{MySmartNeo}.
+        In dieser soll Neo zuerst überprüfen, ob sich zu seiner rechten eine Wand befindet.
+        Ist dies nicht der Fall, soll er sich nach rechts drehen und einen Schritt in diese Richtung gehen.
+        Anderenfalls soll er überprüfen, ob er geradeaus laufen kann. Ist dies der Fall, soll er einen Schritt nach vorne machen.
+        Sollte sich sowohl rechts, als auch geradeaus eine Wand befinden, soll Neo sich nach links drehen und stehen bleiben.
+
+
+        \subexcercise Die Klasse \lstinline{Solution4_2} enthält ein Attribut vom Typ SmartNeo.
+        Weise diesem Attribut in der prepare-Operation ein neues MySmartNeo-Objekt zu und
+        platziere es auf Position \emph{[0, 0]}.
+        Vervollständige weiterhin die solve-Operation mithilfe der Operationen,
+        die du gerade geschrieben hast, sodass Neo das Telefon erreicht und darauf stehen bleibt.
+
+
