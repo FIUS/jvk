@@ -1,33 +1,17 @@
-\excercise{Einschub: Objekte, Klassen, Klassendiagramm}
 
-\Todo{Use this as task 2}
-\Todo{Add how to Task for methods see task about methods}
-\Todo{Add explanation for java new Class() syntax to create objects, maybe with task to write pseudo java code}
-% Learning goal: Differentiate class/object, Map class object to java syntax from exercise 1,
+\newcommand{\solutionPackage}{\texttt{de.unistuttgart.informatik.fius.jvk2019.solutions}}
+\excercise{Operationen selber aufrufen}
 
-In Java (und auch in anderen Programmiersprachen) gibt es Klassen und Objekte.
- Dabei gehört ein Objekt immer zu einer Klasse.
- Die Klasse beschreibt dabei generell welche Eigenschaften und Fähigkeiten ein Objekt haben kann.
- Eigenschaften können zum Beispiel Daten (wie der Name oder die Farbe des Objekts) sein.
- Fähigkeiten wiederum sind Operationen die das Objekt ausführen kann.
- Das Objekt, also eine konkrete Instanz der Klasse, hat dann zum Beispiel eine bestimmte Farbe (grün).
- Ein Anderes Objekt der selben Klasse kann eine eigene Farbe (rot) haben.
+\Todo{rewrite für neue api}
 
- Nimm eine Klasse (z.B. Auto, Telefon, Fernseher, ...) und überlege dir welche Eigenschaften (Daten) und Fähigkeiten (Operationen) diese Klasse hat.
- Überlege dir für drei Objekte deiner gewählten Klasse konkrete Werte.
+Öffne die Klasse \texttt{Solution1} im Paket \solutionPackage.
+    Eine Operation die Neo ausführen soll steht schon in der \texttt{solve} Operation der \texttt{Solution1} Klasse.
+    Mit \texttt{this} kann man auf Daten des aktuellen Objekts zugreifen.
+    In der \texttt{Solution1} Klasse bezieht sich this auf das aktuelle Objekt der \texttt{Solution1} Klasse.
+    In Zeile 27 wird dem Attribut \texttt{player} das \texttt{Neo} Objekt zugewiesen.
+    In Zeile 36 wird dann auf diesem \texttt{Neo} Objekt das Kommando \texttt{move()} aufgerufen.
 
- Entscheide welche Operationen das Objekt verändern, also Commands sind, und welche einen Wert zurückgeben ohne das Objekt zu verändern, also Queries sind.
 
- \begin{tikzpicture}[]
-     \draw (0,0)     rectangle (4,-0.8);
-     \draw (0,-0.8)  rectangle (4,-3);
-     \draw (0,-3)    rectangle (4,-5);
-     \draw (5,0)     rectangle (9,-0.8);
-     \draw (5,-0.8)  rectangle (9,-3);
-     \draw (10,0)    rectangle (14,-0.8);
-     \draw (10,-0.8) rectangle (14,-3);
-     \draw (5,-3.5)  rectangle (9,-4.3);
-     \draw (5,-4.3)  rectangle (9,-6.5);
-     \draw (10,-3.5) rectangle (14,-4.3);
-     \draw (10,-4.3) rectangle (14,-6.5);
- \end{tikzpicture}
+        \subexcercise Bewege Neo auf die Telefonzelle indem du die fehlenden Kommandos in der \texttt{solve} Operation der \texttt{Solution1} Klasse ergänzt.
+        \subexcercise Aus welcher Klasse in dem Klassendiagramm weiter oben kommt das Kommando \texttt{move()}?
+
