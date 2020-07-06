@@ -22,6 +22,7 @@
 \RequirePackage{pdfpages}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
+\RequirePackage{todo}
 
 %%%%%%%%%%%%%%
 % Main Title %
