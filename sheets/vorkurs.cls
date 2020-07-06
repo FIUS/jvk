@@ -10,9 +10,9 @@
 \def\semester{WS 2021} %Number of the Semester
 
 
-%
-% Packages
-%
+%%%%%%%%%%%%
+% Packages %
+%%%%%%%%%%%%
 \RequirePackage[ngerman]{babel}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{tikz}
@@ -24,6 +24,7 @@
 \RequirePackage{lastpage}
 \RequirePackage{todo}
 \RequirePackage{listings}
+\RequirePackage{enumitem}
 
 %%%%%%%%%%%%
 % listings %
@@ -92,10 +93,15 @@
         %\runningheadrule
 % \runningheader{\coursename\ (\semestershort) -- \"Ubungsblatt \exercisenumber\ \ifprintanswers{\textbf{{\color{red}{ \fbox{L\"osung}}}}}\fi}{}{Seite \thepage\ von \numpages}
 
-%document structure
+%%%%%%%%%%%%%%%%%%%%%%
+% document structure %
+%%%%%%%%%%%%%%%%%%%%%%
+\def\prepart{}
+\newcommand{\preamble}[1]{\def\prepart{#1}}
 \newcommand{\makedocument}{
   \begin{document}
   \maketitle
+  \prepart
   \pagestyle{fancy}
         \addexcercise
     \end{document}
