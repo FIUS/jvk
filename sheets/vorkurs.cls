@@ -10,7 +10,7 @@
 \def\semester{WS 2021} %Number of the Semester
 
 
-%    
+%
 % Packages
 %
 \RequirePackage[ngerman]{babel}
@@ -59,13 +59,12 @@
         \begin{samepage}
           \input{excercise-\arabic{excerciseCounter}.tex}
         \end{samepage}
-        \newline
-        \stepcounter{excerciseCounter} 
+        \stepcounter{excerciseCounter}
         \addexcercise
         }{}
         }
-        
-        
+
+
 
 %%%%%%%%%%
 % header %
