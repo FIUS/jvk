@@ -1,0 +1,57 @@
+    \excercise{Kommentare - Erklärung deines Codes}
+    In Java kann  man durch Kommentare den Code  erklären und Hinweise dazu, welche Überlegungen dahinter stehen, geben. Dies wird vor allem wichtig, wenn man sich den Code zu einem späteren Zeitpunkt noch einmal ansieht, denn die wenigsten Codeabschnitte sind absolut selbsterklärend.
+    \begin{itemize}
+        \item Einzeilige Kommentar
+    \begin{lstlisting}
+    // Alles hinter den zwei Schrägstrichen ist ein Kommentar
+    // (bis zum Ende der Zeile)
+    \end{lstlisting}
+        \item Mehrzeilige Kommentar
+        \begin{lstlisting}
+        /*
+         *   Alles von "/*" bis "* /"
+         *   ist ein Kommentar.
+         */
+    \end{lstlisting}
+        \item JavaDoc
+        \begin{lstlisting}
+        /**
+         * JavaDoc  ist ein Software-Dokumentationswerkzeug, das aus
+         * Java-Quelltexten automatisch
+         * HTML-Dokumentationsdateien erstellt.
+         *
+         * JavaDoc Kommentar beginnen mit "/**"
+         *
+         * Man schreibt JavaDoc immer als
+         * Kopfkommentar,d.h z.B vor der Operation
+         * Implementierung.
+         *
+         * Bestimmte Meta-Informationen können mit @-Tags hinzugefügt
+         * werden:
+         *
+         * @author Java-Vorkurs-Tutor
+         *
+         */
+    \end{lstlisting}
+    \end{itemize}
+        \subexcercise Füge einen JavaDoc Klassenkommentar zur vorherigen Aufgabe hinzu. Füge ein JavaDoc zu den erstellten Operationen in der vorherigen Aufgabe hinzu. Jeder JavDoc Kommentar beschreibt für was die Operation/Klasse benutzt wird.
+    \subexcercise Schreibe deinen Namen als den Autor in den Klassenkommentar
+    \subexcercise Welche zusätzlichen @-Tags gibt es noch? Füge zum Klassenkommentar einen weiteren hinzu.
+    \subexcercise Neo möchte eine gerade Anzahl von Münzen auf dem Weg fallen lassen. Vervollständige \texttt{solve} in \texttt{Solution2\_4} damit Neo 5 Schritte nach vorne läuft und insgesamt 6 Münzen fallen lässt.
+    Auf jedem Feld sollte nur maximal eine Münze liegen.
+    \newline Hinweis : Schaue mal im JavaDoc von Neo nach welches Kommando man dafür benutzen kann.
+    Gegeben ist der folgende Code:
+    \begin{lstlisting}
+    public void foo(){
+        this.turnClockwise();
+        this.turnClockwise();
+        this.move();
+        this.turnClockwise();
+        this.turnClockwise();
+    }
+    \end{lstlisting}
+    \subexcercise Schreibe einen JavaDoc-Kommentar für die Operation \texttt{foo}.
+    \subexcercise Benenne die Operation sinnvoll um. Wie kann man diese Operation verkürzen?
+
+    \emph{Hinweis:} Schaue dir hierzu noch einmal die Methoden an, die du bereits geschrieben hast.
+    \subexcercise Erstelle eine JavaDoc HTML Webseite mit Eclipse
