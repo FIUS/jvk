@@ -1,0 +1,26 @@
+\excercise{Klassendiagramm des \simulator{}s}
+
+\Todo{Update the class diagram}
+\Todo{This task should only be more of a reference and less of a task}
+% Learning goal: Die ICGE API grob verstehen und navigieren können
+
+
+Hier (im Bild auf der nächsten Seite) ist das Klassendiagramm von unserem Simulator:
+
+    Die Pfeile zeigen dabei an, dass die Klasse von der der Pfeil ausgeht alle Attribute und Operationen der Klasse auf die der Pfeil zeigt auch hat.
+    Das ist zwar sehr vereinfacht ausgedrückt, da hier nicht nur Klassen sondern auch Interfaces im Klassendiagramm dargestellt sind und auch die unterschiedlichen Pfeile etwas andere Bedeutungen haben, aber es genügt um das Klassendiagramm grob zu verstehen.
+    Eine \texttt{GreedyEntity} hat also auch die Operation \texttt{move()} die in \texttt{MoveableEntity}.
+    Das gilt übrigens auch für \texttt{Neo} (über \texttt{Human}, \texttt{GreedyEntity} zu \texttt{MoveableEntity}).
+
+
+        \subexcercise Liste alle Operationen von der Klasse \texttt{Coin} auf.
+        \subexcercise Entscheide für Operationen die direkt in der Klasse \texttt{MoveableEntity} definiert sind ob es sich um eine Query oder ein Kommando handelt.
+        \subexcercise Finde die Klasse \texttt{Neo} in dem Projekt.
+            In welchem Ordner ist die Klasse?
+            In welchem Paket ist die Klasse?
+        \subexcercise Finde die Klasse die zu der Aufgabe \fbox{Task0 a)} den du vorher gestartet hast gehört.
+            Hinweis: Schau dir die \texttt{Main} Klasse gut an.
+            Wenn du eine \texttt{solve()} Operation mit dem Kommentar \texttt{// do AB1 task 5 \& 6 here} siehst bist du richtig.
+
+
+    \makebox[\linewidth][c]{\includegraphics[width=1.2\textwidth]{figures/icge-class-diagramm.png}}
