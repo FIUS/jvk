@@ -1,13 +1,13 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.uni-stuttgart.informatik.fius</groupId>
-	<artifactId>JVK-2019</artifactId>
+	<artifactId>FIUS-JVK</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>JVK 2019 Project</name>
+	<name>JVK 2020 Project</name>
 	<properties>
 		<java.version>11</java.version>
-		<icge.version>2.2.1</icge.version>
+		<icge.version>2.3.1</icge.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
@@ -45,7 +45,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>de.unistuttgart.informatik.fius.jvk2019.Main</mainClass>
+							<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
