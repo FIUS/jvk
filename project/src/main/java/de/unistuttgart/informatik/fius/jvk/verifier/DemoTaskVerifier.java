@@ -8,7 +8,9 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 
-
+/**
+ * A Verifier that checks if at least one Entity was spawned on the playfield.
+ */
 public class DemoTaskVerifier implements TaskVerifier {
 
     private BasicTaskInformation task = new BasicTaskInformation("Demo Task", "Spawn any Entity to complete the task.");
@@ -19,6 +21,7 @@ public class DemoTaskVerifier implements TaskVerifier {
 
     @Override
     public void attachToSimulation(Simulation sim) {
+        // the action log should be enough to verify most tasks
         this.actionLog = sim.getActionLog();
     }
 
