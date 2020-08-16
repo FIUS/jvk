@@ -12,27 +12,56 @@ import de.unistuttgart.informatik.fius.jvk.Texture;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Pill;
-import de.unistuttgart.informatik.fius.jvk.tasks.PlaygroundTask;
-import de.unistuttgart.informatik.fius.jvk.verifier.PlaygroundTaskVerifier;
 
+/**
+ * A helper to start a Simulation with a GameWindow.
+ */
 public class Game {
 
     private final GameWindow window;
     private final Simulation simulation;
     private final Task task;
 
+    /**
+     * Create a new {@link Simulation} and {@link GameWindow} with the given window title.
+     *
+     * @param windowTitle the title of the game window
+     */
     public Game(String windowTitle) {
-        this(windowTitle, new PlaygroundTask());
+        this(windowTitle, null, null);
     }
 
+    /**
+     * Create a new {@link Simulation} and {@link GameWindow} with the given window title.
+     * <p>
+     * The task is run when the game is started with the {@link #run()} command of the game.
+     *
+     * @param windowTitle the title of the game window
+     * @param task the task to run on game start
+     */
     public Game(String windowTitle, Task task) {
-        this(windowTitle, task, new PlaygroundTaskVerifier());
+        this(windowTitle, task, null);
     }
 
+    /**
+     * Create a new {@link Simulation} with a {@link TaskVerifier} and {@link GameWindow} with the given window title.
+     *
+     * @param windowTitle the title of the game window
+     * @param verifier the verifier that checks if a task was solved correctly
+     */
     public Game(String windowTitle, TaskVerifier verifier) {
-        this(windowTitle, new PlaygroundTask(), verifier);
+        this(windowTitle, null, verifier);
     }
 
+    /**
+     * Create a new {@link Simulation} with a {@link TaskVerifier} and {@link GameWindow} with the given window title.
+     * <p>
+     * The task is run when the game is started with the {@link #run()} command of the game.
+     *
+     * @param windowTitle the title of the game window
+     * @param task the task to run on game start
+     * @param verifier the verifier that checks if a task was solved correctly
+     */
     public Game(String windowTitle, Task task, TaskVerifier verifier) {
         final WindowBuilder wb = new WindowBuilder();
         wb.setTitle(windowTitle);
@@ -42,16 +71,39 @@ public class Game {
         this.registerTextures(this.window);
 
         final SimulationBuilder sb = new SimulationBuilder();
-        sb.setTaskVerifier(verifier);
+        if (verifier != null) {
+            sb.setTaskVerifier(verifier);
+        }
         sb.buildSimulation();
         this.simulation = sb.getBuiltSimulation();
-        this.prepareEntityTypes(simulation);
+        this.prepareEntityTypes(this.simulation);
 
         this.simulation.attachToWindow(this.window, true);
 
         this.task = task;
     }
 
+    /**
+     * Get the created {@link GameWindow} object.
+     *
+     * @return the {@link GameWindow} object
+     */
+    public GameWindow getGameWindow() {
+        return this.window;
+    }
+
+    /**
+     * Get the created {@link Simulation} object.
+     *
+     * @return the {@link Simulation} object.
+     */
+    public Simulation getSimulation() {
+        return this.simulation;
+    }
+
+    /**
+     * Show the game window and start the given Task.
+     */
     public void run() {
         this.window.start();
         if (this.task != null) {
@@ -59,22 +111,24 @@ public class Game {
         }
     }
 
-    public GameWindow getGameWindow() {
-        return this.window;
-    }
-
-    public Simulation getSimulation() {
-        return this.simulation;
-    }
-
+    /**
+     * Register all textures in the texture registry of the game window.
+     *
+     * @param window the window to get the texture registry from
+     */
     private void registerTextures(GameWindow window) {
-        TextureRegistry tr = this.window.getTextureRegistry();
+        TextureRegistry tr = window.getTextureRegistry();
         for (Texture texture: Texture.values()) {
             texture.load(tr);
         }
     }
 
-    private static void prepareEntityTypes(Simulation simulation) {
+    /**
+     * Register some entity types to be spawnable in the ui.
+     *
+     * @param simulation the simulation to get the entitytype registry from
+     */
+    private void prepareEntityTypes(Simulation simulation) {
         EntityTypeRegistry etr = simulation.getEntityTypeRegistry();
         etr.registerEntityType("Wall", Texture.WALL.getHandle(), Wall.class);
         etr.registerEntityType("Coin", Texture.COIN.getHandle(), Coin.class);

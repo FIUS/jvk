@@ -9,13 +9,17 @@
  */
 package de.unistuttgart.informatik.fius.jvk;
 
+import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.SimulationBuilder;
+import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.icge.ui.GameWindow;
 import de.unistuttgart.informatik.fius.icge.ui.TextureRegistry;
 import de.unistuttgart.informatik.fius.icge.ui.WindowBuilder;
 
 import de.unistuttgart.informatik.fius.jvk.provided.Game;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 import de.unistuttgart.informatik.fius.jvk.tasks.*;
 import de.unistuttgart.informatik.fius.jvk.verifier.*;
 
@@ -33,7 +37,6 @@ public class Main {
      *     the command line args; not used
      */
     public static void main(String[] args) {
-        Game game = new Game("Hello Game", new DemoTask(), new DemoTaskVerifier());
-        game.run();
+        // implement task 1 (from sheet 1) here
     }
 }
