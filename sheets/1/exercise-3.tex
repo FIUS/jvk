@@ -1,29 +1,30 @@
 % !TeX root = ./jvk-blatt1.tex
 \excercise{Syntax}
 
-\Todo{Erklärung zu Methoden (ähnlich zu aufgabe 2)}
-\Todo{Syntax von Methodenaufrufen wie er für Aufgabe 1 notwendig ist}
+In dieser Aufgabe geht es darum den Syntax von Java zu verstehen.
+In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein Beispiel aus Aufgabe 1 finden.
 
-\Todo{rewrite für neue api}
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{enumerate}
+    \item Eine Klasse hat immer am Anfang das Schlüsselwort class, gefolgt von einem frei wählbaren Namen. Darauf folgen die { }, die den gesamten Inhalt der Klasse umschließen.
+    Zum inhalt einer Klasse gehören Attribute und Operationen
 
-\Todo{Die (aktuelle) Aufgabe muss später kommen. Die Studis müssen ja erstmal das Framework lernen.}
-
-% Task Idee für methoden aufrufen:
-% a) game.getGameWindow().setTitle("New Title!");
-% b) game.getSimulation().runTask(new DemoTask());
-% c) DemoTask händisch ausführen in main (also neue Variable vom typ Task und dann task.run(game.getSimulation()) in main aufrufen)
-% d) (optional) Gehe in DemoTask und Spawne noch mehr coins (einfach copy paste + positionen ändern)
-% Learning goal: Students can call methods by copying from an example (same for for constructors and variable declarations)
-
-
-Öffne die Klasse \texttt{Solution1} im Paket \solutionPackage.
-    Eine Operation die Neo ausführen soll steht schon in der \texttt{solve} Operation der \texttt{Solution1} Klasse.
-    Mit \texttt{this} kann man auf Daten des aktuellen Objekts zugreifen.
-    In der \texttt{Solution1} Klasse bezieht sich this auf das aktuelle Objekt der \texttt{Solution1} Klasse.
-    In Zeile 27 wird dem Attribut \texttt{player} das \texttt{Neo} Objekt zugewiesen.
-    In Zeile 36 wird dann auf diesem \texttt{Neo} Objekt das Kommando \texttt{move()} aufgerufen.
-
-
-        \subexcercise Bewege Neo auf die Telefonzelle indem du die fehlenden Kommandos in der \texttt{solve} Operation der \texttt{Solution1} Klasse ergänzt.
-        \subexcercise Aus welcher Klasse in dem Klassendiagramm weiter oben kommt das Kommando \texttt{move()}?
-
+    Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Klasse und dann ein Name geschreiben werden und wenn man mehrere braucht kann man sie mit , getrennt auflisten.
+    Nach den() folgen {}, die einen Codeblock umschließen.
+    \begin{Infobox}{Namen}
+        Freiwählbare namen, müssen trotzdem ein paar Regeln Folgen
+        \begin{itemize}
+            \item 
+        \end{itemize}
+    \end{Infobox}
+    \item Ein Befehl endet immer mit einem ; und muss in einem Codeblock stehen.
+    \item Das erzeugen eines Objekts wird mit dem Schlüsselwort new eingeführt. Darauffolgt der Name der Klasse und (). Manchmal werden in die () noch Argumente geschreiben, mit Dingen die das Objekt von Anfang an braucht.
+    \item Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = lassen wir sie dann auf ein Objekt zeigen, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere 
+    Variable die bereits auf ein Objekt zeigt.
+    \begin{Infobox}{Attribute}
+        Wenn man eine Variable in den Codeblock einer Operation schreibt, dann kann man sie nur in der Operation verwenden.
+        Wenn man sie aber außerhalb der Operation, direkt in die Klasse schreiben, wird sie nicht Variable sondern Attribut genannt und kann von allen Operation die zu der Klasse gehören verwendet werden.\\
+        Das ist außerdem eine Ausnahme bei der ein Befehl nicht in dem Codeblock einer Operation steht.
+    \end{Infobox}
+    
+\end{enumerate}
