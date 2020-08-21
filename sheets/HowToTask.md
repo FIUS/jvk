@@ -6,6 +6,12 @@
 - Nichts als offensichtlich annehmen, Konzepte leicht erklären
 - An PSE Namingconventions halten (s. unten)
 
+## Technical
+The exercise are writen in LaTeX. The files are in `/sheets/<sheet number>`. Every exercise gets its own file with the sheme `exercise-<Nr>.tex`. The Number must be consecutive.
+Every file hast to contain the `\exercise{}` commdan at the beginning, which also sets the title for the exercise.
+
+Also look if the settings (e.g. Year) needs to be changed in the vorkurs.cls
+
 ## TODO Wie wir Dinge nennen und wie Prof. Becker es tut
 
 | Bezeichnung                       | PSE Bezeichnung              |
