@@ -28,4 +28,4 @@ jobs:
       uses: fredqi/tl-action@mini-v2
       with:
         # The LaTeX file to be compiled.
-        tex_files: jvk/sheets/1/jvk-blatt1.tex
+        tex_files: sheets/1/jvk-blatt1.tex
