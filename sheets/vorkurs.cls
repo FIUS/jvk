@@ -63,12 +63,13 @@
   commentstyle=\color{javagreen},
   morecomment=[s][\color{javadocblue}]{/**}{*/},
   numbers=left,
-  numberstyle=\tiny\color{black},
-  stepnumber=2,
+  numberstyle=\footnotesize\color{black},
+  stepnumber=1,
   numbersep=10pt,
   tabsize=4,
   showspaces=false,
-  showstringspaces=false
+  showstringspaces=false,
+  frame=single
 }
 
 %%%%%%%%%%%%%%

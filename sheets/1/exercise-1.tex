@@ -52,25 +52,31 @@
     Manchmal möchten wir, dass bestimmter code nicht ausgeführt wird, aber wir wollen das er später wieder ausgeführt wird oder möchten ihn einfach nicht verlieren.
     In diesen Fällen Kommentieren wir die Code Zeile einfach aus.
     Dies geht indem wir der Code Zeile zwei Schrägstriche ({\color{javagreen}\texttt{//}}) vorran stellen.
-    Als Beispiel betrachten wir folgenden Code.
+    Als Beispiel betrachten wir folgenden Code.\\
 
-    \begin{lstlisting}
+    \hfill
+    \begin{minipage}{.96\textwidth}
+        \begin{lstlisting}
 public void run(Simulation sim) {
     PlayfieldModifier pm =
             new PlayfieldModifier(sim.getPlayfield());
     pm.placeEntityAt(new Coin(), new Position(0, 0));
 }
-    \end{lstlisting}
+        \end{lstlisting}
+    \end{minipage}
 
-    Wenn wir nun die letzte Zeile 'ausschalten' wollen stellt sich der Code wie folgt dar.
+    Wenn wir nun die letzte Zeile 'ausschalten' wollen stellt sich der Code wie folgt dar.\\
 
-    \begin{lstlisting}
+    \hfill
+    \begin{minipage}{.96\textwidth}
+        \begin{lstlisting}
 public void run(Simulation sim) {
     PlayfieldModifier pm =
             new PlayfieldModifier(sim.getPlayfield());
     //pm.placeEntityAt(new Coin(), new Position(0, 0));
 }
-    \end{lstlisting}
+        \end{lstlisting}
+    \end{minipage}
 
     Denn alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun 'ignoriert' was durch eine andere Färbung in Eclipse deutlich wird.
 \end{Infobox}
