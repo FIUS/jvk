@@ -106,6 +106,7 @@
     \IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
         \begin{samepage}
           \input{exercise-\arabic{excerciseCounter}.tex}
+          \pagebreak[4]
         \end{samepage}
         \stepcounter{excerciseCounter}
         \addexcercise
