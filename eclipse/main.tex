@@ -7,31 +7,35 @@
 \begin{document}
 
 \section{Introduction}
-Linux Installation: Ich denke Ihr wisst wie euer System funktioniert.
+Diese Anleitung richtet sich an Windows Nutzer.
+%Linux Installation: Ich denke Ihr wisst wie euer System funktioniert.
 
 \subsection{Systemcheck}
 % Windows 64 bit / 32 bit -> in system nach schauen
 Als erstes ist wichtig zu wissen, ob dein Computer über eine 64-bit oder 32-bit Architektur verfügt. Navigiere dazu zu "Dieser PC", rechtsklicke und wähle Eigenschaften.
 
 \begin{center}
-    \includegraphics[width=.9\textwidth]{Screenshot_1.png}
+    \includegraphics[width=.8\textwidth]{Screenshot_1.png}
 \end{center}
-    
-Im nun geöffneten Fenster kannst du unter Systemtyp nachsehen, ob du über eine 64-bit oder 32-bit Architektur verfügst.\\
+
+Im nun geöffneten Fenster kannst du unter Systemtyp nachsehen, ob du über eine 64-bit oder 32-bit Architektur verfügst.
+(siehe im unteren Bild)
+
 \begin{center}
     \includegraphics[width=.9\textwidth]{Screenshot_2.png}
 \end{center}
 % Umgebungsvariablen setzen -> PATH (vielleicht)
 % Eclipse Install
 
-\section{Installation}
-\subsection{Java JDK}
+\section{Installation Java}
 Lade eine Passende Java-Version herunter. Gehe dazu auf \url{https://adoptopenjdk.net/} Wähle OpenJDK14
 aus und drücke auf "Neueste Veröffentlichung".\\
 \begin{center}
-    \includegraphics[width=.88\textwidth]{Screenshot_6.png}
+    \includegraphics[width=.75\textwidth]{Screenshot_6.png}
 \end{center}
-Führe die .msi Datei aus und Folge den Installationsanweisungen.\\
+Bevor die .msi Datei nun ausgeführt wird kannst du einen Integritäts-Check machen.
+Schaue dazu in Sektion 4.
+Sollte der Check erfolgreich sein (oder wurde er übersprungen), führe die .msi Datei aus und Folge den Installationsanweisungen.\\
 Nun folgt die Installation von Eclipse.
 Wenn du über eine 64-Bit Architektur verfügst gehe zunächst auf https://www.eclipse.org/downloads/. Dann drücke den Download-Button.
 %\includegraphics[width=\textwidth]{Screenshot_2.2.png}
@@ -42,25 +46,21 @@ Für die 32-Bit Version gehe auf https://www.eclipse.org/downloads/packages/rele
 \end{center}
 
 \newpage
-\subsection{Eclipse (IDE)}
+\section{Installation Eclipse}
 Führe nun den Eclipse-Installer aus. Wähle die "Eclipse-IDE for Java Developers".\\
 \begin{center}
     \includegraphics[width=\textwidth]{Screenshot_7.png}
 \end{center}
 Wähle als "Java 1.8+ VM" jdk-14 und drücke auf Install\\
-\subsection{Importieren}
-Um ein Projekt zu importieren, gehe zu File $\rightarrow$ Import $\rightarrow$ Maven  $\rightarrow$ Existing Maven Project  $\rightarrow$  Browse, wähle das zu Importierende Projekt aus und drücke anschließend Finish. Achte darauf, dass das Projekt unkomprimiert, also nicht als .zip oder .rar Datei, vorliegt.\\
 
 
 
-
-
-% TODO (maybe) Grobe Übersicht wichtiger UI Elemente 
-\section{Anmerkungen}
-Optional: Um die Integrität des Downloads zu überprüfen und sicher zu stellen das eine unveränderte Version von der Datei heruntergeladen wurde, wie es der Herausgeber angibt, kann man den angebebenen SHA auf der Download Seite mit dem SHA der heruntergeladenen Datei vergleichen. In dem Ordner in welchem die Datei liegt, halte shift gedrückt und rechtsklicke um das Kontextmenü zu öffnen. Wähle "Powershell Fenster hier öffnen aus". Gebe den Befehl 
+% TODO (maybe) Grobe Übersicht wichtiger UI Elemente
+\section{Optional: Datei Integritäts-Check}
+Um die Integrität des Downloads zu überprüfen und sicher zu stellen das eine unveränderte Version von der Datei heruntergeladen wurde, wie es der Herausgeber angibt, kann man den angebebenen SHA auf der Download Seite mit dem SHA der heruntergeladenen Datei vergleichen. In dem Ordner in welchem die Datei liegt, halte \texttt{[Shift]} gedrückt und rechtsklicke um das Kontextmenü zu öffnen. Wähle \texttt{Powershell Fenster hier öffnen aus}. Gebe den Befehl
 % TODO CODE
     \begin{lstlisting}
-    Get-FileHash <Filename> -Algorithm SHA512 | Format-List 
+    Get-FileHash <Filename> -Algorithm SHA512 | Format-List
     \end{lstlisting}
 
 % ende todo

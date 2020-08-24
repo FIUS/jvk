@@ -76,9 +76,9 @@ public class Game {
         }
         sb.buildSimulation();
         this.simulation = sb.getBuiltSimulation();
-        this.prepareEntityTypes(this.simulation);
 
         this.simulation.attachToWindow(this.window, true);
+        this.prepareEntityTypes(this.simulation);
 
         this.task = task;
     }
