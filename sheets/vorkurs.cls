@@ -26,6 +26,7 @@
 \RequirePackage{listings}
 \RequirePackage{enumitem}
 \RequirePackage{hyperref}
+\RequirePackage{xcolor}
 
 %infobox
 \RequirePackage[many]{tcolorbox}
@@ -35,6 +36,13 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
+%%%%%%%%%%%%
+%  colors  %
+%%%%%%%%%%%%
+\definecolor{javared}{rgb}{0.6,0,0} % for strings
+\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
+\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
+\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
 
 %%%%%%%%%%%%
 % listings %
@@ -47,7 +55,20 @@
   {ß}{{\ss}}1
   {ü}{{\"u}}1
   {ä}{{\"a}}1
-  {ö}{{\"o}}1
+  {ö}{{\"o}}1,
+  language=Java,
+  basicstyle=\ttfamily,
+  keywordstyle=\color{javapurple}\bfseries,
+  stringstyle=\color{javared},
+  commentstyle=\color{javagreen},
+  morecomment=[s][\color{javadocblue}]{/**}{*/},
+  numbers=left,
+  numberstyle=\tiny\color{black},
+  stepnumber=2,
+  numbersep=10pt,
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false
 }
 
 %%%%%%%%%%%%%%
