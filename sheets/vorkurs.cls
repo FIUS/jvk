@@ -25,6 +25,7 @@
 \RequirePackage{todo}
 \RequirePackage{listings}
 \RequirePackage{enumitem}
+\RequirePackage{hyperref}
 
 %infobox
 \RequirePackage[many]{tcolorbox}
@@ -150,28 +151,28 @@
   colframe=white,
   overlay unbroken and first={
   \draw[blue!75!black,line width=3pt]
-    ([xshift=5pt]frame.north west) -- 
-    (frame.north west) -- 
+    ([xshift=5pt]frame.north west) --
+    (frame.north west) --
     (frame.south west);
   \draw[blue!75!black,line width=3pt]
-    ([xshift=-5pt]frame.north east) -- 
-    (frame.north east) -- 
+    ([xshift=-5pt]frame.north east) --
+    (frame.north east) --
     (frame.south east);
   },
   overlay unbroken app={
   \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south west) -- 
+    (frame.south west) --
     ([xshift=5pt]frame.south west);
   \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south east) -- 
+    (frame.south east) --
     ([xshift=-5pt]frame.south east);
   },
   overlay middle and last={
   \draw[blue!75!black,line width=3pt]
-    (frame.north west) -- 
+    (frame.north west) --
     (frame.south west);
   \draw[blue!75!black,line width=3pt]
-    (frame.north east) -- 
+    (frame.north east) --
     (frame.south east);
   },
   overlay last app={
