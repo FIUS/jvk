@@ -5,13 +5,13 @@
     \item[a)] Nun wollen wir wieder ein Spiel starten. Diesesmal mit einem Task:
     
     \begin{lstlisting}
-    Game myGame = new Game("Hello World", new DemoTask());
+Game myGame = new Game("Hello World", new DemoTask());
     \end{lstlisting}
     
     Nun wollen wir das Spiel (Game) auch starten können. Also führen wir die Operation .run() darauf aus. 
     
     \begin{lstlisting}
-    myGame.run();
+myGame.run();
     \end{lstlisting}
     
     Starte das Spiel mit dem kleinen Play-Button oben in der Werkzeugleiste und schau dich ein wenig im Fenster um das aufgeht.
@@ -19,7 +19,8 @@
     \item[b)] Nun erweitern wir das Game-Objekt um ein Parameter. Füge einen DemoTaskVerifier Objekt hinter dem DemoTask-Objekt hinzu. Was verändert sich im Spiel? Versuche den Task zu erfüllen.
     
     \begin{lstlisting}
-    Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
+Game myGame = new Game("Hello World", new DemoTask(), 
+                        new DemoTaskVerifier());
     \end{lstlisting}
     
     \end{enumerate}
