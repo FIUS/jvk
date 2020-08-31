@@ -1,0 +1,48 @@
+
+\excercise{Eine API verwenden / Doku lesen}
+
+\begin{enumerate}[label=\alph*)]
+    \item Wie in Aufgabe 4 bereits vorgestellt, erstellen wir wieder ein neues Spiel. Wir geben ihm den Task \texttt{Sheet1Task5} und den Verifier \texttt{Sheet1Task5Verifier} mit.
+
+    \begin{lstlisting}
+Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
+    \end{lstlisting}
+\end{enumerate}
+
+\begin{Infobox}[Aufgaben Bennenung]
+    Wir werden im weiteren Verlauf der Blätter das Namens Schema wie eben gezeigt verwenden. Das heißt für Aufgabe \textbf{X} auf Blatt \textbf{Y} werden für euch die Klassen, \texttt{SheetYTaskX} und \texttt{SheetYTaskXVerifiy}
+\end{Infobox}
+
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{1}
+    \item Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren. Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern. Was fällt dir auf wenn du mehrere Münzen auf einem Feld platzierst. Wie genau korrelieren Position und Koordinatensystem.
+
+    \item Nachdem wir nun die Methode \texttt{placeEntityAt()} aus der Klasse \texttt{PlayfieldModifier} kennengelernet haben, beschäftigen wir uns nun etwas genauer mit dem \texttt{PlayfieldModifier}. Insbesondere wollen wir nun herausfinden, welche anderen Funktionen von dieser Klasse bereitgestellt werden. Es gibt noch zwei weitere Methoden, welche wir zum platzieren von Münzen und auch anderen Entitäten verwenden können. Versuche entweder mit Autocomplete deiner IDE oder mit der Dokumentation harauszufinden, wie diese heißen.
+\end{enumerate}
+
+\begin{Infobox}[Autocompletion]
+    Sobald wir ein Objekt instanziiert haben und in eine Variable gespeichert haben, können wir hinter den Variablennamen einen Punkte "." eingeben. Jetzt wird eine Liste von allen möglichen Attributen und Funktionen angezeigt, die zu dem Objekt gehören. Somit kann man recht schnell alle möglichen Funktionen durchsuchen, die mit diesem Objekt möglich sind.
+\end{Infobox}
+
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{3}
+    \item Jetzt da uns weitere Optionen zur Verfügung stehen, besteht die nächste Aufgabe darin 20 Münzen auf einem Feld zu platzieren. Verwende hierzu ein Objekt der \texttt{CoinFactory} Klasse und eine der Methoden, die du in Aufgabe c) gefunden hast. Erstelle dazu das Objekt mit \texttt{new CoinFactory()}. Wenn dir nicht klar ist was die Methode genau macht, lies dir die Dokumentation dieser Methode durch.
+
+\end{enumerate}
+
+\begin{Infobox}[Dokumentation / JavaDoc]
+    Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert. Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein was bei dem Aufruf einer Methode passiert und was sie für Parameter erwartet. Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE. Wenn wir über den Name einer Methode mit der Maus hovern, wird uns ein Kasten mit genau der Dokumentation dieser Methode angezeigt.
+\end{Infobox}
+
+
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{4}
+    \item Platziere nun 3 Reihen mit jeweils 7 Münzen. Um eine Reihe zu erzeugen kannst du die Klasse \texttt{Line} unserer Shape Sammlung verwenden, welche eine Start und Endposition erwartet.
+
+    \begin{lstlisting}
+// Beispiel: eine Reihe von der Position (0,0) bis (5,0)
+Position start = new Position(0,0);
+Position end = new Position(5,0);
+
+Line myLine = new Line(start, end);
+    \end{lstlisting}
+
+    %TODO f) optional andere Shapes
+\end{enumerate}

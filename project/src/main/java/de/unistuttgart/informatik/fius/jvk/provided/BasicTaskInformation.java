@@ -51,7 +51,7 @@ public class BasicTaskInformation implements TaskInformation {
      * @param description the description of the task
      * @param subTasks the list of subtasks
      */
-    public BasicTaskInformation(String title, String description, List<TaskInformation> subTasks) {
+    public BasicTaskInformation(String title, String description, List<? extends TaskInformation> subTasks) {
         this(title, description, TaskVerificationStatus.UNDECIDED, subTasks);
     }
 
@@ -63,7 +63,7 @@ public class BasicTaskInformation implements TaskInformation {
      * @param status the current task verification status
      * @param subTasks the list of subtasks
      */
-    public BasicTaskInformation(String title, String description, TaskVerificationStatus status, List<TaskInformation> subTasks) {
+    public BasicTaskInformation(String title, String description, TaskVerificationStatus status, List<? extends TaskInformation> subTasks) {
         if (title == null) throw new NullPointerException("Task title must not be null!");
         if (description == null) throw new NullPointerException("Task description must not be null!");
         if (status == null) throw new NullPointerException("Task status must not be null!");
@@ -131,7 +131,7 @@ public class BasicTaskInformation implements TaskInformation {
      * @param subTasks the new subTasks list
      * @return the new TaskInformation object
      */
-    public BasicTaskInformation updateSubTasks(List<TaskInformation> subTasks) {
+    public BasicTaskInformation updateSubTasks(List<? extends TaskInformation> subTasks) {
         return new BasicTaskInformation(this.title, this.description, this.status, subTasks);
     }
 
