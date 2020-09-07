@@ -69,7 +69,9 @@
   tabsize=4,
   showspaces=false,
   showstringspaces=false,
-  frame=single
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{{$\hookrightarrow$}\space}
 }
 
 %%%%%%%%%%%%%%
