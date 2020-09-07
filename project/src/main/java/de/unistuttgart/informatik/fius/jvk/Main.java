@@ -37,6 +37,7 @@ public class Main {
      *     the command line args; not used
      */
     public static void main(String[] args) {
-        
+        Game myGame = new Game("Sheet2Task3", new Sheet2Task3(), null);
+        myGame.run();
     }
 }
