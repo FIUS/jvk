@@ -43,7 +43,7 @@
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
 \definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
-
+\definecolor{unimportentgrey}{rgb}{0.6,0.6,0.6}
 %%%%%%%%%%%%
 % listings %
 %%%%%%%%%%%%
@@ -71,7 +71,7 @@
   showstringspaces=false,
   frame=single,
   breaklines=true,
-  postbreak=\mbox{{$\hookrightarrow$}\space}
+  postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space}
 }
 
 %%%%%%%%%%%%%%
