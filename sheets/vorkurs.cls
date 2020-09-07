@@ -94,9 +94,13 @@
   \ifthenelse{\value{excerciseCounter}=1}{}{
   \vspace{2em}
   }
-  \large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
+  \section{#1}
+  %\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
   \medskip
 }
+\makeatletter
+\renewcommand\thesection{Aufgabe \@arabic\c@section:}
+\makeatother
 \newcounter{subexcerciseCounter}
 \newcommand{\subexcercise}{\stepcounter{subexcerciseCounter}\alph{subexcerciseCounter}}
 
@@ -220,6 +224,6 @@
   \maketitle
   \prepart
   \pagestyle{fancy}
-        \addexcercise
+      \addexcercise
     \end{document}
   }
