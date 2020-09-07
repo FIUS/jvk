@@ -103,8 +103,7 @@
 \makeatletter
 \renewcommand\thesection{Aufgabe \@arabic\c@section:}
 \makeatother
-\newcounter{subexcerciseCounter}
-\newcommand{\subexcercise}{\stepcounter{subexcerciseCounter}\alph{subexcerciseCounter}}
+\setenumerate{label=\alph*)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Automatic Document inclusion %
