@@ -208,26 +208,6 @@
   },
 }
 \renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
-%\begin{bclogo}[
-%  couleur=bgblue,
-%  arrondi=0,
-%  logo=\bcbombe,
-%  barre=none,
-%  noborder=true]{Commom Programming Error}
-%\itshape\lipsum[4]
-%\end{bclogo}
-
-%\begin{mdframed}[style=mystyle,frametitle=Web addresses in text]
-%\lipsum[4]
-%\end{mdframed}
-
-%\begin{myboxi}[Web addresses in text]
-%\lipsum[4]
-%\end{myboxi}
-
-%\begin{myboxii}[Web addresses in text]
-%\lipsum[4]
-%\end{myboxii}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
