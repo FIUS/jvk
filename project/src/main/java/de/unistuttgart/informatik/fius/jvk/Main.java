@@ -37,6 +37,6 @@ public class Main {
      *     the command line args; not used
      */
     public static void main(String[] args) {
-        // implement task 1 (from sheet 1) here
+        
     }
 }

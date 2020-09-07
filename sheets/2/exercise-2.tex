@@ -1,57 +1,43 @@
-    \excercise{Kommentare - Erklärung deines Codes}
-    In Java kann  man durch Kommentare den Code  erklären und Hinweise dazu, welche Überlegungen dahinter stehen, geben. Dies wird vor allem wichtig, wenn man sich den Code zu einem späteren Zeitpunkt noch einmal ansieht, denn die wenigsten Codeabschnitte sind absolut selbsterklärend.
-    \begin{itemize}
-        \item Einzeilige Kommentar
-    \begin{lstlisting}
-    // Alles hinter den zwei Schrägstrichen ist ein Kommentar
-    // (bis zum Ende der Zeile)
+\excercise{Exceptions - Mit dem Kopf durch die Wand}
+Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren. 
+Dabei soll Neo in einem potenziell gefährlichen Szenario so schnell wie möglich zur nächsten Telefonstation laufen.
+\begin{enumerate}[label=\alph*)]
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+    \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
+    Betrachte die Klasse \textit{Sheet2Task2} mit der Methode \textit{buildEnvironment}. Überlege dir wie man an Tank's Stelle 
+    ein solches Hindernis an einer geeigneten Stelle platzieren kann.\par
+    Was passiert, wenn man nun die Simulation wie zuvor ausführt?
+    \item Im Folgenden betrachten wir beispielhaft den Stacktrace einer Exception:
+    \definecolor{ForestGreen}{rgb}{0.0, 0.5, 0.0}
+    \begin{lstlisting}[keywords={}, breaklines=true, escapeinside={(*@}{@*)}]
+de.unistuttgart.informatik.fius.icge.simulation.exception.IllegalMoveException: Solid Entity in the way
+at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.internalMove(MovableEntity.java:(*@{\color{ForestGreen}linenumber1}@*))
+at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.move(MovableEntity.java:(*@{\color{ForestGreen}linenumber2}@*))
+at de.unistuttgart.informatik.fius.jvk.tasks.Sheet2Task2.movement(Sheet2Task2.java:(*@{\color{ForestGreen}linenumber3}@*))
+at de.unistuttgart.informatik.fius.jvk.tasks.Sheet2Task2.run(Sheet2Task2.java:(*@{\color{ForestGreen}linenumber4}@*))
+at de.unistuttgart.informatik.fius.icge.simulation.internal.tasks.StandardTaskRunner.executeTask(StandardTaskRunner.java:(*@{\color{ForestGreen}linenumber5}@*))
+at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:(*@{\color{ForestGreen}linenumber6}@*))
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber7}@*))
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber8}@*))
+at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber9}@*))
     \end{lstlisting}
-        \item Mehrzeilige Kommentar
-        \begin{lstlisting}
-        /*
-         *   Alles von "/*" bis "* /"
-         *   ist ein Kommentar.
-         */
-    \end{lstlisting}
-        \item JavaDoc
-        \begin{lstlisting}
-        /**
-         * JavaDoc  ist ein Software-Dokumentationswerkzeug, das aus
-         * Java-Quelltexten automatisch
-         * HTML-Dokumentationsdateien erstellt.
-         *
-         * JavaDoc Kommentar beginnen mit "/**"
-         *
-         * Man schreibt JavaDoc immer als
-         * Kopfkommentar,d.h z.B vor der Operation
-         * Implementierung.
-         *
-         * Bestimmte Meta-Informationen können mit @-Tags hinzugefügt
-         * werden:
-         *
-         * @author Java-Vorkurs-Tutor
-         *
-         */
-    \end{lstlisting}
-    \end{itemize}
-        \subexcercise Füge einen JavaDoc Klassenkommentar zur vorherigen Aufgabe hinzu. Füge ein JavaDoc zu den erstellten Operationen in der vorherigen Aufgabe hinzu. Jeder JavDoc Kommentar beschreibt für was die Operation/Klasse benutzt wird.
-    \subexcercise Schreibe deinen Namen als den Autor in den Klassenkommentar
-    \subexcercise Welche zusätzlichen @-Tags gibt es noch? Füge zum Klassenkommentar einen weiteren hinzu.
-    \subexcercise Neo möchte eine gerade Anzahl von Münzen auf dem Weg fallen lassen. Vervollständige \texttt{solve} in \texttt{Solution2\_4} damit Neo 5 Schritte nach vorne läuft und insgesamt 6 Münzen fallen lässt.
-    Auf jedem Feld sollte nur maximal eine Münze liegen.
-    \newline Hinweis : Schaue mal im JavaDoc von Neo nach welches Kommando man dafür benutzen kann.
-    Gegeben ist der folgende Code:
-    \begin{lstlisting}
-    public void foo(){
-        this.turnClockwise();
-        this.turnClockwise();
-        this.move();
-        this.turnClockwise();
-        this.turnClockwise();
-    }
-    \end{lstlisting}
-    \subexcercise Schreibe einen JavaDoc-Kommentar für die Operation \texttt{foo}.
-    \subexcercise Benenne die Operation sinnvoll um. Wie kann man diese Operation verkürzen?
-
-    \emph{Hinweis:} Schaue dir hierzu noch einmal die Methoden an, die du bereits geschrieben hast.
-    \subexcercise Erstelle eine JavaDoc HTML Webseite mit Eclipse
+    Dieser soll nun genauer analysiert werden:
+    \begin{enumerate}
+        \item[i)] Welche Exception wurde geworfen und in welcher Klasse ist diese aufgetreten?
+        \item[ii)] Was für eine Struktur besitzt der Stacktrace? Welche Rolle spielt die Reihenfolge der Zeilen 2-10? 
+        \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!  
+    \end{enumerate}
+    \item Jetzt soll die Exception behandelt werden. Dazu betrachten wir die Methode \textit{movement} (erneut in der Klasse 
+    \textit{Sheet2Task2}).
+    \begin{enumerate}
+        \item[i)] Welche ''linenumber'' aus dem obigen Stacktrace ändert sich, wenn man zwischen den \textit{move()} Aufrufen jeweils
+        Leerzeilen einfügt?  
+        \item[ii)] Kommentiere in dem markierten Block zunächst so viele Zeilen aus, sodass keine Exception mehr auftritt. 
+        Spielt die Reihenfolge der auskommentierten Zeilen eine Rolle?
+    \end{enumerate}
+    \item  Nun sollen keine Zeilen gelöscht oder auskommentiert werden, durch welche Methode muss \textit{move()} ersetzt werden, damit 
+    denoch keine Exception auftritt?
+    \item Überlege dir möglichst viele verschiedene Methoden, wie man Neo trotz Hindernis zu der Telefonstation laufen lassen kann. 
+    Implementiere diese!
+\end{enumerate}
+ 
