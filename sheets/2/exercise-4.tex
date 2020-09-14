@@ -1,24 +1,20 @@
-    \excercise{Variablen und Objekterzeugung}
-    Zunächst wollen wir uns nun einen eigenen Neo erstellen. Dies können wir tun, indem wir die folgende Zeile in eine Operation einfügen:
-    %TODO: refactor class name MyNeo in this listing and following exercise ; ?--Lion
-    \begin{lstlisting}
-MyNeo neo = new MyNeo();
-    \end{lstlisting} Hierbei ist \texttt{neo} der Name einer Variable vom Typ MyNeo. Wir erzeugen ein neues Objekt mittels dem Schlüsselwort \lstinline{new} und dem \emph{Konstruktor} der Klasse \texttt{MyNeo} und weisen dieses direkt der Variable '\texttt{neo}' zu.
+% !TEX root = ./jvk-blatt2.tex
+\excercise{I have the largest pockets}
+\todo{Task und Verifier bennenen}
 
-    Nachdem wir die Variable \lstinline{neo} definiert und initialisiert haben, können wir sie verwenden, zum Beispiel indem wir ihn wie folgt an Position \((0,0)\) auf das Spielfeld setzen:
-    \begin{lstlisting}
-sim.getPlayfield().addEntity(new Position(0, 0), neo);
-    \end{lstlisting}
-    Dafür fragen wir mit \texttt{getPlayfield()} erst das Spielfeld von der Simulation ab und sagen dann mit \texttt{addEntitiy(...)}, dass es neo an Position \((0,0)\) hinzufügen soll
-    \subexcercise Erstelle zwei neue Objekte vom Typ MyNeo stelle sie nebeneinander auf das Spielfeld. Drehe beide um \(360^\circ\).
+In dieser Aufgabe wollen wir eine neue Funktion unserer Spieler einführen. 
+Wer die Doku aufmerksam gelesen hat kennt sie vielleicht schon: 
+Unesere Spieler können Goldmünzen aufheben und niederlegen. 
+Dafür verwenden wir \lstinline{pickup()} und \lstinline{drop()}.
 
-    Nun wollen wir einen Neo erstellen, der schon von Anfang an einige Münzen hat. Dies können wir erreichen, indem wir dem Konstruktor der Klasse \lstinline{MyNeo} die Anzahl der Münzen übergeben, die er zu Beginn haben soll. Hierfür schreiben wir diese \emph{Argumente} wie bei Operationenaufrufen in die Klammern hinter '\lstinline{new MyNeo}'.
+\begin{enumerate}
+    \item[a)] Wie immer muss der Task und Verifier gesetzt werden ([NAME] und [NAME])
+    \item[b)] Auf dem Spielfeld siehst du viele Goldmünzen.
+    Wenn dein Spieler auf einem Feld mit Münzen steht kann er mit \lstinline{pickup()} eine aufheben.
+    Räume damit das ganze Feld auf.
+    
+    \textbf{Tipp}: Verwende \lstinline{move()} und \lstinline{turnRight()} um deinen Spieler zu bewegen.
 
-    \subexcercise Erstelle ein Objekt \lstinline{richNeo} vom Typ \lstinline{MyNeo}, das schon zu Beginn \(1\,000\) Münzen hat.
-    \subexcercise Erstelle nun noch ein Objekt \lstinline{poorNeo} vom Typ \lstinline{MyNeo},
-    das zu Beginn keine Münzen hat.
-    Lasse \lstinline{richNeo} {\(2\)} Münzen ablegen
-    und sammle diese dann mit \lstinline{MyNeo} ein.
-    %TODO Konstruktor selber schreiben?
-
-
+    \item[c)] Nun verwende die \lstinline{drop()} Operation um alle Münzen die dein Spieler aufgesammelt hat auf ein Feld zu legen.
+    \item[d)] Welche Bedingungen gibt es, die bestehen müssen, das ein Spieler die \lstinline{pickup()} Methode sinnvoll verwenden kann? 
+\end{enumerate}
