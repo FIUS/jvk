@@ -5,11 +5,48 @@ In dieser Aufgabe geht es darum den Syntax von Java zu verstehen.
 In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein Beispiel aus Aufgabe 1 finden. In \textbf{[]} steht immer wie viele verschiedenen Beispiele du finden sollst.
 
 \begin{enumerate}
-    \item \textbf{[1]} Eine Klasse hat immer am Anfang das Schlüsselwort class, gefolgt von einem frei wählbaren Namen. Darauf folgen die { }, die den gesamten Inhalt der Klasse umschließen.
+    \item \textbf{[1]} Eine Klasse hat immer am Anfang das Schlüsselwort class, gefolgt von einem frei wählbaren Namen. Darauf folgen die \{ \}, die den gesamten Inhalt der Klasse umschließen.
     Zum inhalt einer Klasse gehören \textbf{[1]}Attribute und Operationen
 
     \textbf{[1]} Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Klasse und dann ein Name geschreiben werden und wenn man mehrere braucht kann man sie mit , getrennt auflisten.
     Nach den() folgen {}, die einen Codeblock umschließen.
+
+    let\origthelstnumber\thelstnumber
+    \makeatletter
+    \newcommand*\Suppressnumber{%
+      \lst@AddToHook{OnNewLine}{%
+        \let\thelstnumber\relax%
+         \advance\c@lstnumber-\@ne\relax%
+        }%
+    }
+    
+    \newcommand*\Reactivatenumber{%
+      \lst@AddToHook{OnNewLine}{%
+       \let\thelstnumber\origthelstnumber%
+       \advance\c@lstnumber\@ne\relax}%
+    }
+
+    \begin{lstlisting}[title={Beispiel für eine Klasse}]
+        class§\tikz[remember picture] \node [] (a) {};§ BeispielKlasse{§\Suppresnumber§
+        
+§\ReacktivateNumber§
+            void setGame(Game oldGame, Main oldMain){
+                
+                }
+                
+                Game getGame(){
+                    
+                    }
+                    
+                    }
+                \end{lstlisting}
+                \begin{tikzpicture}[remember picture,overlay]
+                    \node [below right= 0cm and -2cm of a] (A) {$\overbrace{\text{keyword der Klasse}}$};
+                    \begin{scope}[on background layer={color=green}]
+                    \fill (0,0) rectangle (1,1);
+                    \end{scope}
+                \end{tikzpicture}
+
     \begin{Infobox}{Namen}
         Freiwählbare namen, müssen trotzdem ein paar Regeln Folgen
         \begin{itemize}

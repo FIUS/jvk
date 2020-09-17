@@ -27,6 +27,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
+\usetikzlibrary{positioning,backgrounds}
 
 %infobox
 \RequirePackage[many]{tcolorbox}
@@ -43,6 +44,7 @@
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
 \definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
+\definecolor{javablue}{rgb}{0.0,0.0,1.0}
 \definecolor{unimportentgrey}{rgb}{0.6,0.6,0.6}
 %%%%%%%%%%%%
 % listings %
@@ -61,6 +63,7 @@
   keywordstyle=\color{javapurple}\bfseries,
   stringstyle=\color{javared},
   commentstyle=\color{javagreen},
+  identifierstyle=\color{javablue},
   morecomment=[s][\color{javadocblue}]{/**}{*/},
   numbers=left,
   numberstyle=\footnotesize\color{black},
@@ -71,7 +74,8 @@
   showstringspaces=false,
   frame=single,
   breaklines=true,
-  postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space}
+  postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space},
+  escapechar=§
 }
 
 %%%%%%%%%%%%%%
