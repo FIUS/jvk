@@ -1,0 +1,47 @@
+\excercise{Wenn ich mich doch nur nach links drehen könnte}
+
+\begin{enumerate}[label=\alph*)]
+    \item Instanziiere den Task und den Verifier. Dabei soll wie in der \textit{Aufgabe 5b)} der SubTask jeweils angegeben werden.
+    \item Lasse Neo im Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.
+    Implementiere das Verhalten in der Methode \textit{subTaskB()} in der Klasse \textit{Sheet3Task6}.
+    \item Lasse nun Neo gegen den Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.
+    Implementiere das Verhalten in der Methode \textit{subTaskC()} in der Klasse \textit{Sheet3Task6}.
+    Was fällt dir im Vergleich zu vorhin auf?
+    \item Anstatt Neo \textit{manuell} drei Mal im Uhrzeigersinn drehen zu lassen, wollen wir nun die fehlende Methode \textit{turnCounterClockwise()}
+    implementieren. Finde dafür zunächst die richtige Klasse und die dazugehörige Methode.
+    \item Wir wollen uns nun die Methodensyntex etwas genauer anschauen. Betrachte und erkläre dafür den Aufbau des folgenden Programmauszugs:
+    \begin{lstlisting}
+//Class Main
+public static void main(String[] args) {
+    A a = new A();
+    if(a.condition(5, 30))
+        //do stuff
+    //do some more stuff
+}
+
+//Class A
+private int b = 9;
+public boolean condition(int a, int b){
+    if(a > b)
+        return true;
+    return power(a) > this.b;
+}
+
+private int power(int a){
+    return a*a;
+}
+    \end{lstlisting}
+    \item Implementiere nun die fehlende Methode \textit{turnCounterClockwise()}. Im Folgenden wird die Syntax beispielshaft vorgegeben:
+    \begin{lstlisting}
+//Class Neo
+public void moveTwoBlocks() {
+    this.move();
+    this.move();
+}
+    \end{lstlisting}
+    \item Teste deine Implementierung aus der Teilaufgabe \textit{f)} indem du deinen Code in der Methode \textit{subTaskC()} anpasst.
+    \item Nun wollen wir natürlich dafür sorgen, dass unsere Nachfolger auch verstehen was in der von uns implementierten Methode von 
+    Teilaufgabe \textit{f)} passiert. Schreibe Javadoc für diese Methode.
+    \item Die Dokumentation von Methoden soll überraschendes Verhalten bei der Ausführung verhindern. Beinhaltet deine Dokumentation auch 
+    das Verhalten, welches bei gewünschter 180° Drehung von Neo mittels der Methode \textit{turnCounterClockwise()} auftritt?
+\end{enumerate}

@@ -37,8 +37,8 @@ public class Main {
      *     the command line args; not used
      */
     public static void main(String[] args) {
-        SubTask subTask = SubTask.G;
-        Game myGame = new Game("Sheet2Task5", new Sheet2Task5(subTask), new Sheet2Task5Verifier(subTask));
+        SubTask subTask = SubTask.C;
+        Game myGame = new Game("Sheet2Task6", new Sheet2Task6(subTask), new Sheet2Task6Verifier(subTask));
         myGame.run();
     }
 }

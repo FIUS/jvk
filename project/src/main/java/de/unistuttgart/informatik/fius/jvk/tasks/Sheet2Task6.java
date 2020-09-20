@@ -1,47 +1,26 @@
 package de.unistuttgart.informatik.fius.jvk.tasks;
 
-import java.util.List;
-import java.util.Random;
-
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 
-public class Sheet2Task5 implements Task{
+public class Sheet2Task6 implements Task{
     private PlayfieldModifier pm;
     private SubTask subTask;
 
-    public Sheet2Task5(SubTask subTask) {
+    public Sheet2Task6(SubTask subTask) {
         this.subTask = subTask;
     }
 
+    private void subTaskB(Neo neo){
+        /*
+         TODO
+        */
+    }
+
     private void subTaskC(Neo neo){
-        /*
-         TODO
-        */
-    }
-
-    private void subTaskD(Neo neo){
-        /*
-         TODO
-        */
-    }
-
-    private void subTaskE(Neo neo){
-        /*
-         TODO
-        */
-    }
-
-    private void subTaskF(Neo neo){
-        /*
-         TODO
-        */
-    }
-
-    private void subTaskG(Neo neo){
         /*
          TODO
         */
@@ -52,41 +31,17 @@ public class Sheet2Task5 implements Task{
         this.pm = new PlayfieldModifier(sim.getPlayfield());
         Neo neo = new Neo();
         neo.setCoinsInWallet(100);
-        this.pm.placeEntityAt(neo, new Position(0, 4));
+        this.pm.placeEntityAt(neo, new Position(0, 0));
         buildEnvironment();
 
+        if(this.subTask == SubTask.B)
+            subTaskB(neo);
         if(this.subTask == SubTask.C)
             subTaskC(neo);
-        else if(this.subTask == SubTask.D)
-            subTaskD(neo);
-        else if(this.subTask == SubTask.E)
-            subTaskE(neo);
-        else if(this.subTask == SubTask.F)
-            subTaskF(neo);
-        else if(this.subTask == SubTask.G)
-            subTaskG(neo);
     }
 
     private void buildEnvironment(){
         buildRectangle(-1, -1, 10, 10);
-        
-        Random r = new Random(System.nanoTime());
-        for(int i = 1; i < 9; i++){
-            int nextAmout = r.nextInt(1024);
-            System.out.println("NEXT: " + nextAmout);
-            nextAmout = ((10-(int)Math.floor(Math.log(nextAmout)/Math.log(2))) * 3);
-            System.out.println("NEXT: " + nextAmout);
-            for(int j = 0; j < nextAmout; j++){
-                this.pm.placeEntityAt(new Coin(), new Position(i, 4));
-            }
-        }
-
-        if(this.subTask == SubTask.G){
-            this.pm.placeEntityAt(new Wall(), new Position(r.nextInt(9), 2));
-            this.pm.placeEntityAt(new Wall(), new Position(r.nextInt(9), 2));
-            this.pm.placeEntityAt(new Wall(), new Position(r.nextInt(9), 6));
-            this.pm.placeEntityAt(new Wall(), new Position(r.nextInt(9), 6));
-        }
     }
 
     private void buildRectangle(int x, int y, int width, int height){
