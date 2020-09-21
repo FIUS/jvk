@@ -78,6 +78,23 @@
   escapechar=§
 }
 
+
+\let\origthelstnumber\thelstnumber
+    \makeatletter
+    \newcommand*\Suppressnumber{
+      \lst@AddToHook{OnNewLine}{
+        \let\thelstnumber\relax
+         \advance\c@lstnumber-\@ne\relax
+        }
+    }
+    
+    \newcommand*\Reactivatenumber{
+      \lst@AddToHook{OnNewLine}{
+       \let\thelstnumber\origthelstnumber
+       \advance\c@lstnumber\@ne\relax}
+    }
+
+
 %%%%%%%%%%%%%%
 % Main Title %
 %%%%%%%%%%%%%%
