@@ -34,13 +34,13 @@ public class Sheet2Task5Verifier implements TaskVerifier {
 
     private ActionLog actionLog;
 
-    public Sheet2Task5Verifier(SubTask subTask) {
+    public Sheet2Task5Verifier() {
         ArrayList<BasicTaskInformation> tasks = new ArrayList<>(Arrays.asList(new BasicTaskInformation[]{taskB, taskC, taskD, taskE, taskF, taskG}));
         int count = 0;
         for(SubTask subTasks : SubTask.values()){
             if(count - 1 > tasks.size())
                 throw new IllegalArgumentException();
-            if(subTasks == subTask)
+            if(subTasks == null)
                 break;
             count++;
         }
