@@ -14,6 +14,7 @@
 % Packages %
 %%%%%%%%%%%%
 \RequirePackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{tikz}
 \RequirePackage{minibox}
@@ -64,6 +65,7 @@
   stringstyle=\color{javared},
   commentstyle=\color{javagreen},
   identifierstyle=\color{javablue},
+  keywordstyle=[2]{\color{javared}},
   morecomment=[s][\color{javadocblue}]{/**}{*/},
   numbers=left,
   numberstyle=\footnotesize\color{black},
