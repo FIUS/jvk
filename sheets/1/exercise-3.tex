@@ -11,7 +11,7 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
     \textbf{[1]} Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Klasse und dann ein Name geschreiben werden und wenn man mehrere braucht kann man sie mit , getrennt auflisten.
     Nach den() folgen {}, die einen Codeblock umschließen.
 
-    let\origthelstnumber\thelstnumber
+    \let\origthelstnumber\thelstnumber
     \makeatletter
     \newcommand*\Suppressnumber{%
       \lst@AddToHook{OnNewLine}{%
@@ -27,9 +27,10 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
     }
 
     \begin{lstlisting}[title={Beispiel für eine Klasse}]
-        class§\tikz[remember picture] \node [] (a) {};§ BeispielKlasse{§\Suppresnumber§
+        class§\tikz[remember picture] \node [] (a) {};§ BeispielKlasse{§\Suppressnumber§
         
-§\ReacktivateNumber§
+§\Reactivatenumber§
+        §\colorbox{green}{class}§
             void setGame(Game oldGame, Main oldMain){
                 
                 }
