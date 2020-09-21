@@ -6,84 +6,74 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
 
 \begin{enumerate}
     \item \textbf{[1]} Eine Klasse hat immer am Anfang das Schlüsselwort class, gefolgt von einem frei wählbaren Namen. Darauf folgen die \{ \}, die den gesamten Inhalt der Klasse umschließen.
-    Zum inhalt einer Klasse gehören \textbf{[1]}Attribute und Operationen
+          Zum inhalt einer Klasse gehören \textbf{[1]}Attribute und Operationen
 
-    \textbf{[1]} Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Klasse und dann ein Name geschreiben werden und wenn man mehrere braucht kann man sie mit , getrennt auflisten.
-    Nach den() folgen {}, die einen Codeblock umschließen.
+          \textbf{[1]} Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Klasse und dann ein Name geschreiben werden und wenn man mehrere braucht kann man sie mit , getrennt auflisten.
+          Nach den() folgen {}, die einen Codeblock umschließen.
 
-    \let\origthelstnumber\thelstnumber
-    \makeatletter
-    \newcommand*\Suppressnumber{%
-      \lst@AddToHook{OnNewLine}{%
-        \let\thelstnumber\relax%
-         \advance\c@lstnumber-\@ne\relax%
-        }%
-    }
-    
-    \newcommand*\Reactivatenumber{%
-      \lst@AddToHook{OnNewLine}{%
-       \let\thelstnumber\origthelstnumber%
-       \advance\c@lstnumber\@ne\relax}%
-    }
-
-    \begin{lstlisting}[title={Beispiel für eine Klasse}]
-        class§\tikz[remember picture] \node [] (a) {};§ BeispielKlasse{§\Suppressnumber§
+          \begin{lstlisting}[title={\textbf{Beispiel für eine Klasse}}]
+class§\tikz[remember picture] \node [] (a) {};§ <Name der Klasse>{
         
-§\Reactivatenumber§
-        §\colorbox{green}{class}§
-            void setGame(Game oldGame, Main oldMain){
+    void <Operation Name>(<Typ Name> <Parameter Name>){
                 
-                }
-                
-                Game getGame(){
-                    
-                    }
-                    
-                    }
+    }                    
+}
                 \end{lstlisting}
-                \begin{tikzpicture}[remember picture,overlay]
-                    \node [below right= 0cm and -2cm of a] (A) {$\overbrace{\text{keyword der Klasse}}$};
-                    \begin{scope}[on background layer={color=green}]
-                    \fill (0,0) rectangle (1,1);
-                    \end{scope}
-                \end{tikzpicture}
+          Alle in < > geschriebenen Wörter sind Platzhalter für das was sie beschreiben. Jeder kann mit etwas anderem Ausgefüllt werden, auch wenn sie gleich heißen.
 
-    \begin{Infobox}{Namen}
-        Freiwählbare namen, müssen trotzdem ein paar Regeln Folgen
-        \begin{itemize}
-            \item Sie dürfen nicht gleich wie ein Schlüsselwort(z.B. class oder new) heißen.
-            \item Sie dürfen nicht mit einer Ziffer beginnen.
-            \item Sie dürfen kein Leerzeichen beinhalten.
-        \end{itemize}
-    \end{Infobox}
+          \begin{Infobox}{Namen}
+              Freiwählbare Namen, müssen trotzdem ein paar Regeln Folgen
+              \begin{itemize}
+                  \item Sie dürfen nicht gleich wie ein Schlüsselwort(z.B. class oder new) heißen.
+                  \item Sie dürfen nicht mit einer Ziffer beginnen.
+                  \item Sie dürfen kein Leerzeichen beinhalten.
+              \end{itemize}
+          \end{Infobox}
     \item \textbf{[1]} Ein Befehl endet immer mit einem ; und muss in einem Codeblock stehen.
     \item \textbf{[2]} Das erzeugen eines Objekts wird mit dem Schlüsselwort new eingeführt. Darauffolgt der Name der Klasse und (). Manchmal werden in die () noch Argumente geschreiben, mit Dingen die das Objekt von Anfang an braucht.
-    \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = lassen wir sie dann auf ein Objekt zeigen, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere 
-    Variable die bereits auf ein Objekt zeigt.
-    \begin{Infobox}[Attribute]
-        Wenn man eine Variable in den Codeblock einer Operation schreibt, dann kann man sie nur in der Operation verwenden.
-        Wenn man sie aber außerhalb der Operation, direkt in die Klasse schreiben, wird sie nicht Variable sondern Attribut genannt und kann von allen Operation die zu der Klasse gehören verwendet werden.\\
-        Das ist außerdem eine Ausnahme bei der ein Befehl nicht in dem Codeblock einer Operation steht.
-    \end{Infobox}
+    \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = lassen wir sie dann auf ein Objekt zeigen, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere
+          Variable die bereits auf ein Objekt zeigt.
+
+          \begin{Infobox}[Attribute]
+              Wenn man eine Variable in den Codeblock einer Operation schreibt, dann kann man sie nur in der Operation verwenden.
+              Wenn man sie aber außerhalb der Operation, direkt in die Klasse schreiben, wird sie nicht Variable sondern Attribut genannt und kann von allen Operation die zu der Klasse gehören verwendet werden.\\
+              Das ist außerdem eine Ausnahme bei der ein Befehl nicht in dem Codeblock einer Operation steht.
+          \end{Infobox}
     \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie "alle" Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
-    \begin{Infobox}[Operatoren]
-        Operatoren erfüllen zwei Funktionen. Man kann sie dazu verwenden um Informationen von einem Objekt zu bekommen. In dem Fall werden sie auch Abfragen oder Querries genannt.
-        Oder man verwenden sie um etwas zu tun. In dem Fall werden sie Kommandos oder commands gennant.
-    \end{Infobox}
+          \begin{lstlisting}[title=\textbf{Commando Syntax},firstnumber=4]
+        <Operation Name>();
+        new <Typ Name>();
+        new <Typ Name>().<Operator Name>();
+        <Typ Name> <Variablen Name> = new <Typ Name>();
+        <Variablen Name>.<Operator Name>();
+            \end{lstlisting}
+          \begin{Infobox}[Operatoren]
+              Operatoren erfüllen zwei Funktionen. Man kann sie dazu verwenden um Informationen von einem Objekt zu bekommen. In dem Fall werden sie auch Abfragen oder Querries genannt.
+              Oder man verwenden sie um etwas zu tun. In dem Fall werden sie Kommandos oder commands gennant.
+          \end{Infobox}
     \item \textbf{[2]} Normalerweiße hat alles was im Programmcode steht eine Aufgabe. Aber was machen wir wenn wir normallen text in den code schreiben wollen. Der einfach nur ein Kommentar für Menschen ist?\\
-    In so einen Fall kann man ein Text als Kommentar markieren. In den man entweder // schreibt. Dann ist alles danach, was in der Zeile ist, ein Kommentar oder man schreibt /* vor und */ nach den Kommentar. Dadurch kann man auch ein mehrzeiligen kommentar schreiben.
+          In so einen Fall kann man ein Text als Kommentar markieren. In den man entweder // schreibt. Dann ist alles danach, was in der Zeile ist, ein Kommentar oder man schreibt /* vor und */ nach den Kommentar. Dadurch kann man auch ein mehrzeiligen kommentar schreiben.
+          \begin{lstlisting}[title=\textbf{Kommentar Syntax},firstnumber=11]
+// <Kommentar Text>
+    <Programmcode> // <Kommentar Text>
+/*
+    <Dies ist ein seeehr langer Platzhalter. 
+    Weil er soll verdeutlichen das ein Blockkommentar, sehr lange texte ermöglicht.>
+    Aber man sollte es nicht übertreiben>
+*/
+        \end{lstlisting}
     \item Bei der nächsten Aufgabe sollt ihr keine Beispiele finden. Sondern einer aus der Gruppe macht eine veränderung am Code. Die gegen die Syntax Regeln verstößt. Das erkennt Eclipse und zeigt euch eine Fehlermeldung an. Diese soll nun der Rest der Gruppe lesen und versuchen herauszufinden Was geändert wurde und wie es richtig geht.\\
-    Vorschläge was geändert werden sollte:
-    \begin{itemize}
-        \item Lösch ein Semikolon
-        \item Lösch eine Klammer oder Füge ein Hinzu. Sowohl ( als auch \{
-        \item Mach aus einem Großbuchstaben einen klein Buchstaben oder umgekehrt. Versucht es mit Namen und auch mit Schlüsselworten wie class oder new.
-        \item Ersetz ein " durch ein '.
-        \item Lass ein " oder ein weg.
-        \item verschiebe eine Zeile aus der main in den Bereich außerhalb der main.
-        \item Initalisiere ein Objekt von einer Klasse die nicht existiert.
-        \item Bennen etwas (nicht main) um und verwende im neuem Namen ein Leerzeichen.
-        \item Lösche ein new.
-        \item (Optional) finde selber etwas was nicht erlaubt ist.
-    \end{itemize}
+          Vorschläge was geändert werden sollte:
+          \begin{itemize}
+              \item Lösch ein Semikolon
+              \item Lösch eine Klammer oder Füge ein Hinzu. Sowohl ( als auch \{
+              \item Mach aus einem Großbuchstaben einen klein Buchstaben oder umgekehrt. Versucht es mit Namen und auch mit Schlüsselworten wie class oder new.
+              \item Ersetz ein " durch ein '.
+              \item Lass ein " oder ein weg.
+              \item verschiebe eine Zeile aus der main in den Bereich außerhalb der main.
+              \item Initalisiere ein Objekt von einer Klasse die nicht existiert.
+              \item Bennen etwas (nicht main) um und verwende im neuem Namen ein Leerzeichen.
+              \item Lösche ein new.
+              \item (Optional) finde selber etwas was nicht erlaubt ist.
+          \end{itemize}
 \end{enumerate}
