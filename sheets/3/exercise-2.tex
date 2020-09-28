@@ -1,11 +1,107 @@
-    \excercise{Schleifen}
-            \subexcercise Schreibe deine \texttt{turnLeft()} so um, dass sie eine for-Schleife verwendet.
+\excercise{Schleifen}
+	\subsection*{a)}
+		Passe die Main Methode an die Aufgabe an.
+	\subsection*{b)}
+		Wir möchten wissen wie viele Münzen auf dem Feld sind auf dem sich Neo befindet. Dafür heben wir so lange immer eine Münze auf bis sich keine Münzen mehr auf dem Feld befinden. Wenn die Aufgehobenen Münzen zählen können wir somit 				herausfinden wie viele Münzen auf dem Feld sind.
+		\begin{lstlisting}
+/**
+*
+* @param neo the neo whose Position is to be used
+* @return the number of coins on the Field that neo stands on
+*/
+public int countCoins(Neo neo){
+	int coins = 0;				//Zählvariable auf 0 setzen
+	while(neo.canCollectCoin()){//wenn Neo eine Münze aufheben kann
+		neo.collectCoin();		//hebe eine Münze auf
+		coins++;				//und erhöhe die Zählvariable um 1
+	}
+	for(int i = 0; i < coins; i++){ 	//lässt alle aufgesammelten
+		neo.dropCoin();					//Münzen wieder fallen.
+	}		//denn eine Abfrage sollte nicht das Spielfeld verändern
+	return coins;				//gebe als Ergebniss die 
+}								//Zählvariable zurück
+\end{lstlisting}
 
-            \subexcercise Neo muss so schnell wie möglich die nächstgelegene Telefonzelle erreichen, um die Matrix zu verlassen. Leider weiß er nicht genau, wie weit diese entfernt ist. Schreibe hierzu eine Operation, die Neo so lange geradeaus laufen lässt, bis die Operation \texttt{Neo.isOnPhoneBooth()} den Wert \texttt{true} zurück gibt. Verwende in deiner Lösung eine while-Schleife.
+\begin{Infobox}[If-Conditions 2]
+If-Conditions kennt ihr ja schon. Diese können auch dazu verwendet Zahlen (z.B Integer) miteinander zu vergleichen.
+\begin{lstlisting}
+int x = 2;
+if ( x < 3 ) {
+	System.out.println("x ist kleiner als 3!");
+}
+\end{lstlisting}
+Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat. Aber Achtung! Java Verwendet die folgenden vergleichssymbole:
+\begin{center}
+        \begin{tabular}{ l | c | c | l }
+                Text & Math. Zeichen & Java & Bemerkung\\
+            \hline
+                  gr\"oßer als & $>$ & $>$ & \\
+                  kleiner als & $<$ & $<$ & \\
+                  gleich & $=$ & $==$ & einfaches $=$ ist in Java eine Zuweisung\\
+                  ungleich & $\neq$ & $!=$ & \\
+                  gr\"oßer gleich & $\geq$ & $>=$ & wie man es spricht \glqq größer gleich\grqq{} \\
+                  kleiner gleich & $\leq$ & $<=$ &  \\
+        \end{tabular} \\
+\end{center}
 
-            \subexcercise(\textbf{Bonus}) Schreibe die Operation aus \textit{(b)} so um, dass sie eine do-while-Schleife verwendet.
+Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
+\begin{lstlisting}
+if ( countCoins(neo) == 3 ){
+	System.out.println("neo hat genau 3 Münzen!");
+}
+\end{lstlisting}
+\end{Infobox}
 
-            \subexcercise Dieses Mal haben die Agenten alle Telefonzellen in Neos Nähe zerstört. Welche Auswirkung hat das auf deinen Code aus \textit{(b)}? Nutze die Operation \texttt{Neo.canMove()}, um den Fehler zu beheben.
 
-            \textbf{Für diese Aufgabe} müsst ihr \texttt{this.boothsDestroyed} auf \texttt{true} setzen.
+
+	\subsection*{c)}
+	Lasse Neo laufen solange sich keine Münzen auf dem Feld unter ihm befinden.
+	\subsection*{d)}
+	Wenn sich Neo auf einem Feld mit genau eine Münze befindet, dann lass ihn sich nach rechts drehen und diese Münze aufsammeln.
+	\subsection*{e)}
+	Wenn sich mehr als eine Münze unter Neo befindet, lass ihn sich auch nach rechts drehen und eine Münze aufsammeln.
+
+
+\begin{Infobox}[Logische Operationen]
+Wenn mehrere Bedingungen für ein Ereigniss eine Rolle spielen muss man diese Logisch verknüpfen. Java verwendet hierfür folgende Syntax:
+\begin{center}
+        \begin{tabular}{ l | l | l | l}
+            Text & log. Zeichen & Java Zeichen &Bemerkung \\
+            \hline
+            und  &$\land$& $\&\&$& \minibox{Achtung kein einfaches \& in Java verwenden,\\ das macht etwas anderes (aber ähnliches)} \\
+            oder  &$\lor$& $||$& Kein einfaches $|$ verwenden (analog zu und) \\
+            & &  \\
+
+            nicht & $!$&$\neg$ &\\
+    \end{tabular}\\
+\end{center}
+Ein paar Beispiele:
+\begin{lstlisting}
+if ( neo.canMove() && (neo.countCoins==7) ){
+	//neo hat genau 7 Münzen UND kann nach vorne gehen.
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+if ( (!neo.canMove()) && (neo.countCoins==7) ){
+	//neo hat genau 7 Münzen UND kann sich NICHT nach vorne gehen.
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+if ( neo.canMove() || (neo.countCoins==7) ){
+	//neo hat genau 7 Münzen ODER kann nach vorne gehen.
+}
+\end{lstlisting}
+Zu beachten ist auserdem, dass das oder $||$ kein Ausschließendes oder ist also\\ $((2 < 3) || (42 != 4))$ eine wahre Aussage.
+\end{Infobox}
+	\subsection*{f)}
+	ändere c) so, dass Neo sich umdreht wenn sich auf seinem Feld keine Münzen befinden UND er vor einer Wand steht.
+
+\subsection*{g)}
+Lasse Neo laufen bis er 10 Münzen gesammelt hat ODER 15 Schritte gegangen ist.
+
+\subsection*{h)}
+Überprüfe deine Implementierung auf dem Spielfeld .
+
 

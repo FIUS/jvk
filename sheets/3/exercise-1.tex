@@ -1,40 +1,72 @@
-    \excercise{Logik}
-            \subexcercise Fülle die folgenden Tabellen aus:\\
-            \begin{center}
-            \begin{tabular}{ c | c }
-            A & !A \\
-            \hline
-            true & \\
-            false & \\
-            \end{tabular}
-            \quad
-            \begin{tabular}{ c | c | c }
-            A & B & A \&\& B \\
-            \hline
-            false & false & \\
-            false & true & \\
-            true & false & \\
-            true & true & \\
-            \end{tabular}
-            \quad
-            \begin{tabular}{ c | c | c }
-            A & B & A $||$ B \\
-            \hline
-            false & false & \\
-            false & true & \\
-            true & false & \\
-            true & true & \\
-            \end{tabular}\\
-            \end{center}
+    \excercise{For-Schleifen}
+\subsection*{a)}
+	Passe die Main Methode an die Aufgabe an.
+\subsection*{b)}
 
-            \subexcercise Schreibe zu jeder Aussage eine If-Anweisung, die den Wert von x überprüfen soll nach:
-            \begin{enumerate}[label=(\roman*)]
-                \item x = 12345
-                \item x $\leq$ 15
-                \item x $\neq$ 22
-                \item x $\in [0; 10]$
-                \item x $\in$ \{\texttt{Integer.MINVALUE}, ..., -2, -1, 11, 12, 13, ..., \texttt{Integer.MAXVALUE}\}\\(Alle Integer außer [0;10])
-                \item x $\in$ \{x $|$ x ist gerade\}
-            \end{enumerate}
-            \emph{Anmerkung:} Mit dem Befehl \lstinline{Logger.simout.println("...");} könnt ihr Text in die Ausgabe des Simulators schreiben.
+	Probiere Neo mithilfe einer While-Schleife genau zehn Schritte laufen zu lassen.
 
+\begin{Infobox}[For-Schleife]
+		Wir wollen nun anstatt die selbe Operation n-mal untereinander schreiben zu müssen um sie genau n-mal zu wiederholen, diesen Prozess vereinfachen.
+		Dazu verwenden wir eine for-Schleife. 
+		\begin{lstlisting}
+public void moveFiveTimes() {
+	this.move();
+	this.move();
+	this.move();
+	this.move();
+	this.move();
+}
+		\end{lstlisting}
+		ist equivalent zu:
+		\begin{lstlisting}
+public void moveFiveTimes() {
+	for (int i = 0; i < 5; i++) {
+		this.move();
+	}
+}
+		\end{lstlisting}
+Eine For-Schleife funktioniert (zumindest in Java) wie eine While-Schleife mit einer zusätzlichen Variable die sich jeden Schleifendurchlauf verändert.
+Die obige if Schleife ist z.B. äquivalent zu:
+		\begin{lstlisting}
+public void moveFiveTimes() {
+	int i = 0;
+	while (i < 5) {
+		this.move();
+		i++;
+	}
+}
+		\end{lstlisting}
+ \end{Infobox}
+
+\subsection*{c)}
+Laufe nun mithilfe einer for-Schleife 10 Schritte.
+
+\subsection*{d)}
+Lass Neo folgendes tun:\\
+	-drehe dich nach rechts
+	- laufe 5 Schritte\\
+	- drehe dich nach links\\ 
+	- laufe 20 Schitte\\
+	- hebe eine Münze auf\\
+	- drehe dich nach rechts\\
+	- laufe 56 Schritte\\
+	- lasse die Münze fallen
+
+\subsection*{e)}
+Lass Neo folgendes tun:\\
+- Lass Neo genau 72 Münzen aufheben. \\
+- gehe 10 Schritte nach vorne.\\
+- lass alle Münzen fallen.\\
+- hebe genau 42 Münzen auf.\\
+- gehe 5 Schritte nach vorne.\\
+- lass eine Münze fallen.
+
+\subsection*{f)}
+Hebe alle Münzen auf dem aktuellen Feld auf. Laufe nun 5 Schritte und lege jeden Schritt so viele Münzen ab wie die schon Schritte gelaufen bist.
+
+\subsection*{g)}
+ Laufe 10 Schritte und hebe dabei maximal 5 münzen pro Feld auf.
+
+\subsection*{h)}
+Laufe 10 schritte und hebe dabei alle Münzen auf den Feldern auf
+\newpage
