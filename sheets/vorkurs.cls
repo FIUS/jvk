@@ -96,6 +96,10 @@
        \advance\c@lstnumber\@ne\relax}
     }
 
+%%%%%%%%
+% Misc %
+%%%%%%%%
+\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
 
 %%%%%%%%%%%%%%
 % Main Title %
