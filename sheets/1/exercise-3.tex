@@ -36,22 +36,28 @@ class PDFElement{
                   \item Sie dürfen nicht mit einer Ziffer beginnen.
                   \item Sie dürfen kein Leerzeichen beinhalten.
               \end{itemize}
-              
+              Außerdem gibt es noch den Styleguide. Der Vorgibt wie Java code auszusehen um besser lesbar zu sein.
+              \begin{itemize}
+                  \item Als ersatz für Nicht verwendetet Leerzeichen schreibt man einfach das nächste Wort Groß. Beispiel: \q{create green box} \textrightarrow \q{createGreenBox}
+                  \item Klassen sind in Java quasi die Nomen und sollten Groß geschreiben werden. Alles andere Klein.
+                  \item Namen sollten aus ganzen Wörtern bestehen. Ausgenommen es ist eine sehr übliche bezeichnung wie \texttt{URL} oder \texttt{HTML}.\\
+                  Außerdem wird bei manchen Variablen einzelne buchstaben wie \texttt{i,j,k,m,n,c,d,e} verwendet. Solche stellen kommen Später.
+                  \item Operationen sollten Verben sein.
+                  \item Querries beginnen häufig mit \texttt{get}
+                  \item Kommandos beginnen häufig mit \texttt{set}, wenn sie dazu dienen direkt eine Variable/Attribut zu verändern. Komplexere in der Regeln nicht.
+              \end{itemize}
           \end{Infobox}
     \item \textbf{[1]} Ein Befehl endet immer mit einem ; und muss in einem Codeblock stehen.
     \item \textbf{[2]} Das erzeugen eines Objekts wird mit dem Schlüsselwort new eingeführt. Darauffolgt der Name der Klasse und (). Manchmal werden in die () noch Argumente geschreiben, mit Dingen die das Objekt von Anfang an braucht.
-          \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=5]
+          \begin{lstlisting}[title=\textbf{Konstruktor Syntax},firstnumber=5]
         new <Typ Name>();
     \end{lstlisting}
     \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = lassen wir sie dann auf ein Objekt zeigen, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere
           Variable die bereits einen Wert hat.
-
-          \begin{Infobox}[Attribute]
-              Wenn man eine Variable in den Codeblock einer Operation schreibt, dann kann man sie nur in der Operation verwenden.
-              Wenn man sie aber außerhalb der Operation, direkt in die Klasse schreiben, wird sie nicht Variable sondern Attribut genannt und kann von allen Operation die zu der Klasse gehören verwendet werden.\\
-              Das ist außerdem eine Ausnahme bei der ein Befehl nicht in dem Codeblock einer Operation steht.
-          \end{Infobox}
-    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie "alle" Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
+          \begin{lstlisting}[title=\textbf{Variablen Syntax}]
+    <Typ>
+          \end{lstlisting}
+    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \glqq alle\grqq\ Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
           \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=4]
         <Operation Name>();
         new <Typ Name>();
@@ -60,9 +66,9 @@ class PDFElement{
         <Variablen Name>.<Operation Name>();
             \end{lstlisting}
           \begin{lstlisting}[title=\textbf{Kommando Beispiel},firstnumber=4]
-                String exampleText = new TextLoader("Kommando")
-                PDFElement commandExmaple = new CodeBox("Kommando Syntax");
-                commandExmaple.setFirstRowNumber(4);
+        String exampleText = new TextLoader("Kommando")
+        PDFElement commandExmaple = new CodeBox("Kommando Syntax");
+        commandExmaple.setFirstRowNumber(4);
               \end{lstlisting}
           \begin{Infobox}[Operationen]
               Operatoren erfüllen zwei Funktionen. Man kann sie dazu verwenden um Informationen von einem Objekt zu bekommen.
@@ -86,17 +92,17 @@ class PDFElement{
           Vorschläge was geändert werden sollte:
           \begin{itemize}
               \item Lösch ein Semikolon
-              \item Lösch eine Klammer oder Füge ein Hinzu. Sowohl ( als auch \{
+              \item Lösch eine Klammer oder Füge eine Hinzu. Sowohl \lstinline{(} als auch \lstinline{{}
               \item Mach aus einem Großbuchstaben einen klein Buchstaben oder umgekehrt. Versucht es mit Namen und auch mit Schlüsselworten wie class oder new.
-              \item Ersetz ein " durch ein '.
-              \item Lass ein " oder ein weg.
+              \item Ersetz ein \lstinline{"} durch ein \lstinline{'}.
+              \item Lass ein \lstinline{"} oder ein \lstinline{'} weg.
               \item verschiebe eine Zeile aus der main in den Bereich außerhalb der main.
               \item Initalisiere ein Objekt von einer Klasse die nicht existiert.
-              \item Bennen etwas (nicht main) um und verwende im neuem Namen ein Leerzeichen.
-              \item Lösche ein new.
+              \item Bennen etwas (nicht \lstinline{main}) um und verwende im neuem Namen ein Leerzeichen.
+              \item Lösche ein \lstinline{new}.
               \item (Optional) finde selber etwas was nicht erlaubt ist.
           \end{itemize}
           \begin{Infobox}[main]
-            Die main muss immer main heißen. Denn sie ist der Startpunkt, also der Erste Code der ausgeführt wird wenn das Programmstartet. Ohne main kannst du kein Programm starten.
+              Die \lstinline{main} muss immer main heißen. Denn sie ist der Startpunkt, also der Erste Code der ausgeführt wird wenn das Programmstartet. Ohne main kannst du kein Programm starten.
           \end{Infobox}
 \end{enumerate}
