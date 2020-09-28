@@ -1,40 +1,32 @@
 \excercise{What If there is a Wall?!}
 In dieser Aufgabe wollen wir uns Conditions näher anschauen.
-\begin{enumerate}[label=\alph*)]
-    \item Wir wollen nun die Syntax einer If-Bedingung genauer betrachten. Überlege dir dazu, was der folgende Programmcode ausgibt:
+\begin{enumerate}[label=\alph*)]                           
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+    Was passiert bei der Ausführung?
+\end{enumerate}
+
+\begin{Infobox}[IF-Condition]
+    Nun betrachten wir ein beispielhaftes IF-Statement:
     \begin{lstlisting}[breaklines=true]
-if (true){
-    System.out.println("Condition A is satisfied!");
-}
-    
-// --------------------------------------------------------
-    
-if (42 > 42 || false){
-    System.out.println("Condition B is satisfied!");
+if(player.canMove()){
+    player.move();
 } else{
-    System.out.println("Condition B is not satisfied!");
-}
-        
-// --------------------------------------------------------
-        
-if ((5*2 > 3) && (false || 6 == 9)){
-    System.out.println("Condition C is satisfied!");
-} else if (!(2 > 3)){
-    System.out.println("Condition C is not satisfied, but Condition D is satisfied!");
-} else{
-    System.out.println("Neither Condition C nor Condition D are satisfied!");
+    System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
 }
     \end{lstlisting}
-                            
-    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. Die Simulation soll zwei Mal ausgeführt werden:
-    \begin{enumerate}
-        \item[i)] Ohne Einfügen einer Wand zwischen Neo und der Telefonstation.
-        \item[ii)] Mit Einfügen einer Wand zwischen Neu und der Telefonstation. 
-    \end{enumerate}
-    Was beobachtest du?
-    \item Betrachte den markierten Teil der Methode \textit{movement} aus der Klasse \textit{Sheet2Task3}. Was sorgt dafür, dass es bei der Simulation 
-    mit Hindernis zu keiner Exception kommt?
-    \item Wähle ein fixes Hindernis auf dem Pfad zwischen Neo und der Telefonstation. Neo möchte trotz Hindernis natürlich dennoch die Telefonstation erreichen.
-    Implementiere das gewünschte Verhalten in dem dafür vorgesehenen Bereich.
-    \item Bonus: Verallgemeinere die Aufgabenstellung von Teilaufgabe \textit{d)} für ein beliebiges Hindernis auf dem direkten Pfad zwischen Neo und der Telefonstation.
+    Wobei das \textit{player} eine beliebige Referenz auf eine bewegliche Entität ist.\par
+    Die Methode \textit{canMove()} gibt einen Boolean Wert zurück (also \textit{true} oder \textit{false}).
+    Falls sich also vor dem Spieler kein Hindernis befindet kann sich dieser frei nach vorne bewegen. Die Methode
+    \textit{canMove()} gibt \textit{true} zurück und die Bedingung des IF-Statements ist erfüllt. Dadurch wird der erste Block
+    ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen.\par 
+    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und 
+    der zweite Block wird ausgeführt, wodurch wir hier eine erleuchtende Weißheit von Morpheus bekommen.
+\end{Infobox}
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{1}
+    \item Betrachte die Methode \textit{movement} der Klasse \textit{Sheet2Task3}. Füge das obige IF-Statement an einer geeigneten Stelle ein 
+    und führe die Simulation erneut aus.
+    \item Das Hindernis wurde in der selben Klasse an der markierten Stelle in der Methode \textit{buildEnvironment} eingefügt.
+    Kommentiere diese Zeile aus und führe die Simulation aus. Was kannst du beobachten?
+    \item Jetzt soll die Wand wieder einkommentiert werden. Behandle also den ''ELSE'' Fall so, dass Neo in beiden Fällen die Telefonstation erreicht.
+
 \end{enumerate}

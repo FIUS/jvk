@@ -1,5 +1,6 @@
 package de.unistuttgart.informatik.fius.jvk.tasks;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
@@ -21,29 +22,24 @@ public class Sheet2Task5 implements Task{
         buildEnvironment(pm);
 
         Neo player = new Neo();
-        pm.placeEntityAt(player, new Position(0, 4));
+        pm.placeEntityAt(player, new Position(0, 0));
 
         // Implement (sub)tasks here
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
         // build the outside wall
-        pm.placeEntityAtEachPosition(() -> new Wall(), new Rectangle(new Position(-1, -1), new Position(10, 10))); // FIXME use wall factory
-        //buildRectangle(-1, -1, 10, 10);
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Rectangle(new Position(-1, -2), new Position(10, 2))); // FIXME use wall factory
 
         Random r = new Random();
-        for(int i = 1; i < 9; i++){
-            int nextAmout = 1 + r.nextInt(8); // random int between [1, 9] (both inclusive)
-            pm.placeMultipleEntitiesAt(() -> new Coin(), nextAmout, new Position(i, 4)); // FIXME use coin factory
+        pm.placeMultipleEntitiesAt(() -> new Coin(), (int)Math.round(r.nextDouble()*20+45), new Position(1, 0));
+
+        for(int i = 0; i < 10; i++){
+            if(r.nextDouble() < 0.4)
+                pm.placeEntityAt(new Wall(), new Position(i, -1));
+
+            if(r.nextDouble() < 0.4)
+                pm.placeEntityAt(new Wall(), new Position(i, 1));
         }
-
-
-        /*
-        if(this.subTask == SubTask.G){*/
-            pm.placeEntityAt(new Wall(), new Position(r.nextInt(8)+ 1, 3));
-            pm.placeEntityAt(new Wall(), new Position(r.nextInt(8)+ 1, 3));
-            pm.placeEntityAt(new Wall(), new Position(r.nextInt(8)+ 1, 5));
-            pm.placeEntityAt(new Wall(), new Position(r.nextInt(8)+ 1, 5));
-        /*}*/
     }
 }

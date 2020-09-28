@@ -5,58 +5,41 @@ import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.Line;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
 
 public class Sheet2Task3 implements Task{
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
+        Neo player = new Neo();
+        pm.placeEntityAt(player, new Position(0, 0));
         buildEnvironment(pm);
-        movement(neo);
+        movement(player);
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
-        buildHorizontalWalls(-2, -1, 11, pm);
-        buildVerticalWalls(-1, -1, 2, pm);
-        buildHorizontalWalls(2, 0, 3, pm);
-        buildHorizontalWalls(2, 7, 10, pm);
-        buildVerticalWalls(11, -1, 2, pm);
         pm.placeEntityAt(new PhoneBooth(), new Position(10, 0));
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Line(new Position(-1, -2), new Position(11, -2)));
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Line(new Position(0, 2), new Position(3, 2)));
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Line(new Position(7, 2), new Position(10, 2)));
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Line(new Position(-1, -1), new Position(-1, 2)));
+        pm.placeEntityAtEachPosition(() -> new Wall(), new Line(new Position(11, -1), new Position(11, 2)));
+        
+        //Place Wall between the player and the phone booth
+        pm.placeEntityAt(new Wall(), new Position(5, 0));
     }
 
-    private void movement(Neo neo){
-        for(int i = 0; i < 9; i++){
-            /* --------------------------- */
-
-            /* Task 3 c) */
-
-            if(neo.canMove()){
-                neo.move();
-            } else{
-                System.out.println("Morpheus: There is a difference between knowing the path and walking the path.");
-                break;
-            }
-            
-            /* --------------------------- */
-
-            /* TODO: Task 3 d)*/
-
-            /* --------------------------- */
-        }
-    }
-
-    private void buildHorizontalWalls(int y, int x1, int x2, PlayfieldModifier pm) throws IllegalArgumentException{
-        if(x2 < x1)
-            throw new IllegalArgumentException();
-        for(int x = x1; x <= x2; x++)
-            pm.placeEntityAt(new Wall(), new Position(x, y));
-    }
-
-    private void buildVerticalWalls(int x, int y1, int y2, PlayfieldModifier pm) throws IllegalArgumentException{
-        if(y2 < y1)
-            throw new IllegalArgumentException();
-        for(int y = y1; y <= y2; y++)
-            pm.placeEntityAt(new Wall(), new Position(x, y));
+    private void movement(Neo player){
+        //implement subtask here
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
     }
 }
