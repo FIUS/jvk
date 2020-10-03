@@ -24,20 +24,7 @@ public class Sheet2Task5 implements Task{
         Neo player = new Neo();
         pm.placeEntityAt(player, new Position(0, 0));
 
-        // Implement (sub)tasks here
-        player.move();
-        Iterator<Coin> collectableCoins = sim.getPlayfield().getEntitiesOfTypeAt(new Position(1, 0), Coin.class, true).iterator();
-        while(collectableCoins.hasNext()){
-            player.collect(collectableCoins.next());
-        }
-
-         for(int i = 0; i < 8; i++)
-             player.move();
-
-         Iterator<Coin> droppableCoins = player.getCurrentlyDroppableEntities(Coin.class, true).iterator();
-         while(droppableCoins.hasNext())
-             player.drop(droppableCoins.next());
-        
+        // Implement (sub)tasks here        
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
