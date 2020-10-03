@@ -7,21 +7,19 @@
     \item Lasse nun Neo gegen den Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.
     Implementiere das Verhalten in der Methode \textit{subTaskC()} in der Klasse \textit{Sheet3Task6}.
     Was fällt dir im Vergleich zu vorhin auf?
-    \item Anstatt Neo \textit{manuell} drei Mal im Uhrzeigersinn drehen zu lassen, wollen wir nun die fehlende Methode \textit{turnCounterClockwise()}
-    implementieren. Finde dafür zunächst die richtige Klasse und die dazugehörige Methode.
-    \item Wir wollen uns nun die Methodensyntex etwas genauer anschauen. Betrachte und erkläre dafür den Aufbau des folgenden Programmauszugs:
-    \begin{lstlisting}
-//Class Main
-public static void main(String[] args) {
-    A a = new A();
-    if(a.condition(5, 30))
-        //do stuff
-    //do some more stuff
+\end{enumerate}
+\begin{Infobox}
+    Wir wollen uns nun die Methodensyntex etwas genauer anschauen. Dafür betrachten wir beispielhaft den folgenden Programmcode:
+    \begin{lstlisting}[breaklines=true, numbers=none]
+//Class A
+public void foo(){
+    B b = new B();
+    System.out.println(b.bar(5, 7));
 }
 
-//Class A
+//Class B
 private int b = 9;
-public boolean condition(int a, int b){
+public boolean bar(int a, int b){
     if(a > b)
         return true;
     return power(a) > this.b;
@@ -30,8 +28,37 @@ public boolean condition(int a, int b){
 private int power(int a){
     return a*a;
 }
+\end{lstlisting}
+Bei der Programmausführung gehen wir davon aus dass die Methode \textit{foo} ausgeführt wird. Wir unterteilen die Erklärung der Syntax in folgende Blöcke:
+\begin{enumerate}[label=\roman*)]
+    \item 
+    Grundlegender Sytaxaufbau: Der Aufbau einer \textit{einfachen} Methode folgt zunächst einmal dem Schema 
+    \begin{lstlisting}
+Modifier Datentyp Methodenname (Par a, Par b, ...){
+    //do stuff
+    return ...;
+}
     \end{lstlisting}
-    \item Implementiere nun die fehlende Methode \textit{turnCounterClockwise()}. Im Folgenden wird die Syntax beispielshaft vorgegeben:
+    Welche Methoden sind also in dem obigen Codebeispiel gegeben und wie wurden diese benannt?
+    \item Modifier: Hier unterscheiden wir zunächst zwischen den \textit{public} und \textit{private} Modifiern. Der \textit{public} Modifier erlaubt es, dass die Methode aus einer
+    anderen beliebigen Klasse aufgerufen werden kann. Im Gegensatz dazu kann eine Methode mit dem \textit{private} Modifier nur innerhalb der selben Klasse aufgerufen werden.
+    Somit ist es beispielsweise möglich, dass die Methode \textit{foo} in der Klasse A die Methode \textit{bar} von der Klasse B aufruft, während Klasse A jedoch die \textit{power} Methode
+    der Klasse B nicht sehen kann.
+    \item Datentyp: Dieser gibt an, welche Art von Rückgabe die Methode liefert. Die Rückgabe selber wird durch das Keyword \textit{return} signalisiert.
+    \item \textit{return}:
+    Nachdem \textit{return} aufgerufen wurde, wird sofort zu der aufrufenden Methode zurückgesprungen.\\
+    Beispiel: Wenn die Methode \textit{bar} mit Parametern \textit{a = 5, b = 2} aufgerufen wird, ist die IF-Condition erfüllt und es wird sofort \textit{true} zurückgegeben.
+    Dadurch wird die darunterliegende Zeile nicht ausgeführt.
+    \item \textit{this}: Das \textit{this} Keyword erlaubt ist eine Referenz auf das aktuelle Objekt. Im Bezug auf die Felder der Klasse und auf das obige Code Beispiel erlaubt uns das 
+    \textit{this} Keyword beispielsweise auf das Feld mit dem Namen \textit{b} zuzugreifen, auch wenn der Name doppelt verwendet wird. Wenn wir die Methode \textit{bar} mit Parametern 
+    \textit{a = 5, b = 7} aufrufen, können wir mit \textit{b} auf den Wert 7 und mit \textit{this.b} auf den Wert 9 zugreifen.
+\end{enumerate}
+
+\end{Infobox}
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{3}
+    \item Anstatt Neo \textit{manuell} drei Mal im Uhrzeigersinn drehen zu lassen, wollen wir nun die fehlende Methode \textit{turnCounterClockwise()}
+    implementieren. Finde dafür zunächst die richtige Klasse und die dazugehörige Methode. \par
+    Implementiere anschließend die fehlende Methode \textit{turnCounterClockwise()}. Im Folgenden wird die Syntax beispielshaft vorgegeben:
     \begin{lstlisting}
 //Class Neo
 public void moveTwoBlocks() {
