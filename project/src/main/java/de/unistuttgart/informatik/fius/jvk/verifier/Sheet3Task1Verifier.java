@@ -16,6 +16,9 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.Line;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
 import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
 
 
@@ -36,7 +39,8 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     private BasicTaskInformation taskG = new BasicTaskInformation("g)", "Walk 10 steps and pick up a maximum of 5 coins per field");
     private BasicTaskInformation taskH = new BasicTaskInformation("h)", "Walk and pick up every coin on the fields you walk over.");
     
-    private ActionLog actionLog;
+    private ActionLog  actionLog;
+    private Simulation sim;
     
     public Sheet3Task1Verifier() {
         
@@ -52,87 +56,102 @@ public class Sheet3Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskG);
         subTasks.add(this.taskH);
         this.task = new BasicTaskInformation("Sheet 1 Task 5", "Learn how to use the Playfield modifier.", subTasks);
+        this.sim = sim;
     }
     
     @Override
     public void attachToSimulation(Simulation sim) {
+        
         this.actionLog = sim.getActionLog();
         //System.out.println("test2");
         preparePlayingField(sim);
     }
     
     private void preparePlayingField(Simulation sim) {
+        
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        pm.placeEntityAt(new Coin(), new Position(30, 5));
-        for (int i = 0; i < 100; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 61));
+        new Rectangle(new Position(-1, 1), new Position(6, 3)).forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
+        pm.placeEntityAt(new Wall(), new Position(-1, 4));
+        pm.placeEntityAt(new Wall(), new Position(11, 4));
+        new Rectangle(new Position(-1, 5), new Position(11, 7))
+                .forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
+        new Line(new Position(7, 3), new Position(11, 3)).forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
+        pm.placeEntityAt(new Coin(), new Position(30, 2));
+        
+        for (int i = 0; i < 15; i++) {
+            pm.placeEntityAt(new Coin(), new Position(30, 18));
         }
-        for (int i = 0; i < 9; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 76));
+        for (int i = 0; i < 8; i++) {
+            pm.placeEntityAt(new Coin(), new Position(40, 18));
+        }
+        
+        //f)
+        for (int i = 0; i < 15; i++) {
+            pm.placeEntityAt(new Coin(), new Position(0, 2));
         }
         
         //g)
         for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 77));
+            pm.placeEntityAt(new Coin(), new Position(1, 4));
         }
-        for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 78));
+        for (int i = 0; i < 7; i++) {
+            pm.placeEntityAt(new Coin(), new Position(2, 4));
         }
         for (int i = 0; i < 2; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 79));
+            pm.placeEntityAt(new Coin(), new Position(3, 4));
         }
-        for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 80));
+        for (int i = 0; i < 9; i++) {
+            pm.placeEntityAt(new Coin(), new Position(4, 4));
         }
-        for (int i = 0; i < 3; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 81));
-        }
-        for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 82));
+        for (int i = 0; i < 6; i++) {
+            pm.placeEntityAt(new Coin(), new Position(5, 4));
         }
         for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 83));
+            pm.placeEntityAt(new Coin(), new Position(6, 4));
         }
-        for (int i = 0; i < 1; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 84));
+        for (int i = 0; i < 2; i++) {
+            pm.placeEntityAt(new Coin(), new Position(7, 4));
         }
         for (int i = 0; i < 0; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 85));
+            pm.placeEntityAt(new Coin(), new Position(8, 4));
         }
-        for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 86));
+        for (int i = 0; i < 8; i++) {
+            pm.placeEntityAt(new Coin(), new Position(9, 4));
+        }
+        for (int i = 0; i < 1; i++) {
+            pm.placeEntityAt(new Coin(), new Position(10, 4));
         }
         
         //h)
         for (int i = 0; i < 7; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 87));
+            pm.placeEntityAt(new Coin(), new Position(1, 6));
         }
         for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 88));
+            pm.placeEntityAt(new Coin(), new Position(2, 6));
         }
         for (int i = 0; i < 6; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 89));
+            pm.placeEntityAt(new Coin(), new Position(3, 6));
         }
         for (int i = 0; i < 12; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 90));
+            pm.placeEntityAt(new Coin(), new Position(4, 6));
         }
         for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 91));
+            pm.placeEntityAt(new Coin(), new Position(5, 6));
         }
         for (int i = 0; i < 0; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 92));
+            pm.placeEntityAt(new Coin(), new Position(6, 6));
         }
         for (int i = 0; i < 10; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 93));
+            pm.placeEntityAt(new Coin(), new Position(7, 6));
         }
         for (int i = 0; i < 1; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 94));
+            pm.placeEntityAt(new Coin(), new Position(8, 6));
         }
         for (int i = 0; i < 8; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 95));
+            pm.placeEntityAt(new Coin(), new Position(9, 6));
         }
         for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 96));
+            pm.placeEntityAt(new Coin(), new Position(10, 6));
         }
     }
     
@@ -140,246 +159,62 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     public void verify() {
         //System.out.println("test3");
         
-        ArrayList<Action> actions = (ArrayList<Action>) this.actionLog.getAllActions();
+        List<EntityStepAction> stepActions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
+        List<Position> stepPositions = new ArrayList<>();
+        stepActions.forEach(stepAction -> stepPositions.add(stepAction.to()));
+        if (stepPositions.contains(new Position(10, 0)) && (!stepPositions.contains(new Position(11, 0)))) {
+            this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
         
-        Comparator<Action> actionCompartor = new Comparator<Action>() {
-            
-            @Override
-            public int compare(Action o1, Action o2) {
-                // TODO Auto-generated method stub
-                return Long.compare(o1.getTickNumber(), o2.getTickNumber());
+        if ((getNumberOfCoinsAtPosition(30, 2) == 0) && (getNumberOfCoinsAtPosition(30, 14) == 1)) {
+            this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        if (
+            (getNumberOfCoinsAtPosition(30, 18) == 3) && (getNumberOfCoinsAtPosition(40, 18) == 5)
+                    && (getNumberOfCoinsAtPosition(45, 18) == 1)
+        ) {
+            this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        boolean taskFFlag = true;
+        for (int i = 1; i < 6; i++) {
+            if (getNumberOfCoinsAtPosition(i, 2) != i) {
+                taskFFlag = false;
             }
-            
+        }
+        
+        if (taskFFlag) {
+            this.taskF = this.taskF.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        
+
+        if((getNumberOfCoinsAtPosition(1, 4)==0)
+           &&(getNumberOfCoinsAtPosition(2, 4)==2)
+           &&(getNumberOfCoinsAtPosition(3, 4)==0)
+           &&(getNumberOfCoinsAtPosition(4, 4)==4)
+           &&(getNumberOfCoinsAtPosition(5, 4)==1)
+           &&(getNumberOfCoinsAtPosition(6, 4)==0)
+           &&(getNumberOfCoinsAtPosition(7, 4)==0)
+           &&(getNumberOfCoinsAtPosition(8, 4)==0)
+           &&(getNumberOfCoinsAtPosition(9, 4)==3)
+           &&(getNumberOfCoinsAtPosition(10, 4)==0)) {
+            this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         };
         
-        actions.sort(actionCompartor);
         
-        List<Class> solutionClasses = new ArrayList<Class>();
-        
-        //spawning
-        for (int i = 0; i < 202; i++) {
-            solutionClasses.add(EntitySpawnAction.class);
-        }
-        
-        //b) and c)
-        for (int i = 0; i < 10; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        int cBorder = solutionClasses.size();
-        
-        //d)
-        solutionClasses.add(EntityTurnAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        solutionClasses.add(EntityTurnAction.class);
-        solutionClasses.add(EntityTurnAction.class);
-        solutionClasses.add(EntityTurnAction.class);
-        for (int i = 0; i < 20; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        solutionClasses.add(EntityDespawnAction.class);
-        solutionClasses.add(EntityCollectAction.class);
-        solutionClasses.add(EntityTurnAction.class);
-        for (int i = 0; i < 56; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        solutionClasses.add(EntitySpawnAction.class);
-        solutionClasses.add(EntityDropAction.class);
-        
-        int dBorder = solutionClasses.size();
-        //e)
-        for (int i = 0; i < 72; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        for (int i = 0; i < 10; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        for (int i = 0; i < 72; i++) {
-            solutionClasses.add(EntitySpawnAction.class);
-            solutionClasses.add(EntityDropAction.class);
-        }
-        for (int i = 0; i < 42; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityStepAction.class);
-        }
-        solutionClasses.add(EntitySpawnAction.class);
-        solutionClasses.add(EntityDropAction.class);
-        int eBorder = solutionClasses.size();
-        //f)
-        for (int i = 0; i < 14; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        for (int i = 1; i < 6; i++) {
-            solutionClasses.add(EntityStepAction.class);
-            for (int k = 0; k < i; k++) {
-                solutionClasses.add(EntitySpawnAction.class);
-                solutionClasses.add(EntityDropAction.class);
-            }
-        }
-        int fBorder = solutionClasses.size();
-        
-        //g)
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 4; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 2; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 4; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 3; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 1; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 0; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        int gBorder = solutionClasses.size();
-        
-        //h)
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 7; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 5; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 6; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 12; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 4; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 0; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 10; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 1; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 8; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        solutionClasses.add(EntityStepAction.class);
-        for (int i = 0; i < 4; i++) {
-            solutionClasses.add(EntityDespawnAction.class);
-            solutionClasses.add(EntityCollectAction.class);
-        }
-        
-        //solutionClasses.forEach(a -> System.out.println(a));
-        // subtask b)
-        
-        List<Class> actionClasses = new ArrayList<Class>();
-        actions.forEach(a -> actionClasses.add(a.getClass()));
-        
-        if (actionClasses.size() > cBorder + 1) {
-            if (
-                (actionClasses.subList(0, cBorder).equals(solutionClasses.subList(0, cBorder)))
-                        && (actionClasses.get(cBorder + 1) == EntityTurnAction.class)
-            ) {
-                this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-                this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-            }
-        } else if ((actionClasses.size() == cBorder)) {
-            if (
-                (actionClasses.subList(0, cBorder).equals(solutionClasses.subList(0, cBorder)))
-            
-            ) {
-                this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-                this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        boolean taskHFlag = true;
+        for (int i = 1; i < 11; i++) {
+            if (getNumberOfCoinsAtPosition(i, 6) != 0) {
+                taskHFlag = false;
             }
         }
         
-        if (actionClasses.size() > dBorder) {
-            if ((actionClasses.subList(0, dBorder).equals(solutionClasses.subList(0, dBorder)))) {
-                this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-            }
-        }
-        
-        if (actionClasses.size() > eBorder) {
-            if ((actionClasses.subList(0, eBorder).equals(solutionClasses.subList(0, eBorder)))) {
-                this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-            }
-        }
-        
-        if (actionClasses.size() > fBorder) {
-            if ((actionClasses.subList(0, fBorder).equals(solutionClasses.subList(0, fBorder)))) {
-                this.taskF = this.taskF.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-            }
-        }
-        
-        if (actionClasses.size() > gBorder) {
-            if ((actionClasses.subList(0, gBorder).equals(solutionClasses.subList(0, gBorder)))) {
-                this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-            }
-        }
-        if (actionClasses.equals(solutionClasses)) {
+        if (taskHFlag) {
             this.taskH = this.taskH.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
-        
         
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
@@ -391,6 +226,16 @@ public class Sheet3Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskG);
         subTasks.add(this.taskH);
         this.task = this.task.updateSubTasks(subTasks);
+    }
+    
+   
+    
+    private int getNumberOfCoinsAtPosition(int x, int y) {
+        return getNumberOfCoinsAtPosition(new Position(x, y));
+    }
+    
+    private int getNumberOfCoinsAtPosition(Position pos) {
+        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Coin.class, true).size();
     }
     
     @Override
