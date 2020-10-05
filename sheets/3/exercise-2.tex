@@ -61,7 +61,8 @@ Wenn mehrere Bedingungen für ein Ereigniss eine Rolle spielen muss man diese Lo
 \end{center}
 Ein paar Beispiele:
 \begin{lstlisting}
-if ( neo.canMove() && (neo.countCoins==7) ){
+if ( neo.canMove() && (neo.countCoins()==7) ){
+
 	//neo hat genau 7 Münzen UND kann nach vorne gehen.
 }
 \end{lstlisting}
