@@ -1,13 +1,70 @@
-    \excercise{Anwendung von Schleifen und If-Anweisungen}
-            \subexcercise Morpheus musste untertauchen. Aber damit Neo ihn finden kann, hat er einen Pfad aus Pillen gelegt. Immer wenn Neo auf einem Feld steht, auf dem eine rote Pille liegt, muss er nach rechts abbiegen.
-
-            \textbf{Extra für diese Aufgabe} stellen wir eine spezielle Operation \texttt{Neo.peakPill()} zur Verfügung, die die Pille zurück gibt, die auf dem selben Feld liegt, auf dem Neo gerade steht. Die Operation gibt null zurück, wenn Neo auf einem Feld steht, auf dem es keine Pille gibt.
-
-            Außerdem kann man die Pille mit der Query \texttt{getColor()} fragen, welche Farbe sie hat.
-            Die Query gibt \texttt{Color.RED} zurück, wenn die Pille rot ist und \texttt{Color.BLUE}, wenn die Pille blau ist.
-
-            Neo muss solange suchen, bis er auf eine Telefonzelle trifft.
-
-            \subexcercise Die Agenten sind Morpheus auf der Spur. Er muss den Weg komplizierter machen. Zusätzlich zu den roten Pillen gibt es jetzt auch blaue Pillen. Wenn man auf einem Feld steht, das eine blaue Pille enthält, muss Neo nach links abbiegen.
-
-            \textbf{Diese Aufgabe} enthält wieder die Operation \texttt{Neo.peakPill()}. Außerdem bauen wir das Level so, dass es kein Feld gibt, auf dem sowohl eine blaue, als auch eine rote Pille liegt.
+\excercise{Methode}
+\subsection*{a)}
+	Passe die Main Methode an die Aufgabe an.
+\subsection*{b)}
+	Lass Neo das folgende Muster laufen:\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe einen Schritt\\
+	- drehe dich nach links\\
+	- laufe 3 Schritte\\
+	- drehe dich nach links\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe einen Schritt\\
+	- drehe dich nach links.
+\subsection*{c)}
+	Laufe das Muster aus b) 3 Mal hintereinander.
+\subsection*{d)}
+	\begin{Infobox}[Operation]
+		Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. Stattdessen kann man den Code in eine Operation auslagern. Dann kann man den gesammten Code in nur einer Zeile  aufrufen.
+				\begin{lstlisting}
+public class DemoTask implements Task {
+    
+    @Override
+    public void run(Simulation sim) {
+        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
+        Neo neo = new Neo();
+        pm.placeEntityAt(neo, new Position(0, 0));
+     
+        moveThreeStepsBackward(neo); //neo moves back three Steps
+        neo.turnClockWise(); //neo turns right
+        moveThreeStepsBackward(neo); //neo moves back three Steps
+	
+        
+    }
+    
+    public void moveThreeStepsBackward(Neo neo) {
+        //turn around
+        neo.turnClockWise();
+        neo.turnClockWise();
+        //move three times
+        neo.move();
+        neo.move();
+        neo.move();
+        //turn around
+        neo.turnClockWise();
+        neo.turnClockWise();
+    }
+    
+}
+		\end{lstlisting}
+void heißt, dass diese Operation keinen Rückgabewert hat. Wir werden vorerst nur void Operationen verwenden. Das (Neo neo) heißt dass wir den Neo übergeben müssen der sich bewegen soll. Mehr dazu in Aufgabe 4. Das public könnt ihr vorerst ignorieren.
+ 	\end{Infobox}
+Lagere nun den Code aus b) in die gegebene Operation movePatern aus.
+\subsection*{e)}
+rufe nun movePatern(neo); drei mal auf.
+\subsection*{f)}
+Schreibe die folgende Operation in Sheet3Task3.
+\begin{lstlisting}
+private void dropFourCoinsAndTurnLeft(Neo neo) {
+    //write the Code for f) here
+    //make neo drop four coins
+    //make neo turn Left
+}
+\end{lstlisting}
+Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen. Schreibe den passenden Code in die Operation.
+\subsection*{g)}
+führe dropFourCoinsAndTurnLeft 4 mal aus.
