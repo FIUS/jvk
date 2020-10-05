@@ -17,7 +17,6 @@ public class Sheet3Task1 implements Task {
     
     @Override
     public void run(Simulation sim) {
-        // Implementation here
         
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         
@@ -25,12 +24,15 @@ public class Sheet3Task1 implements Task {
         Neo neo = new Neo();
         pm.placeEntityAt(neo, new Position(0, 0));
         
+        //use this neo for f)
         Neo neoF = new Neo();
         pm.placeEntityAt(neoF, new Position(0, 2));
         
+        //use this neo for g)
         Neo neoG = new Neo();
         pm.placeEntityAt(neoG, new Position(0, 4));
         
+        //use this neo for h)
         Neo neoH = new Neo();
         pm.placeEntityAt(neoH, new Position(0, 6));
         
