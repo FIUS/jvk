@@ -40,8 +40,10 @@ class PDFElement{
               \begin{itemize}
                   \item Als ersatz für Nicht verwendetet Leerzeichen schreibt man einfach das nächste Wort Groß. Beispiel: \q{create green box} \textrightarrow \q{createGreenBox}
                   \item Klassen sind in Java quasi die Nomen und sollten Groß geschreiben werden. Alles andere Klein.
+                  %TODO nomen rausnehmen ?
                   \item Namen sollten aus ganzen Wörtern bestehen. Ausgenommen es ist eine sehr übliche bezeichnung wie \texttt{URL} oder \texttt{HTML}.\\
                   Außerdem wird bei manchen Variablen einzelne buchstaben wie \texttt{i,j,k,m,n,c,d,e} verwendet. Solche stellen kommen Später.
+                  %TODO: sollte das drin sein?
                   \item Operationen sollten Verben sein.
                   \item Queries beginnen häufig mit \texttt{get}
                   \item Kommandos beginnen häufig mit \texttt{set}, wenn sie dazu dienen direkt einen Wert zu setzen.
@@ -57,7 +59,9 @@ class PDFElement{
           \begin{lstlisting}[title=\textbf{Variablen Syntax}]
     <Typ>
           \end{lstlisting}
-    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \glqq alle\grqq\ Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
+
+    %TODO: Textverbessern und unerwünschte Worte ersetzen. Vor allem geht es hier nur um bestimmte befehle.
+    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \q{alle} Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
           \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=4]
         <Operation Name>();
         new <Typ Name>();
