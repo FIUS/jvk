@@ -9,6 +9,8 @@
  */
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
+import java.util.List;
+
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionAttribute;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionMethod;
 import de.unistuttgart.informatik.fius.jvk.Texture;
@@ -68,6 +70,14 @@ public class Neo extends Human {
     @InspectionAttribute
     protected boolean canCollectCoin() {
         return this.getCurrentlyCollectableEntities(Coin.class, true).size() > 0;
+    }
+    
+    /**
+     * 
+     * @return a List of all Coins on Neos field 
+     */
+    public List<Coin> getCurrentlyCollectableCoins(){
+        return this.getCurrentlyCollectableEntities(Coin.class, true);
     }
 
     /**
