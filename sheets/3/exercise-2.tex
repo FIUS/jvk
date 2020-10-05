@@ -2,25 +2,7 @@
 	\subsection*{a)}
 		Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}.
 	\subsection*{b)}
-		Wir möchten wissen wie viele Münzen auf dem Feld sind auf dem sich Neo befindet. Dafür heben wir so lange immer eine Münze auf bis sich keine Münzen mehr auf dem Feld befinden. Wenn wir die aufgehobenen Münzen zählen können wir somit 				herausfinden wie viele Münzen auf dem Feld sind.
-		\begin{lstlisting}
-/**
-*
-* @param neo the neo whose Position is to be used
-* @return the number of coins on the Field that neo stands on
-*/
-public int countCoins(Neo neo){
-	int coins = 0;				//Zählvariable auf 0 setzen
-	while(neo.canCollectCoin()){//wenn Neo eine Münze aufheben kann
-		neo.collectCoin();		//hebe eine Münze auf
-		coins++;				//und erhöhe die Zählvariable um 1
-	}
-	for(int i = 0; i < coins; i++){ 	//lässt alle aufgesammelten
-		neo.dropCoin();					//Münzen wieder fallen.
-	}		//denn eine Abfrage sollte nicht das Spielfeld verändern
-	return coins;				//gebe als Ergebniss die 
-}								//Zählvariable zurück
-\end{lstlisting}
+		Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen die auf Neos aktuellem Feld liegen. Eine Liste hat eine Größe die angibt wie viele Elemente sie enthält. Die Größe der Liste aller Münzen entspricht genau der Anzahl der Münzen auf Neos aktuellem Feld. Die Größe kann abgefragt werden mit \lstinline{list.size()}. Also muss man um die Anzahl der Münzen auf Neos Feld abzufragen \lstinline{neo.getCurrentlyCollectableCoins().size()} ausführen.
 
 \begin{Infobox}[If-Conditions 2]
 If-Conditions kennt ihr ja schon. Diese können auch dazu verwendet Zahlen (z.B Integer) miteinander zu vergleichen.
