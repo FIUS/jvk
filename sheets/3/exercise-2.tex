@@ -30,7 +30,7 @@ Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat
 
 Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
 \begin{lstlisting}
-if ( countCoins(neo) == 3 ){
+if ( getCoinCountOnField(neo) == 3 ){
 	System.out.println("neo hat genau 3 Münzen!");
 }
 \end{lstlisting}
@@ -61,20 +61,20 @@ Wenn mehrere Bedingungen für ein Ereigniss eine Rolle spielen muss man diese Lo
 \end{center}
 Ein paar Beispiele:
 \begin{lstlisting}
-if ( neo.canMove() && (neo.countCoins()==7) ){
+if ( neo.canMove() && (neo.getCoinCountOnField()==7) ){
 
 	//neo hat genau 7 Münzen UND kann nach vorne gehen.
 }
 \end{lstlisting}
 
 \begin{lstlisting}
-if ( (!neo.canMove()) && (neo.countCoins==7) ){
+if ( (!neo.canMove()) && (neo.getCoinCountOnField()==7) ){
 	//neo hat genau 7 Münzen UND kann sich NICHT nach vorne gehen.
 }
 \end{lstlisting}
 
 \begin{lstlisting}
-if ( neo.canMove() || (neo.countCoins==7) ){
+if ( neo.canMove() || (neo.getCoinCountOnField()==7) ){
 	//neo hat genau 7 Münzen ODER kann nach vorne gehen.
 }
 \end{lstlisting}
