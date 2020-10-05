@@ -9,33 +9,21 @@
 		Wir wollen nun anstatt die selbe Operation n-mal untereinander schreiben zu müssen um sie genau n-mal zu wiederholen, diesen Prozess vereinfachen.
 		Dazu verwenden wir eine for-Schleife. 
 		\begin{lstlisting}
-public void moveFiveTimes() {
-	this.move();
-	this.move();
-	this.move();
-	this.move();
-	this.move();
-}
+//here neo moves five times
+this.move();
+this.move();
+this.move();
+this.move();
+this.move();
 		\end{lstlisting}
 		ist equivalent zu:
 		\begin{lstlisting}
-public void moveFiveTimes() {
-	for (int i = 0; i < 5; i++) {
-		this.move();
-	}
+//this moves neo five times
+for (int i = 0; i < 5; i++) {
+	this.move();
 }
 		\end{lstlisting}
-Eine For-Schleife funktioniert (zumindest in Java) wie eine While-Schleife mit einer zusätzlichen Variable die sich jeden Schleifendurchlauf verändert.
-Die obige if Schleife ist z.B. äquivalent zu:
-		\begin{lstlisting}
-public void moveFiveTimes() {
-	int i = 0;
-	while (i < 5) {
-		this.move();
-		i++;
-	}
-}
-		\end{lstlisting}
+ \lstinline{int i = 0} setzt die Variable i anfangs auf 0.  \lstinline{i++} heißt, dass I jeden Schleifendurchlauf hochgezählt wird. Es wird jeden Schleifendurchlauf überprüft, ob  \lstinline{i < 5} gilt. Falls ja wird noch ein Schleifendurchlauf ausgeführt. falls nicht ist ist die Schleife beedet. Die obige Schleife wird insgesammt 5 mal ausgeführt.
  \end{Infobox}
 
 \subsection*{c)}
