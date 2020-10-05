@@ -55,7 +55,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskF);
         subTasks.add(this.taskG);
         subTasks.add(this.taskH);
-        this.task = new BasicTaskInformation("Sheet 1 Task 5", "Learn how to use the Playfield modifier.", subTasks);
+        this.task = new BasicTaskInformation("Sheet 3 Task 1", "Loops.", subTasks);
         this.sim = sim;
     }
     
