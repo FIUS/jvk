@@ -17,7 +17,6 @@ public class Sheet3Task1 implements Task {
     
     @Override
     public void run(Simulation sim) {
-        
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         
         // use this neo for b), c) and d) and e)
