@@ -14,6 +14,7 @@
 % Packages %
 %%%%%%%%%%%%
 \RequirePackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{tikz}
 \RequirePackage{minibox}
@@ -27,6 +28,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage{xcolor}
+\usetikzlibrary{positioning,backgrounds}
 
 %infobox
 \RequirePackage[many]{tcolorbox}
@@ -43,7 +45,8 @@
 \definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
 \definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
 \definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
-
+\definecolor{javablue}{rgb}{0.0,0.0,1.0}
+\definecolor{unimportentgrey}{rgb}{0.6,0.6,0.6}
 %%%%%%%%%%%%
 % listings %
 %%%%%%%%%%%%
@@ -61,6 +64,8 @@
   keywordstyle=\color{javapurple}\bfseries,
   stringstyle=\color{javared},
   commentstyle=\color{javagreen},
+  identifierstyle=\color{javablue},
+  keywordstyle=[2]{\color{javared}},
   morecomment=[s][\color{javadocblue}]{/**}{*/},
   numbers=left,
   numberstyle=\footnotesize\color{black},
@@ -69,8 +74,32 @@
   tabsize=4,
   showspaces=false,
   showstringspaces=false,
-  frame=single
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space},
+  escapechar=§
 }
+
+
+\let\origthelstnumber\thelstnumber
+    \makeatletter
+    \newcommand*\Suppressnumber{
+      \lst@AddToHook{OnNewLine}{
+        \let\thelstnumber\relax
+         \advance\c@lstnumber-\@ne\relax
+        }
+    }
+    
+    \newcommand*\Reactivatenumber{
+      \lst@AddToHook{OnNewLine}{
+       \let\thelstnumber\origthelstnumber
+       \advance\c@lstnumber\@ne\relax}
+    }
+
+%%%%%%%%
+% Misc %
+%%%%%%%%
+\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
 
 %%%%%%%%%%%%%%
 % Main Title %
@@ -94,11 +123,14 @@
   \ifthenelse{\value{excerciseCounter}=1}{}{
   \vspace{2em}
   }
-  \large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
+  \section{#1}
+  %\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
   \medskip
 }
-\newcounter{subexcerciseCounter}
-\newcommand{\subexcercise}{\stepcounter{subexcerciseCounter}\alph{subexcerciseCounter}}
+\makeatletter
+\renewcommand\thesection{Aufgabe \@arabic\c@section:}
+\makeatother
+\setenumerate{label=\alph*)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Automatic Document inclusion %
@@ -208,26 +240,6 @@
   },
 }
 \renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
-%\begin{bclogo}[
-%  couleur=bgblue,
-%  arrondi=0,
-%  logo=\bcbombe,
-%  barre=none,
-%  noborder=true]{Commom Programming Error}
-%\itshape\lipsum[4]
-%\end{bclogo}
-
-%\begin{mdframed}[style=mystyle,frametitle=Web addresses in text]
-%\lipsum[4]
-%\end{mdframed}
-
-%\begin{myboxi}[Web addresses in text]
-%\lipsum[4]
-%\end{myboxi}
-
-%\begin{myboxii}[Web addresses in text]
-%\lipsum[4]
-%\end{myboxii}
 
 
 %%%%%%%%%%%%%%%%%%%%%%
@@ -240,6 +252,6 @@
   \maketitle
   \prepart
   \pagestyle{fancy}
-        \addexcercise
+      \addexcercise
     \end{document}
   }
