@@ -1,5 +1,6 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
+import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.ActionLog;
@@ -27,7 +28,7 @@ public class Sheet2Task4VerifierC implements TaskVerifier {
 
     @Override
     public void verify() {
-        if(sim.getPlayfield().getEntitiesAt(new Position(2,2)).size > 5){
+        if(sim.getPlayfield().getEntitiesAt(new Position(2,2)).size() > 5){
             this.task = this.task.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
     }

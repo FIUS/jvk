@@ -16,7 +16,6 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.tasks.SubTask;
 
 
 public class Sheet2Task6Verifier implements TaskVerifier {

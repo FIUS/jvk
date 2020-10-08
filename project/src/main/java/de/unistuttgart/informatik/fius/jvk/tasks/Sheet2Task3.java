@@ -15,7 +15,17 @@ public class Sheet2Task3 implements Task{
         Neo player = new Neo();
         pm.placeEntityAt(player, new Position(0, 0));
         buildEnvironment(pm);
-        movement(player);
+        
+        //implement subtask here
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
+        player.move();
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
@@ -28,18 +38,5 @@ public class Sheet2Task3 implements Task{
         
         //Place Wall between the player and the phone booth
         pm.placeEntityAt(new Wall(), new Position(5, 0));
-    }
-
-    private void movement(Neo player){
-        //implement subtask here
-        player.move();
-        player.move();
-        player.move();
-        player.move();
-        player.move();
-        player.move();
-        player.move();
-        player.move();
-        player.move();
     }
 }
