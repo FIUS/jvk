@@ -9,10 +9,8 @@ Ziel dieser Aufgabe ist es, die Syntax und die Funktion der While-Schleife genau
 \begin{Infobox}[While Schleife]
     Wir betrachten eine beispielhafte While Schleife
     \begin{lstlisting}[breaklines=true, numbers=none]
-int i = 0;
-while(i < 3){
-    System.out.println(i);
-    i = i + 1;
+while(player.canMove()){
+    player.move();
 }
     \end{lstlisting}
     While Schleifen prüfen jeweils vor Ausführung des Schleifenrumpfes ob die gegebene Bedinung noch erfüllt ist. In unserem Beispiel 
