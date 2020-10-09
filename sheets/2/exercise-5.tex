@@ -20,12 +20,8 @@ while(player.canMove()){
     Eine für uns relevantere Funktion wäre das Aufheben von einer unbekannten Anzahl an Münzen. Diese kann mittels einer While Schleife wie folgt 
     realisiert werden:
     \begin{lstlisting}[breaklines=true, numbers=none]
-Position coinPosition = //todo
-Iterator<Coin> collectableCoins = sim.getPlayfield().
-    getEntitiesOfTypeAt(coinPosition, Coin.class, true).
-    iterator();
-while(collectableCoins.hasNext()){
-    player.collect(collectableCoins.next());
+while(player.canPickupCoin()) {
+    player.pickupCoin();
 }
     \end{lstlisting}
     Dabei werden zunächst alle Münzen an einer bestimmten Position aufgezählt. Die Aufzählung selber findet mit Hilfe 
