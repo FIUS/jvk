@@ -15,23 +15,18 @@ while(i < 3){
     i = i + 1;
 }
     \end{lstlisting}
-    While Schleifen prüfen jeweils vor Ausführung des Schleifenrumpfes ob die gegebene Bedinung noch erfüllt ist. In unserem Beispiel 
+    While Schleifen prüfen jeweils vor Ausführung des Schleifeninneren, ob die gegebene Bedinung noch erfüllt ist. In unserem Beispiel 
     wird also zunächst geprüft ob \textit{i \textless 3} mit dem Initialwert \textit{i = 0} gilt. Da dies erfüllt ist, wird der aktuelle Wert von \textit{i}
     ausgegeben und inkrementiert. Nach der dritten Iteration ist der Wert von \textit{i} gleich 3, wodurch die obige Bedinung nicht mehr erfüllt ist
-    und die Schleife terminiert.\par 
+    und die Schleife nicht weiter ausgeführt wird.\par 
     Eine für uns relevantere Funktion wäre das Aufheben von einer unbekannten Anzahl an Münzen. Diese kann mittels einer While Schleife wie folgt 
     realisiert werden:
     \begin{lstlisting}[breaklines=true, numbers=none]
-Position coinPosition = //todo
-Iterator<Coin> collectableCoins = sim.getPlayfield().
-    getEntitiesOfTypeAt(coinPosition, Coin.class, true).
-    iterator();
-while(collectableCoins.hasNext()){
-    player.collect(collectableCoins.next());
+while(player.canCollectCoin()){
+    player.collectCoin();
 }
     \end{lstlisting}
-    Dabei werden zunächst alle Münzen an einer bestimmten Position aufgezählt. Die Aufzählung selber findet mit Hilfe 
-    des Iterators statt, welche uns hier jetzt nicht weiter interessieren soll. Anschließend prüfen wir mit der Schleifenbedinung
+    Dabei prüfen wir mit der Schleifenbedinung
     jeweils, ob es noch weitere Münzen gibt die wir aufheben können und heben diese ggfs. in dem Schleifenrumpf auf.
 \end{Infobox}
 
@@ -39,6 +34,7 @@ while(collectableCoins.hasNext()){
     \item Betrachte die Methode \textit{run} in der Klasse \textit{Sheet2Task5}. Übernehme die obige While Schleife um 
     alle Münzen auf dem Feld vor Neo aufzuheben.
     \item Platziere alle Münzen auf dem rechten mittleren Spielfeld an der Wand. Implementiere das Verhalten in der \textit{run} Methode.
+    Hier können die Methoden \lstinline{canDropCoin()} und \lstinline{dropCoin()} genutzt werden.
     \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur. Implementiere das Verhalten in der \textit{run} Methode so, dass 
     auf jedem Feld der Spur genau eine Münze liegt.
     \item Nun soll eine leicht kompliziertere Spur gezeichnet werden (weiterhin die mittlere Spur). Platziere auf dem ersten Spielfeld (von links gezählt)
