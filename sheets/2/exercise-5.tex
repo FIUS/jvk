@@ -9,10 +9,8 @@ Ziel dieser Aufgabe ist es, die Syntax und die Funktion der While-Schleife genau
 \begin{Infobox}[While Schleife]
     Wir betrachten eine beispielhafte While Schleife
     \begin{lstlisting}[breaklines=true, numbers=none]
-int i = 0;
-while(i < 3){
-    System.out.println(i);
-    i = i + 1;
+while(player.canMove()){
+    player.move();
 }
     \end{lstlisting}
     While Schleifen prüfen jeweils vor Ausführung des Schleifeninneren, ob die gegebene Bedinung noch erfüllt ist. In unserem Beispiel 
@@ -37,9 +35,8 @@ while(player.canCollectCoin()){
     Hier können die Methoden \lstinline{canDropCoin()} und \lstinline{dropCoin()} genutzt werden.
     \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur. Implementiere das Verhalten in der \textit{run} Methode so, dass 
     auf jedem Feld der Spur genau eine Münze liegt.
-    \item Nun soll eine leicht kompliziertere Spur gezeichnet werden (weiterhin die mittlere Spur). Platziere auf dem ersten Spielfeld (von links gezählt)
-    eine Münze, auf dem zweiten zwei usw.
+    \item Platziere nun auf jedem Feld der selben Spur exakt 3 Münzen.
     \item Hier soll die selbe Spur wie in Teilaufgabe \textit{d)} gezeichnet werden, nur dass die geraden Felder übersprungen werden.
-    \item Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert 
+    \item Optional: Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert 
     werden.
 \end{enumerate}

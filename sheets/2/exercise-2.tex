@@ -6,8 +6,42 @@ Dabei soll Neo in einem potenziell gefährlichen Szenario so schnell wie möglic
     und den Verifier aus \lstinline{Sheet2Task2Verifier}.
     \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
     Betrachte die Klasse \lstinline{Sheet2Task2} mit der Methode \lstinline{run} an der markierten Stelle. Überlege dir wie man an Tank's Stelle 
-    ein solches Hindernis an einer geeigneten Stelle platzieren kann.\par
+    ein solches Hindernis an einer geeigneten Stelle platzieren kann. Hier kann eine beliebige Position ($x$, 0) für $1 \leq x \leq 9$ ausgewählt werden.
     Was passiert, wenn man nun die Simulation wie zuvor ausführt?
+\end{enumerate}
+\begin{Infobox}[Aufbau einer Exception]
+    Wir wollen nun den Aufbau einer Exception genauer verstehen. Dafür betrachten wir zunächst den folgenden Programmausschnitt:
+    \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
+public class Main{
+    //Programmeinstieg
+    public void main(){
+        //do stuff
+        divide(1, 0);
+    }
+    
+    public Integer divide(Integer a, Integer b){
+        return a / b;
+    }
+}
+    \end{lstlisting}
+    Dabei lässt sich erkennen, dass an irgendeinem Punkt der Programmausführung durch 0 geteilt wird.
+    Dieses ungewollte Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich
+    \begin{lstlisting}[keywords={}, breaklines=true, numbers=none]
+java.lang.ArithmeticException: / by zero
+    at de.unistuttgart.informatik.fius.jvk.Main.divide(Main.java:9)
+    at de.unistuttgart.informatik.fius.jvk.Main.main(Main.java:5)
+    \end{lstlisting}    
+    Im Folgenden wollen wir kurz über ein paar für uns interessante Inhalte der Exception reden:
+    \begin{enumerate}[label=\roman*)]
+        \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden. In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
+        \item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggfs. mehr Informationen über den Fehler selbst geben.
+        In unserem Fall ist die Nachricht \textit{"/ by zero"}.
+        \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet weiterhin Informationen, wo im Programm die Exception geflogen ist. Hier interessiert uns 
+        fürs erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception in der \lstinline{Main} Klasse und der \lstinline{divide}
+        Methode in Zeile 9 geflogen ist.
+    \end{enumerate}
+\end{Infobox}
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{2}
     \item Im Folgenden betrachten wir beispielhaft den Stacktrace einer Exception:
     \definecolor{ForestGreen}{rgb}{0.0, 0.5, 0.0}
     \begin{lstlisting}[keywords={}, breaklines=true, escapeinside={(*@}{@*)}]
@@ -23,20 +57,19 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
     \end{lstlisting}
     Dieser soll nun genauer analysiert werden:
     \begin{enumerate}
-        \item[i)] Welche Exception wurde geworfen und in welcher Klasse ist diese aufgetreten?
-        \item[ii)] Was für eine Struktur besitzt der Stacktrace? Welche Rolle spielt die Reihenfolge der Zeilen 2-10? 
+        \item[i)] Welche Exception wurde geworfen und was ist die Nachricht der Exception?
+        \item[ii)] In welcher Methode wurde die Exception geworfen?
         \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!  
     \end{enumerate}
     \item Jetzt soll die Exception behandelt werden.
     \begin{enumerate}
-        \item[i)] Welche ''linenumber'' aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{move()} Aufrufen jeweils
+        \item[i)] Optional: Welche ''linenumber'' aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{move()} Aufrufen jeweils
         Leerzeilen einfügt?  
         \item[ii)] Kommentiere in dem markierten Block zunächst so viele Zeilen aus, sodass keine Exception mehr auftritt. 
         Spielt die Reihenfolge der auskommentierten Zeilen eine Rolle?
     \end{enumerate}
     \item  Nun sollen keine Zeilen gelöscht oder auskommentiert werden, durch welche Methode muss \lstinline{move()} ersetzt werden, damit 
     denoch keine Exception auftritt?
-    \item Überlege dir möglichst viele verschiedene Methoden, wie man Neo trotz Hindernis zu der Telefonstation laufen lassen kann. 
-    Diese müssen hier noch nicht implementiert werden.
+    \item Überlege dir möglichst viele verschiedene Methoden um die Exception zu verhindern. Implementiere diese!
 \end{enumerate}
  

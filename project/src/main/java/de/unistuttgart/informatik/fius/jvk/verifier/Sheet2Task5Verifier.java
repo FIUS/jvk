@@ -89,7 +89,7 @@ public class Sheet2Task5Verifier implements TaskVerifier {
 
     private boolean testTaskE(){
         for(int i = 0; i < 10; i++){
-            if(sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 0), Coin.class, true).size() != i+1)
+            if(sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 0), Coin.class, true).size() != 3)
                 return false;
         }
         return true;
@@ -97,7 +97,7 @@ public class Sheet2Task5Verifier implements TaskVerifier {
 
     private boolean testTaskF(){
         for(int i = 0; i < 10; i++){
-            if(i % 2 == 0 && sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 0), Coin.class, true).size() != i+1)
+            if(i % 2 == 0 && sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 0), Coin.class, true).size() != 3)
                 return false;
             if(i % 2 == 1 && sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 0), Coin.class, true).size() > 0)
                 return false;
