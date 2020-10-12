@@ -1,4 +1,5 @@
-   % TODO:
+  %!TEX root = ./jvk-blatt2.tex
+  % TODO:
    %  - Aufgabe 4: "MyNeo" passend ersetzen
    %  - \ownclass und \superclass passend bennennen (in exercise_format.tex)
    %  - Lösungen testen und ggf verbessern
@@ -34,11 +35,11 @@ public void moveTwice() {
     Schauen wir uns diese Definition einmal im Detail an. Im Operationskopf.
     \begin{itemize}
     \item \lstinline{public} bedeutet, dass eine Operation von überall aus auf einem Objekt der Klasse aufgerufen werden kann.
-    \item \lstinline{void} (engl. ``Leere'') bedeutet, dass die Operation keinen Rückgabewert hat.
+    \item \lstinline{void} (engl. \q{Leere}) bedeutet, dass die Operation keinen Rückgabewert hat.
     \item \lstinline{moveTwice} ist der Name der Operation
     \end{itemize}
 
-    \begin{enumerate}[label=\alph*)]
+    \begin{enumerate}
         \item
         Wie wir im letzten Blatt schon festgestellt haben, kann sich Neo nicht einfach nach rechts drehen. Das wollen wir jetzt ändern.
         Erstelle hierzu eine Operation \lstinline{turnCounterClockwise} in \ownclass. Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung nach links (gesehen von seiner bisherigen Bewegungsrichtung) fortsetzen kann.
