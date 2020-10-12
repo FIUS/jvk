@@ -214,6 +214,9 @@ pythontex-files-*/
 # Latexian
 TSWLatexianTemp*
 
+# latexindent
+__latexindent_temp.tex
+
 ## Editors:
 # WinEdt
 *.bak

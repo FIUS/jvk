@@ -2,20 +2,22 @@
 
 \excercise{Einschub: Objekte, Klassen, Klassendiagramm}
 
-\begin{Infobox}
+\begin{Infobox}[HowTo: Klassen und Objekte auseinander halten]
     In Java (und auch in anderen Programmiersprachen) gibt es \textbf{Klassen} und \textbf{Objekte}.
-    Dabei gehört ein Objekt immer zu einer Klasse. Genauer gesagt ist ein Objekt immer genau \textbf{eine Instanz} einer Klasse.
+    Dabei gehört ein Objekt immer zu einer Klasse. Genauer gesagt ist ein Objekt \textbf{eine Instanz} einer Klasse.
 
-    Die Klasse beschreibt dabei generell welche Eigenschaften und Fähigkeiten ein Objekt haben kann.
+    Die Klasse beschreibt dabei generell welche Eigenschaften und Operationen ein Objekt haben kann.
+    %TODO: Bei der Einführung von Operationen kann man die ruhig erstmal als Fähigkeiten beschreiben. Danach einfach einen Satz wie "Diese Fähigkeiten nennt man Operationen."
     Eigenschaften können zum Beispiel Daten (wie der Name oder die Farbe des Objekts) sein.
-    Fähigkeiten wiederum sind Operationen die das Objekt ausführen kann.
-    Das Objekt, also eine konkrete Instanz der Klasse, hat dann zum Beispiel eine bestimmte Farbe (grün).
-    Ein anderes Objekt der selben Klasse kann eine eigene Farbe (rot) haben.
-    \paragraph{}
-    Man muss sich dabei oft entscheiden wie ein generisch oder genau man eine Klasse macht. z.B. kann man die Klasse Sportschuh und die Klasse High Heels haben oder man hat die Klasse Schuh mit der Eigenschaft Typ.
+    %TODO: Diese Änderung könnte man auch wieder rückgängig machen wenn man die Änderung darüber auch macht.
+    Operationen wiederum sind Funktionen die das Objekt ausführen kann.
+    Das Objekt, also eine konkrete Instanz der Klasse, hat dann zum Beispiel eine bestimmte Farbe (z.B. grün).
+    Ein anderes Objekt der selben Klasse kann eine eigene Farbe (z.B. rot) haben.\\
+
+    Man muss sich dabei oft entscheiden wie generisch oder genau man eine Klasse macht. Zum Beispiel kann man die Klasse Sportschuh und die Klasse High Heels haben oder man hat nur eine Klasse Schuh mit einer Eigenschaft, welche die Schuhart beschreibt.
 \end{Infobox}
 
-\begin{enumerate}[label=\alph*)]
+\begin{enumerate}
     \item Wir haben hier ein paar Klassen. Bitte erweitere sie um je 3 weitere Eigenschaften. Der Stuhl ist ein Beispiel:
 
     \begin{tikzpicture}
@@ -32,23 +34,30 @@
         \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (10.5,0) {Autor\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
     \end{tikzpicture}
 
-    \item Nun erstelle zu jeder Klasse 3 Objekte. Wenn ihr in einer Gruppe zusammenarbeitet sollte jeder selbst auf Objekte kommen.
+    \item Nun erstelle zu jeder Klasse drei verschiedene Objekte. Wenn ihr in einer Gruppe zusammenarbeitet sollte sich jeder selbst ein Objekte ausdenken.
 
-    \item Bitte lies diesen Text und identifiziere 3 Klassen mit je drei Eigenschaften die vorkommen:
+    \item Identifiziere im folgenden Text drei vorkommende Klassen mit jeweils drei Eigenschaften:
 
-    Die BilligMöbel GmbH ist ein Unternehmen mit 1000 Mitarbeiter. Doch sie wissen nicht viel über ihre Mitarbeiter. Sie merken sich lediglich ihr Alter, Name, Gehalt und Berufsbezeichnung. Deswegen kann das Untenehmen ihre Möbel sehr Billig verkaufen: Stühle für 10 Euro, Ligen für 15 Euro und ganz viele andere Arten von Möbeln. Alle kann man aus Plastik oder Holz bekommen und in verschiedenen Farben.
-
-    Aber sie merken sich wer schon alles bei ihnen eingekauft hat. Für jeden Kunden haben sie sich aufgeschrieben: Wann er das letzte mal eingekauft hat; Wie viel er insgesamt ausgegeben hat und wann diese Person Geburtstag hat.
+    Die BilligMöbel GmbH ist ein Unternehmen mit 1000 Mitarbeiter.
+    In der Akte jedes Mitarbeiters ist sein Name und Alter sowie sein Gehalt und seine Kontonummer.
+    Aufgrund von Massenproduktion  kann das Untenehmen ihre Möbel sehr Billig verkaufen.
+    So kosten z.B. Stühle 10€, Liegen 15€ und Schränke 32€.
+    Alle kann man aus Plastik oder Holz bekommen und in verschiedenen Farben.
+    In ihrer Kundenkartei vermerken sie das Geschlecht und Postleitzahl ihrer Kunden sowie die Kosten ihres letzten Éinkaufs.
 \end{enumerate}
 
-\begin{Infobox}
-    Klassen verfügen auch über Aktionen die von bzw. auf ihren Objekten ausgeführt werden können. Wenn wir bei dem Auto Beispiel bleiben, kann es z.B. fahren, bremsen, abbiegen oder den Motor an / abschalten. Diese Aktionen werden Operationen genannt.
-    \paragraph{}
-    Dabei können Operationen auch sogenannte Parameter besitzen wie z.B. abbiegen(links) oder fahren(50) (für 50 km/h) Wie man genau bestimmt was diese Parameter bedeuten erklären wir noch.
+\begin{Infobox}[HowTo: Operationen von Objekten]
+    Klassen verfügen über Operationen die von bzw. auf ihren Objekten ausgeführt werden können.
+    Als Beispiel betrachten wir ein Auto. Es kann fahren, bremsen, abbiegen oder den Motor an-/abschalten.\\
+
+    Dabei können Operationen auch sogenannte Parameter besitzen wie z.B. abbiegen(links) oder fahren(50) (für 50 km/h).
+    Wie man genau bestimmt was diese Parameter bedeuten erklären wir noch.
 \end{Infobox}
 
-\begin{enumerate}[label=\alph*)] \setcounter{enumi}{3}
-    \item überlege dir für die folgenden 3 Klassen Operationen. Es ist nicht notwendig Parameter zu verwenden. Der Stuhl ist wieder ein Beispiel:
+\begin{enumerate} \setcounter{enumi}{3}
+    \item Überlege dir für die folgenden 3 Klassen, Operationen.
+    Es ist nicht notwendig Parameter zu verwenden.
+    Der Stuhl ist wieder ein Beispiel:
 
     \begin{tikzpicture}
         \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A) {\textbf{Stuhl}};
@@ -66,7 +75,7 @@
 
     \item Überlege dir nun eine eigene Klasse und finde zu ihr 3 Eigenschaften und 3 Operationen. Dann überlege die 3 Objekte dieser Klasse. Wenn du in einer Gruppe arbeitest könnt ihr gerne durchtauschen und jeder muss Objekte für die Klasse eines Kommilitonen finden.
 
-    \begin{Infobox}
+    \begin{Infobox}[Info: Objekte vs. reale Objekte]
         Wichtig zu verstehen ist das Klassen und Objekte keine physischen Objekte repräsentieren müssen. Man kann auch z.B. eine Klasse für User Accounts oder eine Klasse für Personengruppen haben. Auch werden Klassen verwendet um technische Teile des Programms zu repräsentieren wie z.B. Das Fenster das angezeigt wird oder ein Paket das durchs Internet geschickt wird.
     \end{Infobox}
 

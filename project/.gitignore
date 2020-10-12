@@ -1,3 +1,7 @@
+# Developer main/tasks for testing as developer
+DeveloperMain.java
+Developer*.java
+
 # Compiled class file
 *.class
 bin/
