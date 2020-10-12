@@ -84,6 +84,18 @@ Zu beachten ist außerdem, dass das "oder" $||$ kein ausschließendes "oder" ist
 	ändere c) so, dass Neo sich umdreht wenn sich auf seinem Feld keine Münzen befinden UND er vor einer Wand steht.
 
 \subsection*{g)}
+\begin{Infobox}[Break]
+Wenn du eine Schleife inerhalb des Schleifendurchlaufs beenden willst bracuht du das Kommando  \lstinline{break;}. Damit wird die Schleife dann sofort abgebrochen.
+\begin{lstlisting}
+for(int i = 0;  i < 10;  i++){
+	System.out.print(i);
+	if (i == 5){
+		break;
+	}
+}
+\end{lstlisting}
+Die Ausgabe dieser Schleife ist \lstinline{012345}, da sie bei i=5 durch das break Kommando abgebrochen wird.
+\end{Infobox}
 Lasse Neo laufen bis er 10 Münzen gesammelt hat ODER 15 Schritte gegangen ist.
 
 \subsection*{h)}
