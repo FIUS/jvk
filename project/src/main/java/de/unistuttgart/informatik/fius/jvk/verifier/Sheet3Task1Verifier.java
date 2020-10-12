@@ -29,7 +29,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Walk 10 steps", "Walk exactly 10 steps.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Walk 10 steps", "Walk 10 steps.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c) Walk 10 steps 2nd try", "Walk exactly 10 steps.");
     private BasicTaskInformation taskD = new BasicTaskInformation("d)", "See excercise sheet.");
     private BasicTaskInformation taskE = new BasicTaskInformation("e)", "See excercise sheet.");
@@ -57,103 +57,18 @@ public class Sheet3Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskH);
         this.task = new BasicTaskInformation("Sheet 3 Task 1", "Loops.", subTasks);
         this.sim = sim;
+        
     }
+    
     
     @Override
     public void attachToSimulation(Simulation sim) {
         
         this.actionLog = sim.getActionLog();
         //System.out.println("test2");
-        preparePlayingField(sim);
     }
     
-    private void preparePlayingField(Simulation sim) {
-        
-        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        new Rectangle(new Position(-1, 1), new Position(6, 3)).forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
-        pm.placeEntityAt(new Wall(), new Position(-1, 4));
-        pm.placeEntityAt(new Wall(), new Position(11, 4));
-        new Rectangle(new Position(-1, 5), new Position(11, 7))
-                .forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
-        new Line(new Position(7, 3), new Position(11, 3)).forEach(p -> pm.placeEntityAt(new Wall(), new Position(p.getX(), p.getY())));
-        pm.placeEntityAt(new Coin(), new Position(30, 2));
-        
-        for (int i = 0; i < 15; i++) {
-            pm.placeEntityAt(new Coin(), new Position(30, 18));
-        }
-        for (int i = 0; i < 8; i++) {
-            pm.placeEntityAt(new Coin(), new Position(40, 18));
-        }
-        
-        //f)
-        for (int i = 0; i < 15; i++) {
-            pm.placeEntityAt(new Coin(), new Position(0, 2));
-        }
-        
-        //g)
-        for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(1, 4));
-        }
-        for (int i = 0; i < 7; i++) {
-            pm.placeEntityAt(new Coin(), new Position(2, 4));
-        }
-        for (int i = 0; i < 2; i++) {
-            pm.placeEntityAt(new Coin(), new Position(3, 4));
-        }
-        for (int i = 0; i < 9; i++) {
-            pm.placeEntityAt(new Coin(), new Position(4, 4));
-        }
-        for (int i = 0; i < 6; i++) {
-            pm.placeEntityAt(new Coin(), new Position(5, 4));
-        }
-        for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(6, 4));
-        }
-        for (int i = 0; i < 2; i++) {
-            pm.placeEntityAt(new Coin(), new Position(7, 4));
-        }
-        for (int i = 0; i < 0; i++) {
-            pm.placeEntityAt(new Coin(), new Position(8, 4));
-        }
-        for (int i = 0; i < 8; i++) {
-            pm.placeEntityAt(new Coin(), new Position(9, 4));
-        }
-        for (int i = 0; i < 1; i++) {
-            pm.placeEntityAt(new Coin(), new Position(10, 4));
-        }
-        
-        //h)
-        for (int i = 0; i < 7; i++) {
-            pm.placeEntityAt(new Coin(), new Position(1, 6));
-        }
-        for (int i = 0; i < 5; i++) {
-            pm.placeEntityAt(new Coin(), new Position(2, 6));
-        }
-        for (int i = 0; i < 6; i++) {
-            pm.placeEntityAt(new Coin(), new Position(3, 6));
-        }
-        for (int i = 0; i < 12; i++) {
-            pm.placeEntityAt(new Coin(), new Position(4, 6));
-        }
-        for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(5, 6));
-        }
-        for (int i = 0; i < 0; i++) {
-            pm.placeEntityAt(new Coin(), new Position(6, 6));
-        }
-        for (int i = 0; i < 10; i++) {
-            pm.placeEntityAt(new Coin(), new Position(7, 6));
-        }
-        for (int i = 0; i < 1; i++) {
-            pm.placeEntityAt(new Coin(), new Position(8, 6));
-        }
-        for (int i = 0; i < 8; i++) {
-            pm.placeEntityAt(new Coin(), new Position(9, 6));
-        }
-        for (int i = 0; i < 4; i++) {
-            pm.placeEntityAt(new Coin(), new Position(10, 6));
-        }
-    }
+
     
     @Override
     public void verify() {
