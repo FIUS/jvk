@@ -107,8 +107,8 @@ public class Sheet3Task2Verifier implements TaskVerifier {
         
         //g)
         if (
-            ((this.actionLog.getActionsOfType(EntityCollectAction.class, true).size() <= 10)
-                    || (this.actionLog.getActionsOfType(EntityStepAction.class, true).size() <= 20))
+            ((this.actionLog.getActionsOfType(EntityCollectAction.class, true).size() == 10)
+                    || (this.actionLog.getActionsOfType(EntityStepAction.class, true).size() == 20))
         ) {
             this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
