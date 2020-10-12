@@ -29,7 +29,6 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Walk 10 steps", "Walk exactly 10 steps.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c) Walk 10 steps 2nd try", "Walk exactly 10 steps.");
     private BasicTaskInformation taskD = new BasicTaskInformation("d)", "See excercise sheet.");
     private BasicTaskInformation taskE = new BasicTaskInformation("e)", "See excercise sheet.");
@@ -48,7 +47,6 @@ public class Sheet3Task2Verifier implements TaskVerifier {
         //System.out.println("test");
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
-        subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
@@ -56,7 +54,6 @@ public class Sheet3Task2Verifier implements TaskVerifier {
         subTasks.add(this.taskG);
         subTasks.add(this.taskH);
         this.task = new BasicTaskInformation("Sheet 3 Task 2", "If-Conditions.", subTasks);
-        this.sim = sim;
     }
     
     @Override
@@ -64,20 +61,38 @@ public class Sheet3Task2Verifier implements TaskVerifier {
         
         this.actionLog = sim.getActionLog();
         //System.out.println("test2");
-        preparePlayingField(sim);
-    }
-    
-    private void preparePlayingField(Simulation sim) {
-        
-        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        
     }
     
     @Override
     public void verify() {
+        this.actionLog = this.sim.getActionLog();
+        List<EntityStepAction> stepActions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
+        List<Position> stepPositions = new ArrayList<>();
+        stepActions.forEach(stepAction -> stepPositions.add(stepAction.to()));
+        if(!stepPositions.contains(new Position(4,0))&&(stepPositions.contains(new Position(3,0)))) {
+            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        
+        List<BasicTaskInformation> subTasks = new ArrayList<>();
+        subTasks.add(this.taskA);
+        subTasks.add(this.taskC);
+        subTasks.add(this.taskD);
+        subTasks.add(this.taskE);
+        subTasks.add(this.taskF);
+        subTasks.add(this.taskG);
+        subTasks.add(this.taskH);
+        this.task = this.task.updateSubTasks(subTasks);
         
     }
     
+    private int getNumberOfCoinsAtPosition(int x, int y) {
+        return getNumberOfCoinsAtPosition(new Position(x, y));
+    }
+    
+    private int getNumberOfCoinsAtPosition(Position pos) {
+        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Coin.class, true).size();
+    }
     
     @Override
     public TaskInformation getTaskInformation() {

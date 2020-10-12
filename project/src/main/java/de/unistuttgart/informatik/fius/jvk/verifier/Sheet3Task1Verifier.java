@@ -45,7 +45,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     public Sheet3Task1Verifier() {
         
         //System.gc();
-        //System.out.println("test");
+        System.out.println("test");
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
@@ -56,8 +56,6 @@ public class Sheet3Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskG);
         subTasks.add(this.taskH);
         this.task = new BasicTaskInformation("Sheet 3 Task 1", "Loops.", subTasks);
-        this.sim = sim;
-        
     }
     
     
@@ -65,14 +63,14 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     public void attachToSimulation(Simulation sim) {
         
         this.actionLog = sim.getActionLog();
-        //System.out.println("test2");
+        System.out.println("test2");
     }
     
 
     
     @Override
     public void verify() {
-        //System.out.println("test3");
+        System.out.println("test3");
         
         List<EntityStepAction> stepActions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
         List<Position> stepPositions = new ArrayList<>();
@@ -155,6 +153,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     
     @Override
     public TaskInformation getTaskInformation() {
+        System.out.println("Test3");
         return this.task;
     }
     
