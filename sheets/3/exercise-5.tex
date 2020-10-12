@@ -3,4 +3,17 @@
 	Passe die Main Methode an die Aufgabe an. Verwende den selben Task und Verifier wie in Aufgabe 4.
 \subsection*{b)}
 	Probier die Methode aus Aufgabe 4 d) mit unterschiedlichen werten aus (10, 1, 0, -1) was passiert?
-\subsection*{d)}
+\subsection*{c)}
+	\begin{Infobox}[Return]
+		Wenn du innerhalb einer Operation die Operation beenden möchtest dann verwende \lstinline{return}.
+		\begin{lstlisting}
+			public void printNumbers(){
+				for(int i=0; i < 10; i++){
+					System.out.print(i);
+					if ( i == 5){
+						return;
+					}
+				}
+			}
+		\end{lstlisting}
+		Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe  \lstinline{012345}, da die Operation bei i=5 beendet wird.
