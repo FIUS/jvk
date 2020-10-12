@@ -17,3 +17,43 @@
 			}
 		\end{lstlisting}
 		Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe  \lstinline{012345}, da die Operation bei i=5 beendet wird.
+	\end{Infobox}
+	Füge nun in die Methode ein if ein um bei negativen Werten direkt zu returnen.
+\subsection*{d)}
+	Probiere nun erneut unterschiedliche Werte aus.
+\subsection*{e)}
+	\begin{Infobox}[Throwing Exeptions]
+	Wir möchten nicht, dass ungültige Usereingaben einfach Ignoriert werden. Darum sollte man bei ungültigen Eingaben eine Exeption werfen (Exeptions siehe Blatt 2 Aufgabe 2).Um eine exeption zu werfen verwende \lstinline{throw}.
+	 	\begin{lstlisting}
+			public void printNumbersTo(int to){
+				if( i < 0){
+					throw new IllegalArgumentException("negative Number");	
+				}
+				for(int i=0; i <= to; i++){
+					System.out.print(i);
+				}
+			}
+		\end{lstlisting}
+	diese Methode wirft bei negativen Werten eine IllegalArgumentException.
+	\end{Infobox}
+	Ändere nun die Operation, sodass sie bei negativen Zahlen nicht returnt sondern eine \lstinline{IllegalArgumentException} wirft.
+\subsection*{f)}
+	Jetzt ist der fehler dokumentiert wenn er auftritt, aber noch nicht wenn man nur die Operation ansieht. Darum fügen wir noch einen weiteren Kommentar hinzu um zu erklären wann die Exeption geworfen wird. Verwende dafür  \lstinline{@throws}
+		 \begin{lstlisting}
+	/**
+	 * prints the numbers from 0 to 'to' in consecutive order.
+	 * 
+	 * @param to the number to which to print.
+	 * @throws IllegalArgumentException
+	 * 		if 'to' is negative
+	 */
+	public void printNumbersTo(int to){
+		if( to < 0){
+			throw new IllegalArgumentException("negative Number");	
+		}
+		for(int i=0; i <= to; i++){
+			System.out.print(i);
+		}
+	}
+		\end{lstlisting}
+ \
