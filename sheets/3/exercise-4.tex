@@ -4,7 +4,31 @@
 \subsection*{b)}
 	Schreibe eine Methode die Neo einen Schritt nach vorne gehen lässt.
 \subsection*{c)}
-	- Schreibe Methoden die Neo 2 Schritte nach vorne gehen lässt.
-	- Schreibe Methoden die Neo 3 Schritte nach vorne gehen lässt.
+	- Schreibe Methoden die Neo 2 Schritte nach vorne gehen lässt.\\
+	- Schreibe Methoden die Neo 3 Schritte nach vorne gehen lässt.\\
 	- Schreibe Methoden die Neo 4 Schritte nach vorne gehen lässt.
 \subsection*{d)}
+	\begin{Infobox}[Operations Parameter]
+		Wenn du eine Operation schreiben möchtest die je nach Situation mit verschiedenen Variablen die selbe Operation ausführt kannst du der Methode einen Parameter übergeben. Bisher haben wir der Methode immer den Neo übergeben der alle Operationen ausführen sollte, man kann aber jede art von Objekt als Parameter übergeben.
+	
+	\begin{lstlisting}
+		public void printNumbers(int from, int to){
+			for(int i=from; i <= to; i++){
+				System.out.print(i);
+			}
+		}
+	\end{lstlisting}
+Diese Methode gibt die Zahlen von\lstinline{from} bis \lstinline{to} aus. z.B. \lstinline{printNumbers(2,7)} gibt  \lstinline{234567} aus.
+	\end {Infobox}
+Schreibe nun eine Methode in der Neo \lstinline{n} Schritte läuft.
+\subsection*{e)}
+Verwende die Methode aus d) um Neo eine größer werdende Spirale laufen zu lassen. Das heißt:
+- Laufe einen Schritt.
+- drehe dich nach rechts
+- Laufe zwei Schritte
+- drehe dich nach rechts
+- Laufe drei Schritte
+- drehe dich nach rechts
+- Laufe vier Schritte
+- drehe dich nach rechts
+- ...usw
