@@ -11,7 +11,7 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
           \textbf{[1]} Eine Operationen hat immer einen frei wählbaren Namen, vor dem entweder void oder eine Klasse steht. Eventuell gefolgt von Parametern. Die immer als Typ-Name (Klassen definieren Typen, Also kann man hier einfach den Namen einer Bestehenden Klasse hinschreiben) und dann ein neuer Name für die Operation, geschreiben werden und wenn man mehrere braucht kann man sie mit \lstinline{,} getrennt auflisten.
           Nach den \lstinline{()} folgen \texttt{ \{\} }, die einen Codeblock umschließen.
 
-          \begin{lstlisting}[title={\textbf{Klassen Beispiel}}]
+          \begin{lstlisting}[title={\textbf{Klassen Syntax}}]
 class <Name der Klasse>{
         
     void <Operation Name>(<Typ Name> <Parameter Name>){
@@ -19,7 +19,7 @@ class <Name der Klasse>{
     }                    
 }
                 \end{lstlisting}
-          \begin{lstlisting}[title={\textbf{Klassen Syntax}}]
+          \begin{lstlisting}[title={\textbf{Klassen Beispiel}}]
 class PDFElement{
         
     void setFirstRowNumber(Integer rowNumber){
@@ -41,7 +41,7 @@ class PDFElement{
                   \item Als ersatz für Nicht verwendetet Leerzeichen schreibt man einfach das nächste Wort Groß. Beispiel: \q{create green box} \textrightarrow \q{createGreenBox}
                   \item Klassen beschreiben Objekte und ihre Namen sollten mit einem Großbuchstaben anfangen. Andere Namen, wie die von Variablen oder Operationen sollten mit einem klein Buchstaben anfangen.
                   \item Namen sollten aus ganzen Wörtern bestehen.
-                  \item Operationen sollten Verben sein. 
+                  \item Operationen sollten Verben sein. Da sie dinge enthalten die ein Objekt tun kann.
                   \item Queries beginnen häufig mit \texttt{get}
                   \item Kommandos beginnen häufig mit \texttt{set}, wenn sie dazu dienen direkt einen Wert zu setzen.
               \end{itemize}
@@ -49,16 +49,26 @@ class PDFElement{
     \item \textbf{[1]} Ein Befehl endet immer mit einem ; und muss in einem Codeblock stehen.
     \item \textbf{[2]} Das erzeugen eines Objekts wird mit dem Schlüsselwort new eingeführt. Darauffolgt der Name der Klasse und (). Manchmal werden in die () noch Argumente geschreiben, mit Dingen die das Objekt von Anfang an braucht.
           \begin{lstlisting}[title=\textbf{Konstruktor Syntax},firstnumber=5]
-        new <Typ Name>();
+    new <Typ Name>();
+    new <Typ Name>(<Wert>);
+    new <Typ Name>(<Wert>,<Wert>);
     \end{lstlisting}
-    \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = lassen wir sie dann auf ein Objekt zeigen, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere
+    \begin{lstlisting}[title=\textbf{Beispiel (1/3) Konstruktor},firstnumber=2,frame=lr]
+        new PDFCreator("jvk title",pdfCollector);
+    \end{lstlisting}
+    \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen. Schreiben wir zuerst die Klasse zu der das Objekt gehört. Gefolgt von dem frei wälbaren Namen den die Variable haben soll. Mit einem = weisen wir ein Objekt einer Variable zu, indem wir entweder das new Objekt() direkt dahinter schreiben oder eine andere
           Variable die bereits einen Wert hat.
+          Wenn wir ein Objekt einem Wert zugewiesen haben, können wir es unter dem Namen der Variable wiederfinden.
           \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-    <Typ>
+    <Typ> <Name>;
+    <Name> = <Klassen Name>();
+    <Name> = <Klassen Name(<Wert>);
+    <Typ> <Name> = <Klassen Name>();
           \end{lstlisting}
-
-    %TODO: Textverbessern und unerwünschte Worte ersetzen. Vor allem geht es hier nur um bestimmte befehle.
-    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \q{alle} Befehle beinhalten. Wenn man diese Aufrufen möchte: schreibt man den namen der Variable die auf das Objekt zeigt oder auch direkt einfach den Initializer. Dann einen . gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter, wie beim Initatiliesieren.
+          \begin{lstlisting}[title=\textbf{Beispiel (2/3) Variablen},firstnumber=1,frame=ltr]
+            Collector pdfCollector = new Collector();
+        \end{lstlisting}
+    \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \q{alle} Kommandos beinhalten. Wenn man diese Aufrufen möchte: schreibt man den Namen der Variable mit der wir uns das Objekt gemerkt haben oder auch einfach direkt nachdem wir es erstellen. Dann einen \lstinline{.} gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter. Genau wie als wir die Objekte aus den Klassen erstellt haben.
           \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=4]
         <Operation Name>();
         new <Typ Name>();
@@ -66,10 +76,10 @@ class PDFElement{
         <Typ Name> <Variablen Name> = new <Typ Name>();
         <Variablen Name>.<Operation Name>();
             \end{lstlisting}
-          \begin{lstlisting}[title=\textbf{Kommando Beispiel},firstnumber=4]
-        String exampleText = new TextLoader("Kommando")
-        PDFElement commandExmaple = new CodeBox("Kommando Syntax");
-        commandExmaple.setFirstRowNumber(4);
+          \begin{lstlisting}[title=\textbf{Beispiel 3/3 Kommandos},firstnumber=3,frame=lbr]
+        String exampleText = new TextLoader().loadText("Kommando");
+        PDFCreator.addText(exampleText);
+        pdfCollector.compileAlltoPDF();
               \end{lstlisting}
           \begin{Infobox}[Operationen]
               Operatoren erfüllen zwei Funktionen. Man kann sie dazu verwenden um Informationen von einem Objekt zu bekommen.
