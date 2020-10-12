@@ -1,6 +1,8 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Iterator;
@@ -29,14 +31,16 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Walk 10 steps 2nd try", "Walk exactly 10 steps.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d)", "See excercise sheet.");
-    private BasicTaskInformation taskE = new BasicTaskInformation("e)", "See excercise sheet.");
-    private BasicTaskInformation taskF = new BasicTaskInformation(
-            "f)", "Pick up all the coins on the first field. Walk 5 steps and drop as many coins as steps you have walked so far."
+    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk until you find a coin.");
+    private BasicTaskInformation taskD = new BasicTaskInformation(
+            "d)", "when on a field with exactly one coin, pick up the coin and turn right."
     );
-    private BasicTaskInformation taskG = new BasicTaskInformation("g)", "Walk 10 steps and pick up a maximum of 5 coins per field");
-    private BasicTaskInformation taskH = new BasicTaskInformation("h)", "Walk and pick up every coin on the fields you walk over.");
+    private BasicTaskInformation taskE = new BasicTaskInformation(
+            "e)", "when on a field with more than one coin, pick up a coin and turn right."
+    );
+    private BasicTaskInformation taskF = new BasicTaskInformation("f)", "Turn around when facing a wall and not standing on a coin.");
+    private BasicTaskInformation taskG = new BasicTaskInformation("g)", "Walk until you have collected 20 coins or walked 10 steps");
+    private BasicTaskInformation taskH = new BasicTaskInformation("h)", "complete all other subtasks.");
     
     private ActionLog  actionLog;
     private Simulation sim;
@@ -58,7 +62,7 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     
     @Override
     public void attachToSimulation(Simulation sim) {
-        
+        this.sim = sim;
         this.actionLog = sim.getActionLog();
         //System.out.println("test2");
     }
@@ -67,12 +71,47 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     public void verify() {
         this.actionLog = this.sim.getActionLog();
         List<EntityStepAction> stepActions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
-        List<Position> stepPositions = new ArrayList<>();
-        stepActions.forEach(stepAction -> stepPositions.add(stepAction.to()));
-        if(!stepPositions.contains(new Position(4,0))&&(stepPositions.contains(new Position(3,0)))) {
+        List<List<Position>> stepPositions = new ArrayList<>();
+        stepActions.forEach(stepAction -> stepPositions.add(Arrays.asList(new Position[] { stepAction.from(), stepAction.to() })));
+        
+        //c)
+        if (
+            stepPositions.contains(Arrays.asList(new Position[] { new Position(3, 0), new Position(4, 0) }))
+                    && !stepPositions.contains(Arrays.asList(new Position[] { new Position(4, 0), new Position(5, 0) }))
+        ) {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         
+        //d)
+        if (
+            (getNumberOfCoinsAtPosition(4, 0) == 0) && ((this.actionLog.getActionsOfType(EntityTurnAction.class, true).size() == 1)
+                    || (stepPositions.contains(Arrays.asList(new Position[] { new Position(4, 0), new Position(4, 1) }))))
+        ) {
+            this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        //e)
+        if (
+            (getNumberOfCoinsAtPosition(4, 4) == 0) && ((this.actionLog.getActionsOfType(EntityTurnAction.class, true).size() == 4)
+                    || (stepPositions.contains(Arrays.asList(new Position[] { new Position(3, 4), new Position(4, 4) }))))
+        ) {
+            this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        //f)
+        if (
+            (stepPositions.contains(Arrays.asList(new Position[] { new Position(12, 5), new Position(12, 6) })))
+                    && (stepPositions.contains(Arrays.asList(new Position[] { new Position(12, 6), new Position(12, 5) })))
+        ) {
+            this.taskF = this.taskF.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        //g)
+        if (
+            ((this.actionLog.getActionsOfType(EntityCollectAction.class, true).size() <= 10)
+                    || (this.actionLog.getActionsOfType(EntityStepAction.class, true).size() <= 20))
+        ) {
+            this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
         
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
