@@ -5,6 +5,24 @@ In dieser Aufgabe geht es darum den Syntax von Java zu verstehen.
 In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein Beispiel aus Aufgabe 1 finden. In \textbf{[]} steht immer wie viele verschiedenen Beispiele du finden solltest.
 
 \begin{enumerate}
+    \item \textbf{[2]} Bevor wir uns mit dem Java Programmcode ansich beschäftigen, sollten wir noch Wissen was kommentare sind.
+    Weil es kommt vor das wir dinge in die Java datei schreiben wollen, einfach als Notiz oder auch als Erklärung, für andere Menschen. Da der Computer sie nicht lesen soll, müssen wir sie im Markieren.
+          Für kurze Kommentare kann man \lstinline[breaklines=false]{//} verwenden. Dammit markiert man den Rest der Zeile als Kommentar. Beachte das manche Programme, automatisch ein Zeilen umbruch einfügen wenn die Zeile zu lang wird.
+          Das ist aber meistens nur Darstellung und gilt nicht als ende der Zeile.
+          Alternativ kann man den kommentar auch mit \lstinline[breaklines=false]{/* */} umschließen. Dadurch kann man auch ein mehrzeiligen kommentar schreiben. Dabei ist es konnvention, jede Zeile mit einem \textcolor{javagreen}{\texttt{*}} zu beginnen.
+          \begin{lstlisting}[title=\textbf{Kommentar Beispiel}]
+// Ein Kurzer Kommentar 
+// Man kann übrigens am fehlen einer Zeilenummer gut erkennen, wenn ein Automatischer umbruch stattfindet.
+    
+class void not_even_Java //Auch an der Grünen färbung kann man in den Meisten Programmen den Kommentar erkennen.
+//Und in dieser PDf wir auch ein Pfeil als markierung für einen Automatischen Zeilen umbruch verwendet.
+/*
+ *  Allerdings sollte man das eher vermeiden.
+ * Für tatsächliche Mehrzeiligen Kommentare werden diese Blöcke empfohlen
+ * Auch hier kann natürlich automatisch umgebrochen werden.
+ */
+        \end{lstlisting}
+        Alle in < > geschriebenen Wörter sind Platzhalter für das was sie beschreiben. Jeder kann mit etwas anderem Ausgefüllt werden, auch wenn sie gleich heißen.
     \item \textbf{[1]} Eine Klasse hat immer am Anfang das Schlüsselwort \lstinline{class}, gefolgt von einem frei wählbaren Namen. Darauf folgen die \{ \}, die den gesamten Inhalt der Klasse umschließen.
           Zum inhalt einer Klasse gehören \textbf{[1]}Attribute und Operationen
 
@@ -20,12 +38,12 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
           Nach den \lstinline{()} folgen \texttt{ \{\} }, die einen Codeblock umschließen. Darin Stehen alle Anweisungen, die in den Folge Beispielen genauer erläutert werden.
 
           \begin{lstlisting}[title={\textbf{Klassen Syntax}}]
-class <Name der Klasse>{
+class <Name der Klasse>{ // Beginn der Klasse
 
-    <Modifier> <Rückgabetyp> <Name>(<Typ> Name,<Typ> <Name>){
-
-    }
-}
+    <Modifier> <Rückgabetyp> <Name>(<Typ> Name,...){
+            //hier drin ist der Codeblock einer Operation
+    }// Ender der Operation
+} // Ender der Klasse
                 \end{lstlisting}
           \begin{lstlisting}[title={\textbf{Klassen Beispiel}}]
 class PDFElement{
@@ -35,7 +53,7 @@ class PDFElement{
     }                    
 }
                                     \end{lstlisting}
-          Alle in < > geschriebenen Wörter sind Platzhalter für das was sie beschreiben. Jeder kann mit etwas anderem Ausgefüllt werden, auch wenn sie gleich heißen.
+          
 
           \begin{Infobox}{Namen}
               Die frei wählbare Namen, müssen trotzdem ein paar Regeln Folgen
@@ -57,32 +75,39 @@ class PDFElement{
     \item \textbf{[1]} Eine Anweisung endet immer mit einem ; und muss im Codeblock, einer Operation, stehen.
     \item \textbf{[2]} Das erzeugen eines Objekts wird mit dem Schlüsselwort new eingeführt. Darauffolgt der Name der Klasse und (). Manchmal werden in die () noch Argumente geschreiben, mit Dingen die das Objekt von Anfang an braucht.
           \begin{lstlisting}[title=\textbf{Konstruktor Syntax},firstnumber=5]
-    new <Typ Name>();
-    new <Typ Name>(<Wert>);
-    new <Typ Name>(<Wert>,<Wert>);
+    new <Typ Name>();// Ein Objekt wird erzeugt
+    new <Typ Name>(<Wert>); //Für das erstellen wird ein Wert mit gegeben
+    new <Typ Name>(<Wert>,<Wert>); //hier sind es 2
     \end{lstlisting}
           \begin{lstlisting}[title=\textbf{Beispiel (1/3) Konstruktor},firstnumber=2,frame=lr]
         new PDFCreator("jvk title",pdfCollector);
     \end{lstlisting}
-    \item \textbf{[2]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen: schreiben wir zuerst die Klasse zu der das Objekt gehört, gefolgt von dem frei wälbaren Namen, den die Variable haben soll. Mit einem \lstinline{=} weisen wir ein Objekt einer Variable zu, indem wir entweder das \lstinline{new Objekt()} direkt dahinter schreiben oder eine andere
+    \item \textbf{[3]} Wenn wir ein Objekt länger als nur einmal brauchen müssen wir uns dieses Merken. Dazu verwenden wir eine Variable. Um eine zu erstellen: schreiben wir zuerst die Klasse zu der das Objekt gehört, gefolgt von dem frei wälbaren Namen, den die Variable haben soll. Mit einem \lstinline{=} weisen wir ein Objekt einer Variable zu, indem wir entweder das \lstinline{new Objekt()} direkt dahinter schreiben oder eine andere
           Variable die bereits einen Wert hat.
           Wenn wir ein Objekt einem Wert zugewiesen haben, können wir es unter dem Namen der Variable wiederfinden.
           \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-    <Typ> <Name>;
-    <Name> = <Klassen Name>();
-    <Name> = <Klassen Name(<Wert>);
-    <Typ> <Name> = <Klassen Name>();
+    <Typ> <Name>; // Variable wird zur späteren Verwendung erzeugt
+    <Name> = new <Klassen Name>(); //Ein Objekt wird erstellt und einer bereits existierenden Variable zugeweisen.
+
+    <Typ> <Name> = <Klassen Name>(); //Eine Variable wird erstellt und ein Objekt das auch erstellt wird, wird sofort zugeweisen
+
+    <Typ> <Name> = <Name>; /*Eine bestehende Variable wird einer neu erstellten zugeweisen.
+    Das Objekt, das unter dem Namen der alten Variable bekannt war. Ist nun unter beiden Namen bekannt.
+    */
+
+    new <Klassen Name>(<Variablen Name>); // Eine bestehende Variable, wird einem Objekt bei der erstellung mit gegeben.
           \end{lstlisting}
           \begin{lstlisting}[title=\textbf{Beispiel (2/3) Variablen},firstnumber=1,frame=ltr]
             Collector pdfCollector = new Collector();
         \end{lstlisting}
     \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \q{alle} Kommandos beinhalten. Wenn man diese Aufrufen möchte: schreibt man den Namen der Variable mit der wir uns das Objekt gemerkt haben oder auch einfach direkt nachdem wir es erstellen. Dann einen \lstinline{.} gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter. Genau wie als wir die Objekte aus den Klassen erstellt haben.
           \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=4]
-        <Operation Name>();
-        new <Typ Name>();
-        new <Typ Name>().<Operation Name>();
+        <Operation Name>(); // ein Operation die zum selben Objekt gehört wird aufgerufen.
+        new <Typ Name>().<Operation Name>(); //Ein Objekt wird erzeugt und sofort eine Operation des Objekt aufgerufen.
+
         <Typ Name> <Variablen Name> = new <Typ Name>();
         <Variablen Name>.<Operation Name>();
+        //Hier wurde das objekt erst erstellt und dannach eine Operation aufgerufen.
             \end{lstlisting}
           \begin{lstlisting}[title=\textbf{Beispiel 3/3 Kommandos},firstnumber=3,frame=lbr]
         String exampleText = new TextLoader().loadText("Kommando");
@@ -95,18 +120,7 @@ class PDFElement{
               Oder man verwenden sie um etwas zu tun. In dem Fall werden sie Kommandos (oder engl. commands) gennant.
           \end{Infobox}
 
-    \item \textbf{[2]} Normalerweiße hat alles was im Programmcode steht eine Aufgabe. Aber was machen wir wenn wir normallen text in den code schreiben wollen. Der einfach nur ein Kommentar für Menschen ist?\\
-          In so einen Fall kann man ein Text als Kommentar markieren. In den man entweder \lstinline[breaklines=false]{//} schreibt. Dann ist alles danach, was in der Zeile ist, ein Kommentar.
-          Alternativ kann man den kommentar auch mit \lstinline[breaklines=false]{/* */} umschließen. Dadurch kann man auch ein mehrzeiligen kommentar schreiben. Dabei ist es konnvention, jede Zeile mit einem \textcolor{javagreen}{\texttt{*}} zu beginnen.
-          \begin{lstlisting}[title=\textbf{Kommentar Syntax},firstnumber=11]
-// <Kommentar Text>
-    <Programmcode> // <Kommentar Text>
-/*
- *  <Dies ist ein seeehr langer Platzhalter. 
- *   Weil er soll verdeutlichen das ein Blockkommentar, sehr lange texte ermöglicht.>
- *   Aber man sollte es nicht übertreiben>
- */
-        \end{lstlisting}
+    
     \item Bei der nächsten Aufgabe sollt ihr keine Beispiele finden. Sondern einer aus der Gruppe macht eine veränderung am Code. Die gegen die Syntax Regeln verstößt. Das erkennt Eclipse und zeigt euch eine Fehlermeldung an. Diese soll nun der Rest der Gruppe lesen und versuchen herauszufinden Was geändert wurde und wie es richtig geht.\\
           Vorschläge was geändert werden sollte:
           \begin{itemize}
