@@ -30,7 +30,7 @@ Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat
 
 Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
 \begin{lstlisting}
-if ( getCoinCountOnField(neo) == 3 ){
+if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 	System.out.println("neo hat genau 3 Münzen!");
 }
 \end{lstlisting}
