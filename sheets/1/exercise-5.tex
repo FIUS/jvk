@@ -10,15 +10,15 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
     \end{lstlisting}
 \end{enumerate}
 
-\begin{Infobox}[Aufgaben Bennenung]
+\begin{Infobox}[Aufgabenbenennung]
     Wir werden im weiteren Verlauf der Blätter das Namensschema wie eben gezeigt verwenden. Das heißt für Aufgabe \textbf{X} auf Blatt \textbf{Y} werden für euch die Klassen, \texttt{SheetYTaskX} und \texttt{SheetYTaskXVerifier}.
 \end{Infobox}
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Navigiere jetzt in die Klasse \texttt{Sheet1Task5} um dort alle Änderungen vorzunehmen. Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren. Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern. Was fällt dir auf wenn du mehrere Münzen auf einem Feld platzierst. Wie genau korrelieren Position und Koordinatensystem.\\
-        Tipp: Wenn du nicht genau weißt wie man eine Münze spawnt, schau dir den Code, welchen du in Aufgabe 4d) gefunden hast, nochmal an.
+    \item Navigiere jetzt in die Klasse \texttt{Sheet1Task5} um dort alle Änderungen vorzunehmen. Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren. Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern. Was fällt dir auf, wenn du mehrere Münzen auf einem Feld platzierst. Wie genau korrelieren Position und Koordinatensystem.\\
+        Tipp: Wenn du nicht genau weißt, wie man eine Münze spawnt, schau dir den Code, welchen du in Aufgabe 4d) gefunden hast, nochmal an.
 
-    \item Nachdem wir nun die Methode \texttt{placeEntityAt()} aus der Klasse \texttt{PlayfieldModifier} kennengelernet haben, beschäftigen wir uns nun etwas genauer mit dem \texttt{PlayfieldModifier}. Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. Es gibt noch zwei weitere Operationen, welche wir zum platzieren von Münzen (\texttt{Coin}), Wänden (\texttt{Wall}) und Spielfiguren verwenden können. Versuche entweder mit Autocomplete deiner IDE oder mit der Dokumentation harauszufinden, wie diese heißen.
+    \item Nachdem wir nun die Methode \texttt{placeEntityAt()} aus der Klasse \texttt{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \texttt{PlayfieldModifier}. Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\texttt{Coin}), Wänden (\texttt{Wall}) und Spielfiguren verwenden können. Versuche entweder mit Autocomplete deiner IDE oder mit der Dokumentation harauszufinden, wie diese heißen.
 \end{enumerate}
 
 \begin{Infobox}[Autocompletion]
@@ -26,12 +26,12 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
 \end{Infobox}
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Jetzt da uns weitere Optionen zur Verfügung stehen, besteht die nächste Aufgabe darin 20 Münzen in einer Zelle zu platzieren. Verwende hierzu ein Objekt der \texttt{CoinFactory} Klasse und eines der Kommandos, die du in Aufgabe c) gefunden hast. Erstelle dazu das Objekt mit \texttt{new CoinFactory()} und übergebe es als Parameter an die gefundene Kommando. Wenn dir nicht klar ist wie dieses Kommando genau funktionieren, lies dir die Dokumentation all dieser Kommandos nochmal durch.
+    \item Jetzt, da uns weitere Optionen zur Verfügung stehen, besteht die nächste Aufgabe darin 20 Münzen in einer Zelle zu platzieren. Verwende hierzu ein Objekt der \texttt{CoinFactory} Klasse und eines der Kommandos, die du in Aufgabe c) gefunden hast. Erstelle dazu das Objekt mit \texttt{new CoinFactory()} und übergebe es als Parameter an die gefundene Kommando. Wenn dir nicht klar ist, wie dieses Kommando genau funktionieren, lies dir die Dokumentation all dieser Kommandos nochmal durch.
 
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
-    Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert. Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein was bei dem Aufruf einer Methode passiert und was sie für Parameter erwartet. Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE. Wenn wir über den Name einer Methode mit der Maus hovern, wird uns ein Kasten mit genau der Dokumentation dieser Methode angezeigt.
+    Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert. Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein, was bei dem Aufruf einer Methode passiert und was sie für Parameter erwartet. Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE. Wenn wir über den Name einer Methode mit der Maus hovern, wird uns ein Kasten mit genau der Dokumentation dieser Methode angezeigt.
 \end{Infobox}
 
 
