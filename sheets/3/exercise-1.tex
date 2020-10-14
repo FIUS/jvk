@@ -11,17 +11,17 @@
 		Dazu verwenden wir eine for-Schleife. 
 		\begin{lstlisting}
 //here neo moves five times
-this.move();
-this.move();
-this.move();
-this.move();
-this.move();
+neo.move();
+neo.move();
+neo.move();
+neo.move();
+neo.move();
 		\end{lstlisting}
 		ist equivalent zu:
 		\begin{lstlisting}
 //this moves neo five times
 for (int i = 0; i < 5; i++) {
-	this.move();
+	neo.move();
 }
 		\end{lstlisting}
  \lstinline{int i = 0} setzt die Variable i anfangs auf 0.  \lstinline{i++} heißt, dass I jeden Schleifendurchlauf hochgezählt wird. Es wird jeden Schleifendurchlauf überprüft, ob  \lstinline{i < 5} gilt. Falls ja wird noch ein Schleifendurchlauf ausgeführt. falls nicht ist ist die Schleife beedet. Die obige Schleife wird insgesammt 5 mal ausgeführt.
