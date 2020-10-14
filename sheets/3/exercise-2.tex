@@ -30,16 +30,16 @@ Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat
 
 Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
 \begin{lstlisting}
-if ( getCoinCountOnField(neo) == 3 ){
+if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 	System.out.println("neo hat genau 3 Münzen!");
 }
 \end{lstlisting}
 \end{Infobox}
-\begin{Infobox}[== und .equals]
+\begin{Infobox}[\lstinline{==} und \lstinline{.equals()}]
 mit == sollte man nur Zahlen vergleichen. Zum vergleichen von anderen Objekttypen verwende .equals. z.B 
 \begin{lstlisting}
 if ( neo1.equals(neo2)){
-	print("this is the same neo");
+	System.out.println("this is the same neo");
 }
 \end{lstlisting}
 
