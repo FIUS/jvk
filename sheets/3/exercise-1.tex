@@ -1,73 +1,91 @@
-    \excercise{For-Schleifen}
-\subsection*{a)}
-	Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task1} und \lstinline{Sheet3Task1Verifier}.
-\subsection*{b)}
+\excercise{For-Schleifen}
+
+\begin{enumerate}
+	\item Passe die Main Methode an die Aufgabe an. 
+		Verwende \lstinline{Sheet3Task1} und \lstinline{Sheet3Task1Verifier}.
+	\item
 	Probiere Neo mithilfe einer While-Schleife zehn Schritte laufen zu lassen.\\
 	Hinweiß: Wenn du nicht weißt wie du Neo genau 10 Schritte laufen lässt kannst du die Simulation mithilfe der Pause Taste stoppen nachdem Neo 10 Schritte gelaufen ist.
+\end{enumerate}
+
 
 \begin{Infobox}[For-Schleife]
-		Mit einer For-Schleife kann man genau bestimmen wie of der Code in der Schleife ausgeführt wird.
-		Anstatt dieselbe Operation n-mal untereinander zu schreiben um sie n-mal auszuführen, kann man den Code ein mal in eine For-Schleife die n-mal ausgeführt wird schreiben.
-		Dazu verwenden wir eine for-Schleife. 
-		\begin{lstlisting}
+	Mit einer For-Schleife kann man genau bestimmen wie of der Code in der Schleife ausgeführt wird.
+	Anstatt dieselbe Operation n-mal untereinander zu schreiben um sie n-mal auszuführen, kann man den Code ein mal in eine For-Schleife die n-mal ausgeführt wird schreiben.
+	Dazu verwenden wir eine for-Schleife. 
+
+	\begin{lstlisting}
 //here neo moves five times
 neo.move();
 neo.move();
 neo.move();
 neo.move();
 neo.move();
-		\end{lstlisting}
-		ist equivalent zu:
-		\begin{lstlisting}
+	\end{lstlisting}
+	
+	ist equivalent zu:
+
+	\begin{lstlisting}
 //this moves neo five times
 for (int i = 0; i < 5; i++) {
 	neo.move();
 }
-		\end{lstlisting}
- \lstinline{int i = 0} setzt die Variable i anfangs auf 0.  \lstinline{i++} heißt, dass I jeden Schleifendurchlauf hochgezählt wird. Es wird jeden Schleifendurchlauf überprüft, ob  \lstinline{i < 5} gilt. Falls ja wird noch ein Schleifendurchlauf ausgeführt. falls nicht ist ist die Schleife beedet. Die obige Schleife wird insgesammt 5 mal ausgeführt.
- \end{Infobox}
+	\end{lstlisting}
 
-\subsection*{c)}
-Laufe nun mithilfe einer for-Schleife 10 Schritte ohne die Simulation zu pausieren
-
-% TODO: use Latex Lists
-\subsection*{d)}
-Lass Neo danach folgendes tun:\\
-	- drehe dich nach rechts\\
-	- laufe 2 Schritte\\
-	- drehe dich nach links\\ 
-	- laufe 20 Schitte\\
-	- hebe eine Münze auf\\
-	- drehe dich nach rechts\\
-	- laufe 12 Schritte\\
-	- lasse die Münze fallen\\
-	- laufe 4 Schritte
+	\lstinline{int i = 0} setzt die Variable \lstinline{i} anfangs auf \lstinline{0}. 
+	\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf hochgezählt wird. 
+	Es wird jeden Schleifendurchlauf überprüft, ob \lstinline{i < 5} gilt. 
+	Falls ja wird noch ein Schleifendurchlauf ausgeführt, falls nicht ist ist die Schleife beedet. 
+	Die obige Schleife wird insgesammt 5 mal ausgeführt.
+\end{Infobox}
 
 
-% TODO: use Latex Lists
-\subsection*{e)}
-Lass Neo danach folgendes tun:\\
-- drehe dich nach Links
-- Lass Neo genau 12 Münzen aufheben. \\
-- gehe 10 Schritte nach vorne.\\
-- lass alle Münzen fallen.\\
-- hebe genau 15 Münzen auf.\\
-- gehe 5 Schritte nach vorne.\\
-- lass eine Münze fallen.
+\begin{enumerate}\setcounter{enumi}{2}
+	\item 
+		Laufe nun mithilfe einer for-Schleife 10 Schritte ohne die Simulation zu pausieren
 
-\subsection*{f)}
-Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.\\
-Hebe alle Münzen auf dem aktuellen Feld auf. \\
-Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab wie die schon Schritte gelaufen bist. \\
-Hinweis: Dafür musst du eine For-Schleife in der For-Schleife verwenden. Die Anzahl der Schritte die Du schon gelaufen bist ist in der (lauf-)Variable der äußeren For-Schleife.
+	\item
+		% TODO: use Latex Lists
+		Lass Neo danach folgendes tun:\\
+			- drehe dich nach rechts\\
+			- laufe 2 Schritte\\
+			- drehe dich nach links\\ 
+			- laufe 20 Schitte\\
+			- hebe eine Münze auf\\
+			- drehe dich nach rechts\\
+			- laufe 12 Schritte\\
+			- lasse die Münze fallen\\
+			- laufe 4 Schritte
 
 
-\subsection*{g)}
-Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.\\
- Laufe 10 Schritte und hebe dabei maximal 5 münzen pro Feld auf.\\
-Hinweiß: In dieser Aufgabe musst du if-Statments verwenden.
+	\item
+		% TODO: use Latex Lists
+		Lass Neo danach folgendes tun:\\
+		- drehe dich nach Links
+		- Lass Neo genau 12 Münzen aufheben. \\
+		- gehe 10 Schritte nach vorne.\\
+		- lass alle Münzen fallen.\\
+		- hebe genau 15 Münzen auf.\\
+		- gehe 5 Schritte nach vorne.\\
+		- lass eine Münze fallen.
 
-\subsection*{h)}
-Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.\\
-Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
+	\item
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.\\
+		Hebe alle Münzen auf dem aktuellen Feld auf. \\
+		Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab wie die schon Schritte gelaufen bist.
+
+		Hinweis: Dafür musst du eine For-Schleife in der For-Schleife verwenden. 
+		Die Anzahl der Schritte die Du schon gelaufen bist ist in der (lauf-)Variable der äußeren For-Schleife.
+
+
+	\item
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.\\
+		Laufe 10 Schritte und hebe dabei maximal 5 münzen pro Feld auf.
+
+		Hinweis: In dieser Aufgabe musst du if-Statments verwenden.
+
+	\item
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.\\
+		Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
+\end{enumerate}
 \newpage

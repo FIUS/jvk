@@ -32,7 +32,7 @@ public class Sheet3Task3 implements Task {
         Neo neo=new Neo();
     }
     
-    private void movePatern(Neo neo) {
+    private void movePattern(Neo neo) {
         
     }
     
