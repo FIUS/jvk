@@ -7,7 +7,7 @@
 	<name>JVK 2020 Project</name>
 	<properties>
 		<java.version>11</java.version>
-		<icge.version>2.3.3</icge.version>
+		<icge.version>2.3.4</icge.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
@@ -76,7 +76,7 @@
 				<version>3.1.1</version>
 				<configuration>
 					<additionalOptions>--show-packages=all</additionalOptions>
-					<excludePackageNames>de.unistuttgart.informatik.fius.jvk2019.solutions:de.unistuttgart.informatik.fius.jvk2019.tasks</excludePackageNames>
+					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
 				</configuration>
 			</plugin>
 			<plugin>
