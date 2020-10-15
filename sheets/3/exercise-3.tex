@@ -1,13 +1,82 @@
-    \excercise{Anwendung von Schleifen und If-Anweisungen}
-            \subexcercise Morpheus musste untertauchen. Aber damit Neo ihn finden kann, hat er einen Pfad aus Pillen gelegt. Immer wenn Neo auf einem Feld steht, auf dem eine rote Pille liegt, muss er nach rechts abbiegen.
-
-            \textbf{Extra für diese Aufgabe} stellen wir eine spezielle Operation \texttt{Neo.peakPill()} zur Verfügung, die die Pille zurück gibt, die auf dem selben Feld liegt, auf dem Neo gerade steht. Die Operation gibt null zurück, wenn Neo auf einem Feld steht, auf dem es keine Pille gibt.
-
-            Außerdem kann man die Pille mit der Query \texttt{getColor()} fragen, welche Farbe sie hat.
-            Die Query gibt \texttt{Color.RED} zurück, wenn die Pille rot ist und \texttt{Color.BLUE}, wenn die Pille blau ist.
-
-            Neo muss solange suchen, bis er auf eine Telefonzelle trifft.
-
-            \subexcercise Die Agenten sind Morpheus auf der Spur. Er muss den Weg komplizierter machen. Zusätzlich zu den roten Pillen gibt es jetzt auch blaue Pillen. Wenn man auf einem Feld steht, das eine blaue Pille enthält, muss Neo nach links abbiegen.
-
-            \textbf{Diese Aufgabe} enthält wieder die Operation \texttt{Neo.peakPill()}. Außerdem bauen wir das Level so, dass es kein Feld gibt, auf dem sowohl eine blaue, als auch eine rote Pille liegt.
+\excercise{Methode}
+\subsection*{a)}
+	Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task3} und \lstinline{Sheet3Task3Verifier}.
+\subsection*{b)}
+	Lass Neo das folgende Muster laufen:\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe einen Schritt\\
+	- drehe dich nach links\\
+	- laufe 3 Schritte\\
+	- drehe dich nach links\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe 2 Schritte\\
+	- drehe dich nach rechts\\
+	- laufe einen Schritt\\
+	- drehe dich nach links.
+\subsection*{c)}
+	Laufe das Muster aus b) mithilfe einer for-Schleife 3 Mal.
+\subsection*{d)}
+	\begin{Infobox}[Operation]
+		Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. Stattdessen kann man den Code in eine Operation auslagern. Dann kann man den gesammten Code in nur einer Zeile  aufrufen.
+				\begin{lstlisting}
+public class DemoTask implements Task {
+    
+    @Override
+    public void run(Simulation sim) {
+        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
+        Neo neo = new Neo();
+        pm.placeEntityAt(neo, new Position(0, 0));
+     
+        moveThreeStepsBackward(neo); //neo moves back three Steps
+        neo.turnClockWise(); //neo turns right
+        moveThreeStepsBackward(neo); //neo moves back three Steps
+	
+        
+    }
+    
+    public void moveThreeStepsBackward(Neo neo) {
+        //turn around
+        neo.turnClockWise();
+        neo.turnClockWise();
+        //move three times
+        neo.move();
+        neo.move();
+        neo.move();
+        //turn around
+        neo.turnClockWise();
+        neo.turnClockWise();
+    }
+    
+}
+		\end{lstlisting}
+\lstinline{void} heißt, dass diese Operation keinen Rückgabewert hat. 
+Wir werden vorerst nur void Operationen verwenden. 
+Das \lstinline{(Neo neo)} heißt, dass die Operation ein Objekt der Klasse \lstinline{Neo} bekommt, das innnerhalb der Methode unter dem Variablennamen \lstinline{neo} (beachte die Groß und Kleinschreibung) benutzt werden kann.
+\lstinline{Neo neo} sieht aus wie eine Variable und verhält sich auch ähnlich.
+In den Runden Klammern einer Operation spricht man aber von einem Parameter.
+Mehr dazu in Aufgabe 4. 
+Das stichwort \lstinline{public} könnt ihr vorerst ignorieren.
+ 	\end{Infobox}
+Lagere nun den Code aus b) in die gegebene Operation  \lstinline{movePatern} aus.
+\subsection*{e)}
+Ersetze nun den Code in der Schleife aus c) durch die Operation  \lstinline{movePatern}.
+\subsection*{f)}
+Schreibe die folgende Operation in Sheet3Task3.
+\begin{lstlisting}
+private void dropFourCoinsAndTurnLeft(Neo neo) {
+    //write the Code for f) here
+    //make neo drop four coins
+    //make neo turn Left
+}
+\end{lstlisting}
+Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen. Schreibe den passenden Code in die Operation.
+\subsection*{g)}
+führe nun in der Schleife aus c) nach \lstinline{movePatern} ein mal \lstinline{dropFourCoinsAndTurnLeft} aus.
+\subsection*{h)}
+Nun möchten wir eine eigene Methode schreiben. Kopiere dazu erst mal die movePatern Operation und ändere den Namen in etwas anderes (z.B. \lstinline{moveStraight}).
+Ersetze nun in der Schleife aus c) \lstinline{movePatern} durch die neue Methode.
+\subsection*{i)}
+Schreibe die Operation aus h) um sodass Neo sich nur durch geradeauslaufen nach ausführung der Operation an der selben Stelle befindet wie nach ausführen der Operation  \lstinline{movePatern}.
+\newpage

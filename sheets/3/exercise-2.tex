@@ -1,11 +1,111 @@
-    \excercise{Schleifen}
-            \subexcercise Schreibe deine \texttt{turnLeft()} so um, dass sie eine for-Schleife verwendet.
+\excercise{If-Conditions}
+	\subsection*{a)}
+		Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}.
+	\subsection*{b)}
+		Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen die auf Neos aktuellem Feld liegen. Eine Liste hat eine Größe die angibt wie viele Elemente sie enthält. Die Größe der Liste aller Münzen entspricht genau der Anzahl der Münzen auf Neos aktuellem Feld. Die Größe kann abgefragt werden mit \lstinline{list.size()}. Also muss man um die Anzahl der Münzen auf Neos Feld abzufragen \lstinline{neo.getCurrentlyCollectableCoins().size()} ausführen.
 
-            \subexcercise Neo muss so schnell wie möglich die nächstgelegene Telefonzelle erreichen, um die Matrix zu verlassen. Leider weiß er nicht genau, wie weit diese entfernt ist. Schreibe hierzu eine Operation, die Neo so lange geradeaus laufen lässt, bis die Operation \texttt{Neo.isOnPhoneBooth()} den Wert \texttt{true} zurück gibt. Verwende in deiner Lösung eine while-Schleife.
+\begin{Infobox}[If-Conditions 2]
+If-Conditions kennt ihr ja schon. Diese können auch dazu verwendet Zahlen (z.B Integer) miteinander zu vergleichen.
+\begin{lstlisting}
+int x = 2;
+if ( x < 3 ) {
+	System.out.println("x ist kleiner als 3!");
+}
+\end{lstlisting}
+Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat. In Java kannst du die folgenden Vergleichsoperatoren verwenden:
+\begin{center}
+        \begin{tabular}{ l | c | c | l }
+                Text & Math. Zeichen & Java & Bemerkung\\
+            \hline
+                  gr\"oßer als & $>$ & $>$ & \\
+                  kleiner als & $<$ & $<$ & \\
+                  gleich & $=$ & $==$ & \minibox{mit dem doppelten $==$ sollte man nur \\ Zahlen und keine Objekte vergleichen!\\ Ein einfaches $=$ ist in Java eine Zuweisung!}\\
 
-            \subexcercise(\textbf{Bonus}) Schreibe die Operation aus \textit{(b)} so um, dass sie eine do-while-Schleife verwendet.
+                  ungleich & $\neq$ & $!=$ & \\
+                  gr\"oßer gleich & $\geq$ & $>=$ &  \\
 
-            \subexcercise Dieses Mal haben die Agenten alle Telefonzellen in Neos Nähe zerstört. Welche Auswirkung hat das auf deinen Code aus \textit{(b)}? Nutze die Operation \texttt{Neo.canMove()}, um den Fehler zu beheben.
+                  kleiner gleich & $\leq$ & $<=$ &  \\
+        \end{tabular} \\
+\end{center}
 
-            \textbf{Für diese Aufgabe} müsst ihr \texttt{this.boothsDestroyed} auf \texttt{true} setzen.
+Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
+\begin{lstlisting}
+if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
+	System.out.println("neo hat genau 3 Münzen!");
+}
+\end{lstlisting}
+\end{Infobox}
+\begin{Infobox}[\lstinline{==} und \lstinline{.equals()}]
+mit == sollte man nur Zahlen vergleichen. Zum vergleichen von anderen Objekttypen verwende .equals. z.B 
+\begin{lstlisting}
+if ( neo1.equals(neo2)){
+	System.out.println("this is the same neo");
+}
+\end{lstlisting}
 
+\end{Infobox}
+
+
+	\subsection*{c)}
+	Lasse Neo solange laufen bis sich mindestens eine Münze auf dem Feld unter ihm befindet.
+	\subsection*{d)}
+	Wenn sich Neo auf einem Feld mit genau einer Münze befindet, dann lass ihn sich nach rechts drehen und diese Münze aufsammeln.
+	\subsection*{e)}
+	Wenn sich mehr als eine Münze unter Neo befindet, lass ihn sich auch nach rechts drehen und eine Münze aufsammeln.
+
+
+\begin{Infobox}[Logische Operationen]
+Wenn mehrere Bedingungen für ein Ereigniss eine Rolle spielen muss man diese Logisch verknüpfen. Java verwendet hierfür folgende Syntax:
+\begin{center}
+        \begin{tabular}{ l | l | l | l}
+            Text & log. Zeichen & Java Zeichen &Bemerkung \\
+            \hline
+            und  &$\land$& $\&\&$& \minibox{Achtung kein einfaches \& in Java verwenden,\\ das macht etwas anderes (aber ähnliches)} \\
+            oder  &$\lor$& $||$& Kein einfaches $|$ verwenden (analog zu und) \\
+            & &  \\
+
+            nicht & $!$&$\neg$ &\\
+    \end{tabular}\\
+\end{center}
+Ein paar Beispiele:
+\begin{lstlisting}
+if ( neo.canMove() && (neo.getCurrentlyCollectableCoins().size()==7) ){
+
+	//neo hat genau 7 Münzen UND kann nach vorne gehen.
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+if ( (!neo.canMove()) && (neo.getCurrentlyCollectableCoins().size()==7) ){
+	//neo hat genau 7 Münzen UND kann sich NICHT nach vorne gehen.
+}
+\end{lstlisting}
+
+\begin{lstlisting}
+if ( neo.canMove() || neo.getCurrentlyCollectableCoins().size()==7) ){
+	//neo hat genau 7 Münzen ODER kann nach vorne gehen.
+}
+\end{lstlisting}
+Zu beachten ist außerdem, dass das "oder" $||$ kein ausschließendes "oder" ist, also ist \\ $((2 < 3) || (42 != 4))$ eine wahre Aussage.
+\end{Infobox}
+	\subsection*{f)}
+	ändere c) so, dass Neo sich umdreht wenn sich auf seinem Feld keine Münzen befinden UND er vor einer Wand steht.
+
+\subsection*{g)}
+\begin{Infobox}[Break]
+Wenn du eine Schleife inerhalb des Schleifendurchlaufs beenden willst bracuht du das Kommando  \lstinline{break;}. Damit wird die Schleife dann sofort abgebrochen.
+\begin{lstlisting}
+for(int i = 0;  i < 10;  i++){
+	System.out.print(i);
+	if (i == 5){
+		break;
+	}
+}
+\end{lstlisting}
+Die Ausgabe dieser Schleife ist \lstinline{012345}, da sie bei i=5 durch das break Kommando abgebrochen wird.
+\end{Infobox}
+Lasse Neo laufen bis er 10 Münzen gesammelt hat ODER 20 Schritte gegangen ist.
+
+\subsection*{h)}
+Überprüfe deine Implementierung auf dem Spielfeld .
+\newpage

@@ -1,0 +1,60 @@
+\excercise{Inputtest and Exeptions}
+\subsection*{a)}
+	Passe die Main Methode an die Aufgabe an. Verwende den selben Task und Verifier wie in Aufgabe 4.
+\subsection*{b)}
+	Probier die Methode aus Aufgabe 4 d) mit unterschiedlichen werten aus (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) was passiert?
+\subsection*{c)}
+	\begin{Infobox}[Return]
+		Wenn du innerhalb einer Operation die Operation beenden möchtest dann verwende \lstinline{return}.
+		\begin{lstlisting}
+			public void printNumbers(){
+				for(int i=0; i < 10; i++){
+					System.out.print(i);
+					if ( i == 5){
+						return;
+					}
+				}
+			}
+		\end{lstlisting}
+		Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe  \lstinline{012345}, da die Operation bei i=5 beendet wird.
+	\end{Infobox}
+	Wir wollen nun nicht, dass Neo in dieser Methode mehr als 50 Schritte laufen kann. Füge ein if Abfrage in die Methode ein die return wenn die anzahl der Schritte die zu laufen sind (der gegebene Parameter) größer als 50 ist.
+\subsection*{d)}
+	Probiere nun erneut unterschiedliche Werte aus.
+\subsection*{e)}
+	\begin{Infobox}[Throwing Exeptions]
+	Wir möchten nicht, dass ungültige Usereingaben einfach Ignoriert werden. Darum sollte man bei ungültigen Eingaben eine Exeption werfen (Exeptions siehe Blatt 2 Aufgabe 2).Um eine exeption zu werfen verwende \lstinline{throw}.
+	 	\begin{lstlisting}
+			public void printNumbersTo(int to){
+				if( i < 0){
+					throw new IllegalArgumentException("negative Number");	
+				}
+				for(int i=0; i <= to; i++){
+					System.out.print(i);
+				}
+			}
+		\end{lstlisting}
+	diese Methode wirft bei negativen Werten eine IllegalArgumentException.
+	\end{Infobox}
+	Ändere nun die Operation, sodass zu große Zahlen nicht returnt sondern eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht wirft.
+\subsection*{f)}
+	Jetzt ist der fehler dokumentiert wenn er auftritt, aber noch nicht wenn man nur die Operation ansieht. Darum fügen wir noch einen weiteren Kommentar hinzu um zu erklären wann die Exeption geworfen wird. Verwende dafür  \lstinline{@throws}
+		 \begin{lstlisting}
+	/**
+	 * prints the numbers from 0 to 'to' in consecutive order.
+	 * 
+	 * @param to the number to which to print.
+	 * @throws IllegalArgumentException
+	 * 		if 'to' is negative
+	 */
+	public void printNumbersTo(int to){
+		if( to < 0){
+			throw new IllegalArgumentException("negative Number");	
+		}
+		for(int i=0; i <= to; i++){
+			System.out.print(i);
+		}
+	}
+		\end{lstlisting}
+ Ergänze den Javadoc Kommentar für die Methode in 4 d).
+\newpage

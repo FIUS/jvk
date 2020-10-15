@@ -1,40 +1,73 @@
-    \excercise{Logik}
-            \subexcercise Fülle die folgenden Tabellen aus:\\
-            \begin{center}
-            \begin{tabular}{ c | c }
-            A & !A \\
-            \hline
-            true & \\
-            false & \\
-            \end{tabular}
-            \quad
-            \begin{tabular}{ c | c | c }
-            A & B & A \&\& B \\
-            \hline
-            false & false & \\
-            false & true & \\
-            true & false & \\
-            true & true & \\
-            \end{tabular}
-            \quad
-            \begin{tabular}{ c | c | c }
-            A & B & A $||$ B \\
-            \hline
-            false & false & \\
-            false & true & \\
-            true & false & \\
-            true & true & \\
-            \end{tabular}\\
-            \end{center}
+    \excercise{For-Schleifen}
+\subsection*{a)}
+	Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task1} und \lstinline{Sheet3Task1Verifier}.
+\subsection*{b)}
+	Probiere Neo mithilfe einer While-Schleife zehn Schritte laufen zu lassen.\\
+	Hinweiß: Wenn du nicht weißt wie du Neo genau 10 Schritte laufen lässt kannst du die Simulation mithilfe der Pause Taste stoppen nachdem Neo 10 Schritte gelaufen ist.
 
-            \subexcercise Schreibe zu jeder Aussage eine If-Anweisung, die den Wert von x überprüfen soll nach:
-            \begin{enumerate}[label=(\roman*)]
-                \item x = 12345
-                \item x $\leq$ 15
-                \item x $\neq$ 22
-                \item x $\in [0; 10]$
-                \item x $\in$ \{\texttt{Integer.MINVALUE}, ..., -2, -1, 11, 12, 13, ..., \texttt{Integer.MAXVALUE}\}\\(Alle Integer außer [0;10])
-                \item x $\in$ \{x $|$ x ist gerade\}
-            \end{enumerate}
-            \emph{Anmerkung:} Mit dem Befehl \lstinline{Logger.simout.println("...");} könnt ihr Text in die Ausgabe des Simulators schreiben.
+\begin{Infobox}[For-Schleife]
+		Mit einer For-Schleife kann man genau bestimmen wie of der Code in der Schleife ausgeführt wird.
+		Anstatt dieselbe Operation n-mal untereinander zu schreiben um sie n-mal auszuführen, kann man den Code ein mal in eine For-Schleife die n-mal ausgeführt wird schreiben.
+		Dazu verwenden wir eine for-Schleife. 
+		\begin{lstlisting}
+//here neo moves five times
+neo.move();
+neo.move();
+neo.move();
+neo.move();
+neo.move();
+		\end{lstlisting}
+		ist equivalent zu:
+		\begin{lstlisting}
+//this moves neo five times
+for (int i = 0; i < 5; i++) {
+	neo.move();
+}
+		\end{lstlisting}
+ \lstinline{int i = 0} setzt die Variable i anfangs auf 0.  \lstinline{i++} heißt, dass I jeden Schleifendurchlauf hochgezählt wird. Es wird jeden Schleifendurchlauf überprüft, ob  \lstinline{i < 5} gilt. Falls ja wird noch ein Schleifendurchlauf ausgeführt. falls nicht ist ist die Schleife beedet. Die obige Schleife wird insgesammt 5 mal ausgeführt.
+ \end{Infobox}
 
+\subsection*{c)}
+Laufe nun mithilfe einer for-Schleife 10 Schritte ohne die Simulation zu pausieren
+
+% TODO: use Latex Lists
+\subsection*{d)}
+Lass Neo danach folgendes tun:\\
+	- drehe dich nach rechts\\
+	- laufe 2 Schritte\\
+	- drehe dich nach links\\ 
+	- laufe 20 Schitte\\
+	- hebe eine Münze auf\\
+	- drehe dich nach rechts\\
+	- laufe 12 Schritte\\
+	- lasse die Münze fallen\\
+	- laufe 4 Schritte
+
+
+% TODO: use Latex Lists
+\subsection*{e)}
+Lass Neo danach folgendes tun:\\
+- drehe dich nach Links
+- Lass Neo genau 12 Münzen aufheben. \\
+- gehe 10 Schritte nach vorne.\\
+- lass alle Münzen fallen.\\
+- hebe genau 15 Münzen auf.\\
+- gehe 5 Schritte nach vorne.\\
+- lass eine Münze fallen.
+
+\subsection*{f)}
+Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.\\
+Hebe alle Münzen auf dem aktuellen Feld auf. \\
+Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab wie die schon Schritte gelaufen bist. \\
+Hinweis: Dafür musst du eine For-Schleife in der For-Schleife verwenden. Die Anzahl der Schritte die Du schon gelaufen bist ist in der (lauf-)Variable der äußeren For-Schleife.
+
+
+\subsection*{g)}
+Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.\\
+ Laufe 10 Schritte und hebe dabei maximal 5 münzen pro Feld auf.\\
+Hinweiß: In dieser Aufgabe musst du if-Statments verwenden.
+
+\subsection*{h)}
+Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.\\
+Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
+\newpage
