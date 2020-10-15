@@ -23,6 +23,10 @@ import de.unistuttgart.informatik.fius.jvk.provided.exceptions.NoCoinException;
  */
 public class Neo extends Human {
 
+    /*
+    *   TODO: Implement the method "turnCounterClockwise" here
+    */
+
     @Override
     protected String getTextureHandle() {
         return Texture.NEO.getHandle(this.getLookingDirection());

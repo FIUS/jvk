@@ -1,4 +1,5 @@
-   % TODO:
+  %!TEX root = ./jvk-blatt2.tex
+  % TODO:
    %  - Aufgabe 4: "MyNeo" passend ersetzen
    %  - \ownclass und \superclass passend bennennen (in exercise_format.tex)
    %  - Lösungen testen und ggf verbessern
@@ -34,47 +35,49 @@ public void moveTwice() {
     Schauen wir uns diese Definition einmal im Detail an. Im Operationskopf.
     \begin{itemize}
     \item \lstinline{public} bedeutet, dass eine Operation von überall aus auf einem Objekt der Klasse aufgerufen werden kann.
-    \item \lstinline{void} (engl. ``Leere'') bedeutet, dass die Operation keinen Rückgabewert hat.
+    \item \lstinline{void} (engl. \q{Leere}) bedeutet, dass die Operation keinen Rückgabewert hat.
     \item \lstinline{moveTwice} ist der Name der Operation
     \end{itemize}
 
-    \subexcercise parts
-    Wie wir im letzten Blatt schon festgestellt haben, kann sich Neo nicht einfach nach rechts drehen. Das wollen wir jetzt ändern.
-    Erstelle hierzu eine Operation \lstinline{turnCounterClockwise} in \ownclass. Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung nach links (gesehen von seiner bisherigen Bewegungsrichtung) fortsetzen kann.
-
-
-    \subexcercise
-    Zusätzlich wollen wir Neo jetzt beibringen, sich um \(180^\circ\) zu drehen.
-    Erstelle hierzu eine Operation \lstinline{turnAround}.
-    Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung in die Richtung fortsetzen kann, aus der er gekommen ist.
-
-
-    Bei diesen beiden Operationen handelt es sich um \emph{Kommandos}, die den Zustand des Programms verändern (z.B. Neos Blickrichtung). Sie geben jedoch keine Werte an den Aufrufer der Operation zurück.
-
-    Hierfür gibt es \emph{Abfragen}. Bei diesen handelt es sich um Operationen, die einen Wert zurückgeben, dabei jedoch den Zustand des Programmes nicht verändern. Um eine Operation mit einem Rückgabewert zu definieren, erstzen wir im Kopf der Operation \lstinline{void} durch den Typ des zurückgegebenen Wertes. Um dann tatsächlich einen Wert zurückzugeben, können wir in der Operation den Befehl \lstinline{return wert;} verwenden.
-
-    Um zum Beispiel eine Operation zu schreiben, die einen passenden Gruß für Neo zurückgibt, könnten wir folgendes tun:
-    %TODO Beispiel Abfrage
-    \begin{lstlisting}
-public String getGreeting() {
-    return "Hallo, " + this.getName() + "!";
-}
-    \end{lstlisting}
-    Der Typ \lstinline{String} ist hierbei der Typ einer Zeichenkette. Er wird für Daten verwendet, die Text enthalten.
-
-    \excercise Angenommen eine Münze ist \(2\) Taler wert. Schreibe eine Abfrage
-    \lstinline{getBalance} in \ownclass{}, die  zurückgibt, wie viele Taler Neo aktuell hat.
-
-    \emph{Bemerkung:} Verwendet für diese Aufgabe den Typ \lstinline{int}. Er ist der am häufigsten verwendete Typ für Ganzzahlen. Wir schauen uns die verschiedenen Typen zu einem späteren Zeitpunkt noch genauer an.
-
-        Es kann vorkommen, dass wir den Kommandos oder Abfragen, die wir ausführen, zusätzliche Informationen mitgeben wollen. Hierzu können wir Werte an Operationen übergeben, die \emph{Argmente} heißen. Diese schreiben wir in die Klammern hinter dem Operationsnamen. Eine \footnote{zugegebenermaßen nicht allzu sinnvolle} Operation, die zwei Zahlen addiert, würde zum Beispiel so aussehen:
-    \begin{lstlisting}
-public int add(final int a, final int b) {
-    return a + b;
-}
-    \end{lstlisting}
-    Das \lstinline{final} hierbei bedeutet, dass wir den Wert des Arguments in der Operation nicht verändern können.
-
-    \excercise Implementiere das Kommando \lstinline{gainCoins} der Klasse \lstinline{MyNeo}, die eine Ganzzahl als Argument bekommt und die Anzahl der Coins um diesen Wert erhöht.
-
-    \emph{Hinweis:} In dieser Operation könnt ihr die Operation \lstinline{setCoinsInWallet} der Klasse \lstinline{Neo} verwenden.
+    \begin{enumerate}
+        \item
+        Wie wir im letzten Blatt schon festgestellt haben, kann sich Neo nicht einfach nach rechts drehen. Das wollen wir jetzt ändern.
+        Erstelle hierzu eine Operation \lstinline{turnCounterClockwise} in \ownclass. Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung nach links (gesehen von seiner bisherigen Bewegungsrichtung) fortsetzen kann.
+    
+    
+        \item
+        Zusätzlich wollen wir Neo jetzt beibringen, sich um \(180^\circ\) zu drehen.
+        Erstelle hierzu eine Operation \lstinline{turnAround}.
+        Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung in die Richtung fortsetzen kann, aus der er gekommen ist.
+    
+    
+        Bei diesen beiden Operationen handelt es sich um \emph{Kommandos}, die den Zustand des Programms verändern (z.B. Neos Blickrichtung). Sie geben jedoch keine Werte an den Aufrufer der Operation zurück.
+    
+        Hierfür gibt es \emph{Abfragen}. Bei diesen handelt es sich um Operationen, die einen Wert zurückgeben, dabei jedoch den Zustand des Programmes nicht verändern. Um eine Operation mit einem Rückgabewert zu definieren, erstzen wir im Kopf der Operation \lstinline{void} durch den Typ des zurückgegebenen Wertes. Um dann tatsächlich einen Wert zurückzugeben, können wir in der Operation den Befehl \lstinline{return wert;} verwenden.
+    
+        Um zum Beispiel eine Operation zu schreiben, die einen passenden Gruß für Neo zurückgibt, könnten wir folgendes tun:
+        %TODO Beispiel Abfrage
+        \begin{lstlisting}
+    public String getGreeting() {
+        return "Hallo, " + this.getName() + "!";
+    }
+        \end{lstlisting}
+        Der Typ \lstinline{String} ist hierbei der Typ einer Zeichenkette. Er wird für Daten verwendet, die Text enthalten.
+    
+        \item Angenommen eine Münze ist \(2\) Taler wert. Schreibe eine Abfrage
+        \lstinline{getBalance} in \ownclass{}, die  zurückgibt, wie viele Taler Neo aktuell hat.
+    
+        \emph{Bemerkung:} Verwendet für diese Aufgabe den Typ \lstinline{int}. Er ist der am häufigsten verwendete Typ für Ganzzahlen. Wir schauen uns die verschiedenen Typen zu einem späteren Zeitpunkt noch genauer an.
+    
+            Es kann vorkommen, dass wir den Kommandos oder Abfragen, die wir ausführen, zusätzliche Informationen mitgeben wollen. Hierzu können wir Werte an Operationen übergeben, die \emph{Argmente} heißen. Diese schreiben wir in die Klammern hinter dem Operationsnamen. Eine \footnote{zugegebenermaßen nicht allzu sinnvolle} Operation, die zwei Zahlen addiert, würde zum Beispiel so aussehen:
+        \begin{lstlisting}
+    public int add(final int a, final int b) {
+        return a + b;
+    }
+        \end{lstlisting}
+        Das \lstinline{final} hierbei bedeutet, dass wir den Wert des Arguments in der Operation nicht verändern können.
+    
+        \item Implementiere das Kommando \lstinline{gainCoins} der Klasse \lstinline{MyNeo}, die eine Ganzzahl als Argument bekommt und die Anzahl der Coins um diesen Wert erhöht.
+    
+        \emph{Hinweis:} In dieser Operation könnt ihr die Operation \lstinline{setCoinsInWallet} der Klasse \lstinline{Neo} verwenden.\par
+    \end{enumerate}

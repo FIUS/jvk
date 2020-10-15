@@ -1,26 +1,32 @@
-    \excercise{Datentypen}
-    Wie wir oben gesehen haben gibt es verschieden Typen, die wir zum Beispiel für Argumente und Rückgabewerte verwenden können\footnote{Wir werden später noch andere Stellen sehen, an denen Typen vorkommen.}.
+\excercise{What If there is a Wall?!}
+%!TEX root = ./jvk-blatt2.tex
+In dieser Aufgabe wollen wir uns Conditions näher anschauen.
+\begin{enumerate}                           
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+    Was passiert bei der Ausführung?
+\end{enumerate}
 
-    Zunächst ist jede Klasse die wir oder jemand anderes definieren ein Typ. Variablen von diesem Typ können Objekte dieser Klasse oder einer ihrer Kindklassen enthalten. Eine häufig verwendete Klasse, die schon von Java definiert wurde, ist \lstinline{String}, welche Zeichenketten speichert.
+\begin{Infobox}[IF-Condition]
+    Nun betrachten wir ein beispielhaftes IF-Statement:
+    \begin{lstlisting}[breaklines=true, numbers=none]
+if(player.canMove()){
+    player.move();
+} else{
+    System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
+}
+    \end{lstlisting}
+    Das Kommando \textit{canMove()} gibt einen Boolean Wert zurück (also \textit{true} oder \textit{false}).
+    Falls sich also vor dem Spieler kein Hindernis befindet gibt die Abfrage canMove() "true" zurück, da es wahr ist, dass der spieler sich frei nach vorne bewegen kann.
+   In diesem Fall ist die Bedingung des IF-Statements erfüllt. Dadurch wird der erste Block
+    ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen.\par 
+    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und 
+    der zweite Block wird ausgeführt, wodurch wir hier eine erleuchtende Weißheit von Morpheus bekommen.
+\end{Infobox}
+\begin{enumerate} \setcounter{enumi}{1}
+    \item Betrachte die Methode \textit{movement} der Klasse \textit{Sheet2Task3}. Füge das obige IF-Statement an einer geeigneten Stelle ein 
+    und führe die Simulation erneut aus.
+    \item Das Hindernis wurde in der selben Klasse an der markierten Stelle in der Methode \textit{buildEnvironment} eingefügt.
+    Kommentiere diese Zeile aus und führe die Simulation aus. Was kannst du beobachten?
+    \item Jetzt soll die Wand wieder einkommentiert werden. Behandle also den ''ELSE'' Fall so, dass Neo in beiden Fällen die Telefonstation erreicht.
 
-    Zusätzlich gibt es noch primitive Datentypen. Diese sind in der folgenden Tabelle aufgelistet:
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{c|c|c}
-        Name & Bechreibung & Werte \\
-        \hline\hline
-        \texttt{byte} & 8-Bit-Ganzzahl & \(-128,\dots, -1, 0, 1, \dots, 127\) \\
-        \texttt{short} & 16-Bit-Ganzzahl & \(-32768, \dots, -1, 0, 1, \dots, 32767\)\\
-        \texttt{int} & 32-Bit-Ganzzahl & \(-2\,147\,483\,648, \dots, -1, 0, 1, \dots ,2\,147\,483\,647\)\\
-        \texttt{long} & 64-Bit-Ganzzahl & \(-9\,223\,372\,036\,854\,775\,808, \dots, -1, 0, 1, \dots ,9\,223\,372\,036\,854\,775\,807\)\\
-        \hline
-        \texttt{float} & 32-Bit-Gleitkommazahl & \(1.3f\), \(0.7e+12f\), \(3.1415927\) \\
-        \texttt{double} & 64-Bit-Gleitkommazahl & \(1.5739\), \(0.134e+123\), \(3.141592653589793\) \\
-        \hline
-        \texttt{boolean} & Wahrheitswerte & \texttt{true}, \texttt{false} \\
-        \texttt{char} & Zeichen & \texttt{'a'}, \texttt{'B'}, \texttt{'5'}, \texttt{'('} \\
-        \end{tabular}
-        \caption{Primitive Datentypen in Java}
-        \label{tab:primitive_types}
-    \end{table}
-    % TODO Datentypen Aufgaben erstellen
+\end{enumerate}

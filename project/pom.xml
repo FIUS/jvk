@@ -79,6 +79,14 @@
 					<excludePackageNames>de.unistuttgart.informatik.fius.jvk2019.solutions:de.unistuttgart.informatik.fius.jvk2019.tasks</excludePackageNames>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
+				<configuration>
+					<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

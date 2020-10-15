@@ -1,18 +1,42 @@
-    \excercise{Attribute}
-    Attribute sind Variablen die Informationen über den Zustand eines Objekts halten. Sie können Zahlen, Strings, Daten, oder auch nicht primitive Datentypen sein. Sie werden innerhalb der Klasse deklariert.
-    \subexcercise Deklariere die folgende Attribute in MyNeo:
-    \begin{itemize}
-    \item age: Ganzzahl
-    \item address: Text
-    \item amountSteps: Ganzzahl
-    \end{itemize}
-    \subexcercise getter-Query gibt den Wert für die Attribute zurück
-    \newline Erstelle für alle Attribute aus a) eine getter-Query
-    \subexcercise Mit einer Setter-Operation werden die Attribute aktualisiert.
-    Erstelle für jeweilige Attribut aus a) eine setter-Command
-    \subexcercise countSteps beschreibt die Anzahl der Schritte die schon Neo gelaufen ist. Überschreibe nun das move-Command, so dass der Wert von     countSteps nach einem Schritt aktualisiert wird.
-    \subexcercise Lösche alle zuvor erstellten setter und getter. Klicke nun mit der rechten Maustaste innerhalb der Klasse wähle \fbox{Source} $\to$ \fbox{Generate Setter and Getter...} $\to$ \fbox{hake alle Attribute oben an} $\to$ \fbox{Generate}
-    \subexcercise Schaue dir noch einmal den Code der vorherigen Aufgabe an.
-    Verändere ihn so, dass sowohl \lstinline{richNeo} als auch \lstinline{poorNeo} Attribute der Klasse \lstinline{Solution2_4} sind.
+\excercise{While i do stuff on repeat}
+%!TEX root = ./jvk-blatt2.tex
 
-    Verschiebe ausßerdem die Anweisungen zum Erzeugen der Objekte in die prepare-Operation.
+Ziel dieser Aufgabe ist es, die Syntax und die Funktion der While-Schleife genauer zu verstehen.
+\begin{enumerate}
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+\end{enumerate}
+
+\begin{Infobox}[While Schleife]
+    Wir betrachten eine beispielhafte While Schleife
+    \begin{lstlisting}[breaklines=true, numbers=none]
+while(player.canMove()){
+    player.move();
+}
+    \end{lstlisting}
+    While Schleifen prüfen jeweils vor Ausführung des Schleifeninneren, ob die gegebene Bedinung noch erfüllt ist. In unserem Beispiel 
+    wird also zunächst geprüft ob \textit{i \textless 3} mit dem Initialwert \textit{i = 0} gilt. Da dies erfüllt ist, wird der aktuelle Wert von \textit{i}
+    ausgegeben und inkrementiert. Nach der dritten Iteration ist der Wert von \textit{i} gleich 3, wodurch die obige Bedinung nicht mehr erfüllt ist
+    und die Schleife nicht weiter ausgeführt wird.\par 
+    Eine für uns relevantere Funktion wäre das Aufheben von einer unbekannten Anzahl an Münzen. Diese kann mittels einer While Schleife wie folgt 
+    realisiert werden:
+    \begin{lstlisting}[breaklines=true, numbers=none]
+while(player.canCollectCoin()){
+    player.collectCoin();
+}
+    \end{lstlisting}
+    Dabei prüfen wir mit der Schleifenbedinung
+    jeweils, ob es noch weitere Münzen gibt die wir aufheben können und heben diese ggfs. in dem Schleifenrumpf auf.
+\end{Infobox}
+
+\begin{enumerate} \setcounter{enumi}{1}
+    \item Betrachte das Kommando \textit{run} in der Klasse \textit{Sheet2Task5}. Übernehme die obige While Schleife um 
+    alle Münzen auf dem Feld vor Neo aufzuheben.
+    \item Platziere alle Münzen auf dem rechten mittleren Spielfeld an der Wand. Implementiere das Verhalten in dem \textit{run} Kommando.
+    Hier können die Abfragen \lstinline{canDropCoin()} und \lstinline{dropCoin()} genutzt werden.
+    \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur. Implementiere das Verhalten in dem \textit{run} Kommando so, dass 
+    auf jedem Feld der Spur genau eine Münze liegt.
+    \item Platziere nun auf jedem Feld der selben Spur exakt 3 Münzen.
+    \item Hier soll die selbe Spur wie in Teilaufgabe \textit{d)} gezeichnet werden, nur dass die geraden Felder übersprungen werden.
+    \item Optional: Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert 
+    werden.
+\end{enumerate}

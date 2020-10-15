@@ -1,57 +1,76 @@
-    \excercise{Kommentare - Erklärung deines Codes}
-    In Java kann  man durch Kommentare den Code  erklären und Hinweise dazu, welche Überlegungen dahinter stehen, geben. Dies wird vor allem wichtig, wenn man sich den Code zu einem späteren Zeitpunkt noch einmal ansieht, denn die wenigsten Codeabschnitte sind absolut selbsterklärend.
-    \begin{itemize}
-        \item Einzeilige Kommentar
-    \begin{lstlisting}
-    // Alles hinter den zwei Schrägstrichen ist ein Kommentar
-    // (bis zum Ende der Zeile)
-    \end{lstlisting}
-        \item Mehrzeilige Kommentar
-        \begin{lstlisting}
-        /*
-         *   Alles von "/*" bis "* /"
-         *   ist ein Kommentar.
-         */
-    \end{lstlisting}
-        \item JavaDoc
-        \begin{lstlisting}
-        /**
-         * JavaDoc  ist ein Software-Dokumentationswerkzeug, das aus
-         * Java-Quelltexten automatisch
-         * HTML-Dokumentationsdateien erstellt.
-         *
-         * JavaDoc Kommentar beginnen mit "/**"
-         *
-         * Man schreibt JavaDoc immer als
-         * Kopfkommentar,d.h z.B vor der Operation
-         * Implementierung.
-         *
-         * Bestimmte Meta-Informationen können mit @-Tags hinzugefügt
-         * werden:
-         *
-         * @author Java-Vorkurs-Tutor
-         *
-         */
-    \end{lstlisting}
-    \end{itemize}
-        \subexcercise Füge einen JavaDoc Klassenkommentar zur vorherigen Aufgabe hinzu. Füge ein JavaDoc zu den erstellten Operationen in der vorherigen Aufgabe hinzu. Jeder JavDoc Kommentar beschreibt für was die Operation/Klasse benutzt wird.
-    \subexcercise Schreibe deinen Namen als den Autor in den Klassenkommentar
-    \subexcercise Welche zusätzlichen @-Tags gibt es noch? Füge zum Klassenkommentar einen weiteren hinzu.
-    \subexcercise Neo möchte eine gerade Anzahl von Münzen auf dem Weg fallen lassen. Vervollständige \texttt{solve} in \texttt{Solution2\_4} damit Neo 5 Schritte nach vorne läuft und insgesamt 6 Münzen fallen lässt.
-    Auf jedem Feld sollte nur maximal eine Münze liegen.
-    \newline Hinweis : Schaue mal im JavaDoc von Neo nach welches Kommando man dafür benutzen kann.
-    Gegeben ist der folgende Code:
-    \begin{lstlisting}
-    public void foo(){
-        this.turnClockwise();
-        this.turnClockwise();
-        this.move();
-        this.turnClockwise();
-        this.turnClockwise();
+\excercise{Exceptions - Mit dem Kopf durch die Wand}
+%!TEX root = ./jvk-blatt2.tex
+Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren. 
+Dabei soll Neo in einem potenziell gefährlichen Szenario so schnell wie möglich zur nächsten Telefonstation laufen.
+\begin{enumerate}
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. Benutze dabei den Task aus der Klasse \lstinline{Sheet2Task2}
+    und den Verifier aus \lstinline{Sheet2Task2Verifier}.
+    \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
+    Betrachte die Klasse \lstinline{Sheet2Task2} mit dem Kommando \lstinline{run} an der markierten Stelle. Überlege dir wie man an Tank's Stelle 
+    ein solches Hindernis an einer geeigneten Stelle platzieren kann. Hier kann eine beliebige Position ($x$, 0) für $1 \leq x \leq 9$ ausgewählt werden.
+    Was passiert, wenn man nun die Simulation wie zuvor ausführt?
+\end{enumerate}
+\begin{Infobox}[Aufbau einer Exception]
+    Wir wollen nun den Aufbau einer Exception genauer verstehen. Dafür betrachten wir zunächst den folgenden Programmausschnitt:
+    \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
+public class Main{
+    //Programmeinstieg
+    public void main(){
+        //do stuff
+        divide(1, 0);
     }
+    
+    public Integer divide(Integer a, Integer b){
+        return a / b;
+    }
+}
     \end{lstlisting}
-    \subexcercise Schreibe einen JavaDoc-Kommentar für die Operation \texttt{foo}.
-    \subexcercise Benenne die Operation sinnvoll um. Wie kann man diese Operation verkürzen?
-
-    \emph{Hinweis:} Schaue dir hierzu noch einmal die Methoden an, die du bereits geschrieben hast.
-    \subexcercise Erstelle eine JavaDoc HTML Webseite mit Eclipse
+    Dabei lässt sich erkennen, dass an irgendeinem Punkt der Programmausführung durch 0 geteilt wird.
+    Dieses ungewollte Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich
+    \begin{lstlisting}[keywords={}, breaklines=true, numbers=none]
+java.lang.ArithmeticException: / by zero
+    at de.unistuttgart.informatik.fius.jvk.Main.divide(Main.java:9)
+    at de.unistuttgart.informatik.fius.jvk.Main.main(Main.java:5)
+    \end{lstlisting}    
+    Im Folgenden wollen wir kurz über ein paar für uns interessante Inhalte der Exception reden:
+    \begin{enumerate}[label=\roman*)]
+        \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden. In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
+        \item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggfs. mehr Informationen über den Fehler selbst geben.
+        In unserem Fall ist die Nachricht \textit{"/ by zero"}.
+        \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet weiterhin Informationen, wo im Programm die Exception geflogen ist. Hier interessiert uns 
+        fürs erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception in der \lstinline{Main} Klasse und der \lstinline{divide}
+        Operation in Zeile 9 geflogen ist.
+    \end{enumerate}
+\end{Infobox}
+\begin{enumerate}[label=\alph*)] \setcounter{enumi}{2}
+    \item Im Folgenden betrachten wir beispielhaft den Stacktrace einer Exception:
+    \definecolor{ForestGreen}{rgb}{0.0, 0.5, 0.0}
+    \begin{lstlisting}[keywords={}, breaklines=true, escapeinside={(*@}{@*)}]
+de.unistuttgart.informatik.fius.icge.simulation.exception.IllegalMoveException: Solid Entity in the way
+at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.internalMove(MovableEntity.java:(*@{\color{ForestGreen}linenumber1}@*))
+at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.move(MovableEntity.java:(*@{\color{ForestGreen}linenumber2}@*))
+at de.unistuttgart.informatik.fius.jvk.tasks.Sheet2Task2.run(Sheet2Task2.java:(*@{\color{ForestGreen}linenumber3}@*))
+at de.unistuttgart.informatik.fius.icge.simulation.internal.tasks.StandardTaskRunner.executeTask(StandardTaskRunner.java:(*@{\color{ForestGreen}linenumber4}@*))
+at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:(*@{\color{ForestGreen}linenumber5}@*))
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber6}@*))
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber7}@*))
+at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8}@*))
+    \end{lstlisting}
+    Dieser soll nun genauer analysiert werden:
+    \begin{enumerate}
+        \item[i)] Welche Exception wurde geworfen und was ist die Nachricht der Exception?
+        \item[ii)] In welcher Operation wurde die Exception geworfen?
+        \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!  
+    \end{enumerate}
+    \item Jetzt soll die Exception behandelt werden.
+    \begin{enumerate}
+        \item[i)] Optional: Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{move()} Aufrufen jeweils
+        Leerzeilen einfügt?  
+        \item[ii)] Kommentiere in dem markierten Block zunächst so viele Zeilen aus, sodass keine Exception mehr auftritt. 
+        Spielt die Reihenfolge der auskommentierten Zeilen eine Rolle?
+    \end{enumerate}
+    \item  Nun sollen keine Zeilen gelöscht oder auskommentiert werden, durch welches Kommando muss \lstinline{move()} ersetzt werden, damit 
+    denoch keine Exception auftritt?
+    \item Überlege dir möglichst viele verschiedene Methoden um die Exception zu verhindern. Implementiere diese!
+\end{enumerate}
+ 
