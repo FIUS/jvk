@@ -1,13 +1,18 @@
-\excercise{What If there is a Wall?!}
 %!TEX root = ./jvk-blatt2.tex
+
+\excercise{What If there is a Wall?!}
+
 In dieser Aufgabe wollen wir uns Conditions näher anschauen.
+
 \begin{enumerate}                           
     \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
-    Was passiert bei der Ausführung?
+        Was passiert bei der Ausführung?
 \end{enumerate}
+
 
 \begin{Infobox}[IF-Condition]
     Nun betrachten wir ein beispielhaftes IF-Statement:
+
     \begin{lstlisting}[breaklines=true, numbers=none]
 if(player.canMove()){
     player.move();
@@ -15,18 +20,22 @@ if(player.canMove()){
     System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
 }
     \end{lstlisting}
+
     Das Kommando \textit{canMove()} gibt einen Boolean Wert zurück (also \textit{true} oder \textit{false}).
     Falls sich also vor dem Spieler kein Hindernis befindet gibt die Abfrage canMove() "true" zurück, da es wahr ist, dass der spieler sich frei nach vorne bewegen kann.
-   In diesem Fall ist die Bedingung des IF-Statements erfüllt. Dadurch wird der erste Block
-    ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen.\par 
-    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und 
-    der zweite Block wird ausgeführt, wodurch wir hier eine erleuchtende Weißheit von Morpheus bekommen.
+    In diesem Fall ist die Bedingung des IF-Statements erfüllt. 
+    Dadurch wird der erste Block ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen. 
+
+    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und der zweite Block wird ausgeführt.
+    In diesem Fall bekommen wir hier eine erleuchtende Weißheit von Morpheus.
 \end{Infobox}
+
+
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Betrachte die Methode \textit{movement} der Klasse \textit{Sheet2Task3}. Füge das obige IF-Statement an einer geeigneten Stelle ein 
-    und führe die Simulation erneut aus.
+    \item Betrachte die Methode \textit{movement} der Klasse \textit{Sheet2Task3}. 
+        Füge das obige IF-Statement an einer geeigneten Stelle ein und führe die Simulation erneut aus.
     \item Das Hindernis wurde in der selben Klasse an der markierten Stelle in der Methode \textit{buildEnvironment} eingefügt.
-    Kommentiere diese Zeile aus und führe die Simulation aus. Was kannst du beobachten?
-    \item Jetzt soll die Wand wieder einkommentiert werden. Behandle also den ''ELSE'' Fall so, dass Neo in beiden Fällen die Telefonstation erreicht.
+        Kommentiere diese Zeile aus und führe die Simulation aus. Was kannst du beobachten?
+    \item Jetzt soll die Wand wieder einkommentiert werden. Behandle also den \q{ELSE} Fall so, dass Neo in beiden Fällen die Telefonstation erreicht.
 
 \end{enumerate}
