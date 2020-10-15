@@ -1,7 +1,7 @@
 % !TeX root = ./jvk-blatt1.tex
 \lstset{
-basicstyle=\small,
-morecomment=[l]{*}
+	basicstyle=\small,
+	morecomment=[l]{*}
 }
 \excercise{Syntax}
 
@@ -11,160 +11,161 @@ Die Syntax beschreibt, wie der Code geschrieben werden muss, sodass er von einem
 Es kommen jetzt viele Definitionen, ihr müsst euch aber keine Sorgen machen wenn ihr nicht alles direkt versteht.
 Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwas nicht sicher seid.
 \begin{enumerate}
-    \item \teamsaufgabe{Blatt 1: Aufgabe 3}
-    \item \textbf{Schreibt} zu jeder Teilaufgabe selbst zwei Beispiele in einem Editor. 
+	\item \teamsaufgabe{Blatt 1: Aufgabe 3}
+	\item \textbf{Schreibt} zu jeder Teilaufgabe selbst zwei Beispiele in einem Editor. 
 \end{enumerate}
 
 
 {\color{red}TODO: Aufgabe 3 Datei im Java Projekt.}
 
-
-\subsubsection*{Kommentare:}
-Kommentare sind Teile des Codes, die vom Computer ignoriert werden.
-Sie werden genutzt, um anderen (aber auch euch selbst) kenntlich zu machen, was im Code passiert, was noch verändert werden sollte oder um allgemein Anmerkungen zu hinterlassen.
+\begin{Infobox}
+	
+	\subsubsection*{Kommentare:}
+	Kommentare sind Teile des Codes, die vom Computer ignoriert werden.
+	Sie werden genutzt, um anderen (aber auch euch selbst) kenntlich zu machen, was im Code passiert, was noch verändert werden sollte oder um allgemein Anmerkungen zu hinterlassen.
+\end{Infobox}
 
 \begin{lstlisting}[title=\textbf{Kommentar Beispiel}]
-// Dies ist ein einfacher Kommentar über eine Zeile.
-// Er wird mit // gestartet und nimmt die gesamte Zeile hinter sich ein.
-someCode.run(); //Kommentare können auch nach Operationen geschrieben werden.
-/*
- * Kommentare können sich auch über mehrere Zeilen erstrecken.
- * Diese beginnen mit /* und enden mit  */ . 
- * Um die Lesbarkeit zu verbessern, werden die Zeilen dazwischen meist 
- * mit einem * begonnen.
- */
+	// Dies ist ein einfacher Kommentar über eine Zeile.
+	// Er wird mit // gestartet und nimmt die gesamte Zeile hinter sich ein.
+	someCode.run(); //Kommentare können auch nach Operationen geschrieben werden.
+	/*
+	* Kommentare können sich auch über mehrere Zeilen erstrecken.
+	* Diese beginnen mit /* und enden mit  */ . 
+	* Um die Lesbarkeit zu verbessern, werden die Zeilen dazwischen meist 
+	* mit einem * begonnen.
+	*/
 \end{lstlisting}
 \lstset{
 	basicstyle=\small
 }
-\subsubsection*{Klassen:}
-Klassen sind Baupläne für Objekte. In diesen können Operationen und Attribute definiert werden, welche dann den Objekten zur Verfügung stehen.\\
-Eine Klasse beginnt immer mit dem \lstinline{class} Schlüsselwort, gefolgt von ihrem Namen. Diesen könnt ihr fast frei wählen, nur spezielle Schlüsselwörter wie zum Beispiel \lstinline{class} sind verboten. Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.
-
-\begin{lstlisting}[title=\textbf{Klassen Syntax}]
-// < > wird immer durch das ersetzt was in < > beschrieben wird
-class <NameDerKlasse>{ // Beginn der Klasse
-	/*  
-	 * Inhalt der Klasse. Um die Lesbarkeit zu verbessern wird
-	 * Code innerhalb geschweifter Klammern eingerückt.
-	 */
-	<Typ> <Attributname>; //Definition eines Attributes.
+\begin{Infobox}
 	
-	// Definition einer Operation (Siehe nächsten Eintrag)
-	<Rückgabetyp> <OperationsName>(<Typ> <ParameterName>, ...){
-		// Inhalt der Operation
+	\subsubsection*{Klassen:}
+	Klassen sind Baupläne für Objekte.
+	In diesen können Operationen definiert werden, welche dann den Objekten zur Verfügung stehen.\\
+	Eine Klasse beginnt immer mit dem \lstinline{class} Schlüsselwort, gefolgt von ihrem Namen.
+	Diesen könnt ihr fast frei wählen, nur spezielle Schlüsselwörter wie zum Beispiel \lstinline{class} sind verboten.
+	Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.
+	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse "Hund" $\rightarrow$ Datei "Hund.java".
+\end{Infobox}
+\begin{lstlisting}[title=\textbf{Klassen Syntax}]
+	// < > wird immer durch das ersetzt was in < > beschrieben wird
+	public class <NameDerKlasse>{ // Beginn der Klasse
+		/*  
+		* Inhalt der Klasse. Um die Lesbarkeit zu verbessern wird
+		* Code innerhalb geschweifter Klammern eingerückt.
+		*/
+		// Definition einer Operation (Siehe nächsten Eintrag)
+		public <Rückgabetyp> <OperationsName>(<Typ> <ParameterName>, ...){
+			// Inhalt der Operation
+		}
+		...
 	}
-	...
-}
 \end{lstlisting}
 
 \newpage
 
 \begin{lstlisting}[title=\textbf{Klassen Beispiel}]
-class Hund{
-	String rasse;
-	String farbe;
-	void wuff(){
-		// Code um zu bellen
+	public class Hund{
+		public void wuff(){
+			// Code um zu bellen
+		}
 	}
-}
 \end{lstlisting}
-
-\subsubsection*{Operationen}
-Eine Operation besitzt einen Namen, einen Rückgabewert und kann Parameter besitzen.\\
-Operationen beinhalten Code, der mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden kann.
-Der Rückgabewert gibt an, ob und was die Operation zurückgeben wird.
-Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.\\
-Parameter sind Variablen, die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code gültig.
-Parameter werden in den Klammern nach dem Namen der Operation Angegeben.
-Danach kommt in geschweiften Klammern der Inhalt der Operation.
-
-Wenn man eine Operation aufruft und ein Objekt dort übergibt, wird dieses Objekt Argument genannt.
+\begin{Infobox}
+	\subsubsection*{Operationen}
+	Eine Operation besitzt einen Namen, einen Rückgabewert und kann Parameter besitzen (sie besitzen auch noch eine Sichtbarkeit, wir verwenden hier immer ''public'' um es zu vereinfachen).\\
+	Operationen beinhalten Code, der mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden kann.
+	Der Rückgabewert gibt an, ob und was die Operation zurückgeben wird.
+	Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.\\
+	Parameter sind Variablen, die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code gültig.
+	Parameter werden in den Klammern nach dem Namen der Operation Angegeben.
+	Danach kommt in geschweiften Klammern der Inhalt der Operation.
+	
+	Wenn man eine Operation aufruft und ein Objekt dort übergibt, wird dieses Objekt Argument genannt.
+\end{Infobox}
 \vspace{5mm}
 
 \begin{Infobox}
-Bei der Definition einer Operation werden die Variablen, die festlegen, was man übergeben kann \textbf{Parameter} genannt. Die Objekt die man beim Aufrufen einer Operation übergibt, werden \textbf{Argumente} genannt. 
+	Bei der Definition einer Operation werden die Variablen, die festlegen, was man übergeben kann \textbf{Parameter} genannt. Die Objekt die man beim Aufrufen einer Operation übergibt, werden \textbf{Argumente} genannt. 
 \end{Infobox}
 
 \begin{lstlisting}[title=\textbf{Operations Syntax}]
-	<RückgabeTyp> <OperationsName>(){
+	public <RückgabeTyp> <OperationsName>(){
 		// Inhalt der Operation
 	}
-	<RückgabeTyp> <OperationsName>(<Typ> <ParameterName>, ...){
+	public <RückgabeTyp> <OperationsName>(<Typ> <ParameterName>, ...){
 		// Inhalt der Operation
 	}
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Operations Beispiel}]
-	void springen(){
+	public void springen(){
 		// Code um zu springen
 	}
-
-	Hund sucheEinenHundAus(String wunschFarbe){
+	
+	public Hund sucheEinenHundAus(String wunschFarbe){
 		// Code um einen Hund auszusuchen
 	}
 \end{lstlisting}
 
- \begin{Infobox}
-              Operationen erfüllen zwei Aufgaben. Man kann sie dazu verwenden um Informationen von einem Objekt zu bekommen.
-              In dem Fall werden sie auch Abfragen (oder engl. Queries) genannt.
-              Oder man verwendet sie um etwas zu tun. In dem Fall werden sie Kommandos (oder engl. commands) gennant.
+\begin{Infobox}
+	
+	\subsubsection*{Objekte erzeugen:}
+	Objekte sind Instanzen von Klassen.
+	Um ein Objekt zu erzeugen wird das \lstinline{new} Schlüsselwort verwendet.
+	Man schreibt dann \lstinline{new } gefolgt von dem KlassenNamen und ein paar Klammern ().
 \end{Infobox}
-
-\subsubsection*{Objekte erzeugen:}
-Objekte sind Instanzen von Klassen.
-Um ein Objekt zu erzeugen wird das \lstinline{new} Schlüsselwort verwendet.
-Man schreibt dann \lstinline{new } gefolgt von dem KlassenNamen und ein paar Klammern ().
-
 \begin{lstlisting}[title=\textbf{Objekt erstellen Syntax}]
-new <KlassenName>(<MöglicheParameter>);// Ein Objekt wird erzeugt
+	new <KlassenName>(<MöglicheParameter>);// Ein Objekt wird erzeugt
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Objekt erstellen Beispiel}]
-new Hund("Border Collie");
+	new Hund("Border Collie");
 \end{lstlisting}
-
-\subsubsection*{Variablen:}
-Variablen werden genutzt um Werte zu speichern.
-Sie sind nützlich in Fällen wo ihr einen bestimmten Wert mehrfach im selben Code nutzen wollt, oder wenn ein Wert nicht fest ist sondern während dem Ausführen bestimmt wird.\\
-Variablen besitzen immer einen Typ und einen Namen.
-Mit einem = kann einer Variable ein Wert zugewiesen werden.
-Wenn man ein Objekt erzeugt wird es meist direkt einer Variable zugewiesen, da man es später noch nutzen möchte.
-
+\begin{Infobox}
+	\subsubsection*{Variablen:}
+	Variablen werden genutzt um Werte zu speichern.
+	Sie sind nützlich in Fällen wo ihr einen bestimmten Wert mehrfach im selben Code nutzen wollt, oder wenn ein Wert nicht fest ist sondern während dem Ausführen bestimmt wird.\\
+	Variablen besitzen immer einen Typ und einen Namen.
+	Mit einem = kann einer Variable ein Wert zugewiesen werden.
+	Wenn man ein Objekt erzeugt wird es meist direkt einer Variable zugewiesen, da man es später noch nutzen möchte.
+\end{Infobox}
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
-
-	<KlassenName> <Name> = <Wert>; // Eine variable wird erzeugt und ihr wird ein Wert zugewiesen.
+	public <KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
 	
-	<Name> = <Wert> // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
+	public <KlassenName> <Name> = <Wert>; // Eine variable wird erzeugt und ihr wird ein Wert zugewiesen.
 	
-	<KlassenName> <Name> = new <KlassenName>() // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
+	public <Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
 	
-	<KlassenName> <Name> = <NameEinerAnderenVariable> // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. 
+	public <KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
+	
+	public <KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. 
 \end{lstlisting}
 \begin{lstlisting}[title=\textbf{Variable Beispiel}]
- 	String etwasText = "Dies ist nun der Wert der Variable";
- 	
- 	Hund meinHund = new Hund("Deutscher Schäferhund");
+	public String etwasText = "Dies ist nun der Wert der Variable";
+	
+	public Hund meinHund = new Hund("Deutscher Schäferhund");
 \end{lstlisting}
-
-\subsubsection*{Kommandos und Abfragen:}
-Kommandos und Abfragen sind zwei Varianten von Operationen einer Klasse. Kommandos beschreiben alle operationen die etwas am an dem Objekt auf dem sie aufgerufen werden verändern.
-Abfragen sind alle Operationen die nichts verändern, dafür aber eine Eigenschaft als Wert zurückgeben.\\
-Um Operationen eines Objekts aufzurufen wird zuerst der Objektname geschrieben gefolgt von einem . und dann der Operationsname gefolgt von einem paar Klammern in denen Parameter stehen können.\\
-{\color{red} Wichtig: } Operationen können im nur auf Objekten und nicht auf Klassen aufgerufen werden.
-Es  gibt hier einen Sonderfall, den ihr in PSE kennenlernen werdet.
-
+\begin{Infobox}
+	\subsubsection*{Kommandos und Abfragen:}
+	Kommandos und Abfragen sind zwei Varianten von Operationen einer Klasse. Kommandos beschreiben alle Operationen die etwas am an dem Objekt auf dem sie aufgerufen werden verändern.
+	Abfragen sind alle Operationen die nichts verändern, dafür aber eine Eigenschaft als Wert zurückgeben.\\
+	Um Operationen eines Objekts aufzurufen wird zuerst der Objektname geschrieben gefolgt von einem . und dann der Operationsname gefolgt von einem paar Klammern in denen Parameter stehen können.\\
+	{\color{red} Wichtig: } Operationen können im nur auf Objekten und nicht auf Klassen aufgerufen werden.
+	Es  gibt hier einen Sonderfall, diese werdet ihr in PSE kennenlernen.
+\end{Infobox}
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
 	<ObjektName>.<OperationsName>();
 	
 	<ObjektName>.<OperationsName>(<Wert>);
 \end{lstlisting}
-
+\newpage
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Beispiel}]
-    // meinHund.sitz(); soll dafür sorgen dass der Hund sich hinsetzt, es wird also etwas am Objekt geändert und somit ist diese Operation ein Kommando.
-  	meinHund.sitz()
-
+	// meinHund.sitz(); soll dafür sorgen dass der Hund sich hinsetzt, es wird also etwas am Objekt geändert und somit ist diese Operation ein Kommando.
+	meinHund.sitz();
+	
 	// meinHund.getAlter() soll wiedergeben wie alt der Hund ist, es wird also etwas abgefragt wonach es sich um eine Abfrage handelt.
 	meinHund.getAlter();
 \end{lstlisting}
