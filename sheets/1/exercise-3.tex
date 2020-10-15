@@ -6,7 +6,7 @@ In jeder teilaufgabe wir ein bestimmter teil von Java erklärt und du sollst ein
 
 \begin{enumerate}
     \item \textbf{[2]} Bevor wir uns mit dem Java Programmcode ansich beschäftigen, sollten wir noch Wissen was kommentare sind.
-    Weil es vorkommt, das wir Notizen oder Erklärungen in die Java datei schreiben wollen, die für andere Menschen oder einem selbst bestimmt sind. Da der Computer diese Notizen nicht lesen soll, müssen wir sie in der Java Datei (also im Programmcode) als Kommentare markieren.
+          Weil es vorkommt, das wir Notizen oder Erklärungen in die Java datei schreiben wollen, die für andere Menschen oder einem selbst bestimmt sind. Da der Computer diese Notizen nicht lesen soll, müssen wir sie in der Java Datei (also im Programmcode) als Kommentare markieren.
           Für kurze Kommentare kann man \lstinline[breaklines=false]{//} verwenden. Dammit markiert man den Rest der Zeile als Kommentar. Beachte das manche Programme, automatisch ein Zeilen umbruch einfügen wenn die Zeile zu lang wird.
           Das ist aber meistens nur Darstellung und gilt nicht als ende der Zeile.
           Alternativ kann man den kommentar auch mit \lstinline[breaklines=false]{/* */} umschließen. Dadurch kann man auch ein mehrzeiligen kommentar schreiben. Dabei ist es konvention, jede Zeile mit einem \textcolor{javagreen}{\texttt{*}} zu beginnen. (wie in dem Beispiel unten zu sehen).
@@ -21,7 +21,7 @@ class void not_even_Java //Auch an der Grünen färbung kann man in den Meisten 
  * Auch hier kann natürlich automatisch umgebrochen werden.
  */
         \end{lstlisting}
-        In dieser Aufgabe sind alle in < > geschriebenen Wörter Platzhalter für das was sie beschreiben. Jeder Platzhalter kann mit etwas anderem Ausgefüllt werden, auch wenn sie gleich heißen. Die Klammern <> müssen dabei mit ersetzt werden!
+          In dieser Aufgabe sind alle in < > geschriebenen Wörter Platzhalter für das was sie beschreiben. Jeder Platzhalter kann mit etwas anderem Ausgefüllt werden, auch wenn sie gleich heißen. Die Klammern <> müssen dabei mit ersetzt werden!
     \item \textbf{[1]} Eine Klasse hat immer am Anfang das Schlüsselwort \lstinline{class}, gefolgt von einem frei wählbaren Namen. Darauf folgen die \{ \}, die den gesamten Inhalt der Klasse umschließen.
           Zum inhalt einer Klasse gehören \textbf{[1]}Attribute und Operationen
 
@@ -52,7 +52,7 @@ class PDFElement{
     }                    
 }
                                     \end{lstlisting}
-          
+
 
           \begin{Infobox}{Namen}
               Die frei wählbare Namen, müssen trotzdem ein paar Regeln Folgen
@@ -85,14 +85,14 @@ class PDFElement{
           Variable die bereits einen Wert hat.
           Wenn wir ein Objekt einem Wert zugewiesen haben, können wir es unter dem Namen der Variable wiederfinden.
           \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-    <Typ> <Name>; 
     // Variable wird zur späteren Verwendung erzeugt
+    <Typ> <Name>; 
 
-    <Name> = new <Klassen Name>(); 
     //Ein Objekt wird erstellt und einer bereits existierenden Variable zugeweisen.
+    <Name> = new <Klassen Name>(); 
 
-    <Typ> <Name> = <Klassen Name>(); 
     //Eine Variable wird erstellt und ein Objekt das auch erstellt wird, wird sofort zugeweisen
+    <Typ> <Name> = <Klassen Name>(); 
 
     <Typ> <Name> = <Name>; 
     /*Eine bestehende Variable, wird einer neu erstellten,
@@ -100,16 +100,19 @@ class PDFElement{
      * Das Objekt, das unter dem Namen der alten Variable bekannt war, Ist nun unter beiden Namen bekannt.
      */
 
-    new <Klassen Name>(<Variablen Name>); 
     // Eine bestehende Variable, wird einem Objekt bei der erstellung, mit gegeben.
+    new <Klassen Name>(<Variablen Name>); 
           \end{lstlisting}
           \begin{lstlisting}[title=\textbf{Beispiel (2/3) Variablen},firstnumber=1,frame=ltr]
             Collector pdfCollector = new Collector();
         \end{lstlisting}
     \item \textbf{[2]} Es wurde ja bereits erwähnt, dass Klassen Operationen haben. Außerdem, dass sie \q{alle} Kommandos beinhalten. Wenn man diese Aufrufen möchte: schreibt man den Namen der Variable mit der wir uns das Objekt gemerkt haben oder auch einfach direkt nachdem wir es erstellen. Dann einen \lstinline{.} gefolgt von dem Namen der Operation und (). Manche geben aber auch ein Objekt zurück, dadurch kann man gleich einen Operator davon Aufrufen oder man speichert sich es, mit einer variable zwischen. Außerdem haben sie manchmal Parameter. Genau wie als wir die Objekte aus den Klassen erstellt haben.
           \begin{lstlisting}[title=\textbf{Kommando Syntax},firstnumber=4]
-        <Operation Name>(); // ein Operation die zum selben Objekt gehört wird aufgerufen.
-        new <Typ Name>().<Operation Name>(); //Ein Objekt wird erzeugt und sofort eine Operation des Objekt aufgerufen.
+        new <Typ Name>().<Operation Name>(); 
+        //Ein Objekt wird erzeugt und sofort eine Operation des Objekt aufgerufen.
+        
+        // ein Operation die in der selben Klasse steht, wird aufgerufen
+        <Operation Name>(); 
 
         <Typ Name> <Variablen Name> = new <Typ Name>();
         <Variablen Name>.<Operation Name>();
@@ -126,7 +129,7 @@ class PDFElement{
               Oder man verwenden sie um etwas zu tun. In dem Fall werden sie Kommandos (oder engl. commands) gennant.
           \end{Infobox}
 
-    
+
     \item Bei der nächsten Aufgabe sollt ihr keine Beispiele finden. Sondern einer aus der Gruppe macht eine veränderung am Code. Die gegen die Syntax Regeln verstößt. Das erkennt Eclipse und zeigt euch eine Fehlermeldung an. Diese soll nun der Rest der Gruppe lesen und versuchen herauszufinden Was geändert wurde und wie es richtig geht.\\
           Vorschläge was geändert werden sollte:
           \begin{itemize}
