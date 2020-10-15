@@ -241,6 +241,9 @@
 }
 \renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
 
+\newcommand{\teamsaufgabe}[1]{{\color{purple} In Teams findest du das Quiz: \textbf{#1}}}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%
 % document structure %
