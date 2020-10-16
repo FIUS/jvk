@@ -35,14 +35,15 @@ public class Sheet3Task3Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk until you find a coin.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b)", "Walk the pattern on the exercise sheet.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk the patern three times.");
     private BasicTaskInformation taskD = new BasicTaskInformation(
-            "d)", "when on a field with exactly one coin, pick up the coin and turn right."
+            "d)", "copy the pattern code in the Operation movePatter."
     );
     private BasicTaskInformation taskE = new BasicTaskInformation(
-            "e)", "when on a field with more than one coin, pick up a coin and turn right."
+            "e)", "replace the code in the loop with movePattern(neo)."
     );
-    private BasicTaskInformation taskF = new BasicTaskInformation("f)", "Turn around when facing a wall and not standing on a coin.");
+    private BasicTaskInformation taskF = new BasicTaskInformation("f)", "execute dropFourCoinsAndTurnLeft after movePattern in the Loop Body.");
     private BasicTaskInformation taskG = new BasicTaskInformation("g)", "Walk until you have collected 20 coins or walked 10 steps");
     private BasicTaskInformation taskH = new BasicTaskInformation("h)", "complete all other subtasks.");
     
@@ -55,6 +56,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
         //System.out.println("test");
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
+        subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
@@ -78,8 +80,56 @@ public class Sheet3Task3Verifier implements TaskVerifier {
         List<List<Position>> stepPositions = new ArrayList<>();
         stepActions.forEach(stepAction -> stepPositions.add(Arrays.asList(new Position[] { stepAction.from(), stepAction.to() })));
         
+        //Pattern
+        List<List<Position>> listB=new ArrayList<List<Position>>();
+        listB.add(Arrays.asList(new Position[] { new Position(0, 0), new Position(1, 0) }));
+        listB.add(Arrays.asList(new Position[] { new Position(1, 0), new Position(2, 0) }));
+        listB.add(Arrays.asList(new Position[] { new Position(2, 0), new Position(2, 1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(2, 1), new Position(3, 1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(3, 1), new Position(4, 1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(4, 1), new Position(5, 1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(5, 1), new Position(5, 0) }));
+        listB.add(Arrays.asList(new Position[] { new Position(5, 0), new Position(5, -1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(5, -1), new Position(6, -1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(6, -1), new Position(7, -1) }));
+        listB.add(Arrays.asList(new Position[] { new Position(7, -1), new Position(7, 0) }));
+        
+        if(stepPositions.containsAll(listB)) {
+            this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
+        List<List<Position>> listC=listB;
+        listC.add(Arrays.asList(new Position[] { new Position(0+7, 0), new Position(1+7, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(1+7, 0), new Position(2+7, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(2+7, 0), new Position(2+7, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(2+7, 1), new Position(3+7, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(3+7, 1), new Position(4+7, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(4+7, 1), new Position(5+7, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+7, 1), new Position(5+7, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+7, 0), new Position(5+7, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+7, -1), new Position(6+7, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(6+7, -1), new Position(7+7, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(7+7, -1), new Position(7+7, 0) }));
+        
+        listC.add(Arrays.asList(new Position[] { new Position(0+14, 0), new Position(1+14, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(1+14, 0), new Position(2+14, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(2+14, 0), new Position(2+14, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(2+14, 1), new Position(3+14, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(3+14, 1), new Position(4+14, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(4+14, 1), new Position(5+14, 1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+14, 1), new Position(5+14, 0) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+14, 0), new Position(5+14, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(5+14, -1), new Position(6+14, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(6+14, -1), new Position(7+14, -1) }));
+        listC.add(Arrays.asList(new Position[] { new Position(7+14, -1), new Position(7+14, 0) }));
+        
+        if(stepPositions.containsAll(listC)) {
+            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
+        subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
