@@ -47,7 +47,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	Eine Klasse beginnt immer mit dem \lstinline{class} Schlüsselwort, gefolgt von ihrem Namen.
 	Diesen könnt ihr fast frei wählen, nur spezielle Schlüsselwörter wie zum Beispiel \lstinline{class} sind verboten.
 	Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.
-	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse "Hund" $\rightarrow$ Datei "Hund.java".
+	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse \q{Hund} $\rightarrow$ Datei \q{Hund.java}.
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Klassen Syntax}]
 	// < > wird immer durch das ersetzt was in < > beschrieben wird
@@ -75,7 +75,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 \end{lstlisting}
 \begin{Infobox}
 	\subsubsection*{Operationen}
-	Eine Operation besitzt einen Namen, einen Rückgabewert und kann Parameter besitzen (sie besitzen auch noch eine Sichtbarkeit, wir verwenden hier immer ''public'' um es zu vereinfachen).\\
+	Eine Operation besitzt einen Namen, einen Rückgabewert und kann Parameter besitzen (sie besitzen auch noch eine Sichtbarkeit, wir verwenden im Vorkurs immer \lstinline{public} um es zu vereinfachen).\\
 	Operationen beinhalten Code, der mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden kann.
 	Der Rückgabewert gibt an, ob und was die Operation zurückgeben wird.
 	Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.\\
@@ -133,15 +133,15 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	Wenn man ein Objekt erzeugt wird es meist direkt einer Variable zugewiesen, da man es später noch nutzen möchte.
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-	public <KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
+	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
 	
-	public <KlassenName> <Name> = <Wert>; // Eine variable wird erzeugt und ihr wird ein Wert zugewiesen.
+	<KlassenName> <Name> = <Wert>; // Eine variable wird erzeugt und ihr wird ein Wert zugewiesen.
 	
-	public <Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
+	<Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
 	
-	public <KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
+	<KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
 	
-	public <KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. 
+	<KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. 
 \end{lstlisting}
 \begin{lstlisting}[title=\textbf{Variable Beispiel}]
 	public String etwasText = "Dies ist nun der Wert der Variable";
