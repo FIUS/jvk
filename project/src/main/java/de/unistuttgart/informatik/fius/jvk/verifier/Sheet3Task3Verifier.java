@@ -37,15 +37,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
     );
     private BasicTaskInformation taskB = new BasicTaskInformation("b)", "Walk the pattern on the exercise sheet.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk the patern three times.");
-    private BasicTaskInformation taskD = new BasicTaskInformation(
-            "d)", "copy the pattern code in the Operation movePatter."
-    );
-    private BasicTaskInformation taskE = new BasicTaskInformation(
-            "e)", "replace the code in the loop with movePattern(neo)."
-    );
-    private BasicTaskInformation taskF = new BasicTaskInformation("f)", "execute dropFourCoinsAndTurnLeft after movePattern in the Loop Body.");
-    private BasicTaskInformation taskG = new BasicTaskInformation("g)", "Walk until you have collected 20 coins or walked 10 steps");
-    private BasicTaskInformation taskH = new BasicTaskInformation("h)", "complete all other subtasks.");
+    private BasicTaskInformation taskG = new BasicTaskInformation("g)", "execute dropFourCoinsAndTurnLeft after movePattern in the Loop Body.");
     
     private ActionLog  actionLog;
     private Simulation sim;
@@ -58,11 +50,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
-        subTasks.add(this.taskD);
-        subTasks.add(this.taskE);
-        subTasks.add(this.taskF);
         subTasks.add(this.taskG);
-        subTasks.add(this.taskH);
         this.task = new BasicTaskInformation("Sheet 3 Task 2", "If-Conditions.", subTasks);
     }
     
@@ -127,15 +115,16 @@ public class Sheet3Task3Verifier implements TaskVerifier {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         
+        if((getNumberOfCoinsAtPosition(7,0)==4)&&(getNumberOfCoinsAtPosition(7,-7)==4)&&(getNumberOfCoinsAtPosition(0,-7)==4)) {
+            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+            this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
-        subTasks.add(this.taskD);
-        subTasks.add(this.taskE);
-        subTasks.add(this.taskF);
         subTasks.add(this.taskG);
-        subTasks.add(this.taskH);
         this.task = this.task.updateSubTasks(subTasks);
         
     }
