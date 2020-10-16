@@ -154,7 +154,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	{\color{red} Wichtig: } Operationen können im nur auf Objekten und nicht auf Klassen aufgerufen werden.
 	Es  gibt hier einen Sonderfall, diese werdet ihr in PSE kennenlernen.
 \end{Infobox}
-\begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
+\begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]stat
 	<ObjektName>.<OperationsName>();
 	
 	<ObjektName>.<OperationsName>(<Wert>);
@@ -178,12 +178,12 @@ Da man dieses Problem in der Informatik oft antrifft wenn man mit Anderen zusamm
 \subsubsection*{Namen:}
 
 \begin{Infobox}
-	Die Java-Syntax verbietet bereits:
+	Die Java-Syntax verbietet bereits, dass:
 	
 	\begin{itemize}
-		\item es darf kein Schlüsselwort(\lstinline{void}, \lstinline{class}, ...) als Name genutzt werden.
-		\item es dürfen keine Leerzeichen enthalten sein.
-		\item Namen dürfen nicht mit Zahlen beginnen.
+		\item Schlüsselwörter(\lstinline{void}, \lstinline{class}, ...) als Name genutzt werden.
+		\item Namen Leerzeichen beinhalten.
+		\item mit Zahlen beginnen.
 	\end{itemize}
 \end{Infobox}
 \vspace{5mm}
@@ -193,7 +193,7 @@ Da man dieses Problem in der Informatik oft antrifft wenn man mit Anderen zusamm
 		\item Variablennamen sollten sprechend sein $\rightarrow$ \lstinline{bestDog} statt \lstinline{bD}
 		\item Operationen sollten Verben im Namen haben $\rightarrow$ ''makeNoise'' statt ''laut''
 		\item Abfragen sollten mit \lstinline{get} beginnen
-		\item Operationen um Werte zu setzen sollten mit ''set'' beginnen
+		\item Kommandos die einen Wert setzen, sollten mit \lstinline{set} beginnen
 		\item Keine Umlaute
 		
 	\end{itemize}
@@ -210,9 +210,9 @@ Das nennt man dann \lstinline{PascalCase}.
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	class DogOwner{
-		String ownerName;
 		
 		void talkAboutTheDog(Dog dog){
+			String ownerName = "FIUS";
 			// Talk about the Dog until stopped
 		}
 	}
@@ -220,6 +220,10 @@ Das nennt man dann \lstinline{PascalCase}.
 
 \subsubsection*{Einrückungen:}
 Um dafür zu sorgen, dass erkennbar ist ob man sich gerade in einer Operation oder in einer Klasse befindet wird allgemein jeder Code block innerhalb von geschweiften Klammern um eine Stufe weiter eingerückt als der Block in dem die Klammern stehen.
+Wichtig ist, dass ihr immer alle Klammern wieder schließt, die ihr öffnet.
+
+\vspace{5mm}
+\teamsaufgabe{Blatt 1: Aufgabe 3 d)}
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	// Code außerhalb einer Klammerung, nicht eingerückt
