@@ -5,7 +5,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
 public class Sheet2Task6 implements Task{
     private PlayfieldModifier pm;
@@ -24,6 +25,6 @@ public class Sheet2Task6 implements Task{
     }
 
     private void buildEnvironment(){
-        pm.placeEntityAtEachPosition(() -> new Wall(), new Rectangle(new Position(-1, -1), new Position(9, 9)));
+        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -1), new Position(9, 9)));
     }
 }

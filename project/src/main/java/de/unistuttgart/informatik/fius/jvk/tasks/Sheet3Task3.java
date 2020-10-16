@@ -17,7 +17,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
-import de.unistuttgart.informatik.fius.jvk.provided.factories.CoinFactory;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
 
