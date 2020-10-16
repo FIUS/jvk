@@ -3,20 +3,18 @@
 	basicstyle=\small,
 	morecomment=[l]{*}
 }
-\excercise{Syntax}
-
+\excercise{Syntax und Codestil}
+\subsection*{Aufgabe 3.1 Syntax}
 \noindent
 In dieser Aufgabe zeigen wir euch die Syntax von Java.
 Die Syntax beschreibt, wie der Code geschrieben werden muss, sodass er von einem Computer verstanden wird.\\
 Es kommen jetzt viele Definitionen, ihr müsst euch aber keine Sorgen machen wenn ihr nicht alles direkt versteht.
 Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwas nicht sicher seid.
 \begin{enumerate}
-	\item \teamsaufgabe{Blatt 1: Aufgabe 3}
+	\item \teamsaufgabe{Blatt 1: Aufgabe 3 a)}
+	\item \teamsaufgabe{Blatt 1: Aufgabe 3 b)}
 	\item \textbf{Schreibt} zu jeder Teilaufgabe selbst zwei Beispiele in einem Editor. 
 \end{enumerate}
-
-
-{\color{red}TODO: Aufgabe 3 Datei im Java Projekt.}
 
 \begin{Infobox}
 	
@@ -168,4 +166,69 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	
 	// meinHund.getAlter() soll wiedergeben wie alt der Hund ist, es wird also etwas abgefragt wonach es sich um eine Abfrage handelt.
 	meinHund.getAlter();
+\end{lstlisting}
+
+\subsection*{Aufgabe 3.2 Namen und Codestyle}
+Wie ihr wahrscheinlich schon gemerkt habt, kann Code schnell überfordern und verwirren, wenn man nicht weiß worum es gerade geht.
+Da man dieses Problem in der Informatik oft antrifft wenn man mit Anderen zusammen arbeitet, gibt es Konventionen wie der Code geschrieben werden sollte, um die Lesbarkeit und das Verständnis zu verbessert.
+
+\vspace{5mm}
+\teamsaufgabe{Blatt 1: Aufgabe 3 c)}
+
+\subsubsection*{Namen:}
+
+\begin{Infobox}
+	Die Java-Syntax verbietet bereits:
+	
+	\begin{itemize}
+		\item es darf kein Schlüsselwort(\lstinline{void, class, ...}) als Name genutzt werden.
+		\item es dürfen keine Leerzeichen enthalten sein.
+		\item Namen dürfen nicht mit Zahlen beginnen.
+	\end{itemize}
+\end{Infobox}
+\vspace{5mm}
+\begin{Infobox}
+	Formulierungen auf die man achten sollte:
+	\begin{itemize}
+		\item Variablennamen sollten sprechend sein $\rightarrow$ ''bestDog'' statt ''bD''
+		\item Operationen sollten Verben im Namen haben $\rightarrow$ ''makeNoise'' statt ''laut''
+		\item Operationen um Werte zu bekommen sollten mit ''get'' beginnen
+		\item Operationen um Werte zu setzen sollten mit ''set'' beginnen
+		\item Keine Umlaute
+		
+	\end{itemize}
+\end{Infobox}
+
+\noindent
+Allgemein sollten alle Namen auf Englisch formuliert werden.
+Variablen und Operationen werden immer mit einem kleingeschriebenen Buchstaben anfangen.
+Falls ein Name aus mehreren Wörtern besteht, schreibt man die Anfangsbuchstaben ab dem zweiten Wort groß.
+Sie sollten jeweils so benannt sein, dass erkennbar ist, was sie tun bzw. wofür sie stehen.\\
+Für Klassen gelten fast die selben Richtlinien, nur ist hier auch das erst Wort groß.
+
+\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
+	class DogOwner{
+		String ownerName;
+		
+		void talkAboutTheDog(Dog dog){
+			// Talk about the Dog until stopped
+		}
+	}
+\end{lstlisting}
+
+\subsubsection*{Einrückungen:}
+Um dafür zu sorgen, dass erkennbar ist ob man sich gerade in einer Operation oder in einer Klasse befindet wird allgemein jeder Code block innerhalb von geschweiften Klammern um eine Stufe weiter eingerückt als der Block in dem die Klammern stehen.
+
+\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
+	// Code außerhalb einer Klammerung, nicht eingerückt
+	class RandomClass{
+		void operation1(){
+			// Operations inhalt 2-mal eingerückt
+		}
+		// Klasseninhalt 1-mal eingerückt
+		void operation2(){
+			// Operations inhalt 2-mal eingerückt
+		}
+	}
+	
 \end{lstlisting}
