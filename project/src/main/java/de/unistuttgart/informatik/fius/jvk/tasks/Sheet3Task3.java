@@ -29,7 +29,13 @@ import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 public class Sheet3Task3 implements Task {
     @Override
     public void run(Simulation sim) {
-        Neo neo=new Neo();
+        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
+        Neo neo = new Neo();
+        neo.setCoinsInWallet(12);
+        pm.placeEntityAt(neo, new Position(0, 0));
+
+        //Implementation here
+        
     }
     
     private void movePattern(Neo neo) {
