@@ -71,10 +71,19 @@ if (neo1.getPosition().equals(new Position(1, 1))){
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-		Lasse Neo solange laufen bis sich mindestens eine Münze auf dem Feld unter ihm befindet.
+		Lass Neo immer wenn sich keine Münze unter ihm befindet einen Schritt nach vorne gehen.
+		Tipp: Verwende hierfür am besten eine Endlosschleife und Schreibe den Code für alle Unteraufgaben dieser Aufgabe in den Schleifenkörper.
+		Eine Endlosschleife kann z.B. so aussehen:
+	\begin{lstlisting}
+while(true){
+//your code here
+}
+	\end{lstlisting}
 
 	\item
-		Wenn sich Neo auf einem Feld mit genau einer Münze befindet, dann lass ihn sich nach rechts drehen und diese Münze aufsammeln.
+		Wenn sich Neo auf einem Feld mit genau einer Münze befindet, dann lass ihn sich nach rechts drehen und diese Münze aufsammeln. 
+		Wenn Neo die Münze aufgesammelt hat, soll er sich danach wieder nach vorne bewegen (da jetzt unter ihm keine Münze mehr liegt), bis er auf einem leeren Feld stehen bleibt (also wie in c) beschrieben).
+
 
 	\item
 		Wenn sich mehr als eine Münze unter Neo befindet, lass ihn sich auch nach rechts drehen und eine Münze aufsammeln.
@@ -130,6 +139,7 @@ if ( neo.canMove() || neo.getCurrentlyCollectableCoins().size()==7) ){
 
 	\item
 		Lasse Neo laufen bis er 10 Münzen gesammelt hat ODER 20 Schritte gegangen ist.
+		Tipp: Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden
 
 		\begin{Infobox}[Break]
 			Wenn du eine Schleife inerhalb des Schleifendurchlaufs beenden willst bracuht du das Kommando \lstinline{break;}. 

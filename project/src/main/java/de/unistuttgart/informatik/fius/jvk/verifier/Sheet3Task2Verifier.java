@@ -113,6 +113,17 @@ public class Sheet3Task2Verifier implements TaskVerifier {
             this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         
+        if (
+            (this.taskA.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))
+                    && (this.taskC.getTaskStatus().equals( TaskVerificationStatus.SUCCESSFUL))
+                    && (this.taskD.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))
+                    && (this.taskE.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))
+                    && (this.taskF.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))
+                    && (this.taskG.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))
+        ) {
+            this.taskH = this.taskH.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+        
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskC);
