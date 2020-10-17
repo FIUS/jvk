@@ -7,7 +7,7 @@
 	<name>JVK 2020 Project</name>
 	<properties>
 		<java.version>11</java.version>
-		<icge.version>2.3.4</icge.version>
+		<icge.version>2.3.5-Snapshot</icge.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
@@ -73,10 +73,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.2.0</version>
 				<configuration>
 					<additionalOptions>--show-packages=all</additionalOptions>
 					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
+					<includeDependencySources>true</includeDependencySources>
 				</configuration>
 			</plugin>
 			<plugin>
