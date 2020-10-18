@@ -38,6 +38,12 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
+% hyperref setup
+\hypersetup{
+  allbordercolors=0 0 1,
+  pdfborderstyle={/S/U/W 1}
+}
+
 %%%%%%%%%%%%
 %  colors  %
 %%%%%%%%%%%%
