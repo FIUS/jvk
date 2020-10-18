@@ -5,6 +5,7 @@
 
 \excercise{Programmstart}
 
+
 \begin{Infobox}[How-To: Wie bekomme ich des Projekt]
     \begin{enumerate}[label=\arabic*.]
         \item Lade zuerst das Maven-Projekt \jvkpackage { }runter, man findet es hier:
@@ -20,6 +21,7 @@
     \end{enumerate}
 \end{Infobox}
 
+
 \begin{Infobox}[HowTo: Projekt Import in Eclipse]
     \begin{enumerate}[label=\arabic*.]
         \item Um ein Projekt zu importieren, klicke zuerst auf \fbox{File} $\to$ \fbox{Import...}.
@@ -32,26 +34,34 @@
     \end{enumerate}
 \end{Infobox}
 
+
 \newpage
 
 Öffne nun die Entwicklungsumgebung Eclipse und importiere das heruntergeladene Maven-Projekt \jvkpackage { } wie oben in den beiden HowTo's beschrieben.
 
-\begin{enumerate}[label=\alph*)]
-    \item Führe das Projekt aus, es sollten keine Fehler auftauchen aber auch nichts passieren.
-    Wir haben ja auch noch nichts programmiert.
-    \item Finde die \texttt{Main} Klasse und füge dort folgenden Code ein.
-    Aktuell musst du den Code noch nicht verstehen, es geht hier mehr darum sich in Eclipse zurecht zu finden.\\
-    \includegraphics[width=\linewidth]{./figures/code.1.png}\\
-    Wenn der Code jetzt ausgeführt wird geht ein Fenster auf mit der Simulator Ansicht.
-    Suche nun die Stop Taste in Eclipse um das Programm abzubrechen.
-    Du findest sie in Eclipse unten bei der Console.
+\begin{enumerate}
+    \item Finde und öffne die \texttt{Main} Klasse in dem Package Explorer von Eclipse.
+        Die Klasse ist in dem Ordner \texttt{src/main/java} und dann in dem Package \texttt{de.unistuttgart.informatik.fius.jvk} in der Datei \texttt{Main.java}.
+        Führe das Projekt aus indem du den grünen Play-Button (links oben in der Werkzeugleiste, rechts neben dem Button mit dem Käfersymbol) von Eclipse drückst. 
+        Es sollten keine Fehler auftauchen aber auch nichts passieren.
+        Wir haben ja auch noch nichts programmiert.
+    \item Finde in der \lstinline{Main} Klasse die Zeile mit \lstinline{// implement task 1 (from sheet 1) here} und füge an seiner Stelle den fehlenden Code aus dem Bild ein.
+        Aktuell musst du den Code noch nicht verstehen, es geht darum dem Code Editor in Eclipse kennen zu lernen. 
+        Achte also daruf was passiert während du die fehlenden Zeilen eingibst.
+
+        \includegraphics[width=\linewidth]{./figures/code.1.png}
+
+        Wenn das Programm jetzt ausgeführt wird geht ein Fenster auf mit der Simulator Ansicht.
+        Suche nun die (rote) Stop Taste in Eclipse um das Programm abzubrechen.
+        Du ist in Eclipse unten in der Console.
     \item Versuche nun den Code so zu verändern, dass dein Name im Fenstertitel steht.
 \end{enumerate}
+
 
 \begin{Infobox}[HowTo: Auskommentieren]
     Manchmal möchten wir, dass bestimmter Code nicht ausgeführt wird. Vielleicht möchten wir ihn später ausführen, oder einfach nicht verlieren.
     In diesen Fällen Kommentieren wir die Code-Zeilen einfach aus.
-    Dies geht, indem wir der Code-Zeile zwei Schrägstriche ({\color{javagreen}\texttt{//}}) voranstellen.
+    Dies geht, indem wir der Code-Zeile zwei Schrägstriche (\lstinline{//}) voranstellen.
     Als Beispiel betrachten wir folgenden Code.\\
 
     \hfill
@@ -65,7 +75,7 @@ public void run(Simulation sim) {
         \end{lstlisting}
     \end{minipage}
 
-    Wenn wir nun die letzte Zeile auskommentieren, wollen stellt sich der Code wie folgt dar.\\
+    Wenn wir nun die letzte Zeile auskommentieren wollen, dann stellt sich der Code wie folgt dar.\\
 
     \hfill
     \begin{minipage}{.96\textwidth}
@@ -78,13 +88,57 @@ public void run(Simulation sim) {
         \end{lstlisting}
     \end{minipage}
 
-    Alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun 'ignoriert' was durch eine andere Färbung in Eclipse deutlich wird.
+    Alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun vom Computer ignoriert, was durch eine andere Färbung in Eclipse deutlich wird.
 \end{Infobox}
 
-\begin{enumerate}[label=\alph*)] \setcounter{enumi}{3}
-    \item Finde heraus was passiert, wenn man die erste oder die zweite Zeile in der Main-Funktion auskommentiert.\\
-    Hinweis: Nicht alle Varianten funktionieren zwangsläufig, überlege warum dies der Fall sein könnte.
-    \item Finde eine Möglichkeit, den Fenstertitel nach der \texttt{demoGame.run();} Zeile zu ändern.
-    \item Optional: Versuche drei Fenster gleichzeitig zu starten.
-    %\item Optional:  Eclipse funktionen manuell triggern (autocomplete [strg + leer], autoformat [strg + shift + f], Javadoc on hover, run, debug [und wie man wieder in die java view kommt], package explorer bedienen, rückgängig [strg+z], umbenennnen von variablen [f2])
+
+\begin{Infobox}[Fehler]
+    Einige Aufgaben in Blatt 1 (und auch den anderen Blättern) verlangen von euch den Code absichtlich kaputt zu machen.
+    Das Ziel von diesen Aufgaben ist es, dass ihr die Fehler die dabei auftreten schonmal in einem kleinen übersichtlichen Beispiel seht.
+    Achtet also bei solchen Aufgaben darauf welche Änderung zu welchem Fehler geführt hat.
+    Später kann euch dieses Wissen helfen wenn ihr nur den Fehler seht und besser versteht, nach was ihr im Code suchen müsst um den Fehler zu beheben.
+
+    Ihr braucht auch keine Angst haben, dass ihr etwas nachhaltig kaputt machen könntet.
+    Eclipse hat eine \q{Undo} Funktion die ihr im Menu oben unter \fbox{edit} (deutsch \fbox{Bearbeiten}) oder über \fbox{Strg + z} aufrufen könnt.
+    Falls ihr trotzdem Hilfe braucht könnt (\emph{und sollt!}) ihr euch gerne bei den Tutoren melden.
+\end{Infobox}
+
+
+\begin{enumerate} \setcounter{enumi}{3}
+    \item Finde heraus was passiert, wenn man die erste oder die zweite Zeile in der Main-Funktion auskommentiert.
+    
+        Hinweis: Nicht alle Varianten funktionieren zwangsläufig, überlege warum dies der Fall sein könnte.
+    \item Vielleicht sind dir beim in a) schon einige Dinge Aufgefallen die der Eclipse Editor anders macht als zum Beispiel Word.
+        Wenn du \lstinline{demoGame.} eingibst erscheint ein Overlay mit möglichen Autocompletions.
+        Wenn du dann mit dem Cursor an eine andere Stelle gehst verschwindet das Overlay wieder.
+        Öffne das overlay manuell indem du den Cursor direkt nach \lstinline{demoGame.} platzierst und \fbox{Strg + Space} (Space ist die Leertaste) drückst.
+    \item
+        Wenn du die Maus über \lstinline{Game} bewegst siehst du ein Overlay mit der Dokumentation.
+        Das funktioniert auch an anderen Stellen.
+        Was steht im Overlay von \lstinline{DemoTask()}?
+    \item
+        Wenn du \fbox{Strg + Shift + f} (Shift ist die Taste über Strg mit der man Großbuchstaben schreibt) drückst formatiert Eclipse den Code für dich.
+        Füge an verschiedenen Stellen neue Zeilen und Leerzeichen ein und beobachte was passiert wenn du \fbox{Strg + Shift + f} drückst
+\end{enumerate}
+
+
+\begin{Infobox}[Optionale Aufgaben] 
+    Aufgaben die mit \optional markiert sind müssen nicht bearbeitet werden.
+    Sie setzen schon Vorkenntnisse in Java oder Programmieren vorraus und sind deshalb auch oft deutlich schwerer als die normalen Aufgaben.
+    Wenn du also an einer optionalen Aufgabe festhängst, dann solltest du mit der nächsten normalen Aufgabe weitermachen.
+    Später, wenn du genug Zeit oder Wissen hast um die optionale Aufgabe zu lösen, kannst du nochmal zu ihr zurückkehren.
+\end{Infobox}
+
+
+\begin{enumerate} \setcounter{enumi}{5}
+    \item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
+        Dafür benötigst du den folgenden Code, den du aber noch auf deinen Namen anpassen musst: \lstinline{demoGame.getGameWindow().setWindowTitle("");}
+    \item \optional Benenne \lstinline{demoGame} in \lstinline{myDemoGame} um.
+        Wenn du nur die Stelle \lstinline{Game demoGame} anpasst wirst du eine Fehlermeldung bekommen.
+        Mache deine Änderung nochmal rückgängig und platziere den Cursor in dem Wort \lstinline{demoGame}.
+        Mit der Tastenkombination \fbox{Shift + Alt + r} kommst du in den \q{refactor} Modus in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
+        Das gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.
+
+        Mit \fbox{Strg + Shift + l} kannst du eine Liste alle Tastenkombinationen ansehen.
+    \item \optional Versuche drei Fenster gleichzeitig zu starten. 
 \end{enumerate}
