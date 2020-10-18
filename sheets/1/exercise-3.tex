@@ -78,7 +78,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	Der Rückgabewert gibt an, ob und was die Operation zurückgeben wird.
 	Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.\\
 	Parameter sind Variablen, die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code gültig.
-	Parameter werden in den Klammern nach dem Namen der Operation Angegeben.
+	Parameter werden in den Klammern nach dem Namen der Operation angegeben.
 	Danach kommt in geschweiften Klammern der Inhalt der Operation.
 	
 	Wenn man eine Operation aufruft und ein Objekt dort übergibt, wird dieses Objekt Argument genannt.
@@ -113,7 +113,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 	\subsubsection*{Objekte erzeugen:}
 	Objekte sind Instanzen von Klassen.
 	Um ein Objekt zu erzeugen wird das \lstinline{new} Schlüsselwort verwendet.
-	Man schreibt dann \lstinline{new } gefolgt von dem KlassenNamen und ein paar Klammern ().
+	Man schreibt dann \lstinline{new } gefolgt von dem Klassennamen und ein paar Klammern ().
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Objekt erstellen Syntax}]
 	new <KlassenName>(<MöglicheParameter>);// Ein Objekt wird erzeugt
@@ -125,10 +125,10 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 \begin{Infobox}
 	\subsubsection*{Variablen:}
 	Variablen werden genutzt um Werte zu speichern.
-	Sie sind nützlich in Fällen wo ihr einen bestimmten Wert mehrfach im selben Code nutzen wollt, oder wenn ein Wert nicht fest ist sondern während dem Ausführen bestimmt wird.\\
+	Sie sind in den Fällen nützlich, in denen ihr einen bestimmten Wert mehrfach im selben Code nutzen wollt, oder wenn ein Wert beim Starten des Programms noch nicht fest steht, sondern erst während der Ausführung bestimmt wird oder sich während der Ausführung verändern kann.\\
 	Variablen besitzen immer einen Typ und einen Namen.
 	Mit einem = kann einer Variable ein Wert zugewiesen werden.
-	Wenn man ein Objekt erzeugt wird es meist direkt einer Variable zugewiesen, da man es später noch nutzen möchte.
+	Wenn man ein Objekt erzeugt, weißt man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
 	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
@@ -148,10 +148,10 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 \end{lstlisting}
 \begin{Infobox}
 	\subsubsection*{Kommandos und Abfragen:}
-	Kommandos und Abfragen sind zwei Varianten von Operationen einer Klasse. Kommandos beschreiben alle Operationen die etwas am an dem Objekt auf dem sie aufgerufen werden verändern.
+	Kommandos und Abfragen sind zwei Varianten von Operationen einer Klasse. Kommandos beschreiben alle Operationen, die etwas an dem Objekt, auf dem sie aufgerufen werden, verändern.
 	Abfragen sind alle Operationen die nichts verändern, dafür aber eine Eigenschaft als Wert zurückgeben.\\
-	Um Operationen eines Objekts aufzurufen wird zuerst der Objektname geschrieben gefolgt von einem . und dann der Operationsname gefolgt von einem paar Klammern in denen Parameter stehen können.\\
-	{\color{red} Wichtig: } Operationen können im nur auf Objekten und nicht auf Klassen aufgerufen werden.
+	Um Operationen eines Objekts aufzurufen wird zuerst der Objektname geschrieben, gefolgt von einem . und dann der Operationsname, gefolgt von einem paar Klammern, in denen Parameter stehen können.\\
+	{\color{red} Wichtig: } Operationen können nur auf Objekten und nicht auf Klassen aufgerufen werden.
 	Es  gibt hier einen Sonderfall, diese werdet ihr in PSE kennenlernen.
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
@@ -170,7 +170,7 @@ Nehmt diese Aufgabe als Referenz zum Nachschauen, wenn ihr euch später bei etwa
 
 \subsection*{Aufgabe 3.2 Namen und Codestyle}
 Wie ihr wahrscheinlich schon gemerkt habt, kann Code schnell überfordern und verwirren, wenn man nicht weiß worum es gerade geht.
-Da man dieses Problem in der Informatik oft antrifft wenn man mit Anderen zusammen arbeitet, gibt es Konventionen wie der Code geschrieben werden sollte, um die Lesbarkeit und das Verständnis zu verbessert.
+Da man dieses Problem in der Informatik oft antrifft wenn man mit anderen zusammen arbeitet, gibt es Konventionen wie der Code geschrieben werden sollte, um die Lesbarkeit und das Verständnis zu verbessern.
 
 \vspace{5mm}
 \teamsaufgabe{Blatt 1: Aufgabe 3 c)}
@@ -203,7 +203,7 @@ Da man dieses Problem in der Informatik oft antrifft wenn man mit Anderen zusamm
 Allgemein sollten alle Namen auf Englisch formuliert werden.
 Variablen und Operationen werden immer mit einem kleingeschriebenen Buchstaben anfangen.
 Falls ein Name aus mehreren Wörtern besteht, schreibt man die Anfangsbuchstaben ab dem zweiten Wort groß.
-Diese schreibweise nennt man auch \lstinline{camelCase}.
+Diese Schreibweise nennt man auch \lstinline{camelCase}.
 Sie sollten jeweils so benannt sein, dass erkennbar ist, was sie tun bzw. wofür sie stehen.\\
 Für Klassen gelten fast die selben Richtlinien, nur ist hier auch das erst Wort groß.
 Das nennt man dann \lstinline{PascalCase}.
@@ -219,7 +219,7 @@ Das nennt man dann \lstinline{PascalCase}.
 \end{lstlisting}
 
 \subsubsection*{Einrückungen:}
-Um dafür zu sorgen, dass erkennbar ist ob man sich gerade in einer Operation oder in einer Klasse befindet wird allgemein jeder Code block innerhalb von geschweiften Klammern um eine Stufe weiter eingerückt als der Block in dem die Klammern stehen.
+Um dafür zu sorgen, dass erkennbar ist ob man sich gerade in einer Operation oder in einer Klasse befindet wird allgemein jeder Code-Block innerhalb von geschweiften Klammern um eine Stufe weiter eingerückt als der Block, in dem die Klammern stehen.
 Wichtig ist, dass ihr immer alle Klammern wieder schließt, die ihr öffnet.
 Dabei müsst ihr auch die Reihenfolge der schließenden Klammern beachten!
 
