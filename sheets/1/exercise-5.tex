@@ -7,7 +7,7 @@
 \begin{enumerate}
     \item Wie in Aufgabe 4 bereits vorgestellt, erstellen wir wieder ein neues Spiel. 
         Dafür müsst ihr wieder die \lstinline{Main} Klasse bearbeiten.
-        Wir geben dem \lstinline{Game} Konstuktor, den Task \lstinline{Sheet1Task5} und den Verifier \lstinline{Sheet1Task5Verifier} mit.
+        Wir geben dem \lstinline{Game} Konstuktor den Fenstertitel, den Task \lstinline{Sheet1Task5} und den Verifier \lstinline{Sheet1Task5Verifier} mit.
 
     \begin{lstlisting}
 Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
@@ -28,8 +28,8 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
     \item Navigiere jetzt in die Klasse \lstinline{Sheet1Task5} um dort alle Änderungen vorzunehmen. 
         Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren. 
         Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern. 
-        Was fällt dir auf, wenn du mehrere Münzen auf einem Feld platzierst. 
-        Wie genau korrelieren Position und Koordinatensystem.
+        Was fällt dir auf, wenn du mehrere Münzen auf einem Feld platzierst?
+        Wie genau korrelieren Position und Koordinatensystem?
 
         Tipp: Wenn du nicht genau weißt, wie man eine Münze spawnt, schau dir den Code, welchen du in Aufgabe 4 d) gefunden hast, nochmal an.
 
@@ -53,10 +53,10 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
 \end{Infobox}
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Jetzt, da uns weitere Operationen zur Verfügung stehen, können wir einfach 20 Münzen in einer Zelle zu platzieren. 
-        Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, das mehrere Entities auf dem selben Feld Platziert.
+    \item Jetzt, da uns weitere Operationen zur Verfügung stehen, können wir einfach 20 Münzen in einer Zelle platzieren. 
+        Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf dem selben Feld platziert.
         Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden. 
-        Wenn dir nicht klar ist, wie dieses Kommando genau funktionieren, lies dir die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} nochmal durch.
+        Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann lies dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
