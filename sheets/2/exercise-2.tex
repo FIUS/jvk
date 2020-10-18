@@ -48,7 +48,7 @@ java.lang.ArithmeticException: / by zero
     \begin{enumerate}[label=\roman*)]
         \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden. In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
         \item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggfs. mehr Informationen über den Fehler selbst geben.
-        In unserem Fall ist die Nachricht \textit{"/ by zero"}.
+        In unserem Fall ist die Nachricht \lstinline{"/ by zero"}. 
         \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet weiterhin Informationen, wo im Programm die Exception geflogen ist. Hier interessiert uns 
         fürs erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception in der \lstinline{Main} Klasse und der \lstinline{divide}
         Operation in Zeile 9 geflogen ist.
@@ -80,13 +80,20 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
             \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!  
         \end{enumerate}
 
-    \item Jetzt soll die Exception behandelt werden.
-        \begin{enumerate}
-            \item[i)] Optional: Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{move()} Aufrufen jeweils Leerzeilen einfügt?  
-            \item[ii)] Kommentiere in dem markierten Block zunächst so viele Zeilen aus, sodass keine Exception mehr auftritt. 
-                Spielt die Reihenfolge der auskommentierten Zeilen eine Rolle?
-        \end{enumerate}
-    \item Nun sollen keine Zeilen gelöscht oder auskommentiert werden, durch welches Kommando muss \lstinline{move()} ersetzt werden, damit dennoch keine Exception auftritt?
-    \item Überlege dir möglichst viele verschiedene Methoden um die Exception zu verhindern. Implementiere diese!
+    \item Jetzt wollen wir die Exception verhindern.
+        Dazu benutzen wir die Technik des Auskommmentierens die ihr in Blatt 1 gelernt habt.
+        Kommentiert in \lstinline{Sheet2Task2} so lang \lstinline{.move()} Kommandos aus bis die Exception nicht mehr auftritt.
+
+        Spielt die Reihenfolge in der ihr die Kommandos auskommentiert eine Rolle für das Ergebnis?
+    \item Kommentiere erstmal wieder alle Zeilen ein.
+        Kannst du Trotzdem verhindern, dass die Exception auftritt?
+
+        Hinweis: In Aufgabe 1 hast du noch ein weiteres Kommando kennengelernt mit dem du Neo bewegen kannst.
+        Du kannst Neo auch um die Wand herum gehen lassen.
+    \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{.move()} Aufrufen jeweils Leerzeilen einfügt?
+    \item \optional Versuche möglichst viele unterschiedliche Möglichkeiten zu finden die Exception zu verhindern ohne eine Zeilen vor dem Kommentar zu verändern.
+        Werde Kreativ und versuche auch drastische Lösungen wie eine Wand zu löschen.
+        Du kannst für diese Aufgabe auch Code von anderen Klassen vorübergehend ändern, solltest diese Änderungen aber wieder rückgängig machen.
+        Wie viele unterschiedliche Möglichkeiten kannst du finden?
 \end{enumerate}
  

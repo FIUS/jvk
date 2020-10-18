@@ -23,13 +23,11 @@ public class Sheet2Task2 implements Task{
         pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(11, -1), new Position(11, 2)));
         pm.placeEntityAt(new PhoneBooth(), new Position(10, 0));
 
-        /* --------------------------- */
+        // TODO: Implement Task 2 b) (spawn your wall here)
 
-        /* TODO: Implement Task 2 b) */
 
-        /* --------------------------- */
-                
-        /* TODO: Modify for Task 2 d), e), and g) */
+
+        // All tasks after b) should only modify code after this comment!
 
         neo.move();
         neo.move();
@@ -40,7 +38,6 @@ public class Sheet2Task2 implements Task{
         neo.move();
         neo.move();
         neo.move();
-
-        /* --------------------------- */
+        neo.move();
     }
 }
