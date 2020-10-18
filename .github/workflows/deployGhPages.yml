@@ -40,7 +40,7 @@ jobs:
         java-version: 11
     - uses: actions/checkout@v2
     - name: Generate javadoc
-      run: cd ./project; ./mvnw -B javadoc:javadoc
+      run: cd ./project; ./mvnw -B install javadoc:javadoc
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3.7.0-4
       with:
