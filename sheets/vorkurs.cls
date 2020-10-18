@@ -101,6 +101,8 @@
 %%%%%%%%
 \newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
 
+\newcommand{\optional}{{\color{javagreen} \textbf{(Optional)} }} % mark optional tasks (includes space)
+
 %%%%%%%%%%%%%%
 % Main Title %
 %%%%%%%%%%%%%%
