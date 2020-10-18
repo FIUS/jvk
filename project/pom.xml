@@ -77,6 +77,10 @@
 				<configuration>
 					<additionalOptions>--show-packages=all</additionalOptions>
 					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
+					<detectJavaApiLink>true</detectJavaApiLink>
+					<links>
+						<link>https://fius.github.io/ICGE2/${icge.version}</link>
+					</links>
 				</configuration>
 			</plugin>
 			<plugin>
