@@ -153,7 +153,7 @@
 %%%%%%%%%%
         \pagestyle{myheadings}
         \fancyhead[L]{\kurs \ (\semester) - Übungsblatt \sheetNumber}
-        \fancyhead[R]{Seite \thepage{} von \pageref{LastPage}}
+        \fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
         %\rightmark{test}
         %\runningheadrule
 % \runningheader{\coursename\ (\semestershort) -- \"Ubungsblatt \exercisenumber\ \ifprintanswers{\textbf{{\color{red}{ \fbox{L\"osung}}}}}\fi}{}{Seite \thepage\ von \numpages}
