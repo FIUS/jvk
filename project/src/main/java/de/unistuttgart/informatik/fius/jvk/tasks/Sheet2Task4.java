@@ -13,7 +13,9 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
 /**
  * This is the task for exercise 4 on sheet 2
@@ -28,7 +30,12 @@ public class Sheet2Task4 implements Task{
         pm.placeEntityAt(new Coin(), new Position(0, 1));
         pm.placeEntityAt(new Coin(), new Position(0, 2));
         pm.placeEntityAt(new Coin(), new Position(1, 2));
-        pm.placeEntityAt(new Coin(), new Position(2, 2));
-        pm.placeEntityAt(new Coin(), new Position(2, 2));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(2, 2));
+
+        Neo player = new Neo();
+        pm.placeEntityAt(player, new Position(0, 0));
+
+        // implement task here
+
     }
 }

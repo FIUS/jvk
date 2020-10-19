@@ -1,103 +1,58 @@
   %!TEX root = ./jvk-blatt2.tex
-  % TODO:
-   %  - Aufgabe 4: "MyNeo" passend ersetzen
-   %  - \ownclass und \superclass passend bennennen (in exercise_format.tex)
-   %  - Lösungen testen und ggf verbessern
-   %  - siehe "Auf diesem Blatt"
-   %  - siehe restliche TODOs
-   %
-   % Auf diesem Blatt:
-   %  - Funktionen auslagern - Aufgabe 1
-   %  - JavaDoc - Aufgabe 2
-   %  - Vererbung mit vorgegebenen Klassen - Aufgabe 1 - TODO potentiell genauer
-   %  - Objekterzeugung
-   %  - Datentypen - Aufgabe 3 TODO
-   %  - Variablen - Aufgabe 4
-   %  - Parameter - Aufgabe 1
-   %  - Attribute - Aufgabe 5
-   %  - Konstruktor mit Parametern - Aufruf Aufgabe 4, Definition TODO
 
-    % Aufgabe 1 % TODO test solution
-\excercise{Die ersten eigenen Operationen}
-    Wir wollen nun Neo ein paar neue Fähigkeiten beibringen.
-    Im Projekt für Blatt 2 findet ihr hierzu eine Klasse \ownclass{}, welche die Klasse \superclass{} erweitert. 
-    In Java wird die zu erweiternde Klasse über das Schlüsselwort \lstinline{extends} angegeben.
 
-    Wir wollen nun eine neue Operation in der Klasse \ownclass{} definieren. 
-    Was Operation sind, konnten wir bereits auf Blatt 1 sehen. 
-    Beispielsweise Neos Operation \lstinline{move()}.
+\excercise{The Player Enters the Game}
 
-    Als Beispiel soll die folgende Operation \texttt{moveTwice} dienen, die wir verwenden können, um zwei Schritte vorwärts zu laufen:
 
-    \begin{lstlisting}
-public void moveTwice() {
-    this.move();
-    this.move();
-}
-    \end{lstlisting}
+\begin{enumerate}
+    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. 
+        Benutze dabei den Task aus der Klasse \lstinline{Sheet2Task1} und den Verifier aus \lstinline{Sheet2Task1Verifier}.
+    \item Lade Neo in die Matrix.
+        Dafür musst du zuerst ein objekt der Klasse \lstinline{Neo} erstellen und in einer Variable (z.B. \lstinline{player}) speichern.
+        Dann kannst du \lstinline{player} wie in Aufgabenblatt 1 Aufgabe 5 die Münze mit dem \lstinline{PlayfieldModifier} auf dem Spielfed platzieren.
 
-    Schauen wir uns diese Definition einmal im Detail an. Im Operationskopf.
+        Dein code sollte in etwa wie folgt aussehen.
 
-    \begin{itemize}
-        \item \lstinline{public} bedeutet, dass eine Operation von überall aus auf einem Objekt der Klasse aufgerufen werden kann.
-        \item \lstinline{void} (engl. \q{Leere}) bedeutet, dass die Operation keinen Rückgabewert hat.
-        \item \lstinline{moveTwice} ist der Name der Operation
-    \end{itemize}
+        \begin{lstlisting}[firstnumber=14]
+public void run(Simulation sim) {
+    // Your Implementation here
 
-    \begin{enumerate}
-        \item
-            Wie wir im letzten Blatt schon festgestellt haben, kann sich Neo nicht einfach nach rechts drehen. Das wollen wir jetzt ändern.
-            Erstelle hierzu eine Operation \lstinline{turnCounterClockwise} in \ownclass. 
-            Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung nach links (gesehen von seiner bisherigen Bewegungsrichtung) fortsetzen kann.
-    
-    
-        \item
-            Zusätzlich wollen wir Neo jetzt beibringen, sich um \(180^\circ\) zu drehen.
-            Erstelle hierzu eine Operation \lstinline{turnAround}.
-            Nachdem diese ausgeführt wurde, soll Neo sich so weit gedreht haben, dass er seine Bewegung in die Richtung fortsetzen kann, aus der er gekommen ist.
+    PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
+    Neo player = new Neo();
+    pm.placeEntityAt(player, new Position(1,1));
+        \end{lstlisting}
+
+        Überprüfe im Task Status Tab ob dein code korrekt funktioniert.
+    \item Damit sich Neo bewegt musst du ihm Kommandos geben.
+        Du kannst Neo die folgenden Kommandos geben.
+
+        \begin{lstlisting}[firstnumber=20]
+    player.move();
+    player.moveIfPossible();
+    player.turnClockWise();
+        \end{lstlisting}
+
+        Teste alle 3 Kommandos.
+        Damit Neo sich bewegen kann muss die Simulation mit dem Play Button gestartet werden!
+    \item Neo kann sich nur nach rechts drehen.
+        Wie kannst du Neo trotzdem dazu bringen sich nach rechts (oder nach hinten) umzudrehen?
+
+        Hinweis: Du kannst Kommandos mehrfach hintereinander aufrufen.
+    \item Gib Neo die folgenden Anweisungen:
         
-        
-            Bei diesen beiden Operationen handelt es sich um \emph{Kommandos}, die den Zustand des Programms verändern (z.B. Neos Blickrichtung). 
-            Sie geben jedoch keine Werte an den Aufrufer der Operation zurück.
-        
-            Hierfür gibt es \emph{Abfragen}. 
-            Bei diesen handelt es sich um Operationen, die einen Wert zurückgeben, dabei jedoch den Zustand des Programmes nicht verändern. 
-            Um eine Operation mit einem Rückgabewert zu definieren, erstzen wir im Kopf der Operation \lstinline{void} durch den Typ des zurückgegebenen Wertes. 
-            Um dann tatsächlich einen Wert zurückzugeben, können wir in der Operation den Befehl \lstinline{return wert;} verwenden.
-        
-            Um zum Beispiel eine Operation zu schreiben, die einen passenden Gruß für Neo zurückgibt, könnten wir folgendes tun:
+        {
+            \setenumerate{label=\roman*.}
+            \begin{enumerate}
+                \item Bewege dich 2 Schritte geradeaus
+                \item Dann drehe dich nach rechts
+                \item Gehe einen Schritt vor
+                \item Drehe dich nach links
+                \item Gehe vier Schritte geradeaus
+                \item Drehe dich nach rechts
+                \item Als letztes gehe einen Schritt geradeaus
+            \end{enumerate}
+        }
 
-            %TODO Beispiel Abfrage
-            \begin{lstlisting}
-    public String getGreeting() {
-        return "Hallo, " + this.getName() + "!";
-    }
-            \end{lstlisting}
+        Überprüfe im Task Status Tab ob du Neo die richtigen Kommandos gegeben hast.
+\end{enumerate}
 
-            Der Typ \lstinline{String} ist hierbei der Typ einer Zeichenkette. 
-            Er wird für Daten verwendet, die Text enthalten.
-    
-        \item Angenommen eine Münze ist \(2\) Taler wert. 
-            Schreibe eine Abfrage \lstinline{getBalance} in \ownclass{}, die zurückgibt, wie viele Taler Neo aktuell hat.
-        
-            \emph{Bemerkung:} Verwendet für diese Aufgabe den Typ \lstinline{int}. % TODO do not use nt (use Integer)
-            Er ist der am häufigsten verwendete Typ für Ganzzahlen. 
-            Wir schauen uns die verschiedenen Typen zu einem späteren Zeitpunkt noch genauer an.
-        
-            Es kann vorkommen, dass wir den Kommandos oder Abfragen, die wir ausführen, zusätzliche Informationen mitgeben wollen. 
-            Hierzu können wir Werte an Operationen übergeben, die \emph{Argmente} heißen. 
-            Diese schreiben wir in die Klammern hinter dem Operationsnamen. 
-            Eine \footnote{zugegebenermaßen nicht allzu sinnvolle} Operation, die zwei Zahlen addiert, würde zum Beispiel so aussehen:
-
-            \begin{lstlisting}
-    public int add(final int a, final int b) {
-        return a + b;
-    }
-            \end{lstlisting}
-
-            Das \lstinline{final} hierbei bedeutet, dass wir den Wert des Arguments in der Operation nicht verändern können. % TODO it is probably better not to use final for code for students
-    
-        \item Implementiere das Kommando \lstinline{gainCoins} der Klasse \lstinline{MyNeo}, die eine Ganzzahl als Argument bekommt und die Anzahl der Coins um diesen Wert erhöht.
-    
-        \emph{Hinweis:} In dieser Operation könnt ihr die Operation \lstinline{setCoinsInWallet} der Klasse \lstinline{Neo} verwenden.\par
-    \end{enumerate}
