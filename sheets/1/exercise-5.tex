@@ -1,11 +1,11 @@
 
 % !TeX root = ./jvk-blatt1.tex
-\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/} % TODO: Point to the correct version of the javadoc!
+\newcommand{\javadocRoot}{https://fius.github.io/jvk/1.0.0/de.unistuttgart.informatik.fius.jvk/module-summary.html}
 
 \excercise{Eine API verwenden / Doku lesen}
 
 \begin{enumerate}
-    \item Wie in Aufgabe 4 bereits vorgestellt, erstellen wir wieder ein neues Spiel. 
+    \item Wie in Aufgabe 4 bereits vorgestellt, erstellen wir wieder ein neues Spiel.
         Dafür müsst ihr wieder die \lstinline{Main} Klasse bearbeiten.
         Wir geben dem \lstinline{Game} Konstuktor den Fenstertitel, den Task \lstinline{Sheet1Task5} und den Verifier \lstinline{Sheet1Task5Verifier} mit.
 
@@ -16,7 +16,7 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
 
 
 \begin{Infobox}[Benennung der Task Klassen]
-    Wir werden im weiteren Verlauf der Blätter das Namensschema wie eben gezeigt verwenden. 
+    Wir werden im weiteren Verlauf der Blätter das Namensschema wie eben gezeigt verwenden.
     Das heißt für Aufgabe \textbf{X} auf Blatt \textbf{Y} sollt ihr die Klassen \lstinline{SheetYTaskX} und \lstinline{SheetYTaskXVerifier} benutzen.
 
     Für jede Aufgabe müsst ihr zuerst in der \lstinline{Main} Klasse die Klassen \lstinline{SheetYTaskX} und \lstinline{SheetYTaskXVerifier} im \lstinline{Game} Konstruktor eintragen.
@@ -25,26 +25,26 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Navigiere jetzt in die Klasse \lstinline{Sheet1Task5} um dort alle Änderungen vorzunehmen. 
-        Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren. 
-        Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern. 
+    \item Navigiere jetzt in die Klasse \lstinline{Sheet1Task5} um dort alle Änderungen vorzunehmen.
+        Jetzt wollen wir selber Münzen auf dem Spielfeld platzieren.
+        Erzeuge mindestens 5 Münzen und platziere sie auf beliebigen Feldern.
         Was fällt dir auf, wenn du mehrere Münzen auf einem Feld platzierst?
         Wie genau korrelieren Position und Koordinatensystem?
 
         Tipp: Wenn du nicht genau weißt, wie man eine Münze spawnt, schau dir den Code, welchen du in Aufgabe 4 d) gefunden hast, nochmal an.
 
-    \item Nachdem wir nun die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}. 
-        Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. 
-        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können. 
+    \item Nachdem wir nun die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}.
+        Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden.
+        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können.
         Versuche entweder mit Autocomplete (wie in Aufgabe 1 e) beschrieben) von Eclipse oder mit der Dokumentation auf \url{\javadocRoot} harauszufinden, wie diese heißen.
 
         Die Dokumentation der \lstinline{PlayfieldModifier} Klasse findest du direkt unter dem Link \url{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}.
-        
+
 \end{enumerate}
 
 \begin{Infobox}[Autocompletion]
-    Sobald wir ein Objekt instanziiert haben und in eine Variable gespeichert haben, können wir hinter den Variablennamen einen Punkt '.' eingeben. 
-    Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören. 
+    Sobald wir ein Objekt instanziiert haben und in eine Variable gespeichert haben, können wir hinter den Variablennamen einen Punkt '.' eingeben.
+    Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören.
     So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind.\\
 
     Alle Objekte in Java haben die Operationen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}.
@@ -53,22 +53,22 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
 \end{Infobox}
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Jetzt, da uns weitere Operationen zur Verfügung stehen, können wir einfach 20 Münzen in einer Zelle platzieren. 
+    \item Jetzt, da uns weitere Operationen zur Verfügung stehen, können wir einfach 20 Münzen in einer Zelle platzieren.
         Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf dem selben Feld platziert.
-        Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden. 
+        Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
         Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann lies dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
-    Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert. 
-    Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein, was bei dem Aufruf einer Operation passiert und was sie für Parameter erwartet. 
-    Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE. 
+    Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert.
+    Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein, was bei dem Aufruf einer Operation passiert und was sie für Parameter erwartet.
+    Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE.
     Wenn wir den Mauszeiger über den Name einer Operation bewegen, wird uns ein Kasten mit der Dokumentation dieser Operation angezeigt.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{4}
-    \item Platziere nun 3 horizontale Reihen aus jeweils 7 Münzen. 
+    \item Platziere nun 3 horizontale Reihen aus jeweils 7 Münzen.
         Dazu solltest du das Kommando vom \lstinline{PlayfieldModifier} benutzen, das Entites an mehreren Positionen platzieren kann.
         Um eine Reihe zu erzeugen kannst du die Klasse \lstinline{Line} unserer Shape Sammlung verwenden, welche eine Start und Endposition erwartet.
         Das \lstinline{Line} Objekt kannst du dem Kommando als zweiten Parameter (\lstinline{positions}) übergeben.
