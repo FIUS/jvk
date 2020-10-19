@@ -168,6 +168,7 @@ public class Sheet1Task5Verifier implements TaskVerifier {
                 }
                 // start new row
                 currentY = p.getY();
+                currentX = p.getX();
                 currentLength = 1;
             }
         }
