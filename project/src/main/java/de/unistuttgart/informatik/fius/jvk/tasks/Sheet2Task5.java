@@ -22,7 +22,8 @@ public class Sheet2Task5 implements Task{
         Neo player = new Neo();
         pm.placeEntityAt(player, new Position(0, 0));
 
-        // Implement (sub)tasks here        
+        // Implement (sub)tasks here
+        
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
