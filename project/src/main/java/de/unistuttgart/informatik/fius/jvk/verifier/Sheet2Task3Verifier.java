@@ -75,7 +75,7 @@ public class Sheet2Task3Verifier implements TaskVerifier {
         if(!sim.getPlayfield().getEntitiesAt(new Position(5, 0)).isEmpty())
             return false;
         List<EntityMoveAction> moveActions = this.actionLog.getActionsOfType(EntityMoveAction.class, true);
-        if(moveActions.size() != 9)
+        if(moveActions.size() != 10)
             return false;
         return true;
     }
@@ -84,8 +84,9 @@ public class Sheet2Task3Verifier implements TaskVerifier {
         if(sim.getPlayfield().getEntitiesAt(new Position(5, 0)).isEmpty())
             return false;
         List<EntityMoveAction> moveActions = this.actionLog.getActionsOfType(EntityMoveAction.class, true);
-        if(!moveActions.get(moveActions.size() - 1).to().equals(new Position(9, 0)))
-            return false;
+        Position goal = new Position(10,0);
+        boolean reachedGoal = moveActions.stream().anyMatch(action -> action.to().equals(goal));
+        if(!reachedGoal) return false;
         return true;
     }
 
