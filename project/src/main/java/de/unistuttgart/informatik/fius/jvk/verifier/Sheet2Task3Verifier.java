@@ -29,8 +29,6 @@ public class Sheet2Task3Verifier implements TaskVerifier {
     private Simulation sim;
 
     public Sheet2Task3Verifier() {
-        System.out.println("test");
-
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
@@ -47,18 +45,27 @@ public class Sheet2Task3Verifier implements TaskVerifier {
 
     @Override
     public void verify() {
-        if(testTaskB())
+        if(testTaskB()) {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        if(testTaskC())
+        }
+        if(testTaskC()) {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        if(testTaskD())
+        }
+        if(testTaskD()) {
             this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
 
+        
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
+
+        if (subTasks.stream().allMatch(subTask -> subTask.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))) {
+            this.task = this.task.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+
         this.task = this.task.updateSubTasks(subTasks);
     }
 
