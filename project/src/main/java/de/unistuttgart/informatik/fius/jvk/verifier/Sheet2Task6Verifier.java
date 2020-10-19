@@ -34,7 +34,9 @@ public class Sheet2Task6Verifier implements TaskVerifier {
     public Sheet2Task6Verifier() {
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
-        this.task = new BasicTaskInformation("Sheet 2 Task 6", "Wenn ich mich doch nur nach links drehen könnte", subTasks);
+        subTasks.add(this.taskB);
+        subTasks.add(this.taskC);
+        this.task = new BasicTaskInformation("Sheet 2 Task 6", "Truning clockwise and counterclockwise.", subTasks);
     }
 
     @Override
@@ -45,10 +47,12 @@ public class Sheet2Task6Verifier implements TaskVerifier {
 
     @Override
     public void verify() {
-        if(testTaskB())
+        if(testTaskB()) {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        if(testTaskC())
+        }
+        if(testTaskC()) {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
 
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
