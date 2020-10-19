@@ -43,7 +43,10 @@ public class Neo extends Human {
     @InspectionMethod()
     public void collectCoin() {
         if (!this.canCollectCoin()) throw new NoCoinException();
-        this.collect(this.getCurrentlyCollectableEntities(Coin.class, true).get(0));
+        Coin coin = this.getCurrentlyCollectableEntities(Coin.class, true).get(0);
+        this.collect(coin);
+        // FIXME remove workaround for bug #187 once fixed...
+        coin.isOnPlayfield();
     }
 
     /**
