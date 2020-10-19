@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.uni-stuttgart.informatik.fius</groupId>
 	<artifactId>FIUS-JVK</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-Snapshot</version>
 	<name>JVK 2020 Project</name>
 	<properties>
 		<java.version>11</java.version>
