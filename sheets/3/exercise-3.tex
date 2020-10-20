@@ -2,71 +2,77 @@
 
 \begin{enumerate}
 	\item 
-		Passe die Main Methode an die Aufgabe an. 
+		Passe die Main Operation an die Aufgabe an. \\
 		Verwende \lstinline{Sheet3Task3} und \lstinline{Sheet3Task3Verifier}.
 	\item
-		Lass Neo das folgende Muster laufen:\\
-		- laufe 2 Schritte\\
-		- drehe dich nach rechts\\
-		- laufe einen Schritt\\
-		- drehe dich nach links\\
-		- laufe 3 Schritte\\
-		- drehe dich nach links\\
-		- laufe 2 Schritte\\
-		- drehe dich nach rechts\\
-		- laufe 2 Schritte\\
-		- drehe dich nach rechts\\
-		- laufe einen Schritt\\
-		- drehe dich nach links.
+		Lass Neo das folgende Muster laufen:
+		\begin{itemize}
+			\item[] laufe 2 Schritte
+			\item[] …drehe dich nach rechts
+			\item[] …laufe einen Schritt
+			\item[] …drehe dich nach links
+			\item[] …laufe 3 Schritte
+			\item[] …drehe dich nach links
+			\item[] …laufe 2 Schritte
+			\item[] …drehe dich nach rechts
+			\item[] …laufe 2 Schritte
+			\item[] …drehe dich nach rechts
+			\item[] …laufe einen Schritt
+			\item[] …drehe dich nach links.
+		\end{itemize}
 	\item
 		Laufe das Muster aus b) mithilfe einer for-Schleife 3 Mal.
 \end{enumerate}
 
 
-\begin{Infobox}[Operation]
+\begin{Infobox}[Operation um Code mehrfach zu verwenden]
 	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. 
 	Stattdessen kann man den Code in eine Operation auslagern. 
-	Dann kann man den gesammten Code in nur einer Zeile aufrufen.
-
+	Dann kann man den gesammten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
+	
+	\vspace*{0.3cm}
+	\hfill
+    \begin{minipage}{.96\textwidth}
 	\begin{lstlisting}
 public class DemoTask implements Task {
     
     @Override
     public void run(Simulation sim) {
-        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
-     
-        moveThreeStepsBackward(neo); //neo moves back three Steps
-        neo.turnClockWise(); //neo turns right
-        moveThreeStepsBackward(neo); //neo moves back three Steps
-	
+        // Anfang für Beispiel weggelassen
         
+        neo.collectCoin();
+        this.moveTwiceAndTurn(neo);
+        neo.collectCoin();
+        this.moveTwiceAndTurn(neo);
     }
     
-    public void moveThreeStepsBackward(Neo neo) {
-        //turn around
-        neo.turnClockWise();
-        neo.turnClockWise();
-        //move three times
+    public void moveTwiceAndTurn(Neo neo) {
+        // move
         neo.move();
         neo.move();
-        neo.move();
-        //turn around
-        neo.turnClockWise();
+        // and turn
         neo.turnClockWise();
     }
     
 }
 	\end{lstlisting}
+	\end{minipage}
 
-	\lstinline{void} heißt, dass diese Operation keinen Rückgabewert hat. 
-	Wir werden vorerst nur void Operationen verwenden. 
-	Das \lstinline{(Neo neo)} heißt, dass die Operation ein Objekt der Klasse \lstinline{Neo} bekommt, das innnerhalb der Operation unter dem Variablennamen \lstinline{neo} (beachte die Groß und Kleinschreibung) benutzt werden kann.
-	\lstinline{Neo neo} sieht aus wie eine Variable und verhält sich auch ähnlich.
-	In den Runden Klammern einer Operation spricht man aber von einem Parameter.
-	Mehr dazu in Aufgabe 4. 
-	Das stichwort \lstinline{public} könnt ihr vorerst ignorieren.
+	In Aufgabenblatt 2 hast du Schon eine Operation auf Neo implementiert.
+	Da auch die Operation im Beispiel ein Kommando ist, hat sie ebenfalls keinen Rückgabewert.
+	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.
+
+	Anders als bei dem Kommando in der Klasse Neo können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
+	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der Task Klasse selbst.
+	In dem Beispiel oben können wir \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen.
+
+	Achtung: Wenn ihr in \lstinline{moveTwiceAndTurn} wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} habt ihr eine Rekursion gebaut.
+	Theoretisch könnte die Rekursion endlos weitergehen, aber Java bricht eine endlose Rekursion ab einem bestimmten Zeitpunkt ab.
+	(Wenn ihr mehr über Rekursion wissen wollt dann sucht am besten auf Google nach Rekursion.)
+
+	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation neo als Parameter übergeben.
+	Parameter werden in Aufgabe 4 nochmal genauer erklärt.
 \end{Infobox}
 
 
@@ -78,7 +84,7 @@ public class DemoTask implements Task {
 		Ersetze nun den Code in der Schleife aus c) durch die Operation \lstinline{movePattern}.
 
 	\item
-		Schreibe die folgende Operation in Sheet3Task3.
+		In der Klasse \lstinline{Sheet3Task3} findest du auch die folgende Operation.
 
 		\begin{lstlisting}
 private void dropFourCoinsAndTurnLeft(Neo neo) {
@@ -89,18 +95,23 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 		\end{lstlisting}
 
 		Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen. 
-		Schreibe den passenden Code in die Operation.
+		Ersetze den Kommentar in der Operation durch die passenden Kommandos.
 
 	\item
 		Führe nun in der Schleife aus c) nach \lstinline{movePattern} ein mal \lstinline{dropFourCoinsAndTurnLeft} aus.
+		Der Schleifenkörper sollte beide Operationen enthalten.
 
 	\item
 		Nun möchten wir eine eigene Operation schreiben. 
 		Kopiere dazu erst mal die \lstinline{movePattern} Operation und ändere den Namen in etwas anderes (z.B. \lstinline{moveStraight}).
 		Ersetze nun in der Schleife aus c) \lstinline{movePattern} durch die neue Operation.
 
+		Du solltest jetzt in der Klasse \lstinline{Sheet3Task3} zwei Operationen haben, die sich nur im Namen unterscheiden.
+
 	\item
-		Schreibe die Operation aus h) um sodass Neo sich nur durch geradeauslaufen nach ausführung der Operation an der selben Stelle befindet wie nach ausführen der Operation \lstinline{movePattern}.
+		Schreibe die Operation aus h) um so, dass Neo sich nur durch geradeauslaufen nach ausführung der Operation an der selben Stelle befindet wie nach ausführen der Operation \lstinline{movePattern}.
 		Wenn Neo an der gleichen Position startet, dann sollte er, egal ob \lstinline{movePattern} oder die neue Operation ausgeführt wurde, an der gleichen Position stehenbleiben.
+
+		Teste deine Implementierung und überprüfe ob die Münzen an den gleichen Stellen abgelegt werden wenn du in der Schleife \lstinline{movePattern} durch deine neue Operation ersetzt hast.
 \end{enumerate}
 \newpage
