@@ -132,6 +132,9 @@ public class Sheet1Task5Verifier implements TaskVerifier {
      * Count the number of horizontal lines of length {@code lineLength}.
      */
     private int countLines(List<Position> coinPositions, int lineLength) {
+        if(coinPositions.isEmpty()){
+            return 0;
+        }
         int currentX = coinPositions.get(0).getX();
         int currentY = coinPositions.get(0).getY();
         int rowCount = 0;
