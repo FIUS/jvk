@@ -28,6 +28,10 @@ public class Neo extends Human {
     /*
      *   TODO: Implement the method "turnCounterClockwise" here
      */
+    
+    /*
+     *   TODO: Paste your operation of sheet 3 task 4d here 
+     */
 
     @Override
     protected String getTextureHandle() {
