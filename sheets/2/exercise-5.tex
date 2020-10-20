@@ -23,7 +23,7 @@ while(player.canMove()) {
     Oft verwendet man auch Schleifenrumpf oder im englischen auch body.
 
     While Schleifen prüfen jeweils vor Ausführung des Schleifeninneren, ob die gegebene Bedingung noch erfüllt ist. 
-    In unserem Beispiel wird also zunächst geprüft ob \lstinline{player.canMove())} \lstinline{true} ist und der Spieler kein Hindernis vor sich hat. 
+    In unserem Beispiel wird also zunächst geprüft ob \lstinline{player.canMove()} \lstinline{true} ist und der Spieler kein Hindernis vor sich hat. 
     Solange dies erfüllt ist, wird der Code-Block der Schleife ausgeführt und damit auch das Kommando \lstinline{player.move()}.
     Jedes mal wenn der Code-Block ausgeführt wurde, wird die Bedingung in den runden Klammern erneut geprüft bevor der Code-Block wieder ausgeführt wird.
     Wenn die Bedingung von Anfang an \lstinline{false} ist, dann wird der Code-Block niemals ausgeführt.
@@ -43,22 +43,22 @@ while(player.canDropCoin()){
 }
     \end{lstlisting}
 
-    Dabei prüfen wir mit der Schleifenbedinung jeweils, ob es noch weitere Münzen gibt die wir aufheben (oder ablegen) können bevor wir sie aufheben (oder ablegen).
+    Dabei prüfen wir mit der Schleifenbedingung jeweils, ob es noch weitere Münzen gibt, die wir aufheben (oder ablegen) können, bevor wir sie aufheben (oder ablegen).
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{1}
     \item Öffne die Klasse \textit{Sheet2Task5}. 
         Hebe alle Münzen auf.
-        Dafür kannst du eine der Schleifen von Oben verwenden.
+        Dafür kannst du eine der Schleifen von oben verwenden.
 
         Hinweis: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.
     \item Platziere jetzt alle Münzen auf dem rechten mittleren Spielfeld an der Wand. 
-        Hier kannst du wieder eine der Schleifen aus den Beispielen Oben verwenden.
+        Hier kannst du wieder eine der Schleifen aus den Beispielen oben verwenden.
     \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur. 
         Auf jedem Feld in der mittleren Reihe sollte jetzt eine Münze liegen.
 
-        Hinweis: Hier kannst du nicht direkt eine Schleife von den angegebenen Beispielen Kopieren.
+        Hinweis: Hier kannst du nicht direkt eine Schleife von den angegebenen Beispielen kopieren.
         Du musst noch den Code-Block der Schleife anpassen, damit mehr Kommandos bei jedem Schleifendurchlauf ausgeführt werden.
     \item Platziere nun auf jedem Feld statt einer Münze drei Münzen.
     
