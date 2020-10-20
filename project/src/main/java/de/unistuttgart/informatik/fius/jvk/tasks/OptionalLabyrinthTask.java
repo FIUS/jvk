@@ -14,6 +14,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.MySmartNeo;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.MySmartLefthandedNeo;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.WallFactory;
@@ -32,10 +34,11 @@ public class OptionalLabyrinthTask implements Task {
         // TODO Auto-generated method stub
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         preparePlayingfield(pm);
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
+        MySmartNeo smartNeo = new MySmartNeo();
+        pm.placeEntityAt(smartNeo, new Position(0, 0));
         
         //your Code here
+        //Löse das Labyrinth
     }
     
     private void preparePlayingfield(PlayfieldModifier pm) {
