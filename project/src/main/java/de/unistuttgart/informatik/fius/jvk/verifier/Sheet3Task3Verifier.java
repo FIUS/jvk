@@ -56,7 +56,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
         subTasks.add(this.taskC);
         subTasks.add(this.taskG);
         subTasks.add(this.taskI);
-        this.task = new BasicTaskInformation("Sheet 3 Task 2", "Operations.", subTasks);
+        this.task = new BasicTaskInformation("Sheet 3 Task 3", "Operations.", subTasks);
     }
     
     @Override
