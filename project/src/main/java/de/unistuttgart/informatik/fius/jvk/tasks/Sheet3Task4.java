@@ -26,7 +26,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
  * 
  * @author Jannik
  */
-public class Sheet3Task3 implements Task {
+public class Sheet3Task4 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
