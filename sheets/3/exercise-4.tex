@@ -1,21 +1,22 @@
+% !TeX root = ./jvk-blatt3.tex
 \excercise{Operation parameters}
 
 \begin{enumerate}
 	\item 
-		Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task4} und \lstinline{Sheet3Task4Verifier}.
+		Passe die Main an die Aufgabe an. Verwende \lstinline{Sheet3Task4} und \lstinline{Sheet3Task4Verifier}.
 	\item 
-		Schreibe eine Methode die Neo einen Schritt nach vorne gehen lässt.
+		Schreibe ein Kommando die Neo einen Schritt nach vorne gehen lässt.
 	\item 
-		- Schreibe Methoden die Neo 2 Schritte nach vorne gehen lässt.\\
-		- Schreibe Methoden die Neo 3 Schritte nach vorne gehen lässt.\\
-		- Schreibe Methoden die Neo 4 Schritte nach vorne gehen lässt.
+		- Schreibe ein Kommando das Neo 2 Schritte nach vorne gehen lässt.\\
+		- Schreibe ein Kommando das Neo 3 Schritte nach vorne gehen lässt.\\
+		- Schreibe ein Kommando das Neo 4 Schritte nach vorne gehen lässt.
 \end{enumerate}
 
 \begin{Infobox}[Operations Parameter]
-	Wenn du eine Operation schreiben möchtest die je nach Situation mit verschiedenen Variablen die selbe Operation ausführt kannst du der Methode einen Parameter übergeben. 
+	Wenn du eine Operation schreiben möchtest die je nach Situation mit verschiedenen Variablen die selbe Operation ausführt, kannst du der Operation einen oder mehre Parameter übergeben. 
 	Bisher haben wir der Methode immer den Neo übergeben der alle Operationen ausführen sollte, man kann aber jede art von Objekt als Parameter übergeben.
 	
-	\begin{lstlisting}
+	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbers(Integer from, Integer to){
     for(int i=from; i <= to; i++){
         System.out.print(i);
@@ -23,17 +24,17 @@ public void printNumbers(Integer from, Integer to){
 }
 	\end{lstlisting}
 
-	Diese Methode gibt die Zahlen von\lstinline{from} bis \lstinline{to} aus. 
+	Diese Abfrage gibt die Zahlen von\lstinline{from} bis \lstinline{to} aus. 
 	Z.B. \lstinline{printNumbers(2,7)} gibt \lstinline{234567} aus.
 \end {Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
-		Schreibe nun eine Methode in der Neo \lstinline{n} Schritte läuft.
+		Schreibe nun ein Kommando in dem Neo \lstinline{n} Schritte läuft.
 
 	\item
-		Verwende die Methode aus d) um Neo eine größer werdende Spirale laufen zu lassen. Das heißt:
+		Verwende das Kommando aus d) um Neo eine größer werdende Spirale laufen zu lassen. Das heißt:
 		- Laufe einen Schritt.
 		- drehe dich nach rechts
 		- Laufe zwei Schritte
