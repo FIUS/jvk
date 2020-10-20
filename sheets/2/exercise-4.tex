@@ -4,7 +4,7 @@
 
 In dieser Aufgabe wollen wir eine neue Funktion unserer Spieler einführen. 
 Wer die Doku aufmerksam gelesen hat kennt sie vielleicht schon: 
-Unesere Spieler können Goldmünzen aufheben und niederlegen. 
+Unsere Spieler können Goldmünzen aufheben und niederlegen. 
 Dafür verwenden wir \lstinline{collectCoin()} und \lstinline{dropCoin()}.
 
 \begin{enumerate}
@@ -15,20 +15,20 @@ Dafür verwenden wir \lstinline{collectCoin()} und \lstinline{dropCoin()}.
     \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen.
         Nun verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die dein Spieler aufgesammelt hat auf das Feld (3,3) zu legen.
     \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
-        Unter welchen Bedingungen kannst du die Kommandos korrekt benutzen und wann funktionieren sie nicht.
+        Unter welchen Bedingungen kannst du die Kommandos korrekt benutzen und wann funktionieren sie nicht?
         Überprüfe deine Vermutung auch auf dem Spielfeld.
-        Teste zum Beispiel ob du eine Münze ablegen kannst befor du eine Münze aufgehoben hast.
-        Oder teste ob du Münzen die vor dir liegen aufheben kannst.
+        Teste zum Beispiel ob du eine Münze ablegen kannst bevor du eine Münze aufgehoben hast.
+        Oder teste ob du Münzen aufheben kannst, die vor dir liegen.
 \end{enumerate}
 
 
 \begin{Infobox}[Vor- und Nachbedingungen]
-    Damit ein Kommando richtig funktioniert müssen oft bestimme Bedingungen gelten bevor das Kommando aufgerufen wird.
+    Damit ein Kommando richtig funktioniert, müssen oft bestimme Bedingungen gelten, bevor das Kommando aufgerufen wird.
     Bei dem \lstinline{move()} Kommando darf sich vor dem Spieler keine Wand befinden.
-    Da diese Bedingungen gelten müssen bevor man die Operation aufruft nennt man sie Vorbedingungen.
+    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie Vorbedingungen.
     Meistens findet man diese Vorbedingungen im Javadoc Kommentar der Operation.
 
     Mit Nachbedingungen kann man beschreiben was nach dem Ausführen der Operation gilt, wenn die Vorbedingungen vor dem Ausführen schon gegolten haben.
-    Nach dem Ausführen von \lstinline{move()} hat sich der Spieler eine Position nach Vorne (in seine Blickrichtung) bewegt.
-    Das gilt natürlich nur wenn die Vorbedingung, dass vor ihm keine Wand ist zu dem Zeitpunkt an dem \lstinline{move()} aufgerufen wurde gegolten hat.
+    Nach dem Ausführen von \lstinline{move()} hat sich der Spieler eine Position nach vorne (in seine Blickrichtung) bewegt.
+    Das gilt natürlich nur, wenn zum Zeitpunkt des \lstinline{move()} Aufrufs die Vorbedingung, dass sich vor ihm keine Wand befindet, gegolten hat.
 \end{Infobox}
