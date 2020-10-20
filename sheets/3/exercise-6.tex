@@ -1,28 +1,86 @@
-\excercise{This}
+\excercise{What is \lstinline{this}?}
 
 % TODO Aufgabe verbesser!
 
 \begin{enumerate}
 	\item 
-		Passe die Main Methode an die Aufgabe an. Verwende \lstinline{Sheet3Task6} und \lstinline{Sheet3Task6Verifier}.
+		Passe die Main Operation an die Aufgabe an.\\
+		Verwende \lstinline{Sheet3Task6} und \lstinline{Sheet3Task6Verifier}.
 		
 	\item 
 		Versuche die Operation aus Aufgabe 4 d) aufzurufen.
+
+		Hinweis: Dein Versuch darf auch schiefgehen.
+		Es ist zwar möglich, aber nicht auf direktem Weg.
+		Du kannst also nicht in der Klasse \lstinline{Sheet3Task6} einfach den Namen einer Operation aus einer anderen Klasse schreiben und erwarten, dass Java schon das richtige macht.
 		
 	\item 
 		Kopiere die komplette Operation aus Aufgabe 4 d) in die Neo Klasse und versuche erneut diese aufzurufen. 
 		Achte darauf, dass die Operation \lstinline{public} ist.
-		Rufe nun diese Operation in \lstinline{Sheet3Task6} auf mit \lstinline{neo.<dein Operationsname>(neo, 5)}
+		Rufe nun diese Operation in \lstinline{Sheet3Task6} auf mit \lstinline{neo.<dein Operationsname>(neo, 5)}.
 	
 	\item
-		Bei dem Operationsaufruf in c) kommt neo zwei mal vor. 
-		Dies kann man vermeiden. 
-		Gehe wieder in die Neo Klasse und lösche den Parameter \lstinline{(Neo neo)}. 
-		Ersetze alle Vorkommen von \lstinline{neo.} mit \lstinline{this.}.
+		Bei dem Operationsaufruf in c) kommt die Variable \lstinline{neo} zwei mal vor.
+		Solche dopplungen kann man fast immer vermeiden.
+		
+		Gehe wieder in die Neo Klasse und lösche den Parameter \lstinline{(Neo neo)}.
+		Die runden Klammern must du dabei behalten.
 
-	\item Optional: 
-		Welche Methoden kannst du mit \lstinline{this.} aufrufen und welche mit \lstinline{playerA.} gibt es unterschiede, wenn ja welche?
+		Ersetze alle Vorkommen in der Operation von \lstinline{neo.} mit \lstinline{this.}.
+
+		Jetzt musst du noch deinen Aufruf der Operation anpassen, da die Operation keinen Parameter mehr benötigt.
+\end{enumerate}
+
+
+\begin{Infobox}[\lstinline{this}]
+	In Blatt 2 hast du erfahren, dass Java den Wert von \lstinline{this} automatisch festlegt.
+	Jetzt können wir erklären, wie das passiert.
+	Dafür nehmen wir die folgenden Zwei Klassen:
+
+	\begin{lstlisting}[xleftmargin=0.5cm]
+public class Neo extends Human {
+
+    public void turnAround() {
+        this.turnClockWise();
+        this.turnClockWise();
+    }
+}
+	\end{lstlisting}
+
+	\begin{lstlisting}[xleftmargin=0.5cm]
+public class Sheet3Task6 implements Task {
+    
+    public void run(Simulation sim) {
+        Neo neo = new Neo();
+        // other stuff
+        
+        neo.turnAround();
+    }
+}
+	\end{lstlisting}
+
+	In der \lstinline{run(/*...*/)} Operation der Klasse \lstinline{Sheet3Task6} wird in Zeile 7 \lstinline{neo.turnAround();} aufgerufen.
+	In der Variable \lstinline{neo} ist das in Zeile 4 erstellte Objekt der Klasse \lstinline{Neo} gespeichert.
+	In Zeile 7 wird also auf diesem Neo Objekt die Operation \lstinline{turnAround()} aufgerufen.
+
+	Die Operation \lstinline{turnAround()} ist in der Klasse des Neo Objekts, also in der Klasse \lstinline{Neo} in Zeile 3 definiert.
+	Java setzt für diesen einen Aufruf der Operation \lstinline{turnAround()} auf dem in \lstinline{Sheet3Task6} Zeile 4 erzeugten Neo Objekt \lstinline{this = Sheet3Task6::run:neo}.
+	(Die Notation \lstinline{Sheet3Task6::run:neo} ist frei erfunden und soll nur deutlich machen, dass es sich um das Objekt aus der Variable \lstinline{neo} aus der Operation \lstinline{run} der Klasse{Sheet3Task6} handelt.)
+
+	In den meisten Fällen kann man vereinfacht sagen: das \lstinline{this} in einer Operation ist das, was beim Aufruf der Operation vor dem Punkt steht.
+	Allerdings muss man beachten, das Variablen selber keine Objekte sind, sondern nur ein Name (oder eine Adresse) mit dem man ein Objekt mehrfach benutzen kann.
+	Der Unterschied von Variablen und Objekten wird auch in PSE nochmal genauer erklärt.
+
+\end{Infobox}
+
+
+\begin{enumerate}\setcounter{enumi}{4}
+	\item \optional Welche Operationen kannst du mit \lstinline{this.} aufrufen und welche mit \lstinline{playerA.}? 
+		Kannst du unterschiedliche Operationen aufrufen, wenn ja welche?
 
 	\item 
-		Gehe zu Aufgabe 4 zurück und verwende ebenfalls die Methode die auf Neo definiert ist.
+		Gehe zu Aufgabe 4 zurück und verwende ebenfalls die Operation die auf Neo definiert ist.
+	\item \optional Versuche nochmal b) zu lösen.
+
+		Hinweis: Du brauchst ein Objekt der Klasse um einer Operation der Klasse aufrufen zu können.
 \end{enumerate}
