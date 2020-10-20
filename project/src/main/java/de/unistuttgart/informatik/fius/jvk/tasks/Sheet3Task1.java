@@ -1,6 +1,7 @@
 package de.unistuttgart.informatik.fius.jvk.tasks;
 
 import java.util.Iterator;
+import java.util.Random;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
@@ -35,6 +36,8 @@ public class Sheet3Task1 implements Task {
         //use this neo for h)
         Neo neoH = new Neo();
         pm.placeEntityAt(neoH, new Position(0, 6));
+
+        // put your implementation below this comment
         
     }
     
@@ -91,36 +94,35 @@ public class Sheet3Task1 implements Task {
         
 
         // place coins
-
-        pm.placeEntityAt(new Coin(), new Position(30, 2));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 15, new Position(30, 18));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 8, new Position(40, 18));
+        Random r = new Random();
+        // e
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15) + 20, new Position(22, 0));
         
         //f)
         pm.placeMultipleEntitiesAt(() -> new Coin(), 15, new Position(0, 2));
         
         //g)
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 4, new Position(1, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(1, 4));
         pm.placeMultipleEntitiesAt(new CoinFactory(), 7, new Position(2, 4));
         pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(3, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 9, new Position(4, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 6, new Position(5, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 5, new Position(6, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(7, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(4, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(5, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(6, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(7, 4));
         pm.placeMultipleEntitiesAt(new CoinFactory(), 0, new Position(8, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 8, new Position(9, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 1, new Position(10, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(9, 4));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(10, 4));
         
         //h)
         pm.placeMultipleEntitiesAt(new CoinFactory(), 7, new Position(1, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 5, new Position(2, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 6, new Position(3, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 12, new Position(4, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 4, new Position(5, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(2, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(3, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(4, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(5, 6));
         pm.placeMultipleEntitiesAt(new CoinFactory(), 0, new Position(6, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 10, new Position(7, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 1, new Position(8, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(7, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(8, 6));
         pm.placeMultipleEntitiesAt(new CoinFactory(), 8, new Position(9, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 4, new Position(10, 6));
+        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(10, 6));
     }
 }
