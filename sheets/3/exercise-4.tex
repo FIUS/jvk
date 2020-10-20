@@ -3,47 +3,58 @@
 
 \begin{enumerate}
 	\item 
-		Passe die Main an die Aufgabe an. Verwende \lstinline{Sheet3Task4} und \lstinline{Sheet3Task4Verifier}.
+		Passe die Main Operation an die Aufgabe an.\\
+		Verwende \lstinline{Sheet3Task4} und \lstinline{Sheet3Task4Verifier}.
 	\item 
-		Schreibe ein Kommando die Neo einen Schritt nach vorne gehen lässt.
+		Schreibe ein Kommando das Neo einen Schritt nach vorne gehen lässt.
 	\item 
-		- Schreibe ein Kommando das Neo 2 Schritte nach vorne gehen lässt.\\
-		- Schreibe ein Kommando das Neo 3 Schritte nach vorne gehen lässt.\\
-		- Schreibe ein Kommando das Neo 4 Schritte nach vorne gehen lässt.
+		Schreibe je ein Kommando das Neo 2,3 und 4 Schritte nach vorne gehen lässt.
+		Du solltest jetzt vier Kommandos haben, mit denen du Neo 1, 2, 3 oder 4 Schritte gehen lassen kannst.
 \end{enumerate}
 
 \begin{Infobox}[Operations Parameter]
 	Wenn du eine Operation schreiben möchtest die je nach Situation mit verschiedenen Variablen die selbe Operation ausführt, kannst du der Operation einen oder mehre Parameter übergeben. 
-	Bisher haben wir der Methode immer den Neo übergeben der alle Operationen ausführen sollte, man kann aber jede art von Objekt als Parameter übergeben.
+	Bisher haben wir einer Operation immer den Neo übergeben mit dem die Operation ausgeführt werden soll.
+	Man kann aber jede art von Objekt als Parameter übergeben.
 	
 	\begin{lstlisting}[xleftmargin=0.5cm]
-public void printNumbers(Integer from, Integer to){
-    for(int i=from; i <= to; i++){
-        System.out.print(i);
+public void printNumbers(Neo neo, Integer from, Integer to){
+    for(Integer i=from; i <= to; i++){
+		System.out.print(i);
+		neo.turnClockWise();
     }
 }
 	\end{lstlisting}
 
-	Diese Abfrage gibt die Zahlen von\lstinline{from} bis \lstinline{to} aus. 
+	Diese Abfrage gibt die Zahlen von \lstinline{from} bis \lstinline{to} aus. 
 	Z.B. \lstinline{printNumbers(2,7)} gibt \lstinline{234567} aus.
+	Für jede Zahl die Ausgegeben wird, dreht sich Neo ein mal nach rechts.
 \end {Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
 		Schreibe nun ein Kommando in dem Neo \lstinline{n} Schritte läuft.
+		Dazu braucht das Kommando zwei Parameter.
+		Einen Parameter für Neo und einen für die Anzahl der Schritte.
 
 	\item
-		Verwende das Kommando aus d) um Neo eine größer werdende Spirale laufen zu lassen. Das heißt:
-		- Laufe einen Schritt.
-		- drehe dich nach rechts
-		- Laufe zwei Schritte
-		- drehe dich nach rechts
-		- Laufe drei Schritte
-		- drehe dich nach rechts
-		- Laufe vier Schritte
-		- drehe dich nach rechts
-		- ...usw
+		Verwende das Kommando aus d) um Neo eine größer werdende Spirale laufen zu lassen. 
+		Das heißt:
+		
+		\begin{itemize}
+			\item[] Laufe \emph{einen} Schritt.
+			\item[] drehe dich nach rechts
+			\item[] Laufe \emph{zwei} Schritte
+			\item[] drehe dich nach rechts
+			\item[] Laufe \emph{drei} Schritte
+			\item[] drehe dich nach rechts
+			\item[] Laufe \emph{vier} Schritte
+			\item[] drehe dich nach rechts
+			\item[] ...usw
+		\end{itemize}
+
+		Du solltest mit der Spirale aufhören wenn Neo 12 oder mehr Schritte am Stück gegangen ist.
 \end{enumerate}
 
 \newpage
