@@ -6,7 +6,7 @@
 		Verwende den selben Task und Verifier wie in Aufgabe 4.
 
 	\item
-		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen werten aus: (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) \\
+		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) \\
 		Was passiert?
 \end{enumerate}
 
@@ -15,12 +15,12 @@
 	Mit dem Schlüsselwort \lstinline{return} kannst du den Rückgabewert einer Operation festlegen.
 	Der Rückgabewert muss nach dem Schlüsselwort \lstinline{return} und vor dem \lstinline{;} stehen.
 
-	Return ist immer die letzte Anweisung einer Operation die ausgeführt wird.
+	Return ist immer die letzte Anweisung einer Operation, die ausgeführt wird.
 	Du kannst mit \lstinline{return} also die Operation beenden.
-	Das funktioniert sogar in Kommandos die ja keinen Rückgabewert haben.
+	Das funktioniert sogar in Kommandos, die ja keinen Rückgabewert haben.
 
-	Wenn nach dem \lstinline{return} noch Anweisungen stehen die ganz sicher nicht mehr erreicht werden können, dann wird Java das Programm nicht mehr ausführen wollen.
-	Ihr könnt die Zeilen nach dem Return (bis zum Ende des Code-Blocks der Operation) auskommentieren damit Java das Programm wieder ausführt.
+	Wenn nach dem \lstinline{return} noch Anweisungen stehen, die ganz sicher nicht mehr erreicht werden können, dann wird Java das Programm nicht mehr ausführen wollen.
+	Ihr könnt die Zeilen nach dem Return (bis zum Ende des Code-Blocks der Operation) auskommentieren, damit Java das Programm wieder ausführt.
 
 	Beispiel für \lstinline{return} in einer Abfrage:
 	
@@ -51,7 +51,7 @@ public void printNumbers(){
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-		Wir wollen nun nicht, dass Neo in dieser Operation nicht mehr als 50 Schritte laufen kann. 
+		Wir wollen nun, dass Neo in dieser Operation nicht mehr als 50 Schritte laufen kann. 
 		Wenn Neo mehr als 50 Schritte laufen soll, dann soll er sich gar nicht bewegen.
 		Füge ein am Anfang des Kommandos aus Aufgabe 4 d) ein IF-Statement ein, in dem du prüfst ob der Parameter für die Anzahl der Schritte größer als 50 ist.
 		Wenn ja, dann nutze \lstinline{return;} um die Ausführung der Operation direkt abzubrechen.
@@ -63,12 +63,12 @@ public void printNumbers(){
 
 \medskip % for better wrapping in following infobox
 
-\begin{Infobox}[Throwing Exeptions]
-	Wir möchten nicht, dass ungültige Usereingaben einfach Ignoriert werden. 
-	Darum sollte man bei ungültigen Eingaben eine Exeption werfen.
-	Für eine Erklärung von Exceptions kannst du dir Nochmal Aufgabe 2 auf Blatt 2 ansehen.
+\begin{Infobox}[Throwing Exceptions]
+	Wir möchten nicht, dass ungültige Usereingaben einfach ignoriert werden. 
+	Darum sollte man bei ungültigen Eingaben eine Exception werfen.
+	Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.
 
-	Um eine exeption zu werfen verwendet man das Schlüsselwort \lstinline{throw}.
+	Um eine Exception zu werfen verwendet man das Schlüsselwort \lstinline{throw}.
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbersTo(Integer to) {
@@ -91,17 +91,17 @@ public void printNumbersTo(Integer to) {
 		Stattdessen soll eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht geworfen werden.
 		Du kannst die Zeile mit dem \lstinline{return;} einfach durch die Zeile \lstinline{throw new IllegalArgumentException("");} ersetzen.
 
-		Wähle eine hiflreiche Nachricht für deine \lstinline{IllegalArgumentException}.
+		Wähle eine hilfreiche Nachricht für deine \lstinline{IllegalArgumentException}.
 
 	\item
-		Jetzt bekommt man eine Rote Fehlermeldung wenn man versucht die Operation mit einem zu großen Parameter aufzurufen.
+		Jetzt bekommt man eine rote Fehlermeldung, wenn man versucht die Operation mit einem zu großen Parameter aufzurufen.
 		Wir bekommen also den Fehler deutlich mit.
 
 		Noch besser wäre es, wenn wir den Fehler gar nicht erst verursachen würden.
-		Dazu müssen wir wissen, dass diese Operation eine Exception wirft wenn der Parameter zu groß ist.
+		Dazu müssen wir wissen, dass diese Operation eine Exception wirft, wenn der Parameter zu groß ist.
 		Das kann man im Javadoc Kommentar der Operation dokumentieren.
 		
-		Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären wann die Exeption geworfen wird. 
+		Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären wann die Exception geworfen wird. 
 		Verwende dafür \lstinline{@throws} in dem Javadoc Kommentar.
 
 		Hier ist nochmal ein Beispiel wie man \lstinline{@throws} in einem Javadoc Kommentar verwendet.
