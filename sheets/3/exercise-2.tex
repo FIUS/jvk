@@ -6,25 +6,25 @@
 		Verwende \lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}.
 
 	\item 
-		Mit dem Folgenden Codebeispiel kannst du die Anzahl der Münzen in dem Feld unter Neo abfragen und auf der Konsole ausgeben.
+		Mit dem folgenden Codebeispiel kannst du die Anzahl der Münzen in dem Feld unter Neo abfragen und auf der Konsole ausgeben.
 
 		\begin{lstlisting}
 Integer coinsUnderNeo = neo.getCurrentlyCollectableCoins().size();
 System.out.println(coinsUnderNeo);
 		\end{lstlisting}
 
-		Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen die auf Neos aktuellem Feld liegen. 
+		Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen, die auf Neos aktuellem Feld liegen. 
 		Eine Liste hat eine Größe die angibt wie viele Elemente sie enthält. 
 		Die Größe der Liste aller Münzen entspricht genau der Anzahl der Münzen auf Neos aktuellem Feld. 
 		Die Größe kann abgefragt werden mit \lstinline{list.size()}. 
 
-		Laufe mit Neo bis zum ersten Feld mit einer Münze und gib die Zahl der Münzen unter Neo auf der Konsole aus.
+		Laufe mit Neo bis zum ersten Feld mit einer Münze und gib die Anzahl der Münzen unter Neo auf der Konsole aus.
 \end{enumerate}
 
 
 \begin{Infobox}[If-Statements 2]
 
-	If-Stateents kennt ihr ja schon. 
+	If-Statements kennt ihr ja schon. 
 	Diese können auch dazu verwendet Zahlen (z.B Integer) miteinander zu vergleichen.
 
 	\begin{lstlisting}[numbers=none]
@@ -34,7 +34,7 @@ if ( x < 3 ) {
 }
 	\end{lstlisting}
 
-	Das kann man zum Beispiel dazu verwenden um zu schauen wie viele Münzen Neo hat. 
+	Das kann man zum Beispiel dazu verwenden, um zu schauen wie viele Münzen Neo hat. 
 	In Java kannst du die folgenden Vergleichsoperatoren verwenden:
 
 	\begin{center}
@@ -54,7 +54,7 @@ if ( x < 3 ) {
         \end{tabular} \\
 	\end{center}
 
-	Damit können wir nun Prüfen ob sich auf Neos Feld genau 3 Münzen befinden:
+	Damit können wir nun prüfen, ob sich auf Neos Feld genau 3 Münzen befinden:
 
 	\begin{lstlisting}[numbers=none]
 if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
@@ -66,7 +66,7 @@ if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 
 \begin{Infobox}[\lstinline{==} und \lstinline{.equals()}]
 	Vorsicht: Mit \lstinline{==} sollte man nur Zahlen vergleichen! 
-	Zum vergleichen von zwei Objekten sollte immer die \lstinline{.equals} Abfrage einem der der beiden Objekte verwendet werden:
+	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{.equals} Abfrage von einem der beiden Objekte verwendet werden:
 
 	\begin{lstlisting}[numbers=none]
 if (neo1.getPosition().equals(new Position(1, 1))){
@@ -74,7 +74,7 @@ if (neo1.getPosition().equals(new Position(1, 1))){
 }
 	\end{lstlisting}
 
-	Mit dem Folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen, wenn man Zwei Objekte vergleichen will.
+	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen, wenn man zwei Objekte vergleichen will.
 
 	\begin{lstlisting}[numbers=none]
 System.out.println(new Position(1,1) == new Position(1,1)); // false
@@ -86,10 +86,10 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-		Neo soll sich ab jetzt immer geradeaus bewegen solange keine Münze unter ihm liegt.
-		Wenn Neo auf eine Münze trifft sollst du erstmal anhalten.
+		Neo soll sich ab jetzt immer geradeaus bewegen, solange keine Münze unter ihm liegt.
+		Wenn Neo auf eine Münze trifft, sollst du erst mal anhalten.
 
-		Tipp: Verwende hierfür am besten eine Endlosschleife und Schreibe den Code für alle Unteraufgaben dieser Aufgabe in den Schleifenkörper.
+		Tipp: Verwende hierfür am besten eine Endlosschleife und schreibe den Code für alle Unteraufgaben dieser Aufgabe in den Schleifenkörper.
 		Eine Endlosschleife kann z.B. so aussehen:
 	\begin{lstlisting}
 while(true){
@@ -99,16 +99,16 @@ while(true){
 \end{enumerate}
 
 
-\begin{Infobox}[Endlosschleifen und \lstinline{break;}]
-	Eine While schleife in der die Schleifenbedingung \lstinline{true} ist ist eine Endlosschleife.
+\begin{Infobox}[Endlosschleifen und \lstinline{break}]
+	Eine While-Schleife, in der die Schleifenbedingung \lstinline{true} ist, ist eine Endlosschleife.
 	Das ist nicht nur ein Name.
 	Die Schleife wird niemals aufhören!
-	Deshalb kann es Passieren, dass du den Stopp Knopf in der Eclipse Konsole brauuchst um die Schleife wieder abzubrechen.
+	Deshalb kann es passieren, dass du den Stopp Knopf in der Eclipse Konsole brauchst, um die Schleife wieder abzubrechen.
 
-	Endloschschleifen sollte man wann immer möglich vermeiden.
+	Endlosschleifen sollte man wann immer möglich vermeiden.
 	Aber man kann auch eine Endlosschleife wieder beenden.
-	Dafür braucht man das Schlüsselwor \lstinline{break;}.
-	Wenn du in einer Schleife \lstinline{break;} aufrufst, dann wird die Schleife sofort unterbrochen.
+	Dafür braucht man das Schlüsselwort \lstinline{break}.
+	Wenn du in einer Schleife \lstinline{break} aufrufst, dann wird die Schleife sofort unterbrochen.
 	Auch die Schleifenbedingung wird dann nicht mehr überprüft.
 	Das funktioniert auch in einer For-Schleife.
 	
@@ -127,10 +127,10 @@ while(true){
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
 		Wenn sich Neo auf einem Feld mit genau einer Münze befindet, dann lass ihn sich nach rechts drehen und diese Münze aufsammeln. 
-		Danach soll Neo erstmal einen Schritt geradeaus gehen um wieder von dem Feld herunter zu kommen.
+		Danach soll Neo erst mal einen Schritt geradeaus gehen, um wieder von dem Feld herunter zu kommen.
 
-		Wenn er dann auf einem leeren Feld steht soll Neo wieder geradeaus laufen bis er erneut auf einem Feld mit Münzen Steht.
-		Wenn er direkt auf einem Feld mit Münzen steht, soll neo wieder prüfen wie viele Münzen auf dem Feld sind und sich danach entscheiden, was er als nächstes tun muss.
+		Wenn er dann auf einem leeren Feld steht soll Neo wieder geradeaus laufen bis er erneut auf einem Feld mit Münzen steht.
+		Wenn er direkt auf einem Feld mit Münzen steht, soll Neo wieder prüfen wie viele Münzen auf dem Feld sind und sich danach entscheiden, was er als nächstes tun muss.
 
 	\item
 		Wenn sich mehr als eine Münze unter Neo befindet, dann soll Neo eine Münze aufsammeln und sich nach links drehen bevor er wieder von dem Feld heruntergeht.
@@ -140,7 +140,7 @@ while(true){
 
 \begin{Infobox}[Logische Operationen]
 
-	Wenn mehrere Bedingungen für ein Ereigniss eine Rolle spielen muss man diese Logisch verknüpfen. 
+	Wenn mehrere Bedingungen für ein Ereignis eine Rolle spielen, muss man diese logisch verknüpfen. 
 	Java verwendet hierfür folgende Syntax:
 	\begin{center}
 		\begin{tabular}{ l | l | l | l}
@@ -176,7 +176,7 @@ if ( neo.canMove() || neo.getCurrentlyCollectableCoins().size()==7) ){
 }
 	\end{lstlisting}
 
-	Zu beachten ist außerdem, dass das \q{oder} \lstinline{||} kein ausschließendes \q{oder} ist, also ist \lstinline{((2 < 3) || (42 != 4))} eine wahre Aussage.
+	Zu beachten ist außerdem, dass das \q{oder} \lstinline{||} kein ausschließendes \q{oder} ist, daher ist \lstinline{((2 < 3) || (42 != 4))} eine wahre Aussage.
 
 \end{Infobox}
 
@@ -188,7 +188,7 @@ if ( neo.canMove() || neo.getCurrentlyCollectableCoins().size()==7) ){
 
 	\item
 		Jetzt wollen wir, dass Neo auch irgendwann aufhört.
-		Er soll aufhören zu laufen oder Münzen einzusammeln wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
+		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
 		Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neos Inventory abfragen.
 
 		Tipp: Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
