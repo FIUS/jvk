@@ -21,14 +21,14 @@
 			\item[] …drehe dich nach links.
 		\end{itemize}
 	\item
-		Laufe das Muster aus b) mithilfe einer for-Schleife 3 Mal.
+		Laufe das Muster aus b) mithilfe einer For-Schleife 3 Mal.
 \end{enumerate}
 
 
 \begin{Infobox}[Operation um Code mehrfach zu verwenden]
 	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. 
 	Stattdessen kann man den Code in eine Operation auslagern. 
-	Dann kann man den gesammten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
+	Dann kann man den gesamten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
 	
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public class DemoTask implements Task {
@@ -55,7 +55,7 @@ public class DemoTask implements Task {
 }
 	\end{lstlisting}
 
-	In Aufgabenblatt 2 hast du Schon eine Operation auf Neo implementiert.
+	In Aufgabenblatt 2 hast du schon eine Operation auf Neo implementiert.
 	Da auch die Operation im Beispiel ein Kommando ist, hat sie ebenfalls keinen Rückgabewert.
 	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.
 
@@ -63,11 +63,11 @@ public class DemoTask implements Task {
 	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der Task Klasse selbst.
 	In dem Beispiel oben können wir \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen.
 
-	Achtung: Wenn ihr in \lstinline{moveTwiceAndTurn} wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} habt ihr eine Rekursion gebaut.
+	Achtung: Wenn ihr in \lstinline{moveTwiceAndTurn} wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufruft, habt ihr eine Rekursion gebaut.
 	Theoretisch könnte die Rekursion endlos weitergehen, aber Java bricht eine endlose Rekursion ab einem bestimmten Zeitpunkt ab.
-	(Wenn ihr mehr über Rekursion wissen wollt dann sucht am besten auf Google nach Rekursion.)
+	(Wenn ihr mehr über Rekursion wissen wollt, dann sucht am besten auf Google nach Rekursion.)
 
-	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation neo als Parameter übergeben.
+	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation Neo als Parameter übergeben.
 	Parameter werden in Aufgabe 4 nochmal genauer erklärt.
 \end{Infobox}
 
@@ -94,7 +94,7 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 		Ersetze den Kommentar in der Operation durch die passenden Kommandos.
 
 	\item
-		Führe nun in der Schleife aus c) nach \lstinline{movePattern} ein mal \lstinline{dropFourCoinsAndTurnLeft} aus.
+		Führe nun in der Schleife aus c) nach \lstinline{movePattern} einmal \lstinline{dropFourCoinsAndTurnLeft} aus.
 		Der Schleifenkörper sollte beide Operationen enthalten.
 
 	\item
@@ -105,9 +105,9 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 		Du solltest jetzt in der Klasse \lstinline{Sheet3Task3} zwei Operationen haben, die sich nur im Namen unterscheiden.
 
 	\item
-		Schreibe die Operation aus h) um so, dass Neo sich nur durch geradeauslaufen nach ausführung der Operation an der selben Stelle befindet wie nach ausführen der Operation \lstinline{movePattern}.
+		Schreibe die Operation aus h) so um, dass Neo sich nur durch geradeaus laufen, nach Ausführung der Operation, an der selben Stelle befindet wie nach dem Ausführen der Operation \lstinline{movePattern}.
 		Wenn Neo an der gleichen Position startet, dann sollte er, egal ob \lstinline{movePattern} oder die neue Operation ausgeführt wurde, an der gleichen Position stehenbleiben.
 
-		Teste deine Implementierung und überprüfe ob die Münzen an den gleichen Stellen abgelegt werden wenn du in der Schleife \lstinline{movePattern} durch deine neue Operation ersetzt hast.
+		Teste deine Implementierung und überprüfe ob die Münzen an den gleichen Stellen abgelegt werden, wenn du in der Schleife \lstinline{movePattern} durch deine neue Operation ersetzt hast.
 \end{enumerate}
 \newpage
