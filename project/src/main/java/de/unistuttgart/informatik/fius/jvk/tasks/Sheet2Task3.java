@@ -26,6 +26,7 @@ public class Sheet2Task3 implements Task{
         player.move();
         player.move();
         player.move();
+        player.move();
     }
 
     private void buildEnvironment(PlayfieldModifier pm){

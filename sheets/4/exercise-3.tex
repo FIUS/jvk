@@ -1,3 +1,24 @@
-\excercise{Operationen}
+\exercise{Programme}
 
-\newpage
+\begin{enumerate}
+	\item Passe die Main Operation an die Aufgabe an.
+		Verwende \lstinline{Sheet4Task3} und \lstinline{Sheet4Task3Verifier}.
+	\item Erzeuge ein Programm, das Neo geradeaus laufen lässt, bis er keine Schritte mehr machen kann.
+\end{enumerate}
+
+\begin{Infobox}[Programme]
+	Unsere Sammlung hat nicht nur verschiedene Sorten von Shapes, sondern auch Programme.
+	Diese Programme erlauben es, Verhalten als ein Objekt darzustellen.
+	Um ein Programm zu erstellen, solltest du eine neue Java-Datei anlegen und darin das Verhalten wie bekannt definieren.
+
+	\begin{lstlisting}[title=SicherLaufenProgram.java]
+		public class SicherLaufenProgram implements Program<Neo> {
+			@Override
+			public void run(Neo neo) {
+				// hier das Verhalten von neo festlegen
+			}
+		}
+	\end{lstlisting}
+
+	
+\end{Infobox}

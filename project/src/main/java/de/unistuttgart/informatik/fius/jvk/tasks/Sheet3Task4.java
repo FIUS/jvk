@@ -9,33 +9,40 @@
  */
 package de.unistuttgart.informatik.fius.jvk.tasks;
 
+import java.util.Iterator;
+
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
+import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
+
 /**
- * This is the task for exercise 4 on sheet 2
- * @author paulesn
+ * TODO: Description
+ * 
+ * @author Jannik
  */
-public class Sheet2Task4 implements Task{
-    
+public class Sheet3Task4 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        pm.placeEntityAt(new Coin(), new Position(0, 0));
-        pm.placeEntityAt(new Coin(), new Position(0, 1));
-        pm.placeEntityAt(new Coin(), new Position(0, 2));
-        pm.placeEntityAt(new Coin(), new Position(1, 2));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(2, 2));
+        Neo neo = new Neo();
+        neo.setCoinsInWallet(12);
+        pm.placeEntityAt(neo, new Position(0, 0));
 
-        Neo player = new Neo();
-        pm.placeEntityAt(player, new Position(0, 0));
-
-        // implement task here
-
+        //write code here
+        
     }
+    
+    
+    private void walkOneStep(Neo neo) {
+        //write the Code for b) here
+    }
+
+    //write the code for c and d here
+    
 }

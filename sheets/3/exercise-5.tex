@@ -2,18 +2,39 @@
 
 \begin{enumerate}
 	\item
-		Passe die Main Methode an die Aufgabe an. Verwende den selben Task und Verifier wie in Aufgabe 4.
+		Passe die Main Operation an die Aufgabe an.\\
+		Verwende den selben Task und Verifier wie in Aufgabe 4.
 
 	\item
-		Probier die Methode aus Aufgabe 4 d) mit unterschiedlichen werten aus: (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) \\
+		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) \\
 		Was passiert?
 \end{enumerate}
 
 	
 \begin{Infobox}[Return]
-	Wenn du innerhalb einer Operation die Operation beenden möchtest dann verwende \lstinline{return}.
+	Mit dem Schlüsselwort \lstinline{return} kannst du den Rückgabewert einer Operation festlegen.
+	Der Rückgabewert muss nach dem Schlüsselwort \lstinline{return} und vor dem \lstinline{;} stehen.
 
-	\begin{lstlisting}
+	Return ist immer die letzte Anweisung einer Operation, die ausgeführt wird.
+	Du kannst mit \lstinline{return} also die Operation beenden.
+	Das funktioniert sogar in Kommandos, die ja keinen Rückgabewert haben.
+
+	Wenn nach dem \lstinline{return} noch Anweisungen stehen, die ganz sicher nicht mehr erreicht werden können, dann wird Java das Programm nicht mehr ausführen wollen.
+	Ihr könnt die Zeilen nach dem Return (bis zum Ende des Code-Blocks der Operation) auskommentieren, damit Java das Programm wieder ausführt.
+
+	Beispiel für \lstinline{return} in einer Abfrage:
+	
+	\begin{lstlisting}[xleftmargin=0.5cm]
+public Integer getAnswer(){
+    return 42;
+}
+	\end{lstlisting}
+
+	Wenn man \lstinline{getAnswer()} aufruft bekommt man den Wert 42 zurück.
+
+	Beispiel für \lstinline{return} in einem Kommando:
+
+	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbers(){
     for(int i=0; i < 10; i++){
         System.out.print(i);
@@ -24,27 +45,34 @@ public void printNumbers(){
 }
 	\end{lstlisting}
 
-	Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe \lstinline{012345}, da die Operation bei i=5 beendet wird.
+	Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe in der Konsole \lstinline{012345}, da die Operation bei i=5 beendet wird.
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-		Wir wollen nun nicht, dass Neo in dieser Methode mehr als 50 Schritte laufen kann. Füge ein if Abfrage in die Methode ein die return wenn die anzahl der Schritte die zu laufen sind (der gegebene Parameter) größer als 50 ist.
+		Wir wollen nun, dass Neo in dieser Operation nicht mehr als 50 Schritte laufen kann. 
+		Wenn Neo mehr als 50 Schritte laufen soll, dann soll er sich gar nicht bewegen.
+		Füge ein am Anfang des Kommandos aus Aufgabe 4 d) ein IF-Statement ein, in dem du prüfst ob der Parameter für die Anzahl der Schritte größer als 50 ist.
+		Wenn ja, dann nutze \lstinline{return;} um die Ausführung der Operation direkt abzubrechen.
 
 	\item
-		Probiere nun erneut unterschiedliche Werte aus.
+		Probiere nun erneut unterschiedliche Werte, insbesondere die Werte aus b), aus.
+		Das Verhalten der Operation sollte sich geändert haben.
 \end{enumerate}
 
+\medskip % for better wrapping in following infobox
 
-\begin{Infobox}[Throwing Exeptions]
-	Wir möchten nicht, dass ungültige Usereingaben einfach Ignoriert werden. 
-	Darum sollte man bei ungültigen Eingaben eine Exeption werfen (Exeptions siehe Blatt 2 Aufgabe 2).
-	Um eine exeption zu werfen verwende \lstinline{throw}.
+\begin{Infobox}[Throwing Exceptions]
+	Wir möchten nicht, dass ungültige Usereingaben einfach ignoriert werden. 
+	Darum sollte man bei ungültigen Eingaben eine Exception werfen.
+	Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.
 
-	\begin{lstlisting}
-public void printNumbersTo(int to) {
-    if( i < 0) {
+	Um eine Exception zu werfen verwendet man das Schlüsselwort \lstinline{throw}.
+
+	\begin{lstlisting}[xleftmargin=0.5cm]
+public void printNumbersTo(Integer to) {
+    if (i < 0) {
         throw new IllegalArgumentException("negative Number");	
     }
     for(int i=0; i <= to; i++) {
@@ -59,12 +87,24 @@ public void printNumbersTo(int to) {
 
 \begin{enumerate}\setcounter{enumi}{4}
 	\item
-		Ändere nun die Operation, sodass zu große Zahlen nicht returnt sondern eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht wirft.
+		Ändere nun die Operation so, dass zu große Zahlen die Operation nicht mehr mit einem \lstinline{return;} abbrechen lassen.
+		Stattdessen soll eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht geworfen werden.
+		Du kannst die Zeile mit dem \lstinline{return;} einfach durch die Zeile \lstinline{throw new IllegalArgumentException("");} ersetzen.
+
+		Wähle eine hilfreiche Nachricht für deine \lstinline{IllegalArgumentException}.
 
 	\item
-		Jetzt ist der fehler dokumentiert wenn er auftritt, aber noch nicht wenn man nur die Operation ansieht. 
-		Darum fügen wir noch einen weiteren Kommentar hinzu um zu erklären wann die Exeption geworfen wird. 
-		Verwende dafür \lstinline{@throws}
+		Jetzt bekommt man eine rote Fehlermeldung, wenn man versucht die Operation mit einem zu großen Parameter aufzurufen.
+		Wir bekommen also den Fehler deutlich mit.
+
+		Noch besser wäre es, wenn wir den Fehler gar nicht erst verursachen würden.
+		Dazu müssen wir wissen, dass diese Operation eine Exception wirft, wenn der Parameter zu groß ist.
+		Das kann man im Javadoc Kommentar der Operation dokumentieren.
+		
+		Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären wann die Exception geworfen wird. 
+		Verwende dafür \lstinline{@throws} in dem Javadoc Kommentar.
+
+		Hier ist nochmal ein Beispiel wie man \lstinline{@throws} in einem Javadoc Kommentar verwendet.
 
 		\begin{lstlisting}
 /**
@@ -75,15 +115,8 @@ public void printNumbersTo(int to) {
  *         if 'to' is negative
  */
 public void printNumbersTo(int to){
-    if( to < 0){
-        throw new IllegalArgumentException("negative Number");	
-    }
-    for(int i=0; i <= to; i++){
-        System.out.print(i);
-    }
+    // inhalt wie im Beispiel oben
 }
 		\end{lstlisting}
-
-		Ergänze den Javadoc Kommentar für die Methode in 4 d).
 \end{enumerate}
 \newpage

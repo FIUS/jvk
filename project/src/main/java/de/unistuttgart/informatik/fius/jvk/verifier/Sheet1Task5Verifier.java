@@ -21,23 +21,19 @@ public class Sheet1Task5Verifier implements TaskVerifier {
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
     private BasicTaskInformation taskB = new BasicTaskInformation("b) Spawn 5 Coins", "Spawn at least 5 coins.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Spawn 20 Coins on the same field", "Spawn exactly 20 coins on the same field.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Method discovery", "See excercise sheet.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Method discovery", "See excercise sheet.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Spawn 20 Coins on the same field", "Spawn exactly 20 coins on the same field.");
     private BasicTaskInformation taskE = new BasicTaskInformation("e) Spawn 3 horizontal rows of 7 coins", "Spawn 3 or more horizontal rows of 7 coins.");
-    private BasicTaskInformation taskF = new BasicTaskInformation("f) Special playfield", "Recreate the picture from the excercise sheet.");
 
     private ActionLog actionLog;
 
     public Sheet1Task5Verifier() {
-        System.out.println("test");
-
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
-        subTasks.add(this.taskF);
         this.task = new BasicTaskInformation("Sheet 1 Task 5", "Learn how to use the Playfield modifier.", subTasks);
     }
 
@@ -70,10 +66,10 @@ public class Sheet1Task5Verifier implements TaskVerifier {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
 
-        // subtask c)
+        // subtask d)
         boolean hasTwentyCoinsField = checkMultiCoinsField(coinPositions, 20);
         if (hasTwentyCoinsField) {
-            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+            this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
 
         // subtask e)
@@ -82,16 +78,30 @@ public class Sheet1Task5Verifier implements TaskVerifier {
             this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
 
+        if (
+            this.taskD.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL)
+                    && this.taskE.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL)
+        ) {
+            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
-        subTasks.add(this.taskF);
+
+        if (subTasks.stream().allMatch(subTask -> subTask.getTaskStatus().equals(TaskVerificationStatus.SUCCESSFUL))) {
+            this.task = this.task.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        }
+
         this.task = this.task.updateSubTasks(subTasks);
     }
 
+    /**
+     * Check if a field with at least {@code nrOfCoins} exists.
+     */
     private boolean checkMultiCoinsField(List<Position> coinPositions, int nrOfCoins) {
         Position currentPos = null;
         int currentCount = 0;
@@ -122,6 +132,9 @@ public class Sheet1Task5Verifier implements TaskVerifier {
      * Count the number of horizontal lines of length {@code lineLength}.
      */
     private int countLines(List<Position> coinPositions, int lineLength) {
+        if(coinPositions.isEmpty()){
+            return 0;
+        }
         int currentX = coinPositions.get(0).getX();
         int currentY = coinPositions.get(0).getY();
         int rowCount = 0;
@@ -158,6 +171,7 @@ public class Sheet1Task5Verifier implements TaskVerifier {
                 }
                 // start new row
                 currentY = p.getY();
+                currentX = p.getX();
                 currentLength = 1;
             }
         }

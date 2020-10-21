@@ -38,6 +38,12 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
+% hyperref setup
+\hypersetup{
+  allbordercolors=0 0 1,
+  pdfborderstyle={/S/U/W 1}
+}
+
 %%%%%%%%%%%%
 %  colors  %
 %%%%%%%%%%%%
@@ -101,6 +107,8 @@
 %%%%%%%%
 \newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
 
+\newcommand{\optional}{{\color{javagreen} \textbf{(Optional)} }} % mark optional tasks (includes space)
+
 %%%%%%%%%%%%%%
 % Main Title %
 %%%%%%%%%%%%%%
@@ -153,7 +161,7 @@
 %%%%%%%%%%
         \pagestyle{myheadings}
         \fancyhead[L]{\kurs \ (\semester) - Übungsblatt \sheetNumber}
-        \fancyhead[R]{Seite \thepage von \pageref{LastPage}}
+        \fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
         %\rightmark{test}
         %\runningheadrule
 % \runningheader{\coursename\ (\semestershort) -- \"Ubungsblatt \exercisenumber\ \ifprintanswers{\textbf{{\color{red}{ \fbox{L\"osung}}}}}\fi}{}{Seite \thepage\ von \numpages}

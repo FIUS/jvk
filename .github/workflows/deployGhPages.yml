@@ -1,0 +1,72 @@
+name: Deploy GitHub Pages
+
+env:
+  gh_pages_index_prefix: |
+    <html>
+      <head>
+        <title>FIUS JVK Documentation</title>
+      </head>
+      <body>
+        <h1>FIUS JVK Documentation</h1>
+        <p> This is the documentation for the java project of the FIUS.</p>
+        <p> If you are looking for the code, see <a href="https://github.com/fius/jvk">github.com/fius/jvk</a></p>
+
+        <h2>Contents</h2>
+        <ul>
+
+  gh_pages_index_suffix: |
+    </ul>
+    </body>
+    </html>
+
+on:
+  push:
+    branches: [ master ]
+    tags: [ '**' ]
+  release:
+    types: [ published, edited ]
+  workflow_dispatch: {}
+
+jobs:
+  generate_javadoc:
+    name: Generate Javadoc
+    runs-on: ubuntu-latest
+    steps:
+    - name: Calculate ref
+      run: echo "REF_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+    - name: Setup java
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - uses: actions/checkout@v2
+    - name: Generate javadoc
+      run: cd ./project; ./mvnw -B install javadoc:javadoc
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.7.0-4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./project/target/site/apidocs/
+        destination_dir: ./${{ env.REF_NAME }}
+  generate_index:
+    name: Generate Index
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: gh-pages
+    - name: Generate index
+      run: |
+        #!/usr/bin/env bash
+        echo "$gh_pages_index_prefix" > index.html
+        for path in * ;do
+          if [ -d $path ] ;then
+            echo '<li><a href="'"$path"'">'"$path"'</a></li>' >> index.html
+          fi
+        done
+
+        echo "$gh_pages_index_suffix" >> index.html
+    - name: Commit index
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        commit_message: Update index
+
