@@ -31,17 +31,9 @@ import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
 public class Sheet3Task4Verifier implements TaskVerifier {
     
     private BasicTaskInformation task;
-    
-    private BasicTaskInformation taskA = new BasicTaskInformation(
-            "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
-    );
-    private BasicTaskInformation taskB = new BasicTaskInformation("b)", "Walk the pattern on the exercise sheet.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk the patern three times.");
-    private BasicTaskInformation taskG = new BasicTaskInformation(
-            "g)", "execute dropFourCoinsAndTurnLeft after movePattern in the Loop Body."
-    );
-    private BasicTaskInformation taskI = new BasicTaskInformation(
-            "i)", "See exercise sheet."
+    Integer taskERuns = 7;
+    private BasicTaskInformation taskE = new BasicTaskInformation(
+            "e)", "Walk a spiral and turn at least " + taskERuns.toString() +" times.", TaskVerificationStatus.UNDECIDED
     );
     private ActionLog            actionLog;
     private Simulation           sim;
@@ -51,12 +43,8 @@ public class Sheet3Task4Verifier implements TaskVerifier {
         //System.gc();
         //System.out.println("test");
         List<BasicTaskInformation> subTasks = new ArrayList<>();
-        subTasks.add(this.taskA);
-        subTasks.add(this.taskB);
-        subTasks.add(this.taskC);
-        subTasks.add(this.taskG);
-        subTasks.add(this.taskI);
-        this.task = new BasicTaskInformation("Sheet 3 Task 2", "Operations.", subTasks);
+        subTasks.add(this.taskE);
+        this.task = new BasicTaskInformation("Sheet 3 Task 4", "Operations.", subTasks);
     }
     
     @Override
@@ -69,93 +57,55 @@ public class Sheet3Task4Verifier implements TaskVerifier {
     @Override
     public void verify() {
         this.actionLog = this.sim.getActionLog();
-        List<EntityStepAction> stepActions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
-        List<List<Position>> stepPositions = new ArrayList<>();
-        stepActions.forEach(stepAction -> stepPositions.add(Arrays.asList(new Position[] { stepAction.from(), stepAction.to() })));
+        List<EntityStepAction> Actions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
+        List<Position> expectedPositions = new ArrayList<>();
         
-        //Pattern
-        List<List<Position>> listB = new ArrayList<List<Position>>();
-        listB.add(Arrays.asList(new Position[] { new Position(0, 0), new Position(1, 0) }));
-        listB.add(Arrays.asList(new Position[] { new Position(1, 0), new Position(2, 0) }));
-        listB.add(Arrays.asList(new Position[] { new Position(2, 0), new Position(2, 1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(2, 1), new Position(3, 1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(3, 1), new Position(4, 1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(4, 1), new Position(5, 1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(5, 1), new Position(5, 0) }));
-        listB.add(Arrays.asList(new Position[] { new Position(5, 0), new Position(5, -1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(5, -1), new Position(6, -1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(6, -1), new Position(7, -1) }));
-        listB.add(Arrays.asList(new Position[] { new Position(7, -1), new Position(7, 0) }));
-        
-        if (stepPositions.containsAll(listB)) {
-            this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        //caluclate all expect positions
+        expectedPositions.add(new Position(0, 0));
+        for (Integer runs = 1; runs <= taskERuns; runs++) {
+            Position delta = new Position(0, 0);
+            switch ((runs - 1) % 4) {
+                case 0:
+                    delta = new Position(1, 0);
+                    break;
+                
+                case 1:
+                    delta = new Position(0, 1);
+                    break;
+                
+                case 2:
+                    delta = new Position(-1, 0);
+                    break;
+                
+                case 3:
+                    delta = new Position(0, -1);
+                    break;
+            }
+            for (int i = 0; i < runs; i++) {
+                Position lastPosition = expectedPositions.get(expectedPositions.size() - 1);
+                expectedPositions.add(new Position(lastPosition.getX() + delta.getX(), lastPosition.getY() + delta.getY()));
+            }
+        }
+        //actually test task E
+        if (Actions.size() >= expectedPositions.size()) {
+            for (int i = 0; i < expectedPositions.size(); i++) {
+                if (!expectedPositions.get(i).equals(Actions.get(i).from())) {
+                    this.taskE = this.taskE.updateStatus(TaskVerificationStatus.FAILED);
+                    break;
+                }
+            }
+            if (this.taskE.getTaskStatus() != TaskVerificationStatus.FAILED) {
+                this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+            }
+        }
+        else{
+            this.taskE = this.taskE.updateStatus(TaskVerificationStatus.UNDECIDED);
         }
         
-        List<List<Position>> listC = listB;
-        listC.add(Arrays.asList(new Position[] { new Position(0 + 7, 0), new Position(1 + 7, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(1 + 7, 0), new Position(2 + 7, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(2 + 7, 0), new Position(2 + 7, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(2 + 7, 1), new Position(3 + 7, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(3 + 7, 1), new Position(4 + 7, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(4 + 7, 1), new Position(5 + 7, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 7, 1), new Position(5 + 7, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 7, 0), new Position(5 + 7, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 7, -1), new Position(6 + 7, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(6 + 7, -1), new Position(7 + 7, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(7 + 7, -1), new Position(7 + 7, 0) }));
-        
-        listC.add(Arrays.asList(new Position[] { new Position(0 + 14, 0), new Position(1 + 14, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(1 + 14, 0), new Position(2 + 14, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(2 + 14, 0), new Position(2 + 14, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(2 + 14, 1), new Position(3 + 14, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(3 + 14, 1), new Position(4 + 14, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(4 + 14, 1), new Position(5 + 14, 1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 14, 1), new Position(5 + 14, 0) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 14, 0), new Position(5 + 14, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(5 + 14, -1), new Position(6 + 14, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(6 + 14, -1), new Position(7 + 14, -1) }));
-        listC.add(Arrays.asList(new Position[] { new Position(7 + 14, -1), new Position(7 + 14, 0) }));
-        
-        if (stepPositions.containsAll(listC)) {
-            this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        }
-        
-        if (
-            (getNumberOfCoinsAtPosition(7, 0) == 4) && (getNumberOfCoinsAtPosition(7, -7) == 4) && (getNumberOfCoinsAtPosition(0, -7) == 4)
-        ) {
-            this.taskG = this.taskG.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        }
-        
-        List<List<Position>> listI = new ArrayList<List<Position>>();
-        for (int i = 0; i < 7; i++) {
-            listI.add(Arrays.asList(new Position[] { new Position(0 + i, 0), new Position(1 + i, 0) }));
-        }
-        for (int i = 0; i < 7; i++) {
-            listI.add(Arrays.asList(new Position[] { new Position(7, 0 - i), new Position(7, -1 - i) }));
-        }
-        for (int i = 0; i < 7; i++) {
-            listI.add(Arrays.asList(new Position[] { new Position(7 - i, -7), new Position(6 - i, -7) }));
-        }
-        if (stepPositions.containsAll(listI)) {
-            this.taskI = this.taskI.updateStatus(TaskVerificationStatus.SUCCESSFUL);
-        }
-        
+        //Submit results
         List<BasicTaskInformation> subTasks = new ArrayList<>();
-        subTasks.add(this.taskA);
-        subTasks.add(this.taskB);
-        subTasks.add(this.taskC);
-        subTasks.add(this.taskG);
-        subTasks.add(this.taskI);
+        subTasks.add(this.taskE);
         this.task = this.task.updateSubTasks(subTasks);
-        
-    }
-    
-    private int getNumberOfCoinsAtPosition(int x, int y) {
-        return getNumberOfCoinsAtPosition(new Position(x, y));
-    }
-    
-    private int getNumberOfCoinsAtPosition(Position pos) {
-        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Coin.class, true).size();
     }
     
     @Override
