@@ -26,7 +26,11 @@ import de.unistuttgart.informatik.fius.jvk.provided.exceptions.NoCoinException;
 public class Neo extends Human {
 
     /*
-     *   TODO: Implement the method "turnCounterClockwise" here
+     *   TODO: Implement the operation "turnCounterClockwise" here
+     */
+    
+    /*
+     *   TODO: Paste your operation of sheet 3 task 4d here 
      */
 
     @Override

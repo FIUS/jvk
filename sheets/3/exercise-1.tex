@@ -1,20 +1,21 @@
 \excercise{For-Schleifen}
 
 \begin{enumerate}
-	\item Passe die Main Methode an die Aufgabe an. 
+	\item Passe die Main Operation an die Aufgabe an. 
 		Verwende \lstinline{Sheet3Task1} und \lstinline{Sheet3Task1Verifier}.
-	\item
-	Probiere Neo mithilfe einer While-Schleife zehn Schritte laufen zu lassen.\\
-	Hinweiß: Wenn du nicht weißt wie du Neo genau 10 Schritte laufen lässt kannst du die Simulation mithilfe der Pause Taste stoppen nachdem Neo 10 Schritte gelaufen ist.
+	\item Probiere Neo mithilfe einer While-Schleife zehn Schritte laufen zu lassen.\\
+	
+		Hinweis: Wenn du nicht weißt, wie du Neo genau 10 Schritte laufen lässt, kannst du die Simulation mithilfe der Pause Taste stoppen nachdem Neo 10 Schritte gelaufen ist.
 \end{enumerate}
 
 
 \begin{Infobox}[For-Schleife]
+	In Java kann man neben der While-Schleife auch eine For-Schleife benutzen.
 	Mit einer For-Schleife kann man genau bestimmen wie of der Code in der Schleife ausgeführt wird.
 	Anstatt dieselbe Operation n-mal untereinander zu schreiben um sie n-mal auszuführen, kann man den Code ein mal in eine For-Schleife die n-mal ausgeführt wird schreiben.
 	Dazu verwenden wir eine for-Schleife. 
 
-	\begin{lstlisting}
+	\begin{lstlisting}[numbers=none]
 //here neo moves five times
 neo.move();
 neo.move();
@@ -25,67 +26,76 @@ neo.move();
 	
 	ist equivalent zu:
 
-	\begin{lstlisting}
+	\begin{lstlisting}[numbers=none]
 //this moves neo five times
-for (int i = 0; i < 5; i++) {
+for (Integer i = 0; i < 5; i++) {
 	neo.move();
 }
 	\end{lstlisting}
 
-	\lstinline{int i = 0} setzt die Variable \lstinline{i} anfangs auf \lstinline{0}. 
-	\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf hochgezählt wird. 
-	Es wird jeden Schleifendurchlauf überprüft, ob \lstinline{i < 5} gilt. 
-	Falls ja wird noch ein Schleifendurchlauf ausgeführt, falls nicht ist ist die Schleife beedet. 
-	Die obige Schleife wird insgesammt 5 mal ausgeführt.
+	Wie die While-Schleife hat auch die For-Schleife einen Schleifenrumpf, der mehrfach ausgeführt wird.
+	Der Inhalt der Runden Klammern \lstinline{()} unterscheidet sich aber deutlich von dem einer While-Schleife.
+
+	In den Runden Klammern einer For-Schleife stehen insgesamt drei Anweisungen, die jeweils durch ein Semikolon \lstinline{;} voneinander getrennt sind.
+	Die erste Anweisung \lstinline{Integer i = 0} setzt die Variable \lstinline{i} auf den Anfangswet \lstinline{0}.
+	Der Variablenname \lstinline{i} wird gerne für Schleifen verwendet und steht häufig für Index.
+	Die erste Anweisung wird nur ein mal vor Beginn der Schleife ausgeführt.
+	
+	Die Zweite Anweisung \lstinline{i < 5} ist vergleichbar mit der Bedingung einer While-Schleife.
+	Sie wird jedes mal überprüft, bevor der Schleifenrumpf ausgeführt wird.
+	Nur wenn sie \lstinline{true} ist wird der Code-Block der Schleife ausgeführt.
+
+	Die drtitte Anweisung \lstinline{i++} wird nach jdem Schleifendurchlauf ausgeführt, bevor die Bedingung erneut überprüft wird.
+	\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf um \lstinline{1} erhöht wird. 
+	
+	Die obige Schleife wird 5 Mal ausgeführt.
+	Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} prüft.
+	Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}.
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item 
-		Laufe nun mithilfe einer for-Schleife 10 Schritte ohne die Simulation zu pausieren
+		Laufe nun mithilfe einer for-Schleife 10 Schritte ohne die Simulation zu pausieren.
+
+		Hinweis: Dafür musst du die Schleifenbedingung, also die zweite Anweisung, der For-Schleife aus dem Beispiel anpassen.
 
 	\item
-		% TODO: use Latex Lists
-		Lass Neo danach folgendes tun:\\
-			- drehe dich nach rechts\\
-			- laufe 2 Schritte\\
-			- drehe dich nach links\\ 
-			- laufe 20 Schitte\\
-			- hebe eine Münze auf\\
-			- drehe dich nach rechts\\
-			- laufe 12 Schritte\\
-			- lasse die Münze fallen\\
-			- laufe 4 Schritte
-
+		Laufe mit Neo jeweils 3, 7, 14 und 22 Schritte indem du die Schleifenbedingung anpasst.
+		Am Ende sollte Neo auf einem Münzhaufen stehen.
 
 	\item
-		% TODO: use Latex Lists
-		Lass Neo danach folgendes tun:\\
-		- drehe dich nach Links
-		- Lass Neo genau 12 Münzen aufheben. \\
-		- gehe 10 Schritte nach vorne.\\
-		- lass alle Münzen fallen.\\
-		- hebe genau 15 Münzen auf.\\
-		- gehe 5 Schritte nach vorne.\\
-		- lass eine Münze fallen.
+		Hebe jetzt mit Neo jeweils 2, 5, 16 und 20 Münzen auf.
+		Dazu musst du eine weitere For-Schleife benutzen, in der du auch den Schleifenrumps anpasst.
 
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.\\
-		Hebe alle Münzen auf dem aktuellen Feld auf. \\
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.
+
+		Hebe alle Münzen auf dem aktuellen Feld auf. 
 		Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab wie die schon Schritte gelaufen bist.
 
 		Hinweis: Dafür musst du eine For-Schleife in der For-Schleife verwenden. 
-		Die Anzahl der Schritte die Du schon gelaufen bist ist in der (lauf-)Variable der äußeren For-Schleife.
-
+		Dafür musst du in der inneren For-Schleife einen anderen Variablennamen als \lstinline{i} verwenden.
+		Du kannst die Variable \lstinline{i} der Äußeren For-Schleife in der Schleifenbedingung der inneren For-Schleife benutzen.
 
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.\\
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.
+
 		Laufe 10 Schritte und hebe dabei maximal 5 münzen pro Feld auf.
 
 		Hinweis: In dieser Aufgabe musst du if-Statments verwenden.
 
+		\begin{lstlisting}
+if (neoG.canCollectCoin()) {
+    neoG.collectCoin();
+}
+		\end{lstlisting}
+
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.\\
+		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.
+
 		Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
+
+		Hinweis: Hier musst du eine For- und eine While-Schleife verwenden.
 \end{enumerate}
 \newpage

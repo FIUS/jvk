@@ -28,7 +28,7 @@ import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
  *
  * @author Jannik Graef
  */
-public class Sheet3Task3Verifier implements TaskVerifier {
+public class Sheet3Task4Verifier implements TaskVerifier {
     
     private BasicTaskInformation task;
     
@@ -46,7 +46,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
     private ActionLog            actionLog;
     private Simulation           sim;
     
-    public Sheet3Task3Verifier() {
+    public Sheet3Task4Verifier() {
         
         //System.gc();
         //System.out.println("test");
@@ -56,7 +56,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
         subTasks.add(this.taskC);
         subTasks.add(this.taskG);
         subTasks.add(this.taskI);
-        this.task = new BasicTaskInformation("Sheet 3 Task 3", "Operations.", subTasks);
+        this.task = new BasicTaskInformation("Sheet 3 Task 2", "Operations.", subTasks);
     }
     
     @Override
