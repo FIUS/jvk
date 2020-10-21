@@ -12,7 +12,7 @@
 
 		Hinweis: Dein Versuch darf auch schiefgehen.
 		Es ist zwar möglich, aber nicht auf direktem Weg.
-		Du kannst also nicht in der Klasse \lstinline{Sheet3Task6} einfach den Namen einer Operation aus einer anderen Klasse schreiben und erwarten, dass Java schon das richtige macht.
+		Du kannst also nicht in der Klasse \lstinline{Sheet3Task6} einfach den Namen einer Operation aus einer anderen Klasse schreiben und erwarten, dass Java schon das Richtige macht.
 		
 	\item 
 		Kopiere die komplette Operation aus Aufgabe 4 d) in die Neo Klasse und versuche erneut diese aufzurufen. 
@@ -21,21 +21,21 @@
 	
 	\item
 		Bei dem Operationsaufruf in c) kommt die Variable \lstinline{neo} zwei mal vor.
-		Solche dopplungen kann man fast immer vermeiden.
+		Solche Dopplungen kann man fast immer vermeiden.
 		
-		Gehe wieder in die Neo Klasse und lösche den Parameter \lstinline{(Neo neo)}.
-		Die runden Klammern must du dabei behalten.
+		Gehe wieder in die Neo Klasse und lösche den Parameter \lstinline{Neo neo}.
+		Die runden Klammern und den anderen Parameter musst du dabei behalten.
 
 		Ersetze alle Vorkommen in der Operation von \lstinline{neo.} mit \lstinline{this.}.
 
-		Jetzt musst du noch deinen Aufruf der Operation anpassen, da die Operation keinen Parameter mehr benötigt.
+		Jetzt musst du noch deinen Aufruf der Operation anpassen, da die Operation nun einen Parameter weniger benötigt.
 \end{enumerate}
 
 
 \begin{Infobox}[\lstinline{this}]
 	In Blatt 2 hast du erfahren, dass Java den Wert von \lstinline{this} automatisch festlegt.
 	Jetzt können wir erklären, wie das passiert.
-	Dafür nehmen wir die folgenden Zwei Klassen:
+	Dafür nehmen wir die folgenden zwei Klassen:
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public class Neo extends Human {
@@ -82,5 +82,5 @@ public class Sheet3Task6 implements Task {
 		Gehe zu Aufgabe 4 zurück und verwende ebenfalls die Operation die auf Neo definiert ist.
 	\item \optional Versuche nochmal b) zu lösen.
 
-		Hinweis: Du brauchst ein Objekt der Klasse um einer Operation der Klasse aufrufen zu können.
+		Hinweis: Du brauchst ein Objekt der Klasse, um einer Operation der Klasse aufrufen zu können.
 \end{enumerate}
