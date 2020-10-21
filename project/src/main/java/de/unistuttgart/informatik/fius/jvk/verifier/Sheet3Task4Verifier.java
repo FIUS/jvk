@@ -31,9 +31,9 @@ import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
 public class Sheet3Task4Verifier implements TaskVerifier {
     
     private BasicTaskInformation task;
-    
+    Integer taskERuns = 7;
     private BasicTaskInformation taskE = new BasicTaskInformation(
-            "e)", "Walk the pattern on the exercise sheet.", TaskVerificationStatus.UNDECIDED
+            "e)", "Walk a spiral and turn at least " + taskERuns.toString() +" times.", TaskVerificationStatus.UNDECIDED
     );
     private ActionLog            actionLog;
     private Simulation           sim;
@@ -57,39 +57,55 @@ public class Sheet3Task4Verifier implements TaskVerifier {
     @Override
     public void verify() {
         this.actionLog = this.sim.getActionLog();
-        List<EntityTurnAction> turnActions = this.actionLog.getActionsOfType(EntityAction.class, true);
-        List<Position> stepPositions = new ArrayList<>();
-        turnActions.add(turnActions.get(0).from());
-        turnActions.forEach(turnAction -> stepPositions.add(turnAction.from()));
+        List<EntityStepAction> Actions = this.actionLog.getActionsOfType(EntityStepAction.class, true);
+        List<Position> expectedPositions = new ArrayList<>();
         
-        Position expectedPosition = new Position(0, 0);
-        for (Integer runs = 0; runs < 7; runs++) {
-            if (!(stepPositions.get(runs).equals(expectedPosition))) {
-                this.taskE = this.taskE.updateStatus(TaskVerificationStatus.FAILED);
-                break;
-            }
-            switch (runs % 4) {
+        //caluclate all expect positions
+        expectedPositions.add(new Position(0, 0));
+        for (Integer runs = 1; runs <= taskERuns; runs++) {
+            Position delta = new Position(0, 0);
+            switch ((runs - 1) % 4) {
                 case 0:
-                    expectedPosition = new Position(expectedPosition.getX() + runs + 1, expectedPosition.getY());
+                    delta = new Position(1, 0);
                     break;
                 
                 case 1:
-                    expectedPosition = new Position(expectedPosition.getX(), expectedPosition.getY() + runs + 1);
+                    delta = new Position(0, 1);
                     break;
                 
                 case 2:
-                    expectedPosition = new Position(expectedPosition.getX() - (runs + 1), expectedPosition.getY());
+                    delta = new Position(-1, 0);
                     break;
                 
                 case 3:
-                    expectedPosition = new Position(expectedPosition.getX(), expectedPosition.getY() - (runs + 1));
+                    delta = new Position(0, -1);
                     break;
             }
+            for (int i = 0; i < runs; i++) {
+                Position lastPosition = expectedPositions.get(expectedPositions.size() - 1);
+                expectedPositions.add(new Position(lastPosition.getX() + delta.getX(), lastPosition.getY() + delta.getY()));
+            }
         }
-        if (this.taskE.getTaskStatus() != TaskVerificationStatus.FAILED) {
-            this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+        //actually test task E
+        if (Actions.size() >= expectedPositions.size()) {
+            for (int i = 0; i < expectedPositions.size(); i++) {
+                if (!expectedPositions.get(i).equals(Actions.get(i).from())) {
+                    this.taskE = this.taskE.updateStatus(TaskVerificationStatus.FAILED);
+                    break;
+                }
+            }
+            if (this.taskE.getTaskStatus() != TaskVerificationStatus.FAILED) {
+                this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
+            }
+        }
+        else{
+            this.taskE = this.taskE.updateStatus(TaskVerificationStatus.UNDECIDED);
         }
         
+        //Submit results
+        List<BasicTaskInformation> subTasks = new ArrayList<>();
+        subTasks.add(this.taskE);
+        this.task = this.task.updateSubTasks(subTasks);
     }
     
     @Override
