@@ -1,0 +1,52 @@
+\excercise{Programme}
+
+\begin{enumerate}
+	\item Passe die Main Operation an die Aufgabe an.
+		Verwende \lstinline{Sheet4Task3}.
+		Diese Aufgaben sind mehr als ''Ideensammlung'' zu verstehen und werden nicht überprüft.
+		Spiele mit den Konzepten, die eingeführt wurden.
+	\item Erzeuge ein Programm, das Neo geradeaus laufen lässt, bis er keine Schritte mehr machen kann.
+\end{enumerate}
+
+\begin{Infobox}[Programme]
+	Unsere Sammlung hat nicht nur verschiedene Sorten von Shapes, sondern auch Programme.
+	Diese Programme erlauben es, Verhalten als ein Objekt darzustellen.
+	Um ein Programm zu erstellen, solltest du eine neue Java-Datei anlegen und darin das Verhalten wie bekannt definieren.
+
+	\begin{lstlisting}[title=SicherLaufenProgram.java, numbers=none,xleftmargin=0.5cm]
+public class SicherLaufenProgram implements Program<Neo> {
+	@Override
+	public void run(Neo neo) {
+		// neo läuft nur, wenn das auch geht:
+		if (neo.canMove()) {
+			neo.move();
+		}
+	}
+}
+	\end{lstlisting}
+
+	Um ein Programm zu verwenden, musst du wie gewohnt ein Objekt erzeugen und kannst dann die Operation \lstinline{run} mit dem Objekt aufrufen, die sich wie im Programm angegeben verhalten soll:
+
+	\begin{lstlisting}[numbers=none,xleftmargin=0.5cm]
+	Neo neo; // definiert und auf dem Playfield verfügbar
+	SicherLaufenProgram laufen = new SicherLaufenProgram();
+	laufen.run(neo);
+	\end{lstlisting}
+\end{Infobox}
+
+\begin{Infobox}[Generische Objekte]
+	Beim definieren von \lstinline{SicherLaufenProgramm} könnte dir aufgefallen sein, dass \mbox{\lstinline{Program<Neo>}} etwas neues ist.
+	Java bietet die Möglichkeit eine Art ''Typvariable'' zu definieren.
+	Die Definition dieser Typvariablen kannst du dir in der Klasse \lstinline{Program} anschauen.
+
+	Wenn du nun ein spezielles Programm definieren willst, kannst du den Typ festlegen.
+	Java ersetzt dann die Typvariable mit dem Typ, den du angegeben hast.
+\end{Infobox}
+
+\begin{enumerate}\setcounter{enumi}{2}
+	\item Löse einige der Aufgaben auf vorangegangenen Arbeitsblättern mit Programmen.
+	
+	Tipp: Du kannst auch Programme in anderen Programmen verwenden.
+	\item Schreibe ein Programm, das eine vertikale Wand umgeht und dann auf derselben y-Koordinate landet.
+	\item \optional \emph{Schwer!} Kannst du dieses Programm ohne eine Schleife schreiben?
+\end{enumerate}
