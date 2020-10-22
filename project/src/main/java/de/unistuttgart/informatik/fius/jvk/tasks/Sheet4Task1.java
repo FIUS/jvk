@@ -24,8 +24,6 @@ public class Sheet4Task1 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
         
         // put your implementation below this comment
         //für b)
