@@ -15,7 +15,37 @@ public class Circle implements Shape {
     private List<Position> points;
     
     /**
-     * Create a new line by specifying start and end position of the line.
+     * Create a Circle, at the middle of the field. With the radius 1;
+     *
+     */
+    public Circle() {
+        this(new Position(0, 0),1);
+    }
+
+    /**
+     * Create a Circle, at the middle of the field
+     *
+     * @param radius
+     *      the radius of the circle
+     */
+    public Circle(Integer radius) {
+        this(new Position(0, 0),radius);
+    }
+
+    /**
+     * Create a Circle
+     *
+     * @param start
+     *     the start of the line
+     * @param end
+     *     the end of the line; may not differ from the line start in both x and y direction
+     */
+    public Circle(Position middle, Integer radius) {
+
+    }
+
+    /**
+     * Create a Circle
      *
      * @param start
      *     the start of the line
