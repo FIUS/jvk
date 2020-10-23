@@ -23,7 +23,8 @@ public class Circle implements Shape {
      *     the end of the line; may not differ from the line start in both x and y direction
      */
     public Circle(Position middle, Integer radius) {
-        
+        Integer deltaX = middle.getX();
+        Integer deltaY = middle.getY();
         
         List<Position> points = new ArrayList<>();
         List<Position> pointsAdd = new ArrayList<>();
@@ -43,7 +44,9 @@ public class Circle implements Shape {
         pointsAdd.clear();
         points.forEach(p -> pointsAdd.add(new Position(-1*p.getX(), p.getY())));
         pointsAdd.forEach(p -> {if(!points.contains(p))points.add(p);} );
-        this.points=points;
+        pointsAdd.clear();
+        points.forEach(p-> pointsAdd.add(new Position(p.getX()+middle.getX(), p.getY()+middle.getY())));
+        this.points=pointsAdd;
     }
     
     @Override
