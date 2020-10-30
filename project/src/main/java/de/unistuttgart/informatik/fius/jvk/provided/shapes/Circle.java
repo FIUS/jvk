@@ -65,7 +65,7 @@ public class Circle implements Shape {
         pointsAdd.forEach(p -> {if(!points.contains(p))points.add(p);} );
         pointsAdd.clear();
         points.forEach(p->{
-            pointsAdd.add(new Position(p.getX()+middle.getX(), p.getY()+middle.getY()))
+            pointsAdd.add(new Position(p.getX()+middle.getX(), p.getY()+middle.getY()));
         });
         this.points=pointsAdd;
     }
