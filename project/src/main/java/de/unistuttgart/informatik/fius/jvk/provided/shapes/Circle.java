@@ -70,10 +70,6 @@ public class Circle implements Shape {
         this.points=pointsAdd;
     }
     
-    /**
-     * 
-     * @return an iterator over the pixels of the shape
-     */
     @Override
     public Iterator<Position> iterator() {
         return this.points.iterator();

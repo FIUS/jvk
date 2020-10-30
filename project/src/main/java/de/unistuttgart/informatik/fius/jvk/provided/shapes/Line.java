@@ -25,21 +25,20 @@ public class Line implements Shape {
     public Line(Position start, Position end) {
         Integer deltaX = end.getX() - start.getX();
         Integer deltaY = end.getY() - start.getY();
-        Float slope; //slope needs to have digits after the . ,so Float is used
-        
+        Double slope; //slope needs to have digits after the . ,so Float is used
         List<Position> points = new ArrayList<>();
         
         if (Math.abs(deltaX) > Math.abs(deltaY)) {
-            slope =  deltaY.floatValue() / deltaX.floatValue();
+            slope =  deltaY.doubleValue() / deltaX.doubleValue();
             for (Integer x = start.getX(); (deltaX > 0) ? x <= end.getX() : x >= end.getX(); x += ((deltaX > 0 ? 1 : -1))) {
-                Integer y = Math.round(x.floatValue() * slope + start.getX());
+                Integer y = (int)Math.round(x.doubleValue() * slope+start.getY());
                 points.add(new Position(x, y));
             }
         }
         else{
-            slope =  deltaX.floatValue() / deltaY.floatValue();
+            slope =  deltaX.doubleValue() / deltaY.doubleValue();
             for(Integer y = start.getY(); (deltaY > 0) ? y <= end.getY() : y >= end.getY(); y += ((deltaY > 0 ? 1 : -1))){
-                Integer x = Math.round(y.floatValue() * slope + start.getY());
+                Integer x = (int)Math.round(y.doubleValue() * slope +start.getX());
                 points.add(new Position(x, y));
             }
         }
