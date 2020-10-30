@@ -19,38 +19,27 @@ public class Circle implements Shape {
      *
      */
     public Circle() {
-        this(new Position(0, 0),1);
+        this(new Position(0, 0), 1);
     }
-
+    
     /**
      * Create a Circle, at the middle of the field
      *
      * @param radius
-     *      the radius of the circle
+     *     the radius of the circle
      */
     public Circle(Integer radius) {
-        this(new Position(0, 0),radius);
+        this(new Position(0, 0), radius);
     }
-
+    
+    
     /**
      * Create a Circle
      *
-     * @param start
-     *     the start of the line
-     * @param end
-     *     the end of the line; may not differ from the line start in both x and y direction
-     */
-    public Circle(Position middle, Integer radius) {
-
-    }
-
-    /**
-     * Create a Circle
-     *
-     * @param start
-     *     the start of the line
-     * @param end
-     *     the end of the line; may not differ from the line start in both x and y direction
+     * @param middle
+     *     the center of the circle
+     * @param radius
+     *     the radius of the circle
      */
     public Circle(Position middle, Integer radius) {
         Integer deltaX = middle.getX();
@@ -75,10 +64,16 @@ public class Circle implements Shape {
         points.forEach(p -> pointsAdd.add(new Position(-1*p.getX(), p.getY())));
         pointsAdd.forEach(p -> {if(!points.contains(p))points.add(p);} );
         pointsAdd.clear();
-        points.forEach(p-> pointsAdd.add(new Position(p.getX()+middle.getX(), p.getY()+middle.getY())));
+        points.forEach(p->{
+            pointsAdd.add(new Position(p.getX()+middle.getX(), p.getY()+middle.getY()))
+        });
         this.points=pointsAdd;
     }
     
+    /**
+     * 
+     * @return an iterator over the pixels of the shape
+     */
     @Override
     public Iterator<Position> iterator() {
         return this.points.iterator();
