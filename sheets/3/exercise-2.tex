@@ -74,7 +74,7 @@ if (neo1.getPosition().equals(new Position(1, 1))){
 }
 	\end{lstlisting}
 
-	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen, wenn man zwei Objekte vergleichen will.
+	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen müssen, wenn man zwei Objekte vergleichen will.
 
 	\begin{lstlisting}[numbers=none]
 System.out.println(new Position(1,1) == new Position(1,1)); // false
@@ -146,8 +146,8 @@ while(true){
 		\begin{tabular}{ l | l | l | l}
 			Text & log. Zeichen & Java Zeichen & Bemerkung \\ \hline
 			und  & $\land$ & \texttt{\&\&} & \minibox{
-					Achtung kein einfaches \texttt{\&} in Java verwenden,\\ 
-					das macht etwas anderes (aber ähnliches)
+					Achtung! Kein einfaches \texttt{\&} in Java verwenden,\\ 
+					das macht etwas leicht Anderes 
 			} \\
 			oder & $\lor$ & \texttt{||} & Kein einfaches \texttt{|} verwenden (analog zu und) \\
 			& &  \\

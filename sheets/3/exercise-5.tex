@@ -36,7 +36,7 @@ public Integer getAnswer(){
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbers(){
-    for(int i=0; i < 10; i++){
+    for(Integer i=0; i < 10; i++){
         System.out.print(i);
         if ( i == 5){
             return;
@@ -72,10 +72,10 @@ public void printNumbers(){
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbersTo(Integer to) {
-    if (i < 0) {
+    if (to < 0) {
         throw new IllegalArgumentException("negative Number");	
     }
-    for(int i=0; i <= to; i++) {
+    for(Integer i=0; i <= to; i++) {
         System.out.print(i);
     }
 }
@@ -114,7 +114,7 @@ public void printNumbersTo(Integer to) {
  * @throws IllegalArgumentException
  *         if 'to' is negative
  */
-public void printNumbersTo(int to){
+public void printNumbersTo(Integer to){
     // inhalt wie im Beispiel oben
 }
 		\end{lstlisting}
