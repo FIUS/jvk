@@ -1,7 +1,6 @@
 
 % !TeX root = ./jvk-blatt1.tex
-\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/} % TODO: Point to the correct version of the javadoc!
-
+\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/} 
 \excercise{Eine API verwenden / Doku lesen}
 
 \begin{enumerate}
@@ -63,13 +62,13 @@ Game myGame = new Game("Task 5", new Sheet1Task5(), new Sheet1Task5Verifier());
     Normalerweise arbeiten wir nicht alleine an unserem Code, deshalb ist es wichtig zu dokumentieren wie unser Code funktioniert. 
     Das heißt, mit einer guten Dokumentation sollte direkt ersichtlich sein, was bei dem Aufruf einer Operation passiert und was sie für Parameter erwartet. 
     Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE. 
-    Wenn wir den Mauszeiger über den Name einer Operation bewegen, wird uns ein Kasten mit der Dokumentation dieser Operation angezeigt.
+    Wenn wir den Mauszeiger über den Namen einer Operation bewegen, wird uns ein Kasten mit der Dokumentation dieser Operation angezeigt.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{4}
     \item Platziere nun 3 horizontale Reihen aus jeweils 7 Münzen. 
-        Dazu solltest du das Kommando vom \lstinline{PlayfieldModifier} benutzen, das Entites an mehreren Positionen platzieren kann.
+        Dazu solltest du das Kommando vom \lstinline{PlayfieldModifier} benutzen, das Entities an mehreren Positionen platzieren kann.
         Um eine Reihe zu erzeugen kannst du die Klasse \lstinline{Line} unserer Shape Sammlung verwenden, welche eine Start und Endposition erwartet.
         Das \lstinline{Line} Objekt kannst du dem Kommando als zweiten Parameter (\lstinline{positions}) übergeben.
         Die Linien sollten nicht über Felder gehen die schon Münzen enthalten, damit die Erkennung im Task Status richtig funktioniert.
