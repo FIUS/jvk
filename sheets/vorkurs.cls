@@ -7,7 +7,7 @@
 %
 % Space for Settings that can and should be changed
 \def\kurs{Java Vorkurs} %Name of the kurse
-\def\semester{WS 2021} %Number of the Semester
+\def\semester{WS 2021} %Number of the Semester %TODO:Rausnehmen
 
 
 %%%%%%%%%%%%
@@ -249,7 +249,7 @@
 }
 \renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
 
-\newcommand{\teamsaufgabe}[1]{{\color{purple} In Teams findest du das Quiz: \textbf{#1}}}
+\newcommand{\teamsaufgabe}[1]{{\color{purple} In Teams findest du das Quiz: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
 
 
 
