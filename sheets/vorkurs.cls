@@ -249,7 +249,7 @@
 }
 \renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
 
-\newcommand{\teamsaufgabe}[1]{{\color{purple} In Teams findest du das Quiz: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
+\newcommand{\teamsaufgabe}[1]{{\color{purple} Hier findet ihr ein Quiz, dass das gelernte abfragt: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
 
 
 
