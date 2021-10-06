@@ -65,7 +65,7 @@ public class Game {
     public Game(String windowTitle, Task task, TaskVerifier verifier) {
         final WindowBuilder wb = new WindowBuilder();
         wb.setTitle(windowTitle);
-        wb.setGraphicsSettings(false, true);
+        wb.setGraphicsSettings(true, true);
         wb.buildWindow();
         this.window = wb.getBuiltWindow();
         this.registerTextures(this.window);
