@@ -5,11 +5,17 @@
     \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten. 
         Dieses Mal nur mit dem \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier}:
 
+    \vspace{3mm}
+
     \begin{lstlisting}
 Game myGame = new Game("Hello World", new DemoTask());
     \end{lstlisting}
 
+    \vspace{3mm}
+
     Wir starten das Spiel in der Variable \lstinline{myGame}, indem wir die Operation \lstinline{run()} darauf aufrufen.
+
+    \vspace{3mm}
 
     \begin{lstlisting}
 myGame.run();
@@ -17,9 +23,12 @@ myGame.run();
 
     Starte das Programm in Eclipse, mit dem kleinen Play-Button oben in der Werkzeugleiste und schau dich ein wenig im Fenster das dann aufgeht um.
 
-    \item Nun erweitern wir den Konstruktor von \texttt{Game} um einen Parameter. 
-        Erweitere den Konstruktor um ein TaskVerifier Objekt, so wie unten im Bild zu sehen. 
-        Starte nun das Spielfenster neu. 
+    \vspace{5mm}
+
+    \item In der vorherigen Teilaufgabe hatten wir bereits ''Hello World'' und ein DemoTask Objekt an Game übergeben.
+        Nun wollen wir noch ein DemoTaskVerifier Objekt übergeben.\\
+        Orientiere dich dazu unten am Bild. Starte nachdem du fertig bist das Spielfenster neu. \\
+
         Was verändert sich im Spielfenster? 
         Finde den \q{Task Status} Tab und drücke den Refresh Button.
 
@@ -31,9 +40,9 @@ Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
 
 
 \begin{Infobox}[Der Refresh Button]
-    Wenn ihr überprüfen wollt, ob ihr eure Aufgabe erledigt habt, müsst ihr den \fbox{Task Status} Tab unter dem Spielfeld öffnen und dann auf \fbox{Refresh} klicken.
+    Wenn ihr überprüfen wollt, ob ihr eure Aufgabe erledigt habt, müsst ihr den \fbox{Task Status} Tab unter dem Spielfeld öffnen und dann auf \fbox{Refresh} klicken.\\
 
-    Wichtig: Der Task Status aktualisiert sich nicht automatisch.
+    Wichtig: Der Task Status aktualisiert sich nicht automatisch. Ihr müsst also immer selber aktualisieren.
 \end{Infobox}
 
 
@@ -44,12 +53,13 @@ Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
         \includegraphics[width=\linewidth]{./figures/console.PNG}
     \end{center}
 
-    In der Konsole siehst du, dass eine Münze (\texttt{Coin}) gespawnt (platziert) wurde. 
+    In der Konsole siehst du, dass eine Münze (\texttt{Coin}) gespawnt (erzeugt) wurde.
     Finde die Koordinaten des Feldes, auf welchem die Münze gespawnt wurde.
 
-    \item Nun suche nach der Stelle im Code der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.
-    
+    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.\\
+
         Kleiner Tipp: 
-        Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei.
-        Alternativ kannst du über den PackageExplorer in das Paket \texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
+        Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
+        Alternativ kannst du über den PackageExplorer in das Paket\\
+        \texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
 \end{enumerate}
