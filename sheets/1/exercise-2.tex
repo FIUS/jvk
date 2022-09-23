@@ -47,6 +47,9 @@ Nehmt diesen Teil als Referenz zum Nachschauen, wenn ihr euch später bei etwas 
 	Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.\\
 	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse \q{Hund} $\rightarrow$ Datei \q{Hund.java}.
 \end{Infobox}
+
+\newpage
+
 \begin{lstlisting}[title=\textbf{Klassen Syntax}]
 	// < > wird immer durch das ersetzt was in < > beschrieben wird
 	public class <NameDerKlasse>{ // Beginn der Klasse
@@ -62,8 +65,6 @@ Nehmt diesen Teil als Referenz zum Nachschauen, wenn ihr euch später bei etwas 
 		...
 	}
 \end{lstlisting}
-
-\newpage
 
 \begin{lstlisting}[title=\textbf{Klassen Beispiel}]
 	public class Hund{
@@ -96,6 +97,8 @@ Nehmt diesen Teil als Referenz zum Nachschauen, wenn ihr euch später bei etwas 
 		// Inhalt der Operation
 	}
 \end{lstlisting}
+
+\newpage
 
 \begin{lstlisting}[title=\textbf{Operations Beispiel}]
 	public void springen(){
@@ -135,6 +138,9 @@ Nehmt diesen Teil als Referenz zum Nachschauen, wenn ihr euch später bei etwas 
 
 	Wenn man ein Objekt erzeugt, weist man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
 \end{Infobox}
+
+\newpage
+
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
 	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
 	
@@ -176,9 +182,9 @@ Nehmt diesen Teil als Referenz zum Nachschauen, wenn ihr euch später bei etwas 
 	meinHund.getName();
 \end{lstlisting}
 
-\subsection*{Aufgabe 3.2 Namen und Codestyle}
+\subsection*{Aufgabe 2.2 Namen und Codestyle}
 Wie ihr wahrscheinlich schon gemerkt habt, kann Code schnell überfordern und verwirren.\\
-Da man dieses Problem in der Informatik oft antrifft, vor allem man mit Anderen zusammen arbeitet, gibt es Konventionen (Regeln an die wir uns alle halten wollen) wie der Code geschrieben werden sollte um die Lesbarkeit und das Verständnis zu verbessern.
+Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit Anderen zusammen arbeitet, gibt es Konventionen (Regeln an die wir uns alle halten wollen) wie der Code geschrieben werden sollte um die Lesbarkeit und das Verständnis zu verbessern.
 
 \vspace{5mm}
 
@@ -213,7 +219,7 @@ Allgemein sollten alle Namen auf Englisch formuliert werden.
 Variablen und Operationen werden immer mit einem Kleinbuchstaben angefangen.\\
 
 \noindent
-Falls ein Name aus mehreren Wörtern besteht, schreibt man diese trotzdem zusammen, aber den Anfangsbuchstaben aller folgenden Wörter groß. Z.B. favouriteDog.\\
+Falls ein Name aus mehreren Wörtern besteht, schreibt man diese trotzdem zusammen, aber den Anfangsbuchstaben aller neuen Wörter groß. Z.B. favouriteDog.\\
 Diese Schreibweise nennt man auch \lstinline{camelCase}.\\
 
 \noindent
@@ -241,7 +247,7 @@ Um direkt auf einen Blick zu erkennen wo die Operation anfängt und wo sie endet
 \noindent
 {\color{red} Wichtig: }Achtet unbedingt daruaf das alle Klammer die ihr öffnet auch wieder in der richtigen Reihenfolge geschlossen werden!
 
-\vspace{5mm}
+\newpage
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	// Code außerhalb einer Klammerung, nicht eingerückt
@@ -255,8 +261,6 @@ Um direkt auf einen Blick zu erkennen wo die Operation anfängt und wo sie endet
 		}
 	}
 \end{lstlisting}
-
-\newpage
 
 \begin{lstlisting}[title=\textbf{Beispiel schlechte Einrückung}]
 	// Code außerhalb einer Klammerung, nicht eingerückt
