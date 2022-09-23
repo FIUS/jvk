@@ -10,20 +10,20 @@
 
 \begin{Infobox}[How-To: Install Eclipse]
     \begin{enumerate}[label=\arabic*.]
-        \item Schaue das Video des Tutors vorne an und nutze folgenden Link falls du nicht mitgekommen bist:
-        \color{blue}\href{https://youtu.be/zxH3G1MTrVs}{\textit{https://youtu.be/zxH3G1MTrVs}}
+        \item Schaue das Video des Tutors vorne an und nutze folgenden Link, falls du nicht mitgekommen bist:
+        \color{blue}\url{https://youtu.be/zxH3G1MTrVs}
     \end{enumerate}
 \end{Infobox}
 
 \begin{Infobox}[How-To: Wie bekomme ich des Projekt]
     \begin{enumerate}[label=\arabic*.]
-        \item Lade zuerst das Maven-Projekt \jvkpackage { }runter, man findet es hier:
+        \item Lade zuerst das Maven-Projekt \jvkpackage { } herunter, du findet es hier:
         \begin{center}
             \color{blue}\href{\jvkpackageurl}{\textit{\jvkpackageurl}}
         \end{center}
 
         \item Nachdem das Zip-File heruntergeladen wurde, muss man es in einem geeigneten Ordner entpacken.\\
-        \textbf{Windows:} Entpacken funktioniert durch einen Rechtsklick auf die Datei und dann durch klicken auf \fbox{Alle extrahieren...}$\to$\fbox{Extrahieren}.\\
+        \textbf{Windows:} Entpacken funktioniert durch einen Rechtsklick auf die Datei und dann durch Klicken auf \fbox{Alle extrahieren...}$\to$\fbox{Extrahieren}.\\
         \textbf{Linux:} Am schnellsten entpackt man ein Zip-File über das Terminal mit dem Befehl:
         \newline\hspace*{\fill}\texttt{\textgreater\ unzip \jvkpackage}\hspace*{\fill}\newline
         \textbf{Apple:} Nachdem man das Zip-File im Finder offen hat, entpackt man es durch einen einfachen Doppelklick.
@@ -39,7 +39,7 @@
         \item Stelle sicher, dass der Projektname im \textit{Projects} Bereich des Fensters auftaucht.
         \item Zu guter Letzt noch auf \fbox{Finish} drücken.
         \item Nachdem sich das Fenster geschlossen hat, siehst du das Projekt im \textit{Package Explorer} links an der Seite.
-        \item Damit euer Projekt richtig funktioniert, solltet ihr im \textit{Package Explorer} das Projekt mit einem Rechtsklick auswählen und dann im Kontextmenü \fbox{Maven} $\to$ \fbox{Update Project...} $\to$ \fbox{OK} ausführen.
+        \item Damit das Projekt richtig funktioniert, solltet du im \textit{Package Explorer} das Projekt mit einem Rechtsklick auswählen und dann im Kontextmenü \fbox{Maven} $\to$ \fbox{Update Project...} $\to$ \fbox{OK} ausführen.
     \end{enumerate}
 \end{Infobox}
 
@@ -51,11 +51,14 @@
 \begin{enumerate}
     \item
     \begin{itemize}
-        \item Öffne die \texttt{Main}-Datei in dem Dateiexplorer auf der linken Seite. Navigiere dazu in den \texttt{src/main/java} Ordner und wähle dann das Paket \texttt{de.unistuttgart.informatik.fius.jvk} aus.
-        \item Starte als nächstes das Projekt, um zu schauen ob alles klappt. Drücke dazu den grünen Play Button $\vartriangleright$ oben links.
-        \item Wenn Du bei der Installation alles Richtig gemacht hast, sollten nun keine Fehler (roter Text) auftreten. Da wir noch nichts programmiert haben, sollte aber auch sonst nichts passieren.
+        \item Öffne die \texttt{Main}-Datei in dem Dateiexplorer auf der linken Seite.
+            Navigiere dazu in den \texttt{src/main/java} Ordner und wähle dann das Paket \texttt{de.unistuttgart.informatik.fius.jvk} aus.
+        \item Starte als nächstes das Projekt, um zu schauen ob alles klappt.
+            Drücke dazu den grünen Play Button $\vartriangleright$ oben links.
+        \item Wenn du bei der Installation alles richtig gemacht hast, sollten jetzt keine Fehler (roter Text) auftreten.
+            Da wir noch nichts programmiert haben, sollte aber auch sonst nichts passieren.
         \begin{center}
-            \includegraphics[width=\linewidth]{./figures/ide.jpg} % Todo Pfeile einfügen
+            \includegraphics[width=\linewidth]{./figures/ide.jpg}
         \end{center}
     \end{itemize}
 
@@ -65,18 +68,19 @@
 
     \includegraphics[width=\linewidth]{./figures/code.1.png}
 
-    Wenn das Programm jetzt ausgeführt wird geht ein Fenster mit der Simulator Ansicht auf.
-    Suche nun die (rote) Stop Taste in Eclipse um das Programm abzubrechen.
+    Wenn das Programm jetzt ausgeführt wird, geht ein Fenster mit der Simulator Ansicht auf.
+    Suche als nächstes die (rote) Stop Taste in Eclipse um das Programm abzubrechen.
     Die Taste befindet sich in Eclipse unten in der Titelleiste der Console.
     \item Versuche nun den Code so zu verändern, dass dein Name im Fenstertitel steht.
 \end{enumerate}
 
 
 \begin{Infobox}[HowTo: Auskommentieren]
-    Manchmal möchte man, dass bestimmter Code nicht ausgeführt wird. Vielleicht möchten man ihn erst später ausführen, ihn einfach nicht verlieren oder etwas Neues ausprobieren.
-    In solchen Fällen Kommentieren wir die Code-Zeilen einfach aus.
-    Dies geht, indem wir der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes)(\lstinline{//}) voranstellen.
-    Als Beispiel betrachten wir mal den folgenden Code:\\
+    Manchmal möchte man, dass bestimmter Code nicht ausgeführt wird.
+    Vielleicht möchten man ihn erst später ausführen, ihn einfach nicht verlieren oder etwas Neues ausprobieren.
+    In solchen Fällen Kommentieren man die Code-Zeilen einfach aus.
+    Dies geht, indem du in der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes)(\lstinline{//}) voranstellst.
+    Als Beispiel schaue dir folgenden Code an:\\
 
     \hfill
     \begin{minipage}{.96\textwidth}
@@ -89,7 +93,7 @@
         \end{lstlisting}
     \end{minipage}
 
-    Wenn wir nun die letzte Zeile auskommentieren wollen, dann stellt sich der Code wie folgt dar.\\
+    Wenn du nun die letzte Zeile auskommentieren willst, dann stellt sich der Code wie folgt dar.\\
 
     \hfill
     \begin{minipage}{.96\textwidth}
@@ -107,14 +111,15 @@
 
 
 \begin{Infobox}[Fehler]
-    Einige Aufgaben in Blatt 1 (und auch den anderen Blättern) verlangen von euch, den Code absichtlich kaputt zu machen.
-    Ziel davon ist es das ihr die verschiedenen Fehler bereits kennenlernt.
-    Achtet also bei solchen Aufgaben darauf, welche Änderung zu welchem Fehler geführt hat.
-    Falls ihr nun später einen Fehler beim Programmieren macht, kann euch dieses Wissen helfen den Code zu reparieren.
+    Einige Aufgaben in Blatt 1 (auch auf den anderen Blättern) verlangen von dir den Code absichtlich kaputtzumachen.
+    Ziel davon ist es das du die verschiedenen Fehler bereits kennenlernst.
+    Achte also bei solchen Aufgaben darauf, welche Änderung zu welchem Fehler geführt hat.
+    Falls du nun später einen Fehler beim Programmieren machst, kann dir dieses Wissen helfen den Code zu reparieren.
 
-    Ihr braucht auch keine Angst haben, dass ihr etwas nachhaltig kaputt machen könntet.
-    Eclipse hat eine \q{Undo}-Funktion welche Änderungen rückgängig macht. Diese findet ihr im Menü oben unter \fbox{edit} (deutsch \fbox{Bearbeiten}) oder über \fbox{Strg + z} aufrufen könnt.
-    Falls ihr trotzdem Hilfe braucht, könnt (\emph{und sollt!}) ihr euch gerne bei den Tutoren melden.
+    Du brauchst auch keine Angst haben, dass du etwas nachhaltig kaputt machen könntest.
+    Eclipse hat eine \q{Undo}-Funktion welche Änderungen rückgängig macht.
+    Diese findest du im Menü oben unter \fbox{edit} (deutsch \fbox{Bearbeiten}) oder über wird ausgeführt durch \fbox{Strg + z}.
+    Falls du trotzdem Hilfe brauchst, kannst (\emph{und sollst!}) du dich gerne bei den Tutoren melden.
 \end{Infobox}
 
 
@@ -122,7 +127,7 @@
 \item Finde heraus was passiert, wenn man die erste oder die zweite Zeile in der Main-Funktion auskommentiert.
 
 Hinweis: Nicht alle Varianten funktionieren zwangsläufig, Überlege warum dies der Fall sein könnte.
-\item Vielleicht sind dir beim Ausprobieren in a) schon einige Dinge aufgefallen die der Eclipse Editor anders macht als Textverarbeitungsprogramme, wie zum Beispiel Word.
+\item Vielleicht sind dir beim Ausprobieren in a) schon einige Dinge aufgefallen, die der Eclipse Editor anders macht als Textverarbeitungsprogramme, wie zum Beispiel Word.
 Wenn du \lstinline{demoGame.} eingibst erscheint ein \textit{Overlay} mit möglichen \textit{Autocompletions}.
 Wenn du dann mit der Maus über andere Stellen im Code gehst, verschwindet das Overlay wieder.
 Öffne das Overlay manuell, indem du den Cursor direkt nach \lstinline{demoGame.} platzierst und \fbox{Strg + Space} (Space ist die Leertaste) drückst.
@@ -138,7 +143,7 @@ Füge an verschiedenen Stellen neue Zeilen und Leerzeichen ein und beobachte was
 
 \begin{Infobox}[Optionale Aufgaben]
     Aufgaben die mit \optional markiert, sind müssen nicht bearbeitet werden.
-    Sie setzen schon Vorkenntnisse in Java oder Programmieren vorraus und sind deshalb auch oft deutlich schwerer als die normalen Aufgaben.
+    Sie setzen schon Vorkenntnisse in Java oder Programmieren voraus und sind deshalb auch oft deutlich schwerer als die normalen Aufgaben.
     Wenn du also an einer optionalen Aufgabe festhängst, dann solltest du mit der nächsten normalen Aufgabe weitermachen.
     Später, wenn du genug Zeit oder Wissen hast um die optionale Aufgabe zu lösen, kannst du nochmal zu ihr zurückkehren.
 \end{Infobox}
@@ -148,10 +153,10 @@ Füge an verschiedenen Stellen neue Zeilen und Leerzeichen ein und beobachte was
 \item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
 Dafür benötigst du den folgenden Code, den du aber noch auf deinen Namen anpassen musst: \lstinline{demoGame.getGameWindow().setWindowTitle("");}
 \item \optional Benenne \lstinline{demoGame} in \lstinline{myDemoGame} um.
-Wenn du nur die Stelle \lstinline{Game demoGame} anpasst, wirst du eine Fehlermeldung bekommen.
+Wenn du nur die eine Stelle \lstinline{Game demoGame} anpasst, wirst du eine Fehlermeldung bekommen.
 Mache deine Änderung nochmal rückgängig und platziere den Cursor in dem Wort \lstinline{demoGame}.
 Mit der Tastenkombination \fbox{Shift + Alt + r} kommst du in den \q{Refactor}-Modus, in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
-Das gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.
+Das Gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.
 
 Mit \fbox{Strg + Shift + l} kannst du eine Liste alle Tastenkombinationen ansehen.
 \item \optional Versuche, drei Fenster gleichzeitig zu starten.

@@ -5,8 +5,8 @@
 
 \begin{enumerate}
     \item Wie in der vorherigen Aufgabe bereits vorgestellt, erstellen wir wieder ein neues Spiel.\\
-        Dafür müsst ihr wieder die \lstinline{Main} Klasse bearbeiten.
-        Wir geben dem \lstinline{Game} Aufruf den Fenstertitel, den Task \lstinline{Sheet1Task4} und den Verifier \lstinline{Sheet1Task4Verifier} mit.
+        Dafür musst du wieder die \lstinline{Main} Klasse bearbeiten.
+        Bei dem \lstinline{Game} Aufruf gibst du den Fenstertitel, den Task \lstinline{Sheet1Task4} und den Verifier \lstinline{Sheet1Task4Verifier} mit.
 
     \begin{lstlisting}
 Game myGame = new Game("Task 4", new Sheet1Task4(), new Sheet1Task4Verifier());
@@ -17,13 +17,14 @@ Game myGame = new Game("Task 4", new Sheet1Task4(), new Sheet1Task4Verifier());
 \begin{Infobox}[Benennung der Task Klassen]
     Wie du wahrscheinlich festgestellt hast, haben wir ein Namensschema für die Klassen.\\
     Also für Blatt \textbf{X} und Aufgabe \textbf{Y} sollst du die Klassen \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} nutzen.\\
-    Ebenso müsst ihr für jede Aufgabe in der Main Klasse die \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} anpassen.
-    Euren Code müsst ihr (fast) immer in \lstinline{SheetXTaskY} schreiben.
+    Ebenso musst du für jede Aufgabe in der Main Klasse die \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} anpassen.
+    Deinen Code musst du (fast) immer in \lstinline{SheetXTaskY} schreiben.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Nun wollen wir endlich mal selber Münzen auf das Spielfeld platzieren. Hierfür bearbeitest du die Klasse \lstinline{Sheet1Task4}.\\
+    \item Nun wollen wir endlich mal selber Münzen auf das Spielfeld platzieren.
+        Hierfür bearbeitest du die Klasse \lstinline{Sheet1Task4}.\\
         Platziere mindestens 5 Münzen auf beliebigen Felder.
 
         Benutze den \q{Task Status} um herauszufinden, ob du die Aufgabe erfolgreich gelöst hast.
@@ -45,45 +46,46 @@ Game myGame = new Game("Task 4", new Sheet1Task4(), new Sheet1Task4Verifier());
 \end{enumerate}
 
 \begin{Infobox}[Autocompletion]
-    Sobald wir ein Objekt instanziiert (erstellt) haben und in eine Variable gespeichert haben, können wir hinter den Variablennamen einen Punkt '.' eingeben.\\
+    Sobald du ein Objekt instanziiert (erstellt) hast und in eine Variable speicherst, kannst du hinter den Variablennamen einen Punkt '.' eingeben.\\
     Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören. 
     So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind.\\
-    Falls du also mal nicht weiter weißt, probiere doch einfach mal das und nutze das am besten klingende.\\
+    Falls du also mal nicht weiter weißt, probiere doch einfach mal das und nutze das am vielversprechende.\\
 
     Alle Objekte in Java haben die Operationen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}.
-    Diese Operationen könnt ihr meistens ignorieren.
+    Diese Operationen kannst du meistens ignorieren.
     Am häufigsten werden von diesen Operationen die Operationen \lstinline{equals(...)} und \lstinline{toString()} benötigt.
 \end{Infobox}
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Jetzt, da uns weitere Operationen zur Verfügung stehen, können wir einfach 20 Münzen in einer Zelle platzieren.
+    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Münzen in einer Zelle platzieren.
 
         Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert.
 
         Du sollst also nicht 19mal den Code kopieren um eine Münze zu erzeugen!
 
         Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
-        Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann lies dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
+        Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
-    Da wir normalerweise nicht alleine an dem Code arbeiten müssen wir ihn nicht nur übersichtlich halten, sondern auch Dokumentieren.
+    Da du normalerweise nicht alleine an dem Code arbeitest musst du ihn nicht nur übersichtlich halten, sondern auch dokumentieren.
 
-    Wie du vielleicht bereits gemerkt hast ist das sehr hilfreich eine gute Dokumentation zu haben, Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\\
+    Wie du vielleicht bereits gemerkt hast, ist das sehr hilfreich eine gute Dokumentation zu haben.
+    Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\\
 
-    Diese Dokumentation können wir zum Beispiel online nachschauen oder direkt in unserer IDE (Eclipse), wenn wir den Mauszeiger über den Namen einer Operation bewegen wird uns ein Kasten mit der Dokumentation dieser Operation angezeigt.
+    Diese Dokumentation kannst du zum Beispiel online nachschauen oder direkt in der IDE (Eclipse) indem du den Mauszeiger über den Namen einer Operation bewegst, wird ein Kasten mit der Dokumentation dieser Operation angezeigt.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{4}
     \item Platziere nun 3 horizontale Reihen mit jeweils 7 Münzen länge.
-        Diese sollt jeweils ein Feld Abstand zueinander haben.
+        Diese sollen jeweils ein Feld Abstand zueinander haben.
 
         Nutze dafür die Klasse \lstinline{Line}.\\
         Sie befindet sich im Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes}.\\
 
-        Die Line Klasse erwartet einen Startposition und auch eine Endposition.\\
-        Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du nun benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
+        Die Line Klasse erwartet eine Startposition und auch eine Endposition.\\
+        Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
 
         Übrigens: In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest du die anderen Shapes aus unserer Shape Sammlung.
 
