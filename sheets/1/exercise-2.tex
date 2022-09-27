@@ -1,274 +1,107 @@
-% !TeX root = ./jvk-blatt1.tex
-\lstset{
-	basicstyle=\small,
-	morecomment=[l]{*}
-}
-\excercise{Nachschlagwerk: Syntax und Codestil}
 
-Jetzt folgt ein Nachschlagwerk auf das du immer wieder zurückgehen kannst bei den folgenden Aufgaben.
-Du kannst es bereits mal durchlesen, es ist aber nicht schlimm, wenn du noch nicht alles versteht.
 
-\subsection*{Syntax}
-\noindent
-In diesem Teil zeigen wir dir die Syntax von Java.
-Die Syntax beschreibt, wie der Code aufgebaut und geschrieben werden muss, sodass er von einem Computer verstanden wird.\\
-Es kommen jetzt viele Definitionen, du musst dir aber keine Sorgen machen, wenn du nicht alles direkt verstehst.
-Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nicht sicher bist.
+\excercise{Einschub: Objekte, Klassen, Klassendiagramm}
 
-\begin{Infobox}
+\begin{Infobox}[HowTo: Klassen und Objekte auseinander halten]
+    In Java (und auch in anderen Programmiersprachen) gibt es \textbf{Klassen} und \textbf{Objekte}.
+    Dabei gehört ein Objekt immer zu einer Klasse. Genauer gesagt ist ein Objekt \textbf{eine Instanz} einer Klasse.
 
-	\subsubsection*{Kommentare:}
-	Kommentare sind Teile des Codes, die vom Computer ignoriert werden.
-	Sie werden genutzt, um anderen (aber auch dir selbst) kenntlich zu machen, was im Code passiert, was noch verändert werden sollte oder um allgemein Anmerkungen zu hinterlassen.
+    Die Klasse beschreibt dabei generell welche Eigenschaften und Operationen ein Objekt haben kann.
+    %TODO: Bei der Einführung von Operationen kann man die ruhig erstmal als Fähigkeiten beschreiben. Danach einfach einen Satz wie "Diese Fähigkeiten nennt man Operationen."
+    Eigenschaften können zum Beispiel Daten (wie der Name oder die Farbe des Objekts) sein.
+    %TODO: Diese Änderung könnte man auch wieder rückgängig machen wenn man die Änderung darüber auch macht.
+    Operationen wiederum sind Funktionen die das Objekt ausführen kann.
+    Das Objekt, also eine konkrete Instanz der Klasse, hat dann zum Beispiel eine bestimmte Farbe (z.B. grün).
+    Ein anderes Objekt der selben Klasse kann eine eigene Farbe (z.B. rot) haben.\\
+
+    Man muss sich dabei oft entscheiden, wie generisch oder genau man eine Klasse macht. Zum Beispiel kann man die Klasse Sportschuh und die Klasse High-Heels haben, oder man hat nur eine Klasse Schuh mit einer Eigenschaft, welche die Schuhart beschreibt.
 \end{Infobox}
 
-\begin{lstlisting}[title=\textbf{Kommentar Beispiel}]
-	// Dies ist ein einfacher Kommentar über eine Zeile.
-	// Er wird mit // gestartet und nimmt die gesamte Zeile hinter sich ein.
-	someCode.run(); //Kommentare sind auch nach Operationen möglich.
-	// Kann man das auch vor Operationen in der selben Zeile schreiben ?
-	/*
-	* Dies ist ein Block Kommentar.
-	* Diese können sich auch über mehrere Zeilen erstrecken.
-	* Um die Lesbarkeit zu verbessern, werden die Zeilen dazwischen meist
-	* mit einem * begonnen.
-	*/
-\end{lstlisting}
-\lstset{
-	basicstyle=\small
-}
-\begin{Infobox}
+\begin{enumerate}
+    \item Wir haben hier ein paar Klassen. Bitte erweitere sie um je drei weitere Eigenschaften. Der Stuhl ist ein Beispiel:
 
-	\subsubsection*{Klassen:}
-	Klassen sind Baupläne für Objekte.
-	In diesen können Operationen definiert werden, welche dann den Objekten zur Verfügung stehen.\\
-	Eine Klasse beginnt immer mit dem \lstinline{class} Schlüsselwort, gefolgt von ihrem Namen.\\
-	Diesen kannst du fast frei wählen, nur spezielle Schlüsselwörter wie zum Beispiel \lstinline{class} sind verboten.
-	Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.\\
-	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse \q{Hund} $\rightarrow$ Datei \q{Hund.java}.
+    \begin{tikzpicture}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A) {\textbf{Stuhl}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B) {Marke\\Farbe\\Anzahl Beine\\Material\\};
+
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (3.5,0) {\textbf{Auto}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (3.5,0) {Marke\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (7,0) {\textbf{Haus}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (7,0) {Fensteranzahl\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (10.5,0) {\textbf{Buch}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (10.5,0) {Autor\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+    \end{tikzpicture}
+
+    \item Nun erstelle zu jeder Klasse drei verschiedene Objekte. Wenn ihr in einer Gruppe zusammenarbeitet sollte sich jeder selbst ein Objekte ausdenken.
+
+    \item Identifiziere im folgenden Text drei vorkommende Klassen mit jeweils drei Eigenschaften:
+
+    \begin{quotation}
+    Die BilligMöbel GmbH ist ein Unternehmen mit 1000 Mitarbeitern.
+    Die Akte jedes Mitarbeiters enthält seinen Namen und Alter sowie sein Gehalt und seine Kontonummer.
+    Aufgrund von Massenproduktion kann das Unternehmen seine Möbel sehr billig verkaufen.
+    So werden beispielsweise Stühle für 10€, Liegen für 15€ und Schränke für 32€ angeboten.
+    Alle Möbelstücke sind aus Plastik oder Holz sowie in verschiedenen Farben erhältlich.
+    In seiner Kundenkartei vermerkt das Unternehmen jeweils das Geschlecht und die Postleitzahl ihrer Kunden sowie die Kosten des letzten Einkaufs.
+    \end{quotation}
+\end{enumerate}
+
+\begin{Infobox}[HowTo: Operationen von Objekten]
+    Klassen verfügen über Operationen, die von bzw. auf ihren Objekten ausgeführt werden können.
+    Als Beispiel betrachten wir ein Auto. Es kann fahren, bremsen, abbiegen und den Motor an-/abschalten.\\
+
+    Dabei können Operationen auch sogenannte Parameter besitzen wie z.B. abbiegen(links) oder fahren(50) (für 50 km/h).
+    Wie man genau bestimmt was diese Parameter bedeuten erklären wir noch.
 \end{Infobox}
 
-\newpage
+\begin{enumerate} \setcounter{enumi}{3}
+    \item Überlege dir für die folgenden drei Klassen Operationen.
+    Es ist nicht notwendig Parameter zu verwenden.
+    Der Stuhl ist wieder ein Beispiel:
 
-\begin{lstlisting}[title=\textbf{Klassen Syntax}]
-	// < > wird immer durch das ersetzt was in < > beschrieben wird
-	public class <NameDerKlasse>{ // Beginn der Klasse
-		/*
-		* Inhalt der Klasse.
-		* Um die Lesbarkeit zu verbessern wird
-		* Code innerhalb geschweifter Klammern eingerückt.
-		*/
-		// Definition einer Operation (Siehe nächsten Eintrag)
-		public <Rückgabetyp> <OperationsName>(<Typ> <ParameterName>, ...){
-			// Inhalt der Operation
-		}
-		...
-	}
-\end{lstlisting}
+    \begin{tikzpicture}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A) {\textbf{Stuhl}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B) {Umfallen\\Ächzen\\Kaputt gehen\\};
 
-\begin{lstlisting}[title=\textbf{Klassen Beispiel}]
-	public class Hund{
-		public void wuff(){
-			// Code um zu bellen
-		}
-	}
-\end{lstlisting}
-\begin{Infobox}
-	\subsubsection*{Operationen}
-	\begin{itemize}
-		\item Operationen: Sie sind Gruppierungen von Anweisungen (da wir diese vielleicht häufiger ausführen wollen).
-			Dieser Code kann mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden.\\
-			Eine Operation besitz einen Namen. Sie können auch Parameter und Rückgabewerte haben. (sie besitzen auch noch eine Sichtbarkeit, wir verwenden im Vorkurs immer \lstinline{public} um es zu vereinfachen)
-		\item Rückgabewert: Das ist quasi das Ergbenis der Operation das wollen wir zurückgeben um ihn weiterzunutzen.
-			Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.
-		\item Parameter: Parameter sind Variablen (Platzhalter für Werte, wie ''x'' in Mathe), die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code verfügbar.\\
-			Sie werden in den runden Klammern nach dem Namen der Operation aufgelistet.
-			Wenn man eine Operation aufruft und ein Objekt dort übergibt, wird dieses Objekt Argument genannt.
-		\item Operationrumpf: Befindet sich zwischen den geschweiften Klammern. Hier ist der eigentliche Code der Operation.
-	\end{itemize}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (3.5,0) {\textbf{Ampel}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (3.5,0) {Grün werden\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
 
-\end{Infobox}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (7,0) {\textbf{Fernseher}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (7,0) {Kanal wechseln\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
 
-\begin{lstlisting}[title=\textbf{Operations Syntax}]
-	public <RückgabeTyp> <OperationsName>(){
-		// Inhalt der Operation
-	}
-	public <RückgabeTyp> <OperationsName>(<Typ> <ParameterName>, ...){
-		// Inhalt der Operation
-	}
-\end{lstlisting}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (10.5,0) {\textbf{Wecker}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (10.5,0) {$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+    \end{tikzpicture}
 
-\newpage
+    \item Überlege dir nun eine eigene Klasse und finde zu ihr 3 Eigenschaften und 3 Operationen. Dann überlege dir 3 Objekte dieser Klasse mit unterschiedlichen Eigenschaften. Wenn du in einer Gruppe arbeitest, könnt ihr gerne durchtauschen und jeder muss Objekte für die Klasse eines Kommilitonen finden.
+\end{enumerate}
 
-\begin{lstlisting}[title=\textbf{Operations Beispiel}]
-	public void springen(){
-		// Code um zu springen
-	}
-	
-	public String getName(Hund hund){
-		return hund.name;
-	}
-\end{lstlisting}
 
-\begin{Infobox}
+    \begin{Infobox}[Info: Objekte vs. reale Objekte]
+        Wichtig zu verstehen ist, dass Klassen und Objekte keine physischen Objekte repräsentieren müssen. Man kann auch z.B. eine Klasse für Useraccounts oder eine Klasse für Personengruppen haben. Auch werden Klassen verwendet, um technische Teile des Programms zu repräsentieren, wie z.B. das Fenster, welches angezeigt wird, oder ein Paket, das durchs Internet geschickt wird.
+    \end{Infobox}
+\begin{enumerate} \setcounter{enumi}{5}
+    \item \teamsaufgabe{Falls ein Link bereits aufgebraucht ist, verwendet einen anderen (es ist 3 mal das selbe Quiz)}
+    
+    \url{https://kahoot.it/challenge/05570785?challenge-id=9fbcfde6-f12d-4f90-a71a-78962e44d1e0_1633206271656}
 
-	\subsubsection*{Objekte erzeugen:}
-	Klassen sind Baupläne für Objekte. Quasi wenn die Klasse Hund ist, dann ist Bello und Doggo Instanzen (Objekte) der Klasse Hund.\\
-	Um ein Objekt zu erzeugen wird das \lstinline{new} Schlüsselwort verwendet.
-	Man schreibt dann \lstinline{new } gefolgt von dem Klassennamen und ein paar Klammern ().
-\end{Infobox}
-\begin{lstlisting}[title=\textbf{Objekt erstellen Syntax}]
-	new <KlassenName>(<MöglicheParameter>); // Ein Objekt wird erzeugt
-\end{lstlisting}
+    \url{https://kahoot.it/challenge/09632907?challenge-id=9fbcfde6-f12d-4f90-a71a-78962e44d1e0_1633206304242}
 
-\begin{lstlisting}[title=\textbf{Objekt erstellen Beispiel}]
-	new Hund("Bello"); // Ein Hund mit dem Namen Bello wird erzeugt
-\end{lstlisting}
-\begin{Infobox}
-	\subsubsection*{Variablen:}
-	Variablen werden genutzt, um (temporär) Werte zu speichern.
-	Sie sind in den Fällen nützlich, in denen du einen bestimmten Wert mehrfach im selben Code nutzen willst.
-	Außerdem auch wenn ein Wert beim Starten des Programms noch nicht fest steht oder sich noch ändert.\\
+    \url{https://kahoot.it/challenge/08343706?challenge-id=9fbcfde6-f12d-4f90-a71a-78962e44d1e0_1633206320477}
+\end{enumerate}
+\begin{enumerate} \setcounter{enumi}{6}
+    \item \optional Versuche erneut drei Klassen mit je drei Eigenschaften  zu identifizieren. Diese Aufgabe soll etwas schwieriger sein als die c)
+    \begin{quotation}
+    Du betrittst die Gebäude und schaust dich um. Es gibt sehr viele Menschen hier. Doch niemanden den du kennst, also bewegst du dich direkt auf den Aufzug zu. Doch bevor du in dein Stockwerk fahren kannst, musst du deine Personalkarte vor den Leser halten. Nachdem deine Sicherheitsstufe ausgelesen wurde kannst du den Knopf für das 5. Stockwerk drücken. Langsam fährt der Aufzug los. Langsamer als sonst. Larry wird ihn wohl wieder neu eingestellt haben.
 
-	Stell dir Variablen wie Schubladen vor. Du kannst Sachen in die Schubladen reinlegen um sie später wieder zu benutzen. Um die Sachen aber wieder finden zu können geben wir den Schubladen Namen.\\
+    Im 5. Stockwerk angekommen erwartet dich ein Sicherheitsposten. Er ist nur mit einer statt mit zwei Personen besetzt, doch das macht dir keine Sorgen. Immerhin ist es Sonntag. Der Mann fragt nach deiner Personalkarte und scannt sie. Auf seinem Bildschirm taucht ein Foto auf, welches er mit deinem Gesicht vergleicht. Doch ihm fällt nichts auf. Also grüßt er dich und lässt dich vorbei. Für einen Moment fragst du dich, woher er deinen Namen kennt, doch der wurde vermutlich einfach mit dem Foto angezeigt. Heute ist einfach alles auf diesen Karten gespeichert.
 
-	Variablen besitzen immer einen Typ (was man in die Schublade legen darf / passt) und einen Namen (Name der Schublade).
-	Mit einem = kann einer Variable ein Wert zugewiesen werden (Etwas in die Schublade legen).\\
-	Über den Namen der Variable kann dann auf dessen Wert (Inhalt der Schublade) zugegriffen werden.\\
+    Du schlenderst durch das Labyrinth aus Gängen, bis du zu deinem Ziel kommst. Die Tür ist unscheinbar und das Büro dahinter ist es auch. Kaum 10 Quadratmeter groß. Und die Fenster zeigen auf nichts Beachtenswertes. Aber das ist dir egal. Dich interessiert der Tresor in der obersten Schublade des Schreibtischs. Ein Model 4452 von SuperSecure.
 
-	Wenn man ein Objekt erzeugt, weist man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
-\end{Infobox}
+    Du versicherst dich kurz, dass die Tür zu ist und dann machst du dich an das Knacken des digitalen Schlosses. Es dauert kaum 2 Minuten, dann schwingt die 3cm dicke Stahltür auf und ermöglicht die Sicht auf einige USB-Sticks. Schnell suchst du den blauen mit 16 GB Kapazität und lässt ihn in deiner Hosentasche verschwinden.
 
-\newpage
-
-\begin{lstlisting}[title=\textbf{Variablen Syntax}]
-	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
-	
-	<KlassenName> <Name> = <Wert>; // Eine Variable wird erzeugt und ihr wird ein Wert zugewiesen.
-	
-	<Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
-	
-	<KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
-	
-	<KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. Das geht natürlich nur wenn die Varaiblen das selbe speichern können (den selben Typ haben).
-\end{lstlisting}
-\begin{lstlisting}[title=\textbf{Variable Beispiel}]
-	String hundeName = "Bello";
-	
-	Hund meinHund = new Hund(hundeName);
-\end{lstlisting}
-\begin{Infobox}
-	\subsubsection*{Kommandos und Abfragen:}
-	\begin{itemize}
-		\item Kommando: Sie ändern eventuell was an dem Objekt z.B. benennen den Hund um
-		\item Abfragen: Sie ändern nichts an dem Objekt, geben dafür aber was zurück z.B. den Hundename
-	\end{itemize}
-	Um Operationen eines Objekts aufzurufen, wird zuerst der Objektname geschrieben, gefolgt von einem Punkt und dem Operationsname.
-	Am Ende stehen paar Rundeklammern \q{()}, in denen Parameter stehen können.\\
-	{\color{red} Wichtig: } Operationen können nur auf Objekten und nicht auf Klassen aufgerufen werden.
-	Es gibt hier einen Sonderfall, diesen wirst du in PSE kennenlernen.
-\end{Infobox}
-\begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
-	<ObjektName>.<OperationsName>();
-	
-	<ObjektName>.<OperationsName>(<Argument>);
-\end{lstlisting}
-
-\begin{lstlisting}[title=\textbf{Kommando/Abfrage Beispiel}]
-	// meinHund.setName(); soll dafür sorgen dass der Hund von Bello zu Doggo umbenannt wird. Er ändert also etwas an dem Objekt.
-	meinHund.setName("Doggo");
-	
-	// meinHund.getName(); gibt den Namen des Hundes zurück, ändert also nichts am Obejekt selber sondern gibt Eigenschaften davon zurück.
-	meinHund.getName();
-\end{lstlisting}
-
-\subsection*{Aufgabe 2.2 Namen und Codestyle}
-Wie du wahrscheinlich schon gemerkt hast, kann Code schnell überfordern und verwirren.\\
-Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit Anderen zusammen arbeitet, gibt es Konventionen (Regeln an die wir uns alle halten wollen) wie der Code geschrieben werden sollte um die Lesbarkeit und das Verständnis zu verbessern.
-
-\vspace{5mm}
-
-\subsubsection*{Konvention Namen:}
-
-\begin{Infobox}
-	Die Java-Syntax verbietet bereits, dass:
-
-	\begin{itemize}
-		\item Schlüsselwörter(\lstinline{void}, \lstinline{class}, ...) als Name genutzt werden.
-		\item Namen Leerzeichen beinhalten.
-		\item Namen mit Zahlen beginnen.
-	\end{itemize}
-\end{Infobox}
-\vspace{5mm}
-\begin{Infobox}
-	Formulierungen auf die man achten sollte:
-	\begin{itemize}
-		\item Variablennamen sollen selbsterklärend sein $\rightarrow$ \lstinline{favouriteDog} statt \lstinline{fD}
-		\item Operationen sollen Verben im Namen haben $\rightarrow$ ''makeNoise'' statt ''laut''
-		\item Abfragen sollen mit \lstinline{get} beginnen $\rightarrow$ ''getName''
-		\item Kommandos, die einen Wert setzen, sollen mit \lstinline{set} beginnen $\rightarrow$ ''setName''
-		\item Keine Umlaute (ä, ö, ß,...)
-
-	\end{itemize}
-\end{Infobox}
-
-\vspace{5mm}
-
-\noindent
-Allgemein sollen alle Namen auf Englisch formuliert werden.
-Variablen und Operationen werden immer mit einem Kleinbuchstaben angefangen.\\
-
-\noindent
-Falls ein Name aus mehreren Wörtern besteht, schreibt man diese trotzdem zusammen, aber den Anfangsbuchstaben aller neuen Wörter groß. Z.B. favouriteDogFood.\\
-Diese Schreibweise nennt man auch \lstinline{camelCase}.\\
-
-\noindent
-Namen sollen selbsterklärend sein, damit ist erkennbar was sie tun bzw. wofür sie stehen.\\
-
-\noindent
-Für Klassen gelten fast dieselben Richtlinien, nur ist hier auch das erst Wort groß.
-Das nennt man dann \lstinline{PascalCase} oder \lstinline{UpperCamelCase}. Z.B. DogFood.
-
-\vspace{5mm}
-
-\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
-	class DogOwner {
-
-		void talkAboutTheDog(Dog dog){
-			String ownerName = "FIUS";
-			// Talk about the Dog until stopped
-		}
-	}
-\end{lstlisting}
-
-\subsubsection*{Einrückungen:}
-Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie endet, rückt man den Code in einer Operation (übrigens auch in Klassen) um eine Stufe ein (Eine \fbox{TAB} Stufe).\\
-
-\noindent
-{\color{red} Wichtig: }Achte unbedingt darauf das alle Klammern, die du öffnest auch wieder in der richtigen Reihenfolge schließest werden!
-
-\newpage
-
-\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
-	// Code außerhalb einer Klammerung, nicht eingerückt
-	public class RandomClass{
-		public void operation1(){
-			// Operationsinhalt 2-mal eingerückt
-		}
-		// Klasseninhalt 1-mal eingerückt
-		public void operation2(){
-			// Operationsinhalt 2-mal eingerückt
-		}
-	}
-\end{lstlisting}
-
-\begin{lstlisting}[title=\textbf{Beispiel schlechte Einrückung}]
-	public class RandomClass{
-	public void operation1(){
-// Operationsinhalt
-	}
-			public void operation2(){
-		// Operationsinhalt
-			}
-}
-\end{lstlisting}
+    Jetzt nur noch den gleichen Weg zurück.
+    \end{quotation}
+\end{enumerate}

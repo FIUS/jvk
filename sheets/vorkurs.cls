@@ -7,7 +7,7 @@
 %
 % Space for Settings that can and should be changed
 \def\kurs{Java Vorkurs} %Name of the kurse
-\def\semester{WS 2022} %Number of the Semester %TODO:Rausnehmen
+\def\semester{WS 2021} %Number of the Semester %TODO:Rausnehmen
 
 
 %%%%%%%%%%%%
