@@ -6,6 +6,9 @@ Developer*.java
 *.class
 bin/
 
+./out
+
+
 # Log file
 *.log
 
