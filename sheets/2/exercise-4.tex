@@ -3,32 +3,32 @@
 \excercise{I have the largest pockets}
 
 In dieser Aufgabe wollen wir eine neue Funktion unserer Spieler einführen. 
-Wer die Doku aufmerksam gelesen hat kennt sie vielleicht schon: 
+Wer die Doku aufmerksam gelesen hat, kennt sie vielleicht schon:
 Unsere Spieler können Goldmünzen aufheben und niederlegen. 
-Dafür verwenden wir \lstinline{collectCoin()} und \lstinline{dropCoin()}.
+Dazu stehen die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} zur Verfügung.
 
 \begin{enumerate}
-    \item Wie immer muss der Task und Verifier gesetzt werden (\lstinline{Sheet2Task4} und \lstinline{Sheet2Task4Verifier})
+    \item Setze nun den Task und Verifier (\lstinline{Sheet2Task4} und \lstinline{Sheet2Task4Verifier})
     \item Auf dem Spielfeld siehst du viele Goldmünzen.
-        Wenn dein Spieler auf einem Feld mit Münzen steht kann er mit dem Kommando \lstinline{collectCoin()} eine Münze aufheben.
-        Räume damit das ganze Feld auf.
-    \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen.
-        Nun verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die dein Spieler aufgesammelt hat auf das Feld (3,3) zu legen.
+        Wenn der Spieler auf einem Feld mit Münzen steht kann er mit dem Kommando \lstinline{collectCoin()} eine Münze aufheben.\\
+        Lass Neo nun alle Goldmünzen auf dem Spielfeld aufheben.
+    \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen auf welchem sich Neo befindet.\\
+        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die dein Spieler aufgesammelt hat auf das Feld (3,3) zu legen.
     \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
-        Unter welchen Bedingungen kannst du die Kommandos korrekt benutzen und wann funktionieren sie nicht?
-        Überprüfe deine Vermutung auch auf dem Spielfeld.
+        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
+        Überprüfe deine Vermutung auch auf dem Spielfeld.\\
         Teste zum Beispiel ob du eine Münze ablegen kannst bevor du eine Münze aufgehoben hast.
         Oder teste ob du Münzen aufheben kannst, die vor dir liegen.
 \end{enumerate}
 
 
 \begin{Infobox}[Vor- und Nachbedingungen]
-    Damit ein Kommando richtig funktioniert, müssen oft bestimme Bedingungen gelten, bevor das Kommando aufgerufen wird.
-    Bei dem \lstinline{move()} Kommando darf sich vor dem Spieler keine Wand befinden.
-    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie Vorbedingungen.
-    Meistens findet man diese Vorbedingungen im Javadoc Kommentar der Operation.
+    Damit Operationen richtig funktionieren, müssen oft bestimme Bedingungen gelten, bevor man diese aufruft.\\
+    Z.B. darf sich bei dem \lstinline{move()} Kommando vor dem Spieler keine Wand befinden.\\
+    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie Vorbedingungen.\\
+    Meistens findet man diese Vorbedingungen im Javadoc Kommentar (Dokumentation) der Operation.\\
 
-    Mit Nachbedingungen kann man beschreiben was nach dem Ausführen der Operation gilt, wenn die Vorbedingungen vor dem Ausführen schon gegolten haben.
-    Nach dem Ausführen von \lstinline{move()} hat sich der Spieler eine Position nach vorne (in seine Blickrichtung) bewegt.
-    Das gilt natürlich nur, wenn zum Zeitpunkt des \lstinline{move()} Aufrufs die Vorbedingung, dass sich vor ihm keine Wand befindet, gegolten hat.
+    So wie bei Vorbedingungen bestimmte Zustände gelten müssen bevor man die Operation aufrufen darf, sind Nachbedingungen Zustände die nach einer Operation gelten.\\
+    Nach dem Ausführen von \lstinline{move()} hat sich der Spieler eine Position nach vorne (in seine Blickrichtung) bewegt.\\
+    Das gilt allerdings, nur wenn vor dem Aufruf von \lstinline{move()} die Vorbedingungen erfüllt sind z.B. es darf sich keine Wand vor dem Spieler befinden.
 \end{Infobox}
