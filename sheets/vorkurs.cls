@@ -1,7 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
 
 \ProvidesClass{vorkurs}
-\LoadClass[a4paper]{article}
+\LoadClass[a4paper,11pt]{article}
 
 % Settings
 %
@@ -13,35 +13,62 @@
 %%%%%%%%%%%%
 % Packages %
 %%%%%%%%%%%%
-\RequirePackage[ngerman]{babel}
-\usepackage[T1]{fontenc}
+
+
+%% Base font decoding
+\RequirePackage{mmap}
+\RequirePackage[nomath]{lmodern}
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{tikz}
-\RequirePackage{minibox}
-\RequirePackage[margin=3cm]{geometry}
-\RequirePackage{graphicx}
-\RequirePackage{pdfpages}
+\usepackage[T1]{fontenc}
+\RequirePackage[ngerman]{babel}
+
+%% Page formatting
+%\RequirePackage[margin=3cm]{geometry}
+\usepackage[
+	a4paper,
+	lmargin = {2cm},
+	rmargin = {2cm},
+	tmargin = {2cm},
+	bmargin = {1.5cm},
+	includeheadfoot
+]{geometry}
 \RequirePackage{fancyhdr}
-\RequirePackage{lastpage}
-\RequirePackage{todo}
+
+%% "Default" Document Packages
+\RequirePackage{float} %[H] option prevents floating
+\RequirePackage{csquotes} %Quotation with \enquote{} command
+\RequirePackage{graphicx}
 \RequirePackage{listings}
 \RequirePackage{enumitem}
 \RequirePackage{hyperref}
-\RequirePackage{xcolor}
+\RequirePackage[fixpdftex,dvipsnames]{xcolor}
+\RequirePackage{pdfpages}
+\RequirePackage[fleqn]{mathtools}
+\RequirePackage{amssymb}
+
+%% "Advanced" Document Packages
+\RequirePackage{tikz}
+\RequirePackage{minibox}
+\RequirePackage{lastpage}
+%\RequirePackage{todo}
 \usetikzlibrary{positioning,backgrounds}
 
-%infobox
+%% For the infoboxes
 \RequirePackage[many]{tcolorbox}
 \RequirePackage[framemethod=tikz]{mdframed}
-\RequirePackage{xcolor}
 \RequirePackage[tikz]{bclogo}
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
-% hyperref setup
+\RequirePackage{lipsum}		% testing...
+
+% Hyperref Setup
 \hypersetup{
-  allbordercolors=0 0 1,
-  pdfborderstyle={/S/U/W 1}
+	allbordercolors=0 0 1,
+	pdfborderstyle={/S/U/W 1},
+	pdfsubject=\kurs,
+	pdfkeywords={\kurs,\semester},
+	unicode
 }
 
 %%%%%%%%%%%%
@@ -95,7 +122,7 @@
          \advance\c@lstnumber-\@ne\relax
         }
     }
-    
+
     \newcommand*\Reactivatenumber{
       \lst@AddToHook{OnNewLine}{
        \let\thelstnumber\origthelstnumber
@@ -144,15 +171,15 @@
 % Automatic Document inclusion %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\addexcercise}{
-    \IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
-        \begin{samepage}
-          \input{exercise-\arabic{excerciseCounter}.tex}
-          \pagebreak[4]
-        \end{samepage}
-        \stepcounter{excerciseCounter}
-        \addexcercise
-        }{}
-        }
+	\IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
+		\begin{samepage}
+	    	\input{exercise-\arabic{excerciseCounter}.tex}
+	    	\pagebreak[4]
+		\end{samepage}
+		\stepcounter{excerciseCounter}
+		\addexcercise
+	}{}
+}
 
 
 
@@ -160,7 +187,7 @@
 % header %
 %%%%%%%%%%
         \pagestyle{myheadings}
-        \fancyhead[L]{\kurs \ (\semester) - Übungsblatt \sheetNumber}
+        \fancyhead[L]{\kurs~(\semester) - Übungsblatt \sheetNumber}
         \fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
         %\rightmark{test}
         %\runningheadrule
@@ -259,10 +286,16 @@
 \def\prepart{}
 \newcommand{\preamble}[1]{\def\prepart{#1}}
 \newcommand{\makedocument}{
-  \begin{document}
-  \maketitle
-  \prepart
-  \pagestyle{fancy}
-      \addexcercise
-    \end{document}
-  }
+	\begin{document}
+	\maketitle
+	\prepart
+	\pagestyle{fancy}
+	\IfFileExists{intro.tex}{
+		\begin{samepage}
+			\input{intro.tex}
+			\newpage
+		\end{samepage}
+	}{}
+	\addexcercise
+	\end{document}
+}
