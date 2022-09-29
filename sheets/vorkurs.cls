@@ -4,10 +4,8 @@
 \LoadClass[a4paper,11pt]{article}
 
 % Settings
-%
-% Space for Settings that can and should be changed
-\def\kurs{Java Vorkurs} %Name of the kurse
-\def\semester{WS 2022} %Number of the Semester %TODO:Rausnehmen
+\def\kurs{Java Vorkurs}
+\def\semester{WS 2022}	%TODO: Rausnehmen (?)
 
 
 %%%%%%%%%%%%
@@ -19,12 +17,12 @@
 \RequirePackage{mmap}
 \RequirePackage[nomath]{lmodern}
 \RequirePackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\RequirePackage[T1]{fontenc}
 \RequirePackage[ngerman]{babel}
 
 %% Page formatting
 %\RequirePackage[margin=3cm]{geometry}
-\usepackage[
+\RequirePackage[
 	a4paper,
 	lmargin = {2cm},
 	rmargin = {2cm},
@@ -50,7 +48,6 @@
 \RequirePackage{tikz}
 \RequirePackage{minibox}
 \RequirePackage{lastpage}
-%\RequirePackage{todo}
 \usetikzlibrary{positioning,backgrounds}
 
 %% For the infoboxes
@@ -60,112 +57,113 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
-\RequirePackage{lipsum}		% testing...
+%% Testing...
+\RequirePackage{lipsum}
+%\RequirePackage{todo}
 
-% Hyperref Setup
+
+%%%%%%%%%%%%%%%%%%%
+%  Package Setup  %
+%%%%%%%%%%%%%%%%%%%
+
+
+%% Hyperref Setup
+\definecolor{linkColor}{HTML}{0000FF}
 \hypersetup{
-	allbordercolors=0 0 1,
+	allbordercolors=linkColor,
 	pdfborderstyle={/S/U/W 1},
 	pdfsubject=\kurs,
 	pdfkeywords={\kurs,\semester},
 	unicode
 }
 
-%%%%%%%%%%%%
-%  colors  %
-%%%%%%%%%%%%
-\definecolor{javared}{rgb}{0.6,0,0} % for strings
-\definecolor{javagreen}{rgb}{0.25,0.5,0.35} % comments
-\definecolor{javapurple}{rgb}{0.5,0,0.35} % keywords
-\definecolor{javadocblue}{rgb}{0.25,0.35,0.75}
-\definecolor{javablue}{rgb}{0.0,0.0,1.0}
+%% Colors for Java listings
+\definecolor{javaKeywords}{HTML}{000080}
+\definecolor{javaTypes}{HTML}{000000}
+\definecolor{javaInstances}{HTML}{660E7A}
+\definecolor{javaString}{rgb}{0.6,0,0}
+\definecolor{javaComments}{HTML}{606060}
 \definecolor{unimportentgrey}{rgb}{0.6,0.6,0.6}
-%%%%%%%%%%%%
-% listings %
-%%%%%%%%%%%%
+
+%% Configuration of Java listings
 \lstset{
-  literate=%
-  {Ö}{{\"O}}1
-  {Ä}{{\"A}}1
-  {Ü}{{\"U}}1
-  {ß}{{\ss}}1
-  {ü}{{\"u}}1
-  {ä}{{\"a}}1
-  {ö}{{\"o}}1,
-  language=Java,
-  basicstyle=\ttfamily,
-  keywordstyle=\color{javapurple}\bfseries,
-  stringstyle=\color{javared},
-  commentstyle=\color{javagreen},
-  identifierstyle=\color{javablue},
-  keywordstyle=[2]{\color{javared}},
-  morecomment=[s][\color{javadocblue}]{/**}{*/},
-  numbers=left,
-  numberstyle=\footnotesize\color{black},
-  stepnumber=1,
-  numbersep=10pt,
-  tabsize=4,
-  showspaces=false,
-  showstringspaces=false,
-  frame=single,
-  breaklines=true,
-  postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space},
-  escapechar=§
+	% Latin-1 compatibility:
+	literate={Ö}{{\"O}}1{Ä}{{\"A}}1{Ü}{{\"U}}1{ß}{{\ss}}1{ü}{{\"u}}1{ä}{{\"a}}1{ö}{{\"o}}1,		% Me LaTeX do not know UNICODE
+	% Formatting
+	basicstyle=\ttfamily,
+	language=Java,
+	% Syntax Highlithing
+	keywordstyle={\bfseries\color{javaKeywords}},
+	otherkeywords={},
+	keywordstyle=[2]{\color{javaTypes}},	%\itshape %% Nicht zu 100% zufrieden
+	keywords=[2]{String,Game,DemoTask,RandomClass,Position,Dog,Hund,Simulation,,Coin,Position},	% Wenn ich "PlayfieldModifier" hinzufüge, passieren seltsame Dinge bei Blatt 1 Ex 4... und ich habe keine Ahnung warum.
+	identifierstyle={\bfseries\color{javaInstances}},
+	stringstyle={\color{javaString}},		%\bfseries
+	commentstyle={\color{javaComments}},
+	% Code Lines
+	numbers=left,
+	numberstyle=\footnotesize\color{javaComments},
+	stepnumber=1,
+	numbersep=10pt,
+	% Misc
+	tabsize=4,
+	showspaces=false,
+	showstringspaces=false,
+	frame=single,
+	breaklines=true,
+	postbreak=\mbox{\textcolor{unimportentgrey}{$\hookrightarrow$}\space},
+	escapechar=§
 }
 
-
-\let\origthelstnumber\thelstnumber
-    \makeatletter
-    \newcommand*\Suppressnumber{
-      \lst@AddToHook{OnNewLine}{
-        \let\thelstnumber\relax
-         \advance\c@lstnumber-\@ne\relax
-        }
-    }
-
-    \newcommand*\Reactivatenumber{
-      \lst@AddToHook{OnNewLine}{
-       \let\thelstnumber\origthelstnumber
-       \advance\c@lstnumber\@ne\relax}
-    }
 
 %%%%%%%%
 % Misc %
 %%%%%%%%
-\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
 
-\newcommand{\optional}{{\color{javagreen} \textbf{(Optional)} }} % mark optional tasks (includes space)
+
+\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
+%% TODO: Mit \enquote ersetzen
+
+\definecolor{optional}{HTML}{CC7832}
+\newcommand{\optional}{{\color{javaString}\textbf{(Optional)} }} % mark optional tasks (includes space)
+
 
 %%%%%%%%%%%%%%
 % Main Title %
 %%%%%%%%%%%%%%
+
+
 \renewcommand{\maketitle}{
-  \thispagestyle{plain}
-  \includegraphics[height=1cm]{../logos/logo-uni.pdf}
-  \hfill\includegraphics[height=3cm]{../logos/logo-fius.png}
-  \begin{center}
-  \Large\textbf{Übungsblatt \sheetNumber}\\
-  \large\kurs (\semester)
-  \normalsize
-  \end{center}
+	\thispagestyle{plain}
+	\includegraphics[height=1cm]{../logos/logo-uni.pdf}
+	\hfill\includegraphics[height=3cm]{../logos/logo-fius.png}
+	\begin{center}
+	\Large\textbf{Übungsblatt \sheetNumber}\\
+	\large\kurs (\semester)
+	\normalsize
+	\end{center}
 }
+
 
 %%%%%%%%%%%%%%%%%%%%
 % Excercise titles %
 %%%%%%%%%%%%%%%%%%%%
+
+
 \newcounter{excerciseCounter}\setcounter{excerciseCounter}{1}
 \newcommand{\excercise}[1]{
-  \ifthenelse{\value{excerciseCounter}=1}{}{
-  \vspace{2em}
-  }
-  \section{#1}
-  %\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
-  \medskip
+	\ifthenelse{\value{excerciseCounter}=1}{}{
+	\vspace{2em}
+	}
+	\section{#1}
+	%\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
+	\medskip
 }
 \makeatletter
 \renewcommand\thesection{Aufgabe \@arabic\c@section:}
 \makeatother
 \setenumerate{label=\alph*)}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Automatic Document inclusion %
@@ -182,7 +180,6 @@
 }
 
 
-
 %%%%%%%%%%
 % header %
 %%%%%%%%%%
@@ -193,90 +190,95 @@
         %\runningheadrule
 % \runningheader{\coursename\ (\semestershort) -- \"Ubungsblatt \exercisenumber\ \ifprintanswers{\textbf{{\color{red}{ \fbox{L\"osung}}}}}\fi}{}{Seite \thepage\ von \numpages}
 
+
 %%%%%%%%%%%
 % Infobox %
 %%%%%%%%%%%
+
+
+
 \definecolor{bgblue}{RGB}{245,243,253}
 \definecolor{ttblue}{RGB}{91,194,224}
 
 \mdfdefinestyle{mystyle}{%
-  rightline=true,
-  innerleftmargin=10,
-  innerrightmargin=10,
-  outerlinewidth=3pt,
-  topline=false,
-  rightline=true,
-  bottomline=false,
-  skipabove=\topsep,
-  skipbelow=\topsep
+	rightline=true,
+	innerleftmargin=10,
+	innerrightmargin=10,
+	outerlinewidth=2pt,
+	topline=false,
+	rightline=true,
+	bottomline=false,
+	skipabove=\topsep,
+	skipbelow=\topsep
 }
 
 \newtcolorbox{myboxi}[1][]{
-  breakable,
-  title=#1,
-  colback=white,
-  colbacktitle=white,
-  coltitle=black,
-  fonttitle=\bfseries,
-  bottomrule=0pt,
-  toprule=0pt,
-  leftrule=3pt,
-  rightrule=3pt,
-  titlerule=0pt,
-  arc=0pt,
-  outer arc=0pt,
-  colframe=black,
+	breakable,
+	title=#1,
+	colback=white,
+	colbacktitle=white,
+	coltitle=black,
+	fonttitle=\bfseries,
+	bottomrule=0pt,
+	toprule=0pt,
+	leftrule=3pt,
+	rightrule=3pt,
+	titlerule=0pt,
+	arc=0pt,
+	outer arc=0pt,
+	colframe=black,
 }
 
 \newtcolorbox{Infobox}[1][]{
-  breakable,
-  freelance,
-  title=#1,
-  colback=white,
-  colbacktitle=white,
-  coltitle=black,
-  fonttitle=\bfseries,
-  bottomrule=0pt,
-  boxrule=0pt,
-  colframe=white,
-  overlay unbroken and first={
-  \draw[blue!75!black,line width=3pt]
-    ([xshift=5pt]frame.north west) --
-    (frame.north west) --
-    (frame.south west);
-  \draw[blue!75!black,line width=3pt]
-    ([xshift=-5pt]frame.north east) --
-    (frame.north east) --
-    (frame.south east);
-  },
-  overlay unbroken app={
-  \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south west) --
-    ([xshift=5pt]frame.south west);
-  \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south east) --
-    ([xshift=-5pt]frame.south east);
-  },
-  overlay middle and last={
-  \draw[blue!75!black,line width=3pt]
-    (frame.north west) --
-    (frame.south west);
-  \draw[blue!75!black,line width=3pt]
-    (frame.north east) --
-    (frame.south east);
-  },
-  overlay last app={
-  \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south west) --
-    ([xshift=5pt]frame.south west);
-  \draw[blue!75!black,line width=3pt,line cap=rect]
-    (frame.south east) --
-    ([xshift=-5pt]frame.south east);
-  },
+	breakable,
+	freelance,
+	title=#1,
+	colback=white,
+	colbacktitle=white,
+	coltitle=black,
+	fonttitle=\bfseries,
+	bottomrule=0pt,
+	boxrule=0pt,
+	colframe=white,
+	overlay unbroken and first={
+		\draw[color=javaInstances,line width=2pt]
+		([xshift=5pt]frame.north west) --
+		(frame.north west) --
+		(frame.south west);
+		\draw[color=javaInstances,line width=2pt]
+		([xshift=-5pt]frame.north east) --
+		(frame.north east) --
+		(frame.south east);
+	},
+	overlay unbroken app={
+		\draw[color=javaInstances,line width=2pt,line cap=rect]
+		(frame.south west) --
+		([xshift=5pt]frame.south west);
+		\draw[color=javaInstances,line width=2pt,line cap=rect]
+		(frame.south east) --
+		([xshift=-5pt]frame.south east);
+	},
+	overlay middle and last={
+		\draw[color=javaInstances,line width=2pt]
+		(frame.north west) --
+		(frame.south west);
+		\draw[color=javaInstances,line width=2pt]
+		(frame.north east) --
+		(frame.south east);
+	},
+	overlay last app={
+		\draw[color=javaInstances,line width=2pt,line cap=rect]
+		(frame.south west) --
+		([xshift=5pt]frame.south west);
+		\draw[color=javaInstances,line width=2pt,line cap=rect]
+		(frame.south east) --
+		([xshift=-5pt]frame.south east);
+	},
 }
-\renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
 
-\newcommand{\teamsaufgabe}[1]{{\color{purple} Hier findet ihr ein Quiz, dass das gelernte abfragt: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
+% Obsolete?
+%\renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
+%\newcommand{\teamsaufgabe}[1]{{\color{purple} Hier findet ihr ein Quiz, dass das gelernte abfragt: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
 
 
 
