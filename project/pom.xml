@@ -28,6 +28,18 @@
 			<artifactId>ICGE-Simulation</artifactId>
 			<version>${icge.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-engine</artifactId>
+			<version>5.5.2</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -73,14 +85,15 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
 				<configuration>
 					<additionalOptions>--show-packages=all</additionalOptions>
 					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
+                                        <includeDependencySources>true</includeDependencySources>
 					<detectJavaApiLink>true</detectJavaApiLink>
 					<links>
 						<link>https://fius.github.io/ICGE2/${icge.version}</link>
 					</links>
+					<sourcepath>${sourcepath}:target/distro-javadoc-sources/ICGE-Simulation-2.3.6-sources</sourcepath>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -92,5 +105,55 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>3.2.0</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.8.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-project-info-reports-plugin</artifactId>
+					<version>3.1.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
 	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<additionalOptions>--show-packages=all</additionalOptions>
+					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
+					<!-- sources are not added to sourcepath -->
+					<!-- <includeDependencySources>true</includeDependencySources> -->
+					<detectJavaApiLink>true</detectJavaApiLink>
+					<links>
+						<link>https://fius.github.io/ICGE2/${icge.version}</link>
+					</links>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 </project>
