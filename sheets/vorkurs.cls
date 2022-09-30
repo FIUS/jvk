@@ -37,7 +37,7 @@
 \RequirePackage{csquotes} %Quotation with \enquote{} command
 \RequirePackage{graphicx}
 \RequirePackage{listings}
-\RequirePackage{enumitem}
+\RequirePackage[shortlabels]{enumitem}
 \RequirePackage{hyperref}
 \RequirePackage[fixpdftex,dvipsnames]{xcolor}
 \RequirePackage{pdfpages}
@@ -90,7 +90,7 @@
 	% Latin-1 compatibility:
 	literate={Ö}{{\"O}}1{Ä}{{\"A}}1{Ü}{{\"U}}1{ß}{{\ss}}1{ü}{{\"u}}1{ä}{{\"a}}1{ö}{{\"o}}1,		% Me LaTeX do not know UNICODE
 	% Formatting
-	basicstyle=\ttfamily,
+	basicstyle={\ttfamily\small},
 	language=Java,
 	% Syntax Highlithing
 	keywordstyle={\bfseries\color{javaKeywords}},
@@ -100,6 +100,7 @@
 	identifierstyle={\bfseries\color{javaInstances}},
 	stringstyle={\color{javaString}},		%\bfseries
 	commentstyle={\color{javaComments}},
+	morecomment=[l]{*},
 	% Code Lines
 	numbers=left,
 	numberstyle=\footnotesize\color{javaComments},

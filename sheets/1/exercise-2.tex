@@ -1,32 +1,33 @@
 % !TeX root = ./jvk-blatt1.tex
-\lstset{
-	basicstyle=\small,
-	morecomment=[l]{*}
-}
-\excercise{Nachschlagwerk: Syntax und Codestil}
 
-Jetzt folgt ein Nachschlagwerk auf das du immer wieder zurückgehen kannst bei den folgenden Aufgaben.
-Du kannst es bereits mal durchlesen, es ist aber nicht schlimm, wenn du noch nicht alles versteht.
+% TODO: Herausfinden warum \noindent existiert und es dann löschen
+% Wie viel noise wollen Sie in ihren Dokumenten? FIUS: JA!
+
+\excercise{Nachschlagwerk: Syntax und Codestil}
+\label{ex2}
+
+Jetzt folgt ein Nachschlagwerk zu dem Du immer wieder zurückkehren kannst, wenn du bei folgenden Aufgaben mal ein Begriff auftaucht, der Dir nicht ganz klar ist.\\
+Du kannst es bereits mal durchlesen, es ist aber nicht schlimm, wenn du noch nicht alles versteht. Weitere Erklärungen folgen noch im Verlauf des Kurses.\\
 
 \subsection*{Syntax}
 \noindent
 In diesem Teil zeigen wir dir die Syntax von Java.
-Die Syntax beschreibt, wie der Code aufgebaut und geschrieben werden muss, sodass er von einem Computer verstanden wird.\\
-Es kommen jetzt viele Definitionen, du musst dir aber keine Sorgen machen, wenn du nicht alles direkt verstehst.
-Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nicht sicher bist.
+Die Syntax beschreibt, wie der Code aufgebaut und geschrieben werden muss, sodass er von einem Computer verstanden wird. Es handelt sich also um eine Art Grammatik, in der man schreiben muss, damit der Computer das Geschriebene verstehen und ausführen kann.\\
+Im Folgenden werden verschiedene typische Elemente einer Programmiersprache erklärt und der dazugehörige Java-Syntax anhand von Beispielen beschrieben.\\\\
+\hspace*{\fill}\textbf{<\dots>} soll ein \textit{Platzhalter} für das Element \textbf{\dots} darstellen\hspace*{\fill}\\\\
 
 \begin{Infobox}
-
 	\subsubsection*{Kommentare:}
-	Kommentare sind Teile des Codes, die vom Computer ignoriert werden.
-	Sie werden genutzt, um anderen (aber auch dir selbst) kenntlich zu machen, was im Code passiert, was noch verändert werden sollte oder um allgemein Anmerkungen zu hinterlassen.
+	Kommentare sind Teile des Codes, die vom Computer ignoriert werden.\\
+	Sie werden hauptsächlich genutzt, um Anderen (aber auch deinem zukünftigen Selbst) kenntlich zu machen, was im Code passiert, was noch verändert werden sollte oder um allgemein Anmerkungen zu hinterlassen.\\
+	Wie in der Infobox von Aufgabe 1 schon erwähnt, können Kommentare auch zum Auskommentieren von Code verwendet werden. Da zu viel Auskommentieren allerdings gerne mal zu Unübersichtlichkeit führt, sollte er nach Beendung des Ausprobierens wieder gelöscht werden.
 \end{Infobox}
 
-\begin{lstlisting}[title=\textbf{Kommentar Beispiel}]
-	// Dies ist ein einfacher Kommentar über eine Zeile.
-	// Er wird mit // gestartet und nimmt die gesamte Zeile hinter sich ein.
+\begin{lstlisting}[title=\textbf{Beispiel: Kommentare}]
+	// Dies ist ein einfacher Java-Kommentar über eine Zeile.
+	// Kommentare starten mit // und nehmen die gesamte Zeile hinter sich ein.
 	someCode.run(); //Kommentare sind auch nach Operationen möglich.
-	// Kann man das auch vor Operationen in der selben Zeile schreiben ?
+	// Kann man das auch vor Operationen in der selben Zeile schreiben?
 	/*
 	* Dies ist ein Block Kommentar.
 	* Diese können sich auch über mehrere Zeilen erstrecken.
@@ -34,41 +35,35 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	* mit einem * begonnen.
 	*/
 \end{lstlisting}
-\lstset{
-	basicstyle=\small
-}
-\begin{Infobox}
 
+\begin{Infobox}
 	\subsubsection*{Klassen:}
 	Klassen sind Baupläne für Objekte.
-	In diesen können Operationen definiert werden, welche dann den Objekten zur Verfügung stehen.\\
-	Eine Klasse beginnt immer mit dem \lstinline{class} Schlüsselwort, gefolgt von ihrem Namen.\\
+	In diesen können Operationen und Eigenschaften definiert werden, welche dann den Objekten zur Verfügung stehen.\\
 	Diesen kannst du fast frei wählen, nur spezielle Schlüsselwörter wie zum Beispiel \lstinline{class} sind verboten.
-	Anschließend folgt ein Paar geschweifter Klammern \{ \}, in denen der Inhalt der Klasse geschrieben wird.\\
-	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse \q{Hund} $\rightarrow$ Datei \q{Hund.java}.
+	Anschließend folgt ein Paar geschweifter Klammern \{\dots\}, in denen der Inhalt der Klasse geschrieben wird.\\
+	In Java muss der Dateiname gleich dem Klassennamen sein. Zum Beispiel: Klasse \lstinline{Hund} $\rightarrow$ Datei \enquote{Hund.java}.
 \end{Infobox}
 
-\newpage
-
-\begin{lstlisting}[title=\textbf{Klassen Syntax}]
+\begin{lstlisting}[title=\textbf{Java Klassen Syntax}]
 	// < > wird immer durch das ersetzt was in < > beschrieben wird
 	public class <NameDerKlasse>{ // Beginn der Klasse
 		/*
 		* Inhalt der Klasse.
 		* Um die Lesbarkeit zu verbessern wird
-		* Code innerhalb geschweifter Klammern eingerückt.
+		* Code innerhalb geschweifter Klammern allgemein immer eingerückt.
 		*/
 		// Definition einer Operation (Siehe nächsten Eintrag)
-		public <Rückgabetyp> <OperationsName>(<Typ> <ParameterName>, ...){
+		public <Rückgabetyp> <operationsName>(<Typ> <parameterName>, ...){
 			// Inhalt der Operation
 		}
 		...
 	}
 \end{lstlisting}
 
-\begin{lstlisting}[title=\textbf{Klassen Beispiel}]
-	public class Hund{
-		public void wuff(){
+\begin{lstlisting}[title=\textbf{Beispiel: Klasse}]
+	public class Dog{
+		public void bark(){
 			// Code um zu bellen
 		}
 	}
@@ -77,11 +72,12 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	\subsubsection*{Operationen}
 	\begin{itemize}
 		\item Operationen: Sie sind Gruppierungen von Anweisungen (da wir diese vielleicht häufiger ausführen wollen).
-			Dieser Code kann mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden.\\
-			Eine Operation besitz einen Namen. Sie können auch Parameter und Rückgabewerte haben. (sie besitzen auch noch eine Sichtbarkeit, wir verwenden im Vorkurs immer \lstinline{public} um es zu vereinfachen)
-		\item Rückgabewert: Das ist quasi das Ergbenis der Operation das wollen wir zurückgeben um ihn weiterzunutzen.
-			Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.
-		\item Parameter: Parameter sind Variablen (Platzhalter für Werte, wie ''x'' in Mathe), die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code verfügbar.\\
+		Dieser Code kann mithilfe des Operationsnamen über die Objekte einer Klasse aufgerufen werden.\\
+		Eine Operation besitzt einen Namen. Sie können auch Parameter und Rückgabewerte haben. (Java Sichtbarkeiten werden wir im Vorkurs der Einfachheit halber weglassen und immer \lstinline{public} verwenden)
+		\item Rückgabewert: Das Ergebnis einer Operation, das wir an den Aufrufenden zurückgeben wollen, um es dort weiterzunutzen.\\
+		$\rightarrow$ Das Schlüsselwort \lstinline{return} zeigt die Variable an, die zurückgegeben werden soll.
+		Sollte eine Operation nichts zurückgeben so hat sie den Rückgabewert \lstinline{void}.
+		\item Parameter: Parameter sind Variablen (Platzhalter für Werte oder Objekte, wie $x$ in Mathe für ein Element aus $\mathbb{R}$), die es ermöglichen einen Wert zu übergeben. Diese Variable ist nur innerhalb der Operation im Code verfügbar.\\
 			Sie werden in den runden Klammern nach dem Namen der Operation aufgelistet.
 			Wenn man eine Operation aufruft und ein Objekt dort übergibt, wird dieses Objekt Argument genannt.
 		\item Operationrumpf: Befindet sich zwischen den geschweiften Klammern. Hier ist der eigentliche Code der Operation.
@@ -89,74 +85,80 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 
 \end{Infobox}
 
-\begin{lstlisting}[title=\textbf{Operations Syntax}]
-	public <RückgabeTyp> <OperationsName>(){
+\begin{lstlisting}[title=\textbf{Operationen Syntax}]
+	public <RückgabeTyp> <operationsName>(){
 		// Inhalt der Operation
 	}
-	public <RückgabeTyp> <OperationsName>(<Typ> <ParameterName>, ...){
+	public <RückgabeTyp> <operationsName>(<Typ> <parameterName>, ...){
 		// Inhalt der Operation
 	}
 \end{lstlisting}
 
 \newpage
 
-\begin{lstlisting}[title=\textbf{Operations Beispiel}]
-	public void springen(){
+\begin{lstlisting}[title=\textbf{Beispiel: Operationen}]
+	public void jump(){
 		// Code um zu springen
 	}
 
-	public String getName(Hund hund){
-		return hund.name;
+	public String getName(Dog dog){
+		return dog.age;
 	}
 \end{lstlisting}
 
 \begin{Infobox}
-
-	\subsubsection*{Objekte erzeugen:}
-	Klassen sind Baupläne für Objekte. Quasi wenn die Klasse Hund ist, dann ist Bello und Doggo Instanzen (Objekte) der Klasse Hund.\\
+	\subsubsection*{Erzeugung von Objekten:}
+	Klassen sind Baupläne für Objekte. Wenn \lstinline{Hund} der Klassenname ist, dann können \lstinline{bello} und \lstinline{wuffi} zum Beispiel Instanzen (Objekte) dieser Klasse sein.\\
 	Um ein Objekt zu erzeugen wird das \lstinline{new} Schlüsselwort verwendet.
-	Man schreibt dann \lstinline{new } gefolgt von dem Klassennamen und ein paar Klammern ().
+	Man schreibt dann \lstinline{new} gefolgt von dem Klassennamen und ein paar Klammern ().\\
+	Ein Objekt hat einen Zustand, der sich ändern lässt. So kann man, wenn die beispielhafte Operation \lstinline{jump()} von oben in der Klasse \lstinline{Hund} existiert, \lstinline{bello} durch \lstinline{bello.jump();} springen lassen oder in einer anderen Operation, die in \lstinline{Hund} definiert wurde, sein Alter ändern.
 \end{Infobox}
-\begin{lstlisting}[title=\textbf{Objekt erstellen Syntax}]
+
+\begin{lstlisting}[title=\textbf{Syntax Objekt Erstellung}]
 	new <KlassenName>(<MöglicheParameter>); // Ein Objekt wird erzeugt
 \end{lstlisting}
 
-\begin{lstlisting}[title=\textbf{Objekt erstellen Beispiel}]
-	new Hund("Bello"); // Ein Hund mit dem Namen Bello wird erzeugt
+\begin{lstlisting}[title=\textbf{Beispiel: Objekt Erstellung}]
+	new Dog("bello"); // Ein Hund mit dem Namen bello wird erzeugt
 \end{lstlisting}
+
 \begin{Infobox}
 	\subsubsection*{Variablen:}
 	Variablen werden genutzt, um (temporär) Werte zu speichern.
 	Sie sind in den Fällen nützlich, in denen du einen bestimmten Wert mehrfach im selben Code nutzen willst.
-	Außerdem auch wenn ein Wert beim Starten des Programms noch nicht fest steht oder sich noch ändert.\\
+	Außerdem auch, wenn ein Wert beim Starten des Programms noch nicht fest steht oder sich noch ändert.\\
 
-	Stell dir Variablen wie Schubladen vor. Du kannst Sachen in die Schubladen reinlegen um sie später wieder zu benutzen. Um die Sachen aber wieder finden zu können geben wir den Schubladen Namen.\\
+	Du kannst dir Variablen wie Schubladen vorstellen. Sachen können in die Schubladen reinlegt werden, um sie später wieder zu benutzen. Um die Sachen aber wieder finden zu können, geben wir den Schubladen Namen.\\
 
 	Variablen besitzen immer einen Typ (was man in die Schublade legen darf / passt) und einen Namen (Name der Schublade).
 	Mit einem = kann einer Variable ein Wert zugewiesen werden (Etwas in die Schublade legen).\\
 	Über den Namen der Variable kann dann auf dessen Wert (Inhalt der Schublade) zugegriffen werden.\\
 
-	Wenn man ein Objekt erzeugt, weist man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
+	Wenn man ein Objekt mit \lstinline{new} erzeugt, weist man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
 \end{Infobox}
 
 \newpage
 
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
-	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
+	<KlassenName> <name>; // Eine Variable wird ohne zugewiesenen Wert erzeugt
 
-	<KlassenName> <Name> = <Wert>; // Eine Variable wird erzeugt und ihr wird ein Wert zugewiesen.
+	<KlassenName> <name> = <Wert>; // Eine Variable wird erzeugt und
+	// ihr wird ein Wert zugewiesen.
 
-	<Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
+	<name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert
+	// zugewiesen. Man könnte sagen, man leert den Inhalt der Schublade
+	// aus, um den spezifizierten Wert darin verstauen zu können.
 
-	<KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
+	<KlassenName> <name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
 
-	<KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. Das geht natürlich nur wenn die Varaiblen das selbe speichern können (den selben Typ haben).
+	<KlassenName> <name> = <nameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. Das geht natürlich nur wenn die Varaiblen das selbe speichern können (den selben Typ haben).
 \end{lstlisting}
-\begin{lstlisting}[title=\textbf{Variable Beispiel}]
-	String hundeName = "Bello";
 
+\begin{lstlisting}[title=\textbf{Beispiel: Variable}]
+	String hundeName = "Bello";
 	Hund meinHund = new Hund(hundeName);
 \end{lstlisting}
+
 \begin{Infobox}
 	\subsubsection*{Kommandos und Abfragen:}
 	\begin{itemize}
@@ -168,13 +170,14 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	{\color{red} Wichtig: } Operationen können nur auf Objekten und nicht auf Klassen aufgerufen werden.
 	Es gibt hier einen Sonderfall, diesen wirst du in PSE kennenlernen.
 \end{Infobox}
-\begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
-	<ObjektName>.<OperationsName>();
 
-	<ObjektName>.<OperationsName>(<Argument>);
+\begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
+	<ObjektName>.<operationsName>();
+
+	<ObjektName>.<operationsName>(<argument>);
 \end{lstlisting}
 
-\begin{lstlisting}[title=\textbf{Kommando/Abfrage Beispiel}]
+\begin{lstlisting}[title=\textbf{Beispiel: Kommando/Abfrage}]
 	// meinHund.setName(); soll dafür sorgen dass der Hund von Bello zu Doggo umbenannt wird. Er ändert also etwas an dem Objekt.
 	meinHund.setName("Doggo");
 
@@ -182,32 +185,34 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	meinHund.getName();
 \end{lstlisting}
 
-\subsection*{Aufgabe 2.2 Namen und Codestyle}
+\subsection*{Namen und Codestyle}
 Wie du wahrscheinlich schon gemerkt hast, kann Code schnell überfordern und verwirren.\\
 Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit Anderen zusammen arbeitet, gibt es Konventionen (Regeln an die wir uns alle halten wollen) wie der Code geschrieben werden sollte um die Lesbarkeit und das Verständnis zu verbessern.
 
 \vspace{5mm}
 
-\subsubsection*{Konvention Namen:}
+\subsubsection*{Konvention für Namen:}
 
 \begin{Infobox}
 	Die Java-Syntax verbietet bereits, dass:
 
 	\begin{itemize}
-		\item Schlüsselwörter(\lstinline{void}, \lstinline{class}, ...) als Name genutzt werden.
-		\item Namen Leerzeichen beinhalten.
-		\item Namen mit Zahlen beginnen.
+		\item Schlüsselwörter(\lstinline{void}, \lstinline{class}, ...), die als Name genutzt werden.
+		\item Namen, die Leerzeichen beinhalten.
+		\item Namen, die mit Zahlen beginnen.
 	\end{itemize}
 \end{Infobox}
+
 \vspace{5mm}
+
 \begin{Infobox}
-	Formulierungen auf die man achten sollte:
+	Stilregeln, auf die man achten sollte:
 	\begin{itemize}
-		\item Variablennamen sollen selbsterklärend sein $\rightarrow$ \lstinline{favouriteDog} statt \lstinline{fD}
-		\item Operationen sollen Verben im Namen haben $\rightarrow$ ''makeNoise'' statt ''laut''
-		\item Abfragen sollen mit \lstinline{get} beginnen $\rightarrow$ ''getName''
-		\item Kommandos, die einen Wert setzen, sollen mit \lstinline{set} beginnen $\rightarrow$ ''setName''
-		\item Keine Umlaute (ä, ö, ß,...)
+		\item Variablennamen sollen selbsterklärend und leicht verständlich sein: \enquote{\lstinline{favouriteDog}} statt \enquote{\lstinline{fD}}
+		\item Operationen sollen Verben im Namen haben $\rightarrow$ \enquote{\lstinline{makeNoise}} statt von \enquote{\lstinline{noise}}
+		\item Werte- und Zustandsabfragen sollen mit \lstinline{get} beginnen $\rightarrow$ \enquote{\lstinline{getName}}
+		\item Kommandos, die einen Wert für Objekte setzen, sollen mit \lstinline{set} beginnen $\rightarrow$ \enquote{\lstinline{setName}}
+		\item Keine Umlaute (ä,ö,ß,\dots) dürfen verwendet werden, sonst explodiert der Computer
 
 	\end{itemize}
 \end{Infobox}
@@ -215,21 +220,23 @@ Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit And
 \vspace{5mm}
 
 \noindent
-Allgemein sollen alle Namen auf Englisch formuliert werden.
-Variablen und Operationen werden immer mit einem Kleinbuchstaben angefangen.\\
+Allgemein sollen alle Namen \textbf{in Englisch} formuliert werden.
+\textit{Variablen und Operationen} werden immer mit einem \textbf{Kleinbuchstaben} angefangen.\\
 
 \noindent
 Falls ein Name aus mehreren Wörtern besteht, schreibt man diese trotzdem zusammen, aber den Anfangsbuchstaben aller neuen Wörter groß. Z.B. favouriteDogFood.\\
-Diese Schreibweise nennt man auch \lstinline{camelCase}.\\
+Diese Schreibweise nennt man auch \textbf{camelCase}.\\
 
 \noindent
 Namen sollen selbsterklärend sein, damit ist erkennbar was sie tun bzw. wofür sie stehen.\\
 
 \noindent
-Für Klassen gelten fast dieselben Richtlinien, nur ist hier auch das erst Wort groß.
-Das nennt man dann \lstinline{PascalCase} oder \lstinline{UpperCamelCase}. Z.B. DogFood.
+Klassennamen werden auch im \textbf{CamleCasing} geschrieben, nur ist hier der erst Wort zusätzlich groß geschrieben wird.
+Das nennt man dann \textit{PascalCase} oder \textit{UpperCamelCase}, z.B. \lstinline{DogFood}.
 
 \vspace{5mm}
+
+\newpage
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	class DogOwner {
@@ -242,12 +249,12 @@ Das nennt man dann \lstinline{PascalCase} oder \lstinline{UpperCamelCase}. Z.B. 
 \end{lstlisting}
 
 \subsubsection*{Einrückungen:}
-Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie endet, rückt man den Code in einer Operation (übrigens auch in Klassen) um eine Stufe ein (Eine \fbox{TAB} Stufe).\\
+Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie endet, rückt man den Code in einer Operation (übrigens auch in Klassen) um eine Stufe ein (in der Regel eine \fbox{TAB}-Stufe pro geschweifte Klammerung).\\
+$\rightarrow$ Wenn Du dich noch an den in \ref{ex1} vorgestellten Eclipse Shortcut erinnerst: Er stellt genau das und noch ein paar weitere Dinge sicher.\\
 
 \noindent
-{\color{red} Wichtig: }Achte unbedingt darauf das alle Klammern, die du öffnest auch wieder in der richtigen Reihenfolge schließest werden!
-
-\newpage
+{\color{red}\bfseries Wichtig:} Achte unbedingt darauf, dass alle Klammern, die du öffnest, auch wieder in der richtigen Reihenfolge geschlossen werden.\\
+Sonst darfst du deinen Code auf eine oder zwei fehlende Klammer durchsuchen, was bei einer Datei mit mehreren hunderten Zeilen Code - wie du Dir sicher vorstellen kannst - ganz schön viel Spaß machen kann.
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	// Code außerhalb einer Klammerung, nicht eingerückt

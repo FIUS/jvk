@@ -1,7 +1,8 @@
 
 % !TeX root = ./jvk-blatt1.tex
-\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/} 
+\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/}
 \excercise{Eine API verwenden / Doku lesen}
+\label{ex4}
 
 \begin{enumerate}
     \item Wie in der vorherigen Aufgabe bereits vorgestellt, erstellen wir wieder ein neues Spiel.\\
@@ -33,7 +34,7 @@ Game myGame = new Game("Task 4", new Sheet1Task4(), new Sheet1Task4Verifier());
 
         Tipp: Wenn du nicht genau weißt, wie man eine Münze erzeugt, schaue dir den Code, welchen du in Aufgabe 3 d) gefunden hast, nochmal an.
 
-    \item Nachdem wir nun die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}. 
+    \item Nachdem wir nun die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}.
         Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. \\
         Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können.\\
 
@@ -42,12 +43,12 @@ Game myGame = new Game("Task 4", new Sheet1Task4(), new Sheet1Task4Verifier());
         Falls du noch mehr Infos brauchst über Operationen o.ä. findest du die Dokumentation der \newline \lstinline{PlayfieldModifier} Klasse unter dem Link \url{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}.
 
         Am besten überfliegst du sie einfach kurz.
-        
+
 \end{enumerate}
 
 \begin{Infobox}[Autocompletion]
     Sobald du ein Objekt instanziiert (erstellt) hast und in eine Variable speicherst, kannst du hinter den Variablennamen einen Punkt '.' eingeben.\\
-    Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören. 
+    Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören.
     So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind.\\
     Falls du also mal nicht weiter weißt, probiere doch einfach mal das und nutze das am vielversprechende.\\
 
