@@ -5,13 +5,12 @@
 
 % Settings
 \def\kurs{Java Vorkurs}
-\def\semester{WS 2022}	%TODO: Rausnehmen (?)
+\def\semester{2022}	%TODO: Rausnehmen (?)
 
 
 %%%%%%%%%%%%
 % Packages %
 %%%%%%%%%%%%
-
 
 %% Base font decoding
 \RequirePackage{mmap}
@@ -66,7 +65,6 @@
 %  Package Setup  %
 %%%%%%%%%%%%%%%%%%%
 
-
 %% Hyperref Setup
 \definecolor{linkColor}{HTML}{0000FF}
 \hypersetup{
@@ -76,6 +74,11 @@
 	pdfkeywords={\kurs,\semester},
 	unicode
 }
+
+%% Fancyhdr Header
+\pagestyle{myheadings}
+\fancyhead[L]{\kurs~\semester~- Üb \sheetNumber}
+\fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
 
 %% Colors for Java listings
 \definecolor{javaKeywords}{HTML}{000080}
@@ -117,23 +120,12 @@
 }
 
 
-%%%%%%%%
-% Misc %
-%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+% Customized Commands %
+%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation
-%% TODO: Mit \enquote ersetzen
-
-\definecolor{optional}{HTML}{CC7832}
-\newcommand{\optional}{{\color{javaString}\textbf{(Optional)} }} % mark optional tasks (includes space)
-
-
-%%%%%%%%%%%%%%
-% Main Title %
-%%%%%%%%%%%%%%
-
-
+%% Main Title
 \renewcommand{\maketitle}{
 	\thispagestyle{plain}
 	\includegraphics[height=1cm]{../logos/logo-uni.pdf}
@@ -145,23 +137,29 @@
 	\end{center}
 }
 
+%% Quotation
+\newcommand{\q}[1]{\glqq#1\grqq\ } %German quotation - TODO: Mit \enquote ersetzen
+
+%% "Optional" Command
+\definecolor{optional}{HTML}{CC7832}
+\newcommand{\optional}{{\color{javaString}\textbf{(Optional)} }} % mark optional tasks (includes space)
+
 
 %%%%%%%%%%%%%%%%%%%%
 % Excercise titles %
 %%%%%%%%%%%%%%%%%%%%
 
-
 \newcounter{excerciseCounter}\setcounter{excerciseCounter}{1}
 \newcommand{\excercise}[1]{
 	\ifthenelse{\value{excerciseCounter}=1}{}{
-	\vspace{2em}
+		\vspace{2em}
 	}
-	\section{#1}
+	\section{-\quad#1}
 	%\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
 	\medskip
 }
 \makeatletter
-\renewcommand\thesection{Aufgabe \@arabic\c@section:}
+\renewcommand\thesection{Aufgabe \@arabic\c@section}
 \makeatother
 \setenumerate{label=\alph*)}
 
@@ -169,6 +167,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Automatic Document inclusion %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\addexcercise}{
 	\IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
 		\begin{samepage}
@@ -181,25 +180,9 @@
 }
 
 
-%%%%%%%%%%
-% header %
-%%%%%%%%%%
-        \pagestyle{myheadings}
-        \fancyhead[L]{\kurs~(\semester) - Übungsblatt \sheetNumber}
-        \fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
-        %\rightmark{test}
-        %\runningheadrule
-% \runningheader{\coursename\ (\semestershort) -- \"Ubungsblatt \exercisenumber\ \ifprintanswers{\textbf{{\color{red}{ \fbox{L\"osung}}}}}\fi}{}{Seite \thepage\ von \numpages}
-
-
 %%%%%%%%%%%
 % Infobox %
 %%%%%%%%%%%
-
-
-
-\definecolor{bgblue}{RGB}{245,243,253}
-\definecolor{ttblue}{RGB}{91,194,224}
 
 \mdfdefinestyle{mystyle}{%
 	rightline=true,
@@ -277,15 +260,11 @@
 	},
 }
 
-% Obsolete?
-%\renewcommand\bcStyleTitre[1]{\large\textcolor{ttblue}{#1}}
-%\newcommand{\teamsaufgabe}[1]{{\color{purple} Hier findet ihr ein Quiz, dass das gelernte abfragt: \textbf{#1}}} %TODO: anpassen auf Kahot oder so.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%
 % document structure %
 %%%%%%%%%%%%%%%%%%%%%%
+
 \def\prepart{}
 \newcommand{\preamble}[1]{\def\prepart{#1}}
 \newcommand{\makedocument}{

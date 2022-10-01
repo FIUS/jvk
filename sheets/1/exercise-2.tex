@@ -1,7 +1,7 @@
 % !TeX root = ./jvk-blatt1.tex
 
 % TODO: Herausfinden warum \noindent existiert und es dann löschen
-% Wie viel noise wollen Sie in ihren Dokumenten? FIUS: JA!
+% Wie viel unnötiges noise wollen Sie in ihren Dokumenten? FIUS: JA!
 
 \excercise{Nachschlagwerk: Syntax und Codestil}
 \label{ex2}
@@ -46,27 +46,27 @@ Im Folgenden werden verschiedene typische Elemente einer Programmiersprache erkl
 \end{Infobox}
 
 \begin{lstlisting}[title=\textbf{Java Klassen Syntax}]
-	// < > wird immer durch das ersetzt was in < > beschrieben wird
-	public class <NameDerKlasse>{ // Beginn der Klasse
-		/*
-		* Inhalt der Klasse.
-		* Um die Lesbarkeit zu verbessern wird
-		* Code innerhalb geschweifter Klammern allgemein immer eingerückt.
-		*/
-		// Definition einer Operation (Siehe nächsten Eintrag)
-		public <Rückgabetyp> <operationsName>(<Typ> <parameterName>, ...){
-			// Inhalt der Operation
-		}
-		...
+// < > wird immer durch das ersetzt was in < > beschrieben wird
+public class <NameDerKlasse>{ // Beginn der Klasse
+	/*
+	* Inhalt der Klasse.
+	* Um die Lesbarkeit zu verbessern wird
+	* Code innerhalb geschweifter Klammern allgemein immer eingerückt.
+	*/
+	// Definition einer Operation (Siehe nächsten Eintrag)
+	public <Rückgabetyp> <operationsName>(<Typ> <parameterName>, ...){
+		// Inhalt der Operation
 	}
+	...
+}
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Beispiel: Klasse}]
-	public class Dog{
-		public void bark(){
-			// Code um zu bellen
-		}
+public class Dog{
+	public void bark(){
+		// Code um zu bellen
 	}
+}
 \end{lstlisting}
 \begin{Infobox}
 	\subsubsection*{Operationen}
@@ -231,21 +231,21 @@ Diese Schreibweise nennt man auch \textbf{camelCase}.\\
 Namen sollen selbsterklärend sein, damit ist erkennbar was sie tun bzw. wofür sie stehen.\\
 
 \noindent
-Klassennamen werden auch im \textbf{CamleCasing} geschrieben, nur ist hier der erst Wort zusätzlich groß geschrieben wird.
-Das nennt man dann \textit{PascalCase} oder \textit{UpperCamelCase}, z.B. \lstinline{DogFood}.
+Klassennamen werden auch im \textit{CamleCasing} geschrieben, nur ist hier der erst Wort zusätzlich groß geschrieben wird.
+Das nennt man dann \textbf{PascalCase} oder \textbf{UpperCamelCase}, z.B. \lstinline{DogFood}.
 
 \vspace{5mm}
 
 \newpage
 
-\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
-	class DogOwner {
+\begin{lstlisting}[title=\textbf{Beispiel: Gute Namensgebung}]
+class DogOwner {
 
-		void talkAboutTheDog(Dog dog){
-			String ownerName = "FIUS";
-			// Talk about the Dog until stopped
-		}
+	void talkAboutTheDog(Dog dog){
+		String ownerName = "FIUS";
+		// Talk about the Dog until stopped
 	}
+}
 \end{lstlisting}
 
 \subsubsection*{Einrückungen:}
@@ -256,7 +256,7 @@ $\rightarrow$ Wenn Du dich noch an den in \ref{ex1} vorgestellten Eclipse Shortc
 {\color{red}\bfseries Wichtig:} Achte unbedingt darauf, dass alle Klammern, die du öffnest, auch wieder in der richtigen Reihenfolge geschlossen werden.\\
 Sonst darfst du deinen Code auf eine oder zwei fehlende Klammer durchsuchen, was bei einer Datei mit mehreren hunderten Zeilen Code - wie du Dir sicher vorstellen kannst - ganz schön viel Spaß machen kann.
 
-\begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
+\begin{lstlisting}[title=\textbf{Beispiel: Gute Bezeichner}]
 	// Code außerhalb einer Klammerung, nicht eingerückt
 	public class RandomClass{
 		public void operation1(){
@@ -269,7 +269,7 @@ Sonst darfst du deinen Code auf eine oder zwei fehlende Klammer durchsuchen, was
 	}
 \end{lstlisting}
 
-\begin{lstlisting}[title=\textbf{Beispiel schlechte Einrückung}]
+\begin{lstlisting}[title=\textbf{Beispiel: Schlechte Einrückung}]
 	public class RandomClass{
 	public void operation1(){
 // Operationsinhalt
