@@ -3,7 +3,7 @@
 % TODO: Herausfinden warum \noindent existiert und es dann löschen
 % Wie viel unnötiges noise wollen Sie in ihren Dokumenten? FIUS: JA!
 
-\excercise{Nachschlagwerk: Syntax und Codestil}
+\excercise{Syntax und Codestil}
 \label{ex2}
 
 Jetzt folgt ein Nachschlagwerk zu dem Du immer wieder zurückkehren kannst, wenn du bei folgenden Aufgaben mal ein Begriff auftaucht, der Dir nicht ganz klar ist.\\
@@ -155,8 +155,8 @@ public class Dog{
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Beispiel: Variable}]
-	String hundeName = "Bello";
-	Hund meinHund = new Hund(hundeName);
+	String dogName = "Bello";
+	Hund myDog = new Dog(digName);
 \end{lstlisting}
 
 \begin{Infobox}
@@ -178,10 +178,10 @@ public class Dog{
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Beispiel: Kommando/Abfrage}]
-	// meinHund.setName(); soll dafür sorgen dass der Hund von Bello zu Doggo umbenannt wird. Er ändert also etwas an dem Objekt.
+	// myDog.setName(); soll dafür sorgen dass der Hund von Bello zu Doggo umbenannt wird. Er ändert also etwas an dem Objekt.
 	meinHund.setName("Doggo");
 
-	// meinHund.getName(); gibt den Namen des Hundes zurück, ändert also nichts am Obejekt selber sondern gibt Eigenschaften davon zurück.
+	// myDog.getName(); gibt den Namen des Hundes zurück, ändert also nichts am Obejekt selber sondern gibt Eigenschaften davon zurück.
 	meinHund.getName();
 \end{lstlisting}
 
@@ -250,7 +250,7 @@ class DogOwner {
 
 \subsubsection*{Einrückungen:}
 Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie endet, rückt man den Code in einer Operation (übrigens auch in Klassen) um eine Stufe ein (in der Regel eine \fbox{TAB}-Stufe pro geschweifte Klammerung).\\
-$\rightarrow$ Wenn Du dich noch an den in \ref{ex1} vorgestellten Eclipse Shortcut erinnerst: Er stellt genau das und noch ein paar weitere Dinge sicher.\\
+$\rightarrow$ Wenn Du dich noch an den in Aufgabe 1 \ref{ex1b} vorgestellten Eclipse Shortcut erinnerst: Er stellt genau das und noch ein paar weitere Dinge sicher.\\
 
 \noindent
 {\color{red}\bfseries Wichtig:} Achte unbedingt darauf, dass alle Klammern, die du öffnest, auch wieder in der richtigen Reihenfolge geschlossen werden.\\

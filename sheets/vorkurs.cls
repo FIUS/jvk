@@ -3,9 +3,8 @@
 \ProvidesClass{vorkurs}
 \LoadClass[a4paper,11pt]{article}
 
-% Settings
-\def\kurs{Java Vorkurs}
-\def\semester{2022}	%TODO: Rausnehmen (?)
+%% Import settings for links, names and file names
+\input{../vorkurs-settings.cls}
 
 
 %%%%%%%%%%%%
@@ -99,7 +98,7 @@
 	keywordstyle={\bfseries\color{javaKeywords}},
 	otherkeywords={},
 	keywordstyle=[2]{\color{javaTypes}},	%\itshape %% Nicht zu 100% zufrieden
-	keywords=[2]{String,Game,DemoTask,RandomClass,Position,Dog,Hund,Simulation,,Coin,Position},	% Wenn ich "PlayfieldModifier" hinzufüge, passieren seltsame Dinge bei Blatt 1 Ex 4... und ich habe keine Ahnung warum.
+	keywords=[2]{String,Game,DemoTask,RandomClass,Position,Dog,Hund,Simulation,Coin,Position,DemoTaskVerifier,Main},	% Wenn ich "PlayfieldModifier" hinzufüge, passieren seltsame Dinge bei Blatt 1 Ex 4... und ich habe keine Ahnung warum.
 	identifierstyle={\bfseries\color{javaInstances}},
 	stringstyle={\color{javaString}},		%\bfseries
 	commentstyle={\color{javaComments}},
@@ -144,6 +143,8 @@
 \definecolor{optional}{HTML}{CC7832}
 \newcommand{\optional}{{\color{javaString}\textbf{(Optional)} }} % mark optional tasks (includes space)
 
+%% (Subjective) better to read line breaks
+\renewcommand{\newline}{\vskip0.15cm}
 
 %%%%%%%%%%%%%%%%%%%%
 % Excercise titles %
@@ -268,6 +269,9 @@
 \def\prepart{}
 \newcommand{\preamble}[1]{\def\prepart{#1}}
 \newcommand{\makedocument}{
+	\hypersetup{
+		pdftitle=\kurs~\semester~-~Übungsblatt~\sheetNumber
+	}
 	\begin{document}
 	\maketitle
 	\prepart

@@ -1,14 +1,15 @@
+% !TeX root = ./jvk-blatt1.tex
 
 \excercise{DemoTask und UI}
 \label{ex3}
 
 \begin{enumerate}
-    \item Nun wollen wir - wie in \ref{ex1} Teilaufgabe \textit{b)} gezeigt - ein Spiel starten.\\
+    \item Nun wollen wir - wie in Aufgabe 1 \ref{ex1b} gezeigt - ein Spiel starten, indem wir den Code in der \lstinline{Main}-Klasse anpassen.\\
     Dieses Mal wollen wir die übergebenen Parameter allerdings etwas anpassen und das Spiel nur mit einer \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier} starten.\\
 	Dafür erzeugen wir zunächst eine neue \lstinline{Game}-Instanz, indem wir den folgenden Code in die \lstinline{main()}-Methode einfügen:
 
     \begin{lstlisting}
-	Game myGame = new Game("Hello World", new DemoTask());
+		Game myGame = new Game("Hello World", new DemoTask());
     \end{lstlisting}
 
     Das Spiel kann gestartet werden, wenn du nun auf der Variable \lstinline{myGame} die Operation \lstinline{run()} aufrufst:
@@ -25,7 +26,7 @@
     Nun wollen wir noch, wie ganz am Anfang, ein DemoTaskVerifier Objekt übergeben:
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
+		Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
     \end{lstlisting}
 
         Was hat sich nun im Spielfenster verändert?\\
@@ -52,9 +53,8 @@ Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
     Finde die Koordinaten des Feldes, auf welchem die Münze gespawnt wurde.
 
     \item Nun suche nach der Stelle im Code in der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.\\
-
-        Kleiner Tipp:
-        Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
-        Alternativ kannst du über den PackageExplorer in das Paket\\
-        \texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
+    \label{ex3d}
+    Kleiner Tipp:
+    Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
+    Alternativ kannst du über den PackageExplorer in das Paket\\\texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
 \end{enumerate}

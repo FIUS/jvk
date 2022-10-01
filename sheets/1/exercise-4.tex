@@ -1,7 +1,8 @@
-
 % !TeX root = ./jvk-blatt1.tex
-\newcommand{\javadocRoot}{https://fius.github.io/ICGE2/master/}
-\excercise{Eine API verwenden / Doku lesen}
+
+\def\PlayFieldModifierDocLinkSuffix{de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}
+
+\excercise{Einführung in API-Dokumentation}
 \label{ex4}
 
 \begin{enumerate}
@@ -23,7 +24,7 @@
 \begin{enumerate}
 	\setcounter{enumi}{1}
     \item Nun wollen wir endlich mal selber 5 Münzen auf das Spielfeld platzieren.
-	Schau Dir vielleicht nochmal den Code in \texttt{de.unistuttagrt.informatik.fius.jvk.tasks} aus Aufgabe 3 \textit{\ref{ex3d}} an um herauszufinden, wie das funktioniert.\\
+	Schau Dir vielleicht nochmal den Code in \texttt{\javaPackageName.tasks} aus Aufgabe 3 \textit{\ref{ex3d}} an um herauszufinden, wie das funktioniert.\\
 	Bearbeite bitte - wie oben erklärt - die Klasse \lstinline{Sheet1task4} um auch herausfinden zu können, ob Du die Aufgabe erfolgreich gelöst hast. Benutze den \enquote{Task Status} in der UI, um Deinen Erfolg zu bestätigen.\\
 	Wie ist der Zusammenhang zwischen Position der Münze und die Koordinaten im Koordinatensystem?
 \end{enumerate}
@@ -37,7 +38,7 @@
 
     Alle Objekte in Java haben bestimmte Operationen. Dazu zählen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}.\\
     Diese Operationen kannst du fürs Erste Mal ignorieren.\\
-    Am häufigsten von ihnen werden \lstinline{equals(\dots)} und \lstinline{toString()} benötigt, weshalb du dich ja mal selber auf die Suche nach der zugehörigen Dokumentation machen kannst, falls es dich interessiert. Die tiefere Bedeutung von der \lstinline{toString()} Methode wirst Du noch im PSE Kurs lernen.
+    Am häufigsten von ihnen werden \lstinline{equals(...)} und \lstinline{toString()} benötigt, weshalb du dich ja mal selber auf die Suche nach der zugehörigen Dokumentation machen kannst, falls es dich interessiert. Die tiefere Bedeutung von der \lstinline{toString()} Methode wirst Du noch im PSE Kurs lernen.
 \end{Infobox}
 
 \begin{enumerate}
@@ -48,7 +49,7 @@
 
     Versuche entweder wie in der Infobox bei Aufgabe 1 \ref{ex1e} und \ref{autocompletions} beschrieben mit Autocomplete-Funktion von Eclipse oder mit der \href{\javadocRoot}{Dokumentation} herauszufinden, wie diese heißen.
 
-    Falls du noch mehr Infos über Operationen o.Ä. brauchst, findest du die Dokumentation der \newline \lstinline{PlayfieldModifier} Klasse unter \href{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}{diesen} Link.
+    Falls du noch mehr Infos über Operationen o.Ä. brauchst, findest du die Dokumentation der \newline \lstinline{PlayfieldModifier} Klasse unter \href{\javadocRoot\PlayFieldModifierDocLinkSuffix}{diesen} Link.
 
     Er wird in bei den folgenden Blättern mit ein paar weiteren nützlichen Links auf der Einführungs-Seite vorhanden sein.\\
 	Wenn Du willst, kannst du ihn natürlich auch jetzt kurz überfliegen.
@@ -58,7 +59,7 @@
     Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert. Du sollst also deinen Code nicht 19mal kopieren, um eine Münze zu erzeugen!
 
     Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
-    Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die \href{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}{Dokumentation} der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
+    Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die \href{\javadocRoot\PlayFieldModifierDocLinkSuffix}{Dokumentation} der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
@@ -73,7 +74,7 @@
 \begin{enumerate}
 	\setcounter{enumi}{4}
     \item Platziere nun 3 horizontale Reihen, die jeweils 7 Münzen langs sein sollen, mit einem Feld Abstand dazwischen.\\
-	Nutze dafür die Klasse \lstinline{Line}. Sie befindet sich im Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} und erwartet eine Startposition und auch eine Endposition.\\
+	Nutze dafür die Klasse \lstinline{Line}. Sie befindet sich im Paket\\\texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} und erwartet eine Startposition und auch eine Endposition.\\
     Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
 	\textbf{Tipp:} In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest Du die anderen Shapes aus unserer Shape Sammlung.
 
