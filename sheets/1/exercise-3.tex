@@ -3,33 +3,33 @@
 \label{ex3}
 
 \begin{enumerate}
-    \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten.
-        Dieses Mal nur mit dem \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier}:
+    \item Nun wollen wir - wie in \ref{ex1} Teilaufgabe \textit{b)} gezeigt - ein Spiel starten.\\
+    Dieses Mal wollen wir die übergebenen Parameter allerdings etwas anpassen und das Spiel nur mit einer \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier} starten.\\
+	Dafür erzeugen wir zunächst eine neue \lstinline{Game}-Instanz, indem wir den folgenden Code in die \lstinline{main()}-Methode einfügen:
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new DemoTask());
+	Game myGame = new Game("Hello World", new DemoTask());
     \end{lstlisting}
 
-    Du startest das Spiel in der Variable \lstinline{myGame} indem du die Operation \lstinline{run()} darauf aufrufst.
+    Das Spiel kann gestartet werden, wenn du nun auf der Variable \lstinline{myGame} die Operation \lstinline{run()} aufrufst:
 
     \begin{lstlisting}
-myGame.run();
+	myGame.run();
     \end{lstlisting}
 
-    Starte das Programm in Eclipse, mit dem kleinen Play-Button oben in der Werkzeugleiste und schau dich ein wenig im Fenster, das dann aufgeht um.
+    Starte das Programm nun in Eclipse, wie Du es schon in \ref{ex1} getan hast.
 
     \vspace{5mm}
 
-    \item In der vorherigen Teilaufgabe hattest du bereits ''Hello World'' und ein DemoTask Objekt an Game übergeben.
-        Nun wollen wir noch ein DemoTaskVerifier Objekt übergeben.\\
-        Orientiere dich dazu unten am Bild. Starte nachdem du fertig bist das Spielfenster neu. \\
-
-        Was verändert sich im Spielfenster?
-        Finde den \q{Task Status} Tab und drücke den Refresh Button.
+    \item In der vorherigen Teilaufgabe haben wir bereits \lstinline{"Hello World"} und ein neues \lstinline{DemoTask}-Objekt an ein \lstinline{Game} übergeben.\\
+    Nun wollen wir noch, wie ganz am Anfang, ein DemoTaskVerifier Objekt übergeben:
 
     \begin{lstlisting}
 Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
     \end{lstlisting}
+
+        Was hat sich nun im Spielfenster verändert?\\
+        Finde den \q{Task Status} Tab in der Game-UI und drücke den Refresh Button.
 
 \end{enumerate}
 
