@@ -146,6 +146,9 @@
 %% (Subjective) better to read line breaks
 \renewcommand{\newline}{\vskip0.15cm}
 
+\newcommand{\hint}{\textit{Hinweis:}~}
+\newcommand{\important}{{\color{red}\bfseries Wichtig:}~}
+
 %%%%%%%%%%%%%%%%%%%%
 % Excercise titles %
 %%%%%%%%%%%%%%%%%%%%

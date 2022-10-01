@@ -4,8 +4,8 @@
 \label{ex3}
 
 \begin{enumerate}
-    \item Nun wollen wir - wie in Aufgabe 1 \ref{ex1b} gezeigt - ein Spiel starten, indem wir den Code in der \lstinline{Main}-Klasse anpassen.\\
-    Dieses Mal wollen wir die übergebenen Parameter allerdings etwas anpassen und das Spiel nur mit einer \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier} starten.\\
+    \item Nun wollen wir - wie schon in Aufgabe 1 \ref{ex1b} vorgestellt - ein Spiel starten, indem wir den Code in der \lstinline{Main}-Klasse anpassen.\\
+    Dieses Mal wollen wir die übergebenen Parameter allerdings etwas anpassen und das Spiel nur mit einer \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier} starten.
 	Dafür erzeugen wir zunächst eine neue \lstinline{Game}-Instanz, indem wir den folgenden Code in die \lstinline{main()}-Methode einfügen:
 
     \begin{lstlisting}
@@ -19,8 +19,6 @@
     \end{lstlisting}
 
     Starte das Programm nun in Eclipse, wie Du es schon in \ref{ex1} getan hast.
-
-    \vspace{5mm}
 
     \item In der vorherigen Teilaufgabe haben wir bereits \lstinline{"Hello World"} und ein neues \lstinline{DemoTask}-Objekt an ein \lstinline{Game} übergeben.\\
     Nun wollen wir noch, wie ganz am Anfang, ein DemoTaskVerifier Objekt übergeben:
@@ -36,8 +34,7 @@
 
 
 \begin{Infobox}[Der Refresh Button]
-    Wenn du überprüfen willst, ob du deine Aufgabe erledigt hast, musst du den \fbox{Task Status} Tab unter dem Spielfeld öffnen und dann auf \fbox{Refresh} klicken.\\
-
+    Wenn du überprüfen willst, ob du deine Aufgabe erledigt hast, musst du den \fbox{Task Status} Tab unter dem Spielfeld öffnen und dann auf \fbox{Refresh} klicken.\newline
     Wichtig: Der Task Status aktualisiert sich nicht automatisch. Du musst also immer selber aktualisieren.
 \end{Infobox}
 
@@ -52,9 +49,10 @@
     In der Konsole siehst du, dass eine Münze (\texttt{Coin}) gespawnt (erzeugt) wurde.
     Finde die Koordinaten des Feldes, auf welchem die Münze gespawnt wurde.
 
-    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.\\
-    \label{ex3d}
-    Kleiner Tipp:
+	\newpage
+
+    \item\label{ex3d} Nun suche nach der Stelle im Code in der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.\newline
+    \hint
     Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
     Alternativ kannst du über den PackageExplorer in das Paket\\\texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
 \end{enumerate}

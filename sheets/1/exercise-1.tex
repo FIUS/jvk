@@ -4,7 +4,7 @@
 \label{ex1}
 
 \begin{Infobox}[Infoboxen]
-	Infoboxen sind dazu da, dir abseits der Aufgabenstellung immer wieder nützliche Informationen zu den Aufgaben auf den Weg zu geben. Hier relevante Dinge erklärt, meistens auch unter dem Einsatz von Beispielen.\\
+	Infoboxen sind dazu da, dir abseits der Aufgabenstellung immer wieder nützliche Informationen zu den Aufgaben auf den Weg zu geben. Hier relevante Dinge erklärt, meistens auch unter dem Einsatz von Beispielen.\newline
 	Damit sie, verglichen zu der eher schlichten Dokumentenstruktur von \LaTeX, etwas hervorstechen, sind sie in einem \color{javaInstances} schönen Farbton eingeklammert.
 \end{Infobox}
 
@@ -29,7 +29,8 @@
 \end{Infobox}
 
 \begin{enumerate}
-    \item
+
+	\item
     \begin{itemize}
         \item Öffne die \texttt{Main}-Klasse in dem Dateiexplorer auf der linken Seite. Navigiere dazu in den \texttt{src/main/java} Ordner und wähle dann das Paket \texttt{\javaPackageName} aus.
         \item Starte zunächst das Projekt, um zu schauen ob alles klappt. Drücke dazu den grünen Play Button $\vartriangleright$ wie in der Abbildung unten dargestellt.
@@ -41,31 +42,33 @@
 			\caption{Erklärung zur Ausführung des Projekts}
 		\end{figure}
     \end{itemize}
-    \item
-	\label{ex1b}
-	Finde in der \lstinline{Main}-Klasse die Zeile mit\\
-	\hspace*{\fill}\lstinline{// implement task 1 (from sheet 1)~here}\hspace*{\fill}\\ und füge an seiner Stelle den fehlenden Code aus dem Bild unten ein.
-    Aktuell musst du den Code noch nicht verstehen, es geht darum den Code Editor in Eclipse kennenzulernen.\\
-    Achte auch darauf was passiert während du die fehlenden Zeilen eingibst.
 
-	\begin{figure} [H]
-		\centering
-		\label{code}
-		\includegraphics [width=0.66\textwidth]{./figures/code.1.png}
-		\caption{Der einzufügende Code}
-	\end{figure}
+	\item\label{ex1b}
+	\begin{itemize}
+		\item Finde in der \lstinline{Main}-Klasse die Zeile mit\\
+		\hspace*{\fill}\lstinline{// implement task 1 (from sheet 1)~here}\hspace*{\fill}\\
+		und den fehlenden Code aus dem unteren Bild darunter ein.
+  		Aktuell musst du den Code noch nicht verstehen, denn es geht darum den Code Editor in Eclipse kennenzulernen.
+		\item Achte auch darauf was passiert während du die fehlenden Zeilen eingibst.
+		\begin{figure} [H]
+			\centering
+			\label{code}
+			\includegraphics [width=0.66\textwidth]{./figures/code.1.png}
+			\caption{Der einzufügende Code}
+		\end{figure}
+    	\item Führe das Programm nun aus. Nun sollte ein Fenster mit der Simulator Ansicht auf dem Bildschirm auftauchen. Schau ihn Dir genau an, denn er wird dich die nächsten Tage begleiten.
+    	\item Suche als nächstes die (rote) Stop Taste \colorbox{red}{$\square$} in Eclipse um das Programm abzubrechen. Die Taste befindet sich in Eclipse unten in der Titelleiste der Console.
+	\end{itemize}
 
-    Führe das Programm nun aus. Nun sollte ein Fenster mit der Simulator Ansicht auf dem Bildschirm auftauchen. Schau ihn Dir genau an, denn er wird dich wahrscheinlich die nächsten Tage begleiten.\\
-    Suche als nächstes die (rote) Stop Taste \colorbox{red}{$\square$} in Eclipse um das Programm abzubrechen. Die Taste befindet sich in Eclipse unten in der Titelleiste der Console.
     \item Versuche nun den Code so zu verändern, dass dein Name im Fenstertitel steht.
 \end{enumerate}
 
-
+\label{auskommentieren}
 \begin{Infobox}[HowTo: Auskommentieren]
     Manchmal möchte man, dass ein bestimmter Code-Teil nicht ausgeführt wird.
     Vielleicht möchten man ihn erst später ausführen oder ihn einfach nicht verlieren.
-    In solchen Fällen Kommentieren man die Code-Zeilen einfach aus.
-    Dies geht, indem du in der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes) (\lstinline{//}) voranstellst.\\
+    In solchen Fällen Kommentieren man die Code-Zeilen einfach aus.\\
+    Das geht, indem du in der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes) (\lstinline{//}) voranstellst.\\
     Als Beispiel schaue dir folgenden Code an:\\
 
     \hfill
@@ -95,25 +98,23 @@
     Alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun vom Computer ignoriert und damit nicht ausgeführt, was auch durch eine andere Färbung in Eclipse deutlich wird.
 \end{Infobox}
 
-
 \begin{Infobox}[Fehler]
-    Einige Aufgaben in Blatt 1 (und auch auf den anderen Blättern) verlangen von dir den Code absichtlich kaputtzumachen.
-    Das Ziel davon ist es das du die verschiedenen Fehler bereits kennenlernst.\\
+    Ein paar Aufgaben in Blatt 1 (und auch auf den anderen Blättern) verlangen von dir den Code absichtlich kaputtzumachen.
+    Das Ziel davon ist es das du die verschiedenen Fehler bereits kennenlernst.\newline
     Achte also bei solchen Aufgaben darauf, welche Änderung zu welchem Fehler geführt hat.
-    Falls du nun später einen Fehler beim Programmieren machst, kann dir dieses Wissen helfen den Code zu reparieren.\\
+    Falls du nun später einen Fehler beim Programmieren machst, kann dir dieses Wissen helfen den Code zu reparieren.\newline
     Du brauchst auch keine Angst haben, dass du das importierte Projekt kaputt machen könntest.
     Eclipse hat eine \q{Undo}-Funktion welche Änderungen rückgängig macht.
-    Diese findest du im Context-Menü oben unter \fbox{Edit}/\fbox{Bearbeiten} oder über das drücken von \fbox{Strg + Z}.\\
+    Diese findest du im Context-Menü oben unter \fbox{Edit}/\fbox{Bearbeiten} oder über das drücken von \fbox{Strg + Z}.\newline
     Falls du trotzdem Hilfe brauchst, kannst (\emph{und sollst}) du dich gerne bei den Tutoren melden oder deinen Nachbarn/ deiner Nachbarin fragen.
 \end{Infobox}
-
 
 \begin{enumerate}
 	\setcounter{enumi}{3}
 	\item Finde heraus was passiert, wenn man die erste oder die zweite Zeile in der Main-Funktion auskommentiert.\\
-	Hinweis: Nicht alle Varianten funktionieren zwangsläufig, Überlege warum dies der Fall sein könnte.
-	\item Vielleicht sind dir beim Ausprobieren in a) schon einige Dinge aufgefallen, die der Eclipse Editor anders macht als Textverarbeitungsprogramme, wie zum Beispiel Word.\\\label{ex1e}
-	Wenn du zum Beispiel \lstinline{demoGame.} eingibst, erscheint ein \textit{Overlay} mit möglichen \textit{Autocompletions}. Um in der erscheinenden Dokumentation (mit Beispielen) scrollen zu können, musst du einmal kurz \fbox{F2} drücken. Das lohnt sich vor allem bei Typen wie \lstinline{String}, die Java nativ anbietet und auch eine gute Dokumentation haben.\\
+	\hint Nicht alle Varianten funktionieren zwangsläufig, Überlege warum dies der Fall sein könnte.
+	\item\label{ex1e} Vielleicht sind dir bis jetzt schon einige Dinge aufgefallen, die der Eclipse Editor anders macht als Textverarbeitungsprogramme, wie zum Beispiel Word.\\
+	Wenn du zum Beispiel \lstinline{demoGame.} eingibst, erscheint ein \textit{Overlay} mit möglichen \textit{Autocompletions}. Um in der erscheinenden Dokumentation scrollen zu können, musst du einmal kurz \fbox{F2} drücken. Das lohnt sich vor allem bei Typen wie \lstinline{String}, die Java nativ anbietet und auch eine gute Dokumentation haben.\\
 	Wenn du dann mit der Maus über andere Stellen im Code hoverst, verschwindet das Overlay wieder.
 	Du kannst das \textit{Autocompletions}-Overlay öffnen manuell, indem du den Cursor direkt nach \lstinline{demoGame.} platzierst und \fbox{Strg + Space} (Space ist die Leertaste) drückst.
 	\item
@@ -128,23 +129,25 @@
 
 \begin{Infobox}[Optionale Aufgaben]
     Aufgaben die mit \optional markiert, sind müssen nicht bearbeitet werden.
-    Sie setzen schon Vorkenntnisse in Java oder Programmieren voraus und sind deshalb auch oft deutlich schwerer als die normalen Aufgaben.
-    Wenn du also an einer optionalen Aufgabe festhängst, dann solltest du mit der nächsten normalen Aufgabe weitermachen.
+    Sie setzen schon Vorkenntnisse in Java oder Programmieren voraus und sind deshalb auch oft etwas schwerer als die normalen Aufgaben. Das soll allerdings keine Aufforderung sein, sie nicht zu versuchen.\newline
+    Wenn du also an einer optionalen Aufgabe festhängst, dann solltest du mit der nächsten normalen Aufgabe weitermachen oder eben mal deinen Nachbarn/ deine Nachbarin fragen.\newline
     Später, wenn du genug Zeit oder Wissen hast um die optionale Aufgabe zu lösen, kannst du nochmal zu ihr zurückkehren.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{5}
-\item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
-Dafür benötigst du den folgenden Code, den du allerdings noch etwas anpassen musst:\\
-\hspace*{\fill}\lstinline{demoGame.getGameWindow().setWindowTitle();}\hspace*{\fill}\\
-$\rightarrow$ \textbf{Tipp:} Du musst der \lstinline{setWindowTitle()}-Methode einen \enquote{\textit{String}} als Parameter übergeben. Wenn Du dir nicht sicher bist, wie das funktioniert, kannst Du Dir den Code aus Teilaufgabe \ref{code} anschauen.
 
-\item \optional Benenne \lstinline{demoGame} in \lstinline{myDemoGame} um.
-Wenn du nur die eine Stelle \enquote{\lstinline{Game demoGame}} anpasst, wirst du eine Fehlermeldung bekommen.
-Mache deine Änderung nochmal rückgängig und platziere den Cursor in dem Wort \lstinline{demoGame}.\\
-Mit der Tastenkombination \fbox{Shift + Alt + R} kommst du in den \q{Refactor}-Modus, in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
-Das Gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.\\
-Mit \fbox{Strg + Shift + l} kannst du eine \textit{Liste alle Tastenkombinationen} ansehen.
-\item \optional Versuche, drei Fenster gleichzeitig zu starten.
+	\item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
+	Dafür benötigst du den folgenden Code, den du allerdings noch etwas anpassen musst:\newline
+	\hspace*{\fill}\lstinline{demoGame.getGameWindow().setWindowTitle();}\hspace*{\fill}\newline
+	\hint Du musst der \lstinline{setWindowTitle()}-Methode einen \enquote{\textit{String}} als Parameter übergeben. Wenn Du dir nicht sicher bist, wie das funktioniert, kannst Du Dir den Code aus Teilaufgabe \ref{code} anschauen.
+
+	\item \optional Benenne \lstinline{demoGame} in \lstinline{myDemoGame} um.
+	Wenn du nur die eine Stelle \enquote{\lstinline{Game demoGame}} anpasst, wirst du eine Fehlermeldung bekommen.
+	Mache deine Änderung nochmal rückgängig und platziere den Cursor in dem Wort \lstinline{demoGame}.\newline
+	Mit der Tastenkombination \fbox{Shift + Alt + R} kommst du in den \q{Refactor}-Modus, in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
+	Das Gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.\newline
+	Mit \fbox{Strg + Shift + l} kannst du eine \textit{Liste alle Tastenkombinationen} ansehen.
+
+	\item \optional Versuche, drei Fenster gleichzeitig zu starten.
 \end{enumerate}

@@ -15,8 +15,8 @@
 \end{enumerate}
 
 \begin{Infobox}[Benennung der Task Klassen]
-    Wie du wahrscheinlich festgestellt hast, haben wir ein Namensschema für die Klassen.\\
-    Für Blatt \textbf{X} und Aufgabe \textbf{Y} existiert die Klassen \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier}.\\
+    Wie du wahrscheinlich festgestellt hast, haben wir ein Namensschema für die Klassen.\newline
+    Für Blatt \textbf{X} und Aufgabe \textbf{Y} existiert die Klassen \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier}.\newline
     Ebenso musst du für jede Aufgabe in der Main Klasse die \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} anpassen.
     Deinen Code musst du also immer in \lstinline{SheetXTaskY} schreiben, außer du wirst in der Aufgabenstellung anders angewiesen.
 \end{Infobox}
@@ -31,14 +31,12 @@
 
 \begin{Infobox}[Autocompletion]
 	\label{autocompletions}
-    Sobald du ein Objekt im Code mit \lstinline{new} erstellt (instanziiert) und in eine Variable speicherst hast, kannst du hinter diesen Variablennamen einen Punkt \lstinline{.} eingeben.\\
+    Sobald du ein Objekt im Code mit \lstinline{new} erstellt (instanziiert) und in eine Variable speicherst hast, kannst du hinter diesen Variablennamen einen Punkt \lstinline{.} eingeben.\newline
     Jetzt wird eine Liste von allen \enquote{erreichbaren} Attributen und Operationen angezeigt, die zu dem Objekt gehören.
-    So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind und diese auswählen, die man grade braucht. Falls man also mal nicht weiter weiß, kann man sich die zugehörige Dokumentation durchlesen oder - falls diese nicht vorhanden sein sollte :( - mal alle vielversprechenden Operationen durchprobieren.\\
-	Falls eine benötigte Funktion vielleicht noch nicht vorhanden ist, kann man sie auch in der zugehörigen Klasse ergänzen.\\
-
-    Alle Objekte in Java haben bestimmte Operationen. Dazu zählen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}.\\
-    Diese Operationen kannst du fürs Erste Mal ignorieren.\\
-    Am häufigsten von ihnen werden \lstinline{equals(...)} und \lstinline{toString()} benötigt, weshalb du dich ja mal selber auf die Suche nach der zugehörigen Dokumentation machen kannst, falls es dich interessiert. Die tiefere Bedeutung von der \lstinline{toString()} Methode wirst Du noch im PSE Kurs lernen.
+    So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind und diese auswählen, die man grade braucht.\newline
+	Falls man also mal nicht weiter weiß, kann man sich die zugehörige Dokumentation durchlesen oder - falls diese nicht vorhanden sein sollte :( - mal alle vielversprechenden Operationen durchprobieren.\newline
+    Alle Objekte in Java haben bestimmte Operationen. Dazu zählen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}. Diese Operationen kannst du fürs Erste Mal ignorieren.\newline
+    Am häufigsten von ihnen werden \lstinline{equals(...)} und \lstinline{toString()} benötigt, weshalb du dich ja mal selber auf die Suche nach der zugehörigen Dokumentation machen kannst, falls es dich interessiert. Die tiefere Bedeutung von der \lstinline{equals(...)} Methode wirst Du noch im PSE Kurs lernen.
 \end{Infobox}
 
 \begin{enumerate}
@@ -63,10 +61,9 @@
 \end{enumerate}
 
 \begin{Infobox}[Dokumentation / JavaDoc]
-    Da du normalerweise nicht alleine an dem Code arbeitest musst du ihn nicht nur übersichtlich halten, sondern auch dokumentieren.\\
+    Da du normalerweise nicht alleine an dem Code arbeitest musst du ihn nicht nur übersichtlich halten, sondern auch dokumentieren.\newline
     Wie du vielleicht bereits gemerkt hast, ist das sehr hilfreich eine gute Dokumentation zu haben.
-    Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\\
-
+    Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\newline
     Diese Dokumentation kann man sich online oder direkt in der IDE (Integrierte Entwicklungsumgebung) wie Eclipse zu Gemüte führen. Letzteres hatten wir ja schon bei Teilaufgabe \ref{ex1e} der Aufgabe 1 erklärt.
 \end{Infobox}
 
@@ -76,7 +73,7 @@
     \item Platziere nun 3 horizontale Reihen, die jeweils 7 Münzen langs sein sollen, mit einem Feld Abstand dazwischen.\\
 	Nutze dafür die Klasse \lstinline{Line}. Sie befindet sich im Paket\\\texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} und erwartet eine Startposition und auch eine Endposition.\\
     Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
-	\textbf{Tipp:} In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest Du die anderen Shapes aus unserer Shape Sammlung.
+	\hint In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest Du die anderen Shapes aus unserer Shape Sammlung.
 
     \begin{lstlisting}
 // Beispiel: eine Reihe von der Position (0,0) bis (5,0)
