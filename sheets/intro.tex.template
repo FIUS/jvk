@@ -1,0 +1,34 @@
+% !TeX root = ./jvk-blatt1.tex
+
+\begin{center}
+	Hallo und herzlich Willkommen zum X. Baltt des diesjährigen Java Vorkurses!\\
+\end{center}
+
+Falls du bei der Bearbeitung des Blatts Fragen oder Probleme haben solltest, kannst du dich immer gerne bei den Tutoren melden oder einfach mal deinen Nachbar/ deine Nachbarin rechts oder links von dir fragen.\\\\
+
+\textbf{Unsere Empfehlungen:}
+\begin{itemize}
+	\item Bearbeite Aufgaben nicht nur \enquote{im Kopf}, sondern mache Dir zu den Aufgaben Notizen auf einem Blatt Papier oder Tablet, einer Datei auf einem USB-Stick oder in der Cloud. Erfahrungsgemäß bringt Dir das selber nicht nur mehr, sondern Du kannst Deinen Mitstudenten ggf. mit deinen notierten Antworten schnell weiterhelfen oder ggf. mit ihnen über Differenzen diskutieren.
+	\item Gehe vor der Bearbeitung dieses Blatts nochmal die Aufgaben des letzten Baltts durch, um den Stoff nochmal aufzufrischen.
+	\item Pausen
+\end{itemize}
+
+\textbf{Wichtige Links:}
+\begin{itemize}
+	\item Die FIUS Java-Vorkurs Webseite: \href{\fiusjvk}{Link}
+	\item Der Link zu den übrigen Blättern: TODO
+	\item Der Download-Link des Java-Archivs: \href{\jvkpackageurl}{Java-Projekt}
+\end{itemize}
+
+\textbf{Eclipse Shortcuts:}
+\begin{itemize}
+	\item \fbox{Strg + Shift + L}: DIe \textit{Liste aller Tastenkombinationen} ansehen.
+\end{itemize}
+\vskip1cm
+\textbf{Lernziele:}
+\begin{itemize}
+	\item  Aufgabe 1	%\ref{ex1}:
+	\item  Aufgabe 2	%\ref{ex2}:
+	\item  Aufgabe 3	%\ref{ex3}:
+	\item  Aufgabe 4	%\ref{ex4}:
+\end{itemize}
