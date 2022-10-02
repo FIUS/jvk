@@ -8,7 +8,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
-public class Sheet2Task6 implements Task{
+public class Sheet2Task7 implements Task{
     private PlayfieldModifier pm;
 
     public Sheet2Task6() {
