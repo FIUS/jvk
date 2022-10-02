@@ -15,7 +15,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 
 
-public class Sheet1Task5Verifier implements TaskVerifier {
+public class Sheet1Task4Verifier implements TaskVerifier {
 
     private BasicTaskInformation task;
 

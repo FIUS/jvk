@@ -8,7 +8,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
-public class Sheet1Task5 implements Task {
+public class Sheet1Task4 implements Task {
 
     @Override
     public void run(Simulation sim) {
