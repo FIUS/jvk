@@ -2,3 +2,5 @@
 *.log
 *.zip
 .idea
+./out
+./out/*

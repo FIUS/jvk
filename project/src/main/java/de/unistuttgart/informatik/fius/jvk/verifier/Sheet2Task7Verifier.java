@@ -18,7 +18,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 
 
-public class Sheet2Task6Verifier implements TaskVerifier {
+public class Sheet2Task7Verifier implements TaskVerifier {
 
     private BasicTaskInformation task;
     private Simulation sim;

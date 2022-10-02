@@ -2,10 +2,10 @@
 
 \excercise{What If there is a Wall?!}
 
-In dieser Aufgabe wollen wir uns Conditions näher anschauen.
+In dieser Aufgabe wollen wir uns Conditions (Bedingungen / Abfragen) näher anschauen.
 
 \begin{enumerate}                           
-    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+    \item Instanziiere die Simulation wie bekannt für diese Aufgabe und mache dich mit dieser vertraut.
         Was passiert bei der Ausführung?
 \end{enumerate}
 
@@ -21,34 +21,37 @@ if (player.canMove()) {
 }
     \end{lstlisting}
 
-    Die Abfrage \lstinline{canMove()} gibt einen Boolean Wert zurück (also \lstinline{true} oder \lstinline{false}).
-    Falls sich also vor dem Spieler kein Hindernis befindet gibt die Abfrage \lstinline{canMove()} \lstinline{true} zurück, da es wahr ist, dass der Spieler sich frei nach vorne bewegen kann.
-    In diesem Fall ist die Bedingung des IF-Statements erfüllt. 
-    Dadurch wird der erste Block ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen. 
+    Die Abfrage \lstinline{canMove()} gibt einen Boolean Wert zurück (also \lstinline{true} oder \lstinline{false}, \texttt{Ja} oder \texttt{Nein}).\\
+    Falls sich also vor dem Spieler kein Hindernis befindet gibt die Abfrage \lstinline{canMove()} \lstinline{true} zurück, da es wahr ist, dass der Spieler sich frei nach vorne bewegen kann.\\
+    In diesem Fall ist die Bedingung des IF-Statements erfüllt.\\
+    Dadurch wird der erste Block ausgeführt, was hier dem Spieler erlaubt sich vorwärts zu bewegen.\\
+    Es wird also \lstinline{player.move()} ausgeführt.\\
 
-    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und der zweite Block wird ausgeführt.
-    In diesem Fall bekommen wir hier eine erleuchtende Weisheit von Morpheus.
+    In dem anderen Fall, dass sich doch ein Hindernis vor dem Spieler befindet, ist die Bedingung des IF-Statements nicht erfüllt und der zweite Block wird ausgeführt.\\
+    Morpheus schreibt uns also eine erleuchtende Weisheit in die Console.\\
 
-    Die Kommandos in den zwei Code-Blöcken können nach bedarf ausgetauscht werden.
-    In einem Code-Block dürfen sogar beliebig viele Kommandos, Abfragen oder wieder ganze IF-Statements stehen.
-    Auch die genutzte Abfrage kann geändert werde, was in späteren Aufgaben noch erklärt wird.
+    Die Kommandos in den jeweiligen Code-Blöcken können nach Bedarf ausgetauscht werden.
+    In einem Code-Block dürfen sogar beliebig viele Kommandos, Abfragen (If-Statements) aber auch Schleifen (kommen in späteren Aufgaben) stehen.\\
+    Auch die genutzte Abfrage kann entsprechend unserer Situation angepasst werden, was in späteren Aufgaben noch erklärt wird.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Betrachte die Operation \lstinline{movement} der Klasse \lstinline{Sheet2Task3}. 
+    \item Betrachte die Operation \lstinline{movement} der Klasse \lstinline{Sheet2Task3}.\\
         Füge das obige IF-Statement an einer geeigneten Stelle ein und führe die Simulation erneut aus.
-        Die vorhandenen \lstinline{.move()} Kommandos nach dem IF-Statement sollten in den ersten Code-Block vom IF verschoben werden.
-        Der \lstinline{else} Code-Block sollte erstmal leer bleiben.
+        Die dann noch vorhandenen \lstinline{.move()} Kommandos welche nach dem IF-Statement sind sollten in den ersten Code-Block vom IF verschoben werden.
+        Der \lstinline{else} Code-Block soll erstmal leer bleiben.
     \item Starte das Fenster neu.
-        Lösche die Wand in dem Spielfenster.
+        Lösche die Wand in dem Spielfenster.\\
         Dazu musst du oben rechts das rote Minus auswählen und dann auf die Wand klicken.
-        Starte dann die Simulation.
+        Starte dann die Simulation.\\
         Neo sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
-    \item Jetzt soll Neo die Telefonstation auch erreichen wenn die Wand nicht gelöscht wurde.
-        Behandle also den \lstinline{else} Fall so, dass Neo in beiden Fällen die Telefonstation erreicht.
-        Gib Neo dafür im \lstinline{else} Code-Block die notwendigen Kommandos.
+    \item Jetzt wollen wir den Code so anpassen, dass Neo die Telefonstation auch erreicht wobei die Wand nicht mehr gelöscht werden soll.
 
-        Überprüfe deinen Code indem du ihn einmal ausführst ohne die Wand zu löschen und einmal wenn du die Wand davor gelöscht hast.
+        Du musst also einmal den Fall betrachten, dass keine Wand im Weg ist (der erste If-Block) und einmal den Fall, dass eine Wand im Weg ist (der Else-Block).\\
+        Implementiere nun das beschriebene Verhalten.
+
+        Überprüfe deinen Code indem du einmal die Simulation startest ohne die Wand zu löschen und einmal wenn du die Wand davor gelöscht hast.
+        In beiden Fällen sollte Neo die Telefonzelle erreichen.
 
 \end{enumerate}

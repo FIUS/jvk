@@ -16,6 +16,10 @@ public class Sheet2Task3 implements Task{
         pm.placeEntityAt(player, new Position(0, 0));
         buildEnvironment(pm);
         
+        this.movement();
+    }
+
+    private void movement() {
         //implement subtask here
         player.move();
         player.move();

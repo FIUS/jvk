@@ -2,7 +2,7 @@
 
 \excercise{While i do stuff on repeat}
 
-Ziel dieser Aufgabe ist es, die Syntax und die Funktion einer bestimmten While-Schleife genauer zu verstehen.
+Ziel dieser Aufgabe ist es, die Syntax und die Funktion von While-Schleifen genauer zu verstehen.
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
@@ -10,7 +10,7 @@ Ziel dieser Aufgabe ist es, die Syntax und die Funktion einer bestimmten While-S
 
 
 \begin{Infobox}[While Schleife]
-    Wir betrachten eine beispielhafte While Schleife.
+    Wir betrachten eine beispielhafte While Schleife:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
 while(player.canMove()) {
@@ -18,26 +18,27 @@ while(player.canMove()) {
 }
     \end{lstlisting}
 
-    Ähnlich wie bei dem IF-Statement hat auch die While Schleife nach den runden Klammern einen Code-Block.
-    Dieser wird hier Schleifeninneres genannt.
-    Oft verwendet man auch Schleifenrumpf oder im englischen auch body.
+    Ähnlich wie bei dem If-Statement ist auch bei der While Schleife in den geschweiften Klammern der Code-Block (Schleifen inneres, oft auch: Schleifenrumpf, Englisch: body).\\
 
-    While Schleifen prüfen jeweils vor Ausführung des Schleifeninneren, ob die gegebene Bedingung noch erfüllt ist. 
-    In unserem Beispiel wird also zunächst geprüft ob \lstinline{player.canMove()} \lstinline{true} ist und der Spieler kein Hindernis vor sich hat. 
-    Solange dies erfüllt ist, wird der Code-Block der Schleife ausgeführt und damit auch das Kommando \lstinline{player.move()}.
-    Jedes mal wenn der Code-Block ausgeführt wurde, wird die Bedingung in den runden Klammern erneut geprüft bevor der Code-Block wieder ausgeführt wird.
-    Wenn die Bedingung von Anfang an \lstinline{false} ist, dann wird der Code-Block niemals ausgeführt.
-    
-    Andere für uns relevantere Operationen wären das Aufheben und Ablegen von Münzen. 
-    Dies kann mittels einer While Schleife wie folgt realisiert werden:
+    Das Verhalten von While Schleifen lässt sich einfach darstellen:
+    \begin{enumerate}
+        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{palyer.canMove()} erfüllt ist, also das sich kein Hindernis im Weg befindet, wenn NEIN springe zu Punkt 4.
+        \item[2:] Das Schleifeninnere \lstinline{player.move()} wird ausgeführt.
+        \item[3:] Springe zurück zu Punkt 1
+        \item[4:] Verlasse die Schleife
+    \end{enumerate}
+
+    Was passiert, wenn von Anfang an ein Hindernis vor dem Spieler sich befindet?\\
+
+    Ebenso sind folgende Beispiele zum Aufheben bzw Ablegen aller (möglichen) Münzen hilfreich:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
-// Aufheben
+// Aufheben aller möglichen Münzen
 while(player.canCollectCoin()){
     player.collectCoin();
 }
 
-// Ablegen
+// Ablegen aller möglichen Münzen
 while(player.canDropCoin()){
     player.dropCoin();
 }
@@ -48,26 +49,27 @@ while(player.canDropCoin()){
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Öffne die Klasse \textit{Sheet2Task5}. 
-        Hebe alle Münzen auf.
+    \item Öffne die Klasse \lstinline{Sheet2Task5}.
+        Hebe alle Münzen auf.\\
         Dafür kannst du eine der Schleifen von oben verwenden.
 
-        Hinweis: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.
+    \textbf{Hinweis}: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.
     \item Platziere jetzt alle Münzen auf dem rechten mittleren Spielfeld an der Wand. 
-        Hier kannst du wieder eine der Schleifen aus den Beispielen oben verwenden.
+        Hier kannst du dich wieder an den Beispielen oben orientieren.
     \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur. 
-        Auf jedem Feld in der mittleren Reihe sollte jetzt eine Münze liegen.
+        Auf jedem Feld in der mittleren Reihe sollte jetzt eine Münze liegen.\\
+        Benutze dazu auch eine While Schleife, anstatt deinen Code mehrmals zu kopieren.
 
-        Hinweis: Hier kannst du nicht direkt eine Schleife von den angegebenen Beispielen kopieren.
+    \textbf{Hinweis}: Hier kannst du nicht direkt eine Schleife von den angegebenen Beispielen kopieren.
         Du musst noch den Code-Block der Schleife anpassen, damit mehr Kommandos bei jedem Schleifendurchlauf ausgeführt werden.
-    \item Platziere nun auf jedem Feld statt einer Münze drei Münzen.
-    
-        Hinweis: Hier sollte es ausreichen den Code-Block der Schleife aus der Teilaufgabe davor anzupassen.
-    \item Platziere auf jedem zweiten Feld eine Münze.
-        Das erste Feld solltest du leer lassen.
+    \item Platziere nun statt einer Münze auf jedem Feld der Linie drei Münzen.
+
+    \textbf{Hinweis}: Hier sollte es ausreichen den Code-Block der Schleife aus der Teilaufgabe davor anzupassen.
+    \item Platziere auf jedem zweiten Feld eine Münze.\\
+        Also die Linie soll abwechselnd eine Münze und ein leeres Feld nacheinander haben.
     \item \optional Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. 
         Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert werden.
 
-        Hinweis: Hier musst du neben einer While Schleife auch IF-Statements verwenden.
-            Schau dir dafür nochmal Aufgabe 3 an.
+    \textbf{Hinweis}: Hier musst du neben einer While Schleife auch IF-Statements verwenden.\\
+        Schau dir dafür nochmal Aufgabe 3 an.
 \end{enumerate}
