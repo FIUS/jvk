@@ -1,9 +1,7 @@
 % !TeX root = ./jvk-blatt1.tex
-\lstset{
-	basicstyle=\small,
-	morecomment=[l]{*}
-}
+
 \excercise{Nachschlagwerk: Syntax und Codestil}
+\label{ex2}
 
 Jetzt folgt ein Nachschlagwerk auf das du immer wieder zurückgehen kannst bei den folgenden Aufgaben.
 Du kannst es bereits mal durchlesen, es ist aber nicht schlimm, wenn du noch nicht alles versteht.
@@ -104,7 +102,7 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	public void springen(){
 		// Code um zu springen
 	}
-	
+
 	public String getName(Hund hund){
 		return hund.name;
 	}
@@ -143,18 +141,18 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 
 \begin{lstlisting}[title=\textbf{Variablen Syntax}]
 	<KlassenName> <Name>; // Eine Variable wird erzeugt, ihr ist noch kein Wert zugewiesen.
-	
+
 	<KlassenName> <Name> = <Wert>; // Eine Variable wird erzeugt und ihr wird ein Wert zugewiesen.
-	
+
 	<Name> = <Wert>; // Einer bestehenden Variable wird ein neuer Wert zugewiesen.
-	
+
 	<KlassenName> <Name> = new <KlassenName>(); // Einer neuen Variable wird eine neue Instanz eines Objekts zugewiesen.
-	
+
 	<KlassenName> <Name> = <NameEinerAnderenVariable>; // Einer neuen Variable wird der Wert einer anderen Variable zugewiesen. Das geht natürlich nur wenn die Varaiblen das selbe speichern können (den selben Typ haben).
 \end{lstlisting}
 \begin{lstlisting}[title=\textbf{Variable Beispiel}]
 	String hundeName = "Bello";
-	
+
 	Hund meinHund = new Hund(hundeName);
 \end{lstlisting}
 \begin{Infobox}
@@ -170,14 +168,14 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
 	<ObjektName>.<OperationsName>();
-	
+
 	<ObjektName>.<OperationsName>(<Argument>);
 \end{lstlisting}
 
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Beispiel}]
 	// meinHund.setName(); soll dafür sorgen dass der Hund von Bello zu Doggo umbenannt wird. Er ändert also etwas an dem Objekt.
 	meinHund.setName("Doggo");
-	
+
 	// meinHund.getName(); gibt den Namen des Hundes zurück, ändert also nichts am Obejekt selber sondern gibt Eigenschaften davon zurück.
 	meinHund.getName();
 \end{lstlisting}

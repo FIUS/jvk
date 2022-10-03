@@ -1,4 +1,4 @@
-NeedsTeXFormat{LaTeX2e}
+\NeedsTeXFormat{LaTeX2e}
 
 \ProvidesClass{vorkurs}
 \LoadClass[a4paper,11pt]{article}
@@ -276,14 +276,14 @@ NeedsTeXFormat{LaTeX2e}
 		pdftitle=\kurs~\semester~-~Übungsblatt~\sheetNumber
 	}
 	\begin{document}
-	\maketitle
-	\prepart
-	\pagestyle{fancy}
-	\IfFileExists{intro.tex}{
-		\begin{samepage}
-			\input{intro.tex}
-		\end{samepage}
-	}{}
-	\addexcercise
+		\maketitle
+		\prepart
+		\pagestyle{fancy}
+		\IfFileExists{intro.tex}{
+			\begin{samepage}
+				\input{intro.tex}
+			\end{samepage}
+		}{}
+		\addexcercise
 	\end{document}
 }
