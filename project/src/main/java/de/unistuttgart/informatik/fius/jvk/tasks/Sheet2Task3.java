@@ -16,10 +16,10 @@ public class Sheet2Task3 implements Task{
         pm.placeEntityAt(player, new Position(0, 0));
         buildEnvironment(pm);
         
-        this.movement();
+        this.movement(player);
     }
 
-    private void movement() {
+    private void movement(Neo player) {
         //implement subtask here
         player.move();
         player.move();
