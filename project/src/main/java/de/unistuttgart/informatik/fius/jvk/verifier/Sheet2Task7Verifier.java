@@ -31,7 +31,7 @@ public class Sheet2Task7Verifier implements TaskVerifier {
 
     private ActionLog actionLog;
 
-    public Sheet2Task6Verifier() {
+    public Sheet2Task7Verifier() {
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
