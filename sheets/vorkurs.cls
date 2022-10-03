@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}
+NeedsTeXFormat{LaTeX2e}
 
 \ProvidesClass{vorkurs}
 \LoadClass[a4paper,11pt]{article}
@@ -282,7 +282,6 @@
 	\IfFileExists{intro.tex}{
 		\begin{samepage}
 			\input{intro.tex}
-			\newpage
 		\end{samepage}
 	}{}
 	\addexcercise
