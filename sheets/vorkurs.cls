@@ -76,7 +76,7 @@
 
 %% Fancyhdr Header
 \pagestyle{myheadings}
-\fancyhead[L]{\kurs~\semester~- Üb \sheetNumber}
+\fancyhead[L]{\kurs~\semester~- Übungsblatt \sheetNumber}
 \fancyhead[R]{Seite \thepage{} von \pageref*{LastPage}}
 
 %% Colors for Java listings
