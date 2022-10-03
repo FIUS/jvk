@@ -11,7 +11,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 public class Sheet2Task7 implements Task{
     private PlayfieldModifier pm;
 
-    public Sheet2Task6() {
+    public Sheet2Task7() {
     }
 
     @Override

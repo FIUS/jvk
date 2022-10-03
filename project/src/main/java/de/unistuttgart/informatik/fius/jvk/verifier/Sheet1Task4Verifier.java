@@ -27,7 +27,7 @@ public class Sheet1Task4Verifier implements TaskVerifier {
 
     private ActionLog actionLog;
 
-    public Sheet1Task5Verifier() {
+    public Sheet1Task4Verifier() {
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
