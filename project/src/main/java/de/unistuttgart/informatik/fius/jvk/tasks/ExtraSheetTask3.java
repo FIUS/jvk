@@ -24,6 +24,7 @@ public class ExtraSheetTask3 implements Task{
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         Neo neo = new Neo();
+        neo.setCoinsInWallet(100);
         pm.placeEntityAt(neo, new Position(0, 0));  
         //your code here
     }
