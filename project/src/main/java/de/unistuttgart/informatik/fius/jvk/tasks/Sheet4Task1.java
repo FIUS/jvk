@@ -26,7 +26,6 @@ public class Sheet4Task1 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Line line=new Line(new Position(0,0),new Position(1,2));
         // put your implementation below this comment
         //für b)
 
