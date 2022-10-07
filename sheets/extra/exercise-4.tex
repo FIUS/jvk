@@ -1,0 +1,14 @@
+\excercise{Rekusion 2 - Füllen.}
+
+\begin{enumerate}
+\item Implementiere das \lstinline{moveTo(Position position)} Kommando in der Klasse neo, welches neo zu der übergebenen Position laufen lässt. Um das Kommando zu testen, lasse neo zu (2,4) laufen (Tipp: In dieser Aufgabe gibt es keine Wände auf dem Spielfeld. Du musst daher keinen komplexen Wegfindungsalgorithmus implementieren.)
+\item Neo ist umgeben von Münzen. Wir wollen auch nun das innere dieser Form mit Münzen füllen. Dafür verwenden wir einen beliebten (rekursiven) Füllalgorithmus der funktioniert wie folgt:\\
+Fill(Position pos(x,y)):\\
+-lege eine Münze auf pos\\
+-falls (x-1,y) leer ist: Fill(x-1,y)\\
+-falls (x+1,y) leer ist: Fill(x+1,y)\\
+-falls (x,y-1) leer ist: Fill(x,y-1)\\
+-falls (x,y+1) leer ist: Fill(x,y+1)\\
+
+implementieren diesen Füllalgorithmus, und lasse neo die Form mit Münzen füllen
+\end{enumerate}
