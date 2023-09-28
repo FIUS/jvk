@@ -3,6 +3,12 @@
 
 \excercise{The Player Enters the Game}
 
+\begin{Infobox}[Benennung der Task Klassen]
+    Wie du wahrscheinlich festgestellt hast, haben wir ein Namensschema für die Klassen.\\
+    Also für Blatt \textbf{X} und Aufgabe \textbf{Y} sollst du die Klassen \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} nutzen.\\
+    Ebenso musst du für jede Aufgabe in der Main Klasse die \lstinline{SheetXTaskY} und \lstinline{SheetXTaskYVerifier} anpassen.
+    Deinen Code musst du (fast) immer in \lstinline{SheetXTaskY} schreiben.
+\end{Infobox}
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. 
@@ -23,8 +29,7 @@ public void run(Simulation sim) {
         \end{lstlisting}
 
         Überprüfe im \fbox{Task Status} Tab ob dein Code korrekt funktioniert.
-    \item Damit sich Neo bewegt, musst du ihm Kommandos geben.
-        Du kannst Neo die folgenden Kommandos geben:
+    \item Damit sich Neo bewegt, musst du ihm eines der folgenden Kommandos geben und die Simulation mit dem Play Button starten.
 
         \begin{lstlisting}[firstnumber=20]
     player.move();
@@ -33,12 +38,11 @@ public void run(Simulation sim) {
         \end{lstlisting}
 
         Teste alle 3 Kommandos.\\
-        Damit Neo sich bewegen kann, muss die Simulation mit dem Play Button gestartet werden!
-    \item Neo kann sich nur nach rechts drehen.\\
-        Wie kannst du Neo trotzdem dazu bringen, sich nach links (oder nach hinten) umzudrehen?
+    \item Mit den gegebenen Kommando, kann sich Neo nur nach rechts drehen.\\
+        Finde un einen Weg, wie du Neo dazu bringen kannst, sich nach links (oder nach hinten) umzudrehen?
 
         Hinweis: Du kannst Kommandos mehrfach hintereinander aufrufen.
-    \item Gib Neo die folgenden Anweisungen:
+    \item Gib Neo nun die folgenden Anweisungen:
         
         {
             \setenumerate{label=\roman*.}

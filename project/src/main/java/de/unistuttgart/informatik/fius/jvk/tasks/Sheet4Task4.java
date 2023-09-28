@@ -9,36 +9,33 @@
  */
 package de.unistuttgart.informatik.fius.jvk.tasks;
 
-import de.unistuttgart.informatik.fius.icge.simulation.Position;
-import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
-import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
-import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.factories.WallFactory;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
+import java.util.Random;
+
+
+import de.unistuttgart.informatik.fius.icge.simulation.*;
+import de.unistuttgart.informatik.fius.icge.simulation.programs.Program;
+import de.unistuttgart.informatik.fius.icge.simulation.tasks.*;
+import de.unistuttgart.informatik.fius.icge.simulation.tools.*;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
+import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
 
 /**
- * @author Fabian Bühler
+ * @author Clemens Lieb
  */
 public class Sheet4Task4 implements Task {
     
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
+        Neo neo = new Neo();
+        pm.placeEntityAt(neo, new Position(1, 3));
 
-        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -1), new Position(21, 5)));
-
-        Neo neoA = new Neo();
-        pm.placeEntityAt(neoA, new Position(0, 0));
-
-        Neo neoB = new Neo();
-        pm.placeEntityAt(neoB, new Position(0, 2));
-        
-        Neo neoC = new Neo();
-        pm.placeEntityAt(neoC, new Position(0, 4));
-        
-        // implement task below this line
+        Random rng = new Random();
+        Line hindernis = new Line(new Position(3, -rng.nextInt(5)), new Position(3, rng.nextInt(10)));
+        pm.placeEntityAtEachPosition(new WallFactory(), hindernis);
+        // put your implementation below this comment
     }
     
 }

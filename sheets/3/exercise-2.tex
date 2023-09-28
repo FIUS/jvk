@@ -1,9 +1,8 @@
-\excercise{If-Conditions}
+\excercise{If-Conditions }
 
 \begin{enumerate}
 	\item
-		Passe die Main Operation an die Aufgabe an.\\
-		Verwende \lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}.
+	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}) und mache dich mit dieser vertraut.
 
 	\item 
 		Mit dem folgenden Codebeispiel kannst du die Anzahl der Münzen in dem Feld unter Neo abfragen und auf der Konsole ausgeben.
@@ -13,10 +12,10 @@ Integer coinsUnderNeo = neo.getCurrentlyCollectableCoins().size();
 System.out.println(coinsUnderNeo);
 		\end{lstlisting}
 
-		Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen, die auf Neos aktuellem Feld liegen. 
+		Wichtig: Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen, die auf Neos aktuellem Feld liegen. 
 		Eine Liste hat eine Größe die angibt wie viele Elemente sie enthält. 
 		Die Größe der Liste aller Münzen entspricht genau der Anzahl der Münzen auf Neos aktuellem Feld. 
-		Die Größe kann abgefragt werden mit \lstinline{list.size()}. 
+		Die Größe kann abgefragt werden mit \lstinline{list.size()}. Was genau Listen in Java sind und wie sie funktionieren, werden wir hier nicht weiter behandeln, für unsere Zwecke reicht es sie in diesem spezifischem Kontext zu verstehen.\\
 
 		Laufe mit Neo bis zum ersten Feld mit einer Münze und gib die Anzahl der Münzen unter Neo auf der Konsole aus.
 \end{enumerate}
@@ -65,7 +64,7 @@ if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 
 
 \begin{Infobox}[\lstinline{==} und \lstinline{.equals()}]
-	Vorsicht: Mit \lstinline{==} sollte man nur Zahlen vergleichen! 
+	Vorsicht: Mit \lstinline{==} sollte man nur Zahlen  (Variablen vom Typ Integer und Double (und ein paar andere Typen die wir der einfachheit halber hier weglassen)) vergleichen! 
 	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{.equals} Abfrage von einem der beiden Objekte verwendet werden:
 
 	\begin{lstlisting}[numbers=none]
@@ -88,14 +87,6 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 	\item
 		Neo soll sich ab jetzt immer geradeaus bewegen, solange keine Münze unter ihm liegt.
 		Wenn Neo auf eine Münze trifft, sollst du erst mal anhalten.
-
-		Tipp: Verwende hierfür am besten eine Endlosschleife und schreibe den Code für alle Unteraufgaben dieser Aufgabe in den Schleifenkörper.
-		Eine Endlosschleife kann z.B. so aussehen:
-	\begin{lstlisting}
-while(true){
-//your code here
-}
-	\end{lstlisting}
 \end{enumerate}
 
 

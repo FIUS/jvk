@@ -128,7 +128,7 @@
 \renewcommand{\maketitle}{
 	\thispagestyle{plain}
 	\includegraphics[height=1cm]{../logos/logo-uni.pdf}
-	\hfill\includegraphics[height=3cm]{../logos/logo-fius.png}
+	\hfill\includegraphics[height=3cm]{../logos/fius-logo-neu.png}
 	\begin{center}
 	\Large\textbf{Übungsblatt \sheetNumber}\\
 	\large\kurs (\semester)

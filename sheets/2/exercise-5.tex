@@ -1,11 +1,11 @@
 %!TEX root = ./jvk-blatt2.tex
 
-\excercise{While i do stuff on repeat}
+\excercise{While Schleife}
 
-Ziel dieser Aufgabe ist es, die Syntax und die Funktion von While-Schleifen genauer zu verstehen.
+Ziel dieser Aufgabe ist es, die Syntax und die Funktion von While-Schleifen zu verstehen.
 
 \begin{enumerate}
-    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut.
+    \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task5} und \lstinline{Sheet2Task5Verifier}) und mache dich mit dieser vertraut.
 \end{enumerate}
 
 
@@ -28,8 +28,6 @@ while(player.canMove()) {
         \item[4:] Verlasse die Schleife
     \end{enumerate}
 
-    Was passiert, wenn von Anfang an ein Hindernis vor dem Spieler sich befindet?\\
-
     Ebenso sind folgende Beispiele zum Aufheben bzw Ablegen aller (möglichen) Münzen hilfreich:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
@@ -49,8 +47,7 @@ while(player.canDropCoin()){
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-    \item Öffne die Klasse \lstinline{Sheet2Task5}.
-        Hebe alle Münzen auf.\\
+        \item Hebe alle Münzen auf dem aktuellen Feld auf.\\
         Dafür kannst du eine der Schleifen von oben verwenden.
 
     \textbf{Hinweis}: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.

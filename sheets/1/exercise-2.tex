@@ -1,6 +1,6 @@
 % !TeX root = ./jvk-blatt1.tex
 
-\excercise{Nachschlagwerk: Syntax und Codestil}
+\excercise{Nachschlagwerk: Syntax, Codestil und einige \\nützliche Shortcuts}
 \label{ex2}
 
 Jetzt folgt ein Nachschlagwerk auf das du immer wieder zurückgehen kannst bei den folgenden Aufgaben.
@@ -46,7 +46,6 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	In Java muss der Dateiname gleich dem Klassennamen sein. Z.B. Klasse \q{Hund} $\rightarrow$ Datei \q{Hund.java}.
 \end{Infobox}
 
-\newpage
 
 \begin{lstlisting}[title=\textbf{Klassen Syntax}]
 	// < > wird immer durch das ersetzt was in < > beschrieben wird
@@ -134,6 +133,14 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	Mit einem = kann einer Variable ein Wert zugewiesen werden (Etwas in die Schublade legen).\\
 	Über den Namen der Variable kann dann auf dessen Wert (Inhalt der Schublade) zugegriffen werden.\\
 
+	Einige wichtige Typen sind:
+	\begin{itemize}
+		\item \lstinline{String}: zum speichern von Text, z.B. ''Das ist ein String''
+		\item \lstinline{boolean}: \lstinline{true} oder \lstinline{false} (wahr oder falsch), wird später noch genauer erklärt
+		\item \lstinline{Integer}: positive und negative ganze Zahlen 
+		\item \lstinline{Double}: positive und negative Zahlen, welche Nachkommastellen haben können
+	\end{itemize}
+
 	Wenn man ein Objekt erzeugt, weist man es oft direkt einer Variable zu, damit man es später im Code noch benutzen kann.
 \end{Infobox}
 
@@ -180,7 +187,7 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 	meinHund.getName();
 \end{lstlisting}
 
-\subsection*{Aufgabe 2.2 Namen und Codestyle}
+\subsection*{Namen und Codestyle}
 Wie du wahrscheinlich schon gemerkt hast, kann Code schnell überfordern und verwirren.\\
 Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit Anderen zusammen arbeitet, gibt es Konventionen (Regeln an die wir uns alle halten wollen) wie der Code geschrieben werden sollte um die Lesbarkeit und das Verständnis zu verbessern.
 
@@ -245,7 +252,6 @@ Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie ende
 \noindent
 {\color{red} Wichtig: }Achte unbedingt darauf das alle Klammern, die du öffnest auch wieder in der richtigen Reihenfolge schließest werden!
 
-\newpage
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
 	// Code außerhalb einer Klammerung, nicht eingerückt
@@ -270,3 +276,89 @@ Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie ende
 			}
 }
 \end{lstlisting}
+
+\begin{Infobox}[HowTo: Auskommentieren]
+    Manchmal möchte man, dass bestimmter Code nicht ausgeführt wird.
+    Vielleicht möchten man ihn erst später ausführen, ihn einfach nicht verlieren oder etwas Neues ausprobieren.
+    In solchen Fällen Kommentieren man die Code-Zeilen einfach aus.
+    Dies geht, indem du in der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes)(\lstinline{//}) voranstellst.
+    Als Beispiel schaue dir folgenden Code an:\\
+
+    \hfill
+    \begin{minipage}{.96\textwidth}
+        \begin{lstlisting}
+    public void run(Simulation sim) {
+        PlayfieldModifier pm =
+                new PlayfieldModifier(sim.getPlayfield());
+        pm.placeEntityAt(new Coin(), new Position(0, 0));
+    }
+        \end{lstlisting}
+    \end{minipage}
+
+    Wenn du nun die letzte Zeile auskommentieren willst, dann stellt sich der Code wie folgt dar.\\
+
+    \hfill
+    \begin{minipage}{.96\textwidth}
+        \begin{lstlisting}
+    public void run(Simulation sim) {
+        PlayfieldModifier pm =
+                new PlayfieldModifier(sim.getPlayfield());
+        //pm.placeEntityAt(new Coin(), new Position(0, 0));
+    }
+        \end{lstlisting}
+    \end{minipage}
+
+    Alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun vom Computer ignoriert, was durch eine andere Färbung in Eclipse deutlich wird.
+\end{Infobox}
+
+
+\begin{Infobox}[Fehler]
+    Einige Aufgaben in Blatt 1 (auch auf den anderen Blättern) verlangen von dir den Code absichtlich kaputtzumachen.
+    Ziel davon ist es das du die verschiedenen Fehler bereits kennenlernst.
+    Achte also bei solchen Aufgaben darauf, welche Änderung zu welchem Fehler geführt hat.
+    Falls du nun später einen Fehler beim Programmieren machst, kann dir dieses Wissen helfen den Code zu reparieren.
+
+    Du brauchst auch keine Angst haben, dass du etwas nachhaltig kaputt machen könntest.
+    Eclipse hat eine \q{Undo}-Funktion welche Änderungen rückgängig macht.
+    Diese findest du im Menü oben unter \fbox{edit} (deutsch \fbox{Bearbeiten}) oder über wird ausgeführt durch \fbox{Strg + z}.
+    Falls du trotzdem Hilfe brauchst, kannst (\emph{und sollst!}) du dich gerne bei den Tutoren melden.
+\end{Infobox}
+
+
+\begin{Infobox}[Dokumentation / JavaDoc]
+    Da du normalerweise nicht alleine an dem Code arbeitest musst du ihn nicht nur übersichtlich halten, sondern auch dokumentieren.
+
+    Wie du vielleicht bereits gemerkt hast, ist das sehr hilfreich eine gute Dokumentation zu haben.
+    Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\\
+
+    Diese Dokumentation kannst du zum Beispiel online nachschauen oder direkt in der IDE (Eclipse) indem du den Mauszeiger über den Namen einer Operation bewegst, wird ein Kasten mit der Dokumentation dieser Operation angezeigt.
+\end{Infobox}
+
+\begin{Infobox}[Autocompletion]
+    Sobald du ein Objekt instanziiert (erstellt) hast und in eine Variable speicherst, kannst du hinter den Variablennamen einen Punkt '.' eingeben.\\
+    Jetzt wird eine Liste von allen möglichen Attributen und Operationen angezeigt, die zu dem Objekt gehören.
+    So kann man recht schnell alle möglichen Operationen durchsuchen, die mit diesem Objekt möglich sind.\\
+    Falls du also mal nicht weiter weißt, probiere doch einfach mal das und nutze das am vielversprechende.\\
+
+    Alle Objekte in Java haben die Operationen \lstinline{equals(...)}, \lstinline{getClass()}, \lstinline{hashCode()}, \lstinline{notify()}, \lstinline{notifyAll()}, \lstinline{toString()} und \lstinline{wait(...)}.
+    Diese Operationen kannst du meistens ignorieren.
+    Am häufigsten werden von diesen Operationen die Operationen \lstinline{equals(...)} und \lstinline{toString()} benötigt.
+\end{Infobox}
+
+\begin{Infobox}[Nützliche Shortcuts]
+    Wenn du die Maus über z.B. \lstinline{Game} bewegst, siehst du ein Overlay mit der Dokumentation.
+	Das funktioniert auch an anderen Stellen im Code. Sollte sich das Overlay nicht öffnen, dann kannst du \fbox{F2} drücken.\\
+	\\
+	Wenn du \fbox{Strg + Shift + f} (Shift ist die Taste mit der man Großbuchstaben schreibt) drückst, formatiert Eclipse den Code für dich.
+	Dies ändert nichts an der Funktionsweise des Codes, sondern sortiert den Code nur so um, dass er besser lesbar und einheitlich aussieht.\\
+	\\
+	Mit der Tastenkombination \fbox{Shift + Alt + r} kommst du in den \q{Refactor}-Modus, in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
+	Das Gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.\\
+	\\
+	Mit \fbox{Strg + Shift + l} kannst du eine Liste alle Tastenkombinationen ansehen.\\
+	\\
+	Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
+	Wenn du \fbox{Strg + F11} drückst wird das Programm gestartet/so zu sagen der Run Button gedrückt.
+\end{Infobox}
+
+\newpage

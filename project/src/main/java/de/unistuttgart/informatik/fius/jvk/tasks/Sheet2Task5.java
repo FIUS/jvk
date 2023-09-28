@@ -3,7 +3,6 @@ package de.unistuttgart.informatik.fius.jvk.tasks;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
@@ -19,8 +18,8 @@ public class Sheet2Task5 implements Task{
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         buildEnvironment(pm);
 
-        Neo player = new Neo();
-        pm.placeEntityAt(player, new Position(0, 0));
+        Neo neo = new Neo();
+        pm.placeEntityAt(neo, new Position(0, 0));
 
         // Implement (sub)tasks here
         

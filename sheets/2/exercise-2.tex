@@ -1,29 +1,27 @@
 %!TEX root = ./jvk-blatt2.tex
 
-\excercise{Exceptions - Mit dem Kopf durch die Wand}
+\excercise{Exceptions}
 
 Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren. 
 Dabei soll Neo in einem potenziell gefährlichen Situation so schnell wie möglich zur nächsten Telefonstation laufen.
 
 \begin{enumerate}
-    \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. 
-        Benutze dabei den Task aus der Klasse \lstinline{Sheet2Task2} und den Verifier aus \lstinline{Sheet2Task2Verifier}.
+    \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task2} und \lstinline{Sheet2Task2Verifier}) und mache dich mit dieser vertraut.
     \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
         Betrachte die Klasse \lstinline{Sheet2Task2} mit der Operation \lstinline{run} an der markierten Stelle.
 
-        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kann.
-        Eine geeignete Stelle ist eine beliebige Position ($x$, 0) für $1 \leq x \leq 9$.
+        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kann und platziere es dort.
 
         Was passiert, wenn man jetzt die Simulation wie zuvor ausführt?\\
-        Zum genaueren Verständnis was nun passiert ließ den folgenden Abschnitt.
+        
 \end{enumerate}
 
-
+\textbf{Antwort}: Es wird  eine Excepion geworfen.\\
 \begin{Infobox}[Exception]
     Eine Exception ist ein Fehler der beim Ausführen des Programmes passieren kann wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\\
 
 
-    \textbf{Notiz}: Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions und Errors,... wir wollen das ganze hier mal vereinfachen, auch wenn es vielleicht dann nicht hundertprozentig genau ist.\\
+    \textbf{Notiz}: Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions und Errors,... wir wollen das ganze hier mal vereinfacht betrachten. Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\\
 
     Als nächstes wollen wir den Aufbau einer Exception genauer verstehen.
     Überlege dazu was der folgende Programmausschnitt macht:
@@ -51,16 +49,16 @@ java.lang.ArithmeticException: / by zero
     at de.unistuttgart.informatik.fius.jvk.Main.main(Main.java:5)
     \end{lstlisting}    
 
-    Im folgenden wollen wir kurz über ein paar für uns interessante Inhalte der Fehlermeldung reden:
+    Der Inhalt der Fehlermeldung, lässt sich in folgende Teile aufteilen:
 
     \begin{enumerate}[label=\roman*)]
         \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden.\\
             In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
         \item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggfs. mehr Informationen über den Fehler selbst geben.\\
             In unserem Fall ist die Nachricht \lstinline{"/ by zero"}.
-        \item Fehlerstelle im Programm: Der Stacktrace (Weg von da wo die Exception passiert ist zu dem Aufrufer der Operation bis hin zur main Methode welcher der Programmeinstieg ist) der Exception beinhaltet weiterhin Informationen, wo im Programm die Exception geflogen also passiert ist.\\
-            Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception in der \lstinline{Main} Klasse in der \lstinline{divide}
-        Operation in Zeile 9 geflogen ist.
+        \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, wo im Programm die Exception geflogen also passiert ist. Genauer, welche Klassen wo Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
+            Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception expliziet in der \lstinline{Main} Klasse in der \lstinline{divide}
+        Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte. 
     \end{enumerate}
 
 \end{Infobox}
@@ -88,11 +86,12 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
             \item[ii)] In welcher Operation wurde die Exception geworfen?
             \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!
 
-            \textbf{Tipp}: Schaue dazu in die Console.
+            \textbf{Tipp}: Schaue dazu in die Console.\\
+            \textbf{Warum diese Analyse}: Stacktraces können vorallem bei komplexerem Code helfen rauszufinden, was wo nicht funktioniert und helfen somit bei der Fehlersuche.
         \end{enumerate}
 
     \item Wie wir gelernt haben sind Exceptions ein Anzeichen das etwas passiert ist was nicht passieren sollte, jetzt wollen wir die Exception verhindern.\\
-        Dazu benutzen wir die Technik des Auskommentierens die ihr in Blatt 1 gelernt habt.\\
+        Dazu benutzen wir die Technik des Auskommentierens die ihr in Blatt 1 Aufgabe 2 gesehen habt.\\
         Kommentiert in \lstinline{Sheet2Task2} so lange \lstinline{.move()} Kommandos aus, bis die Exception nicht mehr auftritt.
 
         Spielt die Reihenfolge in der ihr die Kommandos auskommentiert eine Rolle für das Ergebnis?
@@ -105,7 +104,7 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
     \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{.move()} Aufrufen jeweils Leerzeilen einfügt?
     \item \optional Versuche möglichst viele unterschiedliche Möglichkeiten zu finden, um die Exception zu verhindern ohne eine der Zeilen vor dem Kommentar zu verändern.
         Werde Kreativ und versuche auch drastische Lösungen wie eine Wand zu löschen.\\
-        Du kannst für diese Aufgabe auch Code von anderen Klassen vorübergehend ändern, solltest diese Änderungen aber hinterher wieder rückgängig machen.
+        Du kannst für diese Aufgabe auch Code von anderen Klassen vorübergehend ändern, solltest diese Änderungen aber hinterher auf jeden Fall wieder rückgängig machen.
         Wie viele unterschiedliche Möglichkeiten kannst du finden?
 \end{enumerate}
  

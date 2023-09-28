@@ -2,7 +2,7 @@
 
 %% Basic:
 \def\kurs{Java Vorkurs}
-\def\semester{2022}	%TODO: Rausnehmen (?)
+\def\semester{2023}	%TODO: Rausnehmen (?)
 \def\simulator{Matrix-Simulator}
 
 %% Links:
@@ -11,10 +11,11 @@
 \def\eclipseTutorial{https://youtu.be/zxH3G1MTrVs}
 \def\jvkpackage{Release 1.0.1}
 \def\javadocRoot{https://fius.github.io/ICGE2/master/}
-\def\jvkpackageurl{https://github.com/FIUS/jvk/releases/tag/1.0.1}
+\def\jvkpackageurl{https://github.com/FIUS/jvk/releases/latest}
+
 
 %% Java:
-\def\jvkpackage{JavaVorkurs\_EclipseProjekt.zip}
+\def\jvkpackage{JVK.Source.Code.zip}
 \def\javaPackageName{de.unistuttgart.informatik.fius.jvk}
 \newcommand\ownclass{\lstinline|MyNeo|}
 \newcommand\superclass{\lstinline|Neo|}

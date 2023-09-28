@@ -26,7 +26,6 @@ public class Sheet2Task2 implements Task{
         // TODO: Implement Task 2 b) (spawn your wall here)
 
 
-
         // All tasks after b) should only modify code after this comment!
 
         neo.move();
