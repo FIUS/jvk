@@ -15,7 +15,7 @@
 
 
 %% Java:
-\def\jvkpackage{JVK.Source.Code.zip}
+\def\jvkpackage{Source code (zip)}
 \def\javaPackageName{de.unistuttgart.informatik.fius.jvk}
 \newcommand\ownclass{\lstinline|MyNeo|}
 \newcommand\superclass{\lstinline|Neo|}
