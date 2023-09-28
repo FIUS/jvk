@@ -1,40 +1,68 @@
-% !TeX root = ./jvk-blatt4.tex
-\excercise{Ein Zauberhaftes Lächeln}
-\begin{enumerate}
-    \item Passe die Main Operation an die Aufgabe an. Verwende \lstinline{Sheet4Task1}. Verifier brauchst du nicht setzen weil es in auf diesem Blatt keine gibt.
-    \item Zeichne, mit Hilfe des \lstinline{PlayfieldModifiers}, einen Smiley auf das Feld.
-    \\ \includegraphics[width=\linewidth]{./figures/smily.png}
-    \item Zeichne den Smiley mit Hilfe von Shapes. Du kannst dafür z.B. das Pixel Shape verwenden.
-    \item Erstelle eine eigene Shape-klasse für Smilies und geb ihr einen Namen.
-    \begin{Infobox}[Eclipse Class wizard]
-        Wenn du im Package Explorer von Eclipse einen Rechtsklick machst, gibt es die Option new.
-        Damit bekommst ein kleines Menü an die Hand um zum Beispiel eine Klasse zu erstellen.
-    \end{Infobox}
-    \item Füge das Interface Shape hinzu.
-    \begin{lstlisting}[title=Interface Syntax,frame=ltr]
-        class <ClassName> implements <InterfaceName>
-        {
-            /...
-    \end{lstlisting}
-    \begin{Infobox}[Interface]
-        Interfaces werden auch als Verträge bezeichnet.
-        Wenn wir das Interface Shape hinzufügen, dann gehen wir einen Vertrag ein, dass wir ein Shape bauen.
-        Das heißt jeder kann unser Shape wie jedes andere Shape verwenden.
-        Damit das geht müssen wir aber jede Operation haben, die auch im Interface verwendet wird.
-        Das machen wir indem wir die Operation (mit dem gleichen Namen, Parametern und Modifern) bei uns rein schreiben und davor (am besten in eine eigene Zeile) \lstinline{@Override}.
-    \end{Infobox}    
-    \item Implementiere den Konstruktor und baue darin das Smiley-shape zusammen. So wie du es in c) gemacht hast.
-    \item Ein Shape muss eine ganz bestimmte Operation von Interface überschreiben, nämlich \lstinline{public Iterator<Position> iterator()}.
-    Darin brauchen wir aber das Shape die wir vorhin bereits erstellt haben.
-    Das steht aber in einer Variable vom Konstruktor.
-    Die Lösung ist einfach: Wir ziehen die Variable aus dem Konstruktor, direkt in die Klasse.
-    Wie bei den Operationen schreiben wir auch hier einfach mal ein  \lstinline{modifier} davor. Diesmal aber \lstinline{private}.
-    Nun kann jede Operation und  jeder Konstruktor dieselbe Variable verwenden.
+% !TeX root = ./jvk-blatt1.tex
 
-    Wir wollen jetzt aber nicht einen eigenen Iterator schreiben oder kreieren. Also geben wir einfach zurück, was die Iterator-funktion des Pixel-shape uns zurückgibt.
-    \item Wie eine Operation kann auch ein Konstruktor Parameter haben.
-    Erstelle einen oder Mehrere, mit denen du eine Position mit geben kannst, an der das Smiley gezeichnet wird
-    und zeichen ein paar an verschiedenen positionen.
+\excercise{Eine API verwenden / Doku lesen}
+\label{ex4}
+
+\begin{enumerate}
+    \item 
+    Passe die Main Operation an die Aufgabe an.\\
+		Verwende \lstinline{Sheet4Task1} und \lstinline{Sheet4Task1Verifier}.
+\end{enumerate}
+
+
+
+\begin{enumerate} \setcounter{enumi}{1}
+    
+
+    \item Nachdem wir auf Blatt 1 die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}.
+        Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. \\
+        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können.\\
+
+        Versuche entweder mit Autocomplete von Eclipse oder mit der Dokumentation auf \url{\javadocRoot} herauszufinden, wie diese heißen.\\
+
+        Falls du noch mehr Infos brauchst über Operationen o.ä. findest du die Dokumentation der \newline \lstinline{PlayfieldModifier} Klasse unter dem Link \url{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}.
+
+        Am besten überfliegst du sie einfach kurz.
+
+\end{enumerate}
+
+
+
+\begin{enumerate} \setcounter{enumi}{2}
+    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Münzen in einer Zelle platzieren.
+
+        Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert.
+
+        Du sollst also nicht 19mal den Code kopieren um eine Münze zu erzeugen!
+
+        Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
+        Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
+\end{enumerate}
+
+
+
+
+\begin{enumerate} \setcounter{enumi}{3}
+    \item Platziere nun 3 horizontale Reihen mit jeweils 7 Münzen länge.
+        Diese sollen jeweils ein Feld Abstand zueinander haben.
+
+        Nutze dafür die Klasse \lstinline{Line}.\\
+        Sie befindet sich im Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes}.\\
+
+        Die Line Klasse erwartet eine Startposition und auch eine Endposition.\\
+        Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
+
+        Übrigens: In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest du die anderen Shapes aus unserer Shape Sammlung.
+
+    \begin{lstlisting}
+// Beispiel: eine Reihe von der Position (0,0) bis (5,0)
+Position start = new Position(0,0);
+Position end = new Position(5,0);
+
+Line myLine = new Line(start, end);
+    \end{lstlisting}
+
+    %TODO f) optional andere Shapes
 \end{enumerate}
 
 \newpage

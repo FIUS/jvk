@@ -16,12 +16,12 @@ import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.icge.ui.GameWindow;
 import de.unistuttgart.informatik.fius.icge.ui.TextureRegistry;
 import de.unistuttgart.informatik.fius.icge.ui.WindowBuilder;
-
 import de.unistuttgart.informatik.fius.jvk.provided.Game;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 import de.unistuttgart.informatik.fius.jvk.tasks.*;
 import de.unistuttgart.informatik.fius.jvk.verifier.*;
+
 
 /**
  * Main class of the project
@@ -29,7 +29,7 @@ import de.unistuttgart.informatik.fius.jvk.verifier.*;
  * @author Tim Neumann
  */
 public class Main {
-
+    
     /**
      * The main entry point of the project
      *
@@ -38,5 +38,6 @@ public class Main {
      */
     public static void main(String[] args) {
         // implement task 1 (from sheet 1) here
+        
     }
 }

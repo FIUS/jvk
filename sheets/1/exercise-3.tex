@@ -1,14 +1,14 @@
 % !TeX root = ./jvk-blatt1.tex
 
-\excercise{DemoTask und UI}
+\excercise{Task und UI}
 \label{ex3}
 
 \begin{enumerate}
     \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten.
-        Dieses Mal nur mit dem \lstinline{DemoTask} und noch ohne den \lstinline{DemoTaskVerifier}:
+        Dieses Mal nur mit dem \lstinline{Sheet1Task3Task} und noch ohne den \lstinline{Sheet1Task3TaskVerifier}:
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new DemoTask());
+Game myGame = new Game("Hello World", new Sheet1Task3Task());
     \end{lstlisting}
 
     Du startest das Spiel in der Variable \lstinline{myGame} indem du die Operation \lstinline{run()} darauf aufrufst.
@@ -21,15 +21,15 @@ myGame.run();
 
     \vspace{5mm}
 
-    \item In der vorherigen Teilaufgabe hattest du bereits ''Hello World'' und ein DemoTask Objekt an Game übergeben.
-        Nun wollen wir noch ein DemoTaskVerifier Objekt übergeben.\\
+    \item In der vorherigen Teilaufgabe hattest du bereits ''Hello World'' und ein Task Objekt an Game übergeben.
+        Nun wollen wir noch ein TaskVerifier Objekt übergeben.\\
         Orientiere dich dazu unten am Bild. Starte nachdem du fertig bist das Spielfenster neu. \\
 
         Was verändert sich im Spielfenster?
         Finde den \q{Task Status} Tab und drücke den Refresh Button.
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
+Game myGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3TaskVerifier());
     \end{lstlisting}
 
 \end{enumerate}
@@ -52,10 +52,15 @@ Game myGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
     In der Konsole siehst du, dass eine Münze (\texttt{Coin}) gespawnt (erzeugt) wurde.
     Finde die Koordinaten des Feldes, auf welchem die Münze gespawnt wurde.
 
-    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{DemoTask}, in dem die erste Münze erzeugt wird.\\
+    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{Sheet1Task3Task}, in dem die erste Münze erzeugt wird.\\
 
-        Kleiner Tipp:
-        Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
-        Alternativ kannst du über den PackageExplorer in das Paket\\
-        \texttt{de.unistuttagrt.informatik.fius.jvk.tasks} navigieren und dort die Datei \texttt{DemoTask.java} mit einem Doppelklick öffnen.
+    \item Nun wollen wir endlich mal selber Münzen auf das Spielfeld platzieren.
+        Hierfür bearbeitest du die Klasse \lstinline{Sheet1Task3}.\\
+        Platziere mindestens 5 Münzen auf beliebigen Felder.
+
+        Benutze den \q{Task Status} um herauszufinden, ob du die Aufgabe erfolgreich gelöst hast.
+
+        Wie ist der Zusammenhang zwischen Position der Münze und die Koordinaten im Koordinatensystem?
+
+        Tipp: Wenn du nicht genau weißt, wie man eine Münze erzeugt, schaue dir den Code, welchen du in Teilaufgabe d) gefunden hast, nochmal an.
 \end{enumerate}

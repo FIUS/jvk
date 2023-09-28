@@ -1,34 +1,61 @@
-% !TEX root = ./jvk-blatt2.tex
+%!TEX root = ./jvk-blatt2.tex
 
-\excercise{I have the largest pockets}
+\excercise{Conditions}
 
-In dieser Aufgabe wollen wir eine neue Funktion unserer Spieler einführen. 
-Wer die Doku aufmerksam gelesen hat, kennt sie vielleicht schon:
-Unsere Spieler können Goldmünzen aufheben und niederlegen. 
-Dazu stehen die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} zur Verfügung.
+In dieser Aufgabe wollen wir uns Conditions näher anschauen.
 
-\begin{enumerate}
-    \item Setze nun den Task und Verifier (\lstinline{Sheet2Task4} und \lstinline{Sheet2Task4Verifier})
-    \item Auf dem Spielfeld siehst du viele Goldmünzen.
-        Wenn der Spieler auf einem Feld mit Münzen steht kann er mit dem Kommando \lstinline{collectCoin()} eine Münze aufheben.\\
-        Lass Neo nun alle Goldmünzen auf dem Spielfeld aufheben.
-    \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen auf welchem sich Neo befindet.\\
-        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die dein Spieler aufgesammelt hat auf das Feld (3,3) zu legen.
-    \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
-        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
-        Überprüfe deine Vermutung auch auf dem Spielfeld.\\
-        Teste zum Beispiel ob du eine Münze ablegen kannst bevor du eine Münze aufgehoben hast.
-        Oder teste ob du Münzen aufheben kannst, die vor dir liegen.
+\begin{enumerate}                           
+    \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task4} und \lstinline{Sheet2Task4Verifier}) und mache dich mit dieser vertraut.
+        Was passiert bei der Ausführung?
 \end{enumerate}
 
+\begin{Infobox}[Boolean Werte]
+    Um if Conditions verstehen zu können, müssen wir uns zuerst Boolean Werte anschauen. Boolean Werte sind Variablen, welche nur den Wert \lstinline{true} oder \lstinline{false} (also wahr oder falsch) annehmen können. \\
 
-\begin{Infobox}[Vor- und Nachbedingungen]
-    Damit Operationen richtig funktionieren, müssen oft bestimme Bedingungen gelten, bevor man diese aufruft.\\
-    Z.B. darf sich bei dem \lstinline{move()} Kommando vor dem Spieler keine Wand befinden.\\
-    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie Vorbedingungen.\\
-    Meistens findet man diese Vorbedingungen im Javadoc Kommentar (Dokumentation) der Operation.\\
-
-    So wie bei Vorbedingungen bestimmte Zustände gelten müssen bevor man die Operation aufrufen darf, sind Nachbedingungen Zustände die nach einer Operation gelten.\\
-    Nach dem Ausführen von \lstinline{move()} hat sich der Spieler eine Position nach vorne (in seine Blickrichtung) bewegt.\\
-    Das gilt allerdings, nur wenn vor dem Aufruf von \lstinline{move()} die Vorbedingungen erfüllt sind z.B. es darf sich keine Wand vor dem Spieler befinden.
+    Die Funktion \lstinline{player.canMove()} zum Beispiel gibt den boolschen Wert \lstinline{true} zurück wenn der Player (z.B. Neo) eine Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse. 
+    
 \end{Infobox}
+
+\begin{Infobox}[IF-Condition]
+    Nun betrachten wir ein beispielhaftes IF-Statement:
+
+    \begin{lstlisting}[breaklines=true, numbers=none]
+        if (player.canMove()) {
+            player.move();
+        } 
+    \end{lstlisting}
+
+    Das beispilehafte IF-Statement bedeuted informal, dass falls player.canMove() den boolschen Wert \lstinline{true} hat, wird player.move() ausgeführt. Falls player.canMove() den boolschen Wert \lstinline{false} hat wird der Code in den eckigen Klammern übersprungen.
+
+    \begin{lstlisting}[breaklines=true, numbers=none]
+if (player.canMove()) {
+    player.move();
+} else {
+    System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
+}
+    \end{lstlisting}
+
+    Nun wurde noch ein ELSE-Statement angehängt. Dadurch dient der Code als Verzweigung mit der Bedingung, falls etwas gilt mache etwas, falls nicht mache irgendwas anderes. In unserem Beispiel, falls player.canMove() den boolschen Wert \lstinline{false} hat wird auf der Konsole der Text "Morpheus: There is a difference between knowing the path and walking the path" ausgegeben.\\
+
+    Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den eckigen Klammern belibig viel Code stehen kann, nicht nur eine Zeile wie in unserem Beispiel.
+\end{Infobox}
+
+
+\begin{enumerate} \setcounter{enumi}{1}
+    \item Betrachte die Operation \lstinline{movement} der Klasse \lstinline{Sheet2Task4}.\\
+        Füge das obige IF-Statement an einer geeigneten Stelle ein und führe die Simulation erneut aus.
+        Dabei sollten die dann noch vorhandenen \lstinline{.move()} Kommandos in den ersten Code-Block vom IF verschoben werden.
+        Der \lstinline{else} Code-Block soll erstmal leer bleiben.
+    \item Schließe nun das Fenster und öffne es erneut.
+        Lösche die Wand in dem Spielfenster.
+        Dazu musst du oben rechts das rote Minus auswählen und dann auf die Wand klicken.
+        Starte dann die Simulation.\\
+        Neo sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
+    \item Jetzt wollen wir den Code so anpassen, dass Neo die Telefonstation auch erreicht wenn eine Wand im Weg ist.
+
+        Du musst also einmal den Fall betrachten, dass keine Wand im Weg ist und einmal den Fall, dass eine Wand im Weg ist.\\
+
+        Überprüfe deinen Code indem du einmal die Simulation startest ohne die Wand zu löschen und einmal wenn du die Wand davor gelöscht hast.
+        In beiden Fällen sollte Neo die Telefonzelle erreichen.
+
+\end{enumerate}

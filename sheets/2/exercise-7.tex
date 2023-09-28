@@ -1,179 +1,162 @@
-%!TEX root = ./jvk-blatt2.tex
 
-\excercise{Wenn ich mich doch nur nach links drehen könnte}
+
+\excercise{Objekte und Klassen}
+
+\begin{Infobox}[HowTo: Klassen und Objekte auseinander halten]
+    Klassen kann man sich wie Baupläne für Objekte vorstellen.\\
+    Während Objekte nach dem in den dazugehörigen Klassen definierten Bauplänen gebaute Instanzen.\\
+
+    Beispiel: Wir haben eine Klasse Student.
+    Die Klasse definiert dabei, dass ein Student folgende Eigenschaften und Operationen haben soll aber befüllt die Eigenschaften noch nicht mit Werten:
+
+    \begin{itemize}
+        \item name
+        \item age
+        \item getName()
+        \item tellAboutMyself()
+        \item learn()
+        \item eat()
+    \end{itemize}
+
+    Ein Objekt wäre dabei ein spezifischer Student, also z.B. Du.\\
+    Dabei hast du einen Namen und ein Alter.
+    Ebenso kannst du folgende Operationen ausführen wie lernen, essen und über dich was erzählen.\\
+    Es kann aber auch insbesondere mehrere Objekte von einer Klasse geben z.B. dein Nebensitzer ist demnach auch ein (anderes) Objekt der Klasse Student.\\
+    In Java könnte das dann so aussehen:
+
+    \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
+class Student {
+
+        private String name;
+        private int age;
+        // ...
+
+        public String getName() {
+            return this.name;
+        }
+
+        public void tellAboutMyself() {
+            System.out.println("Hello I'm " + this.getName() + ". I'm " + age + " old!";
+        }
+
+        public void learn() {
+            // Some Code for learning
+        }
+
+        public void eat(Food food) {
+            // Some Code to eat the food
+        }
+}
+
+    \end{lstlisting}
+\end{Infobox}
 
 \begin{enumerate}
-    \item Instanziiere den Task (\lstinline{Sheet2Task7} und den Verifier \lstinline{Sheet2Task7Verifier}).
-    \item Lasse Neo im Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
-        Implementiere das Verhalten an der markierten Stelle in der Klasse \lstinline{Sheet2Task6}.
-    \item Lasse nun Neo gegen den Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
-        Welche der beiden Varianten ist die schnellere?
+    \item Wir haben hier ein paar Klassen. Erweitere sie um je drei weitere Eigenschaften. Der Stuhl ist ein Beispiel:
 
-    \textbf{Hinweis}: Du kannst dir die Zeit des aktuellen Zeitpunktes der Simulation mit dem folgenden Programmcode auf der Konsole ausgeben lassen.
+    \begin{tikzpicture}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A) {\textbf{Stuhl}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B) {Marke\\Farbe\\Beinanzahl\\Material\\};
 
-        \begin{lstlisting}
-    Long time = sim.getSimulationClock().getLastTickNumber();
-    System.out.println(time);
-        \end{lstlisting}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (3.5,0) {\textbf{Auto}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (3.5,0) {Marke\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
 
-        Neo kann sich nicht einfach nach links drehen.
-        Das wollen wir jetzt ändern.
-        Dazu müssen wir aber erstmal etwas über Operationen lernen.
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (7,0) {\textbf{Haus}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (7,0) {Fensteranzahl\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (10.5,0) {\textbf{Buch}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (10.5,0) {Autor\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+    \end{tikzpicture}
+
+    \item Nun überlege dir zu jeder Klasse drei verschiedene Objekte.
+        Dabei kannst du auch fantasie Eigenschaften z.B. Marke SitztGut nutzen, falls dir sonst nichts realistisches einfällt.\\
+        Wenn ihr in einer Gruppe zusammenarbeitet sollte sich jeder selbst ein Objekte ausdenken.
+
+    \item Identifiziere im folgenden Text drei vorkommende Klassen mit jeweils drei Eigenschaften:
+
+    \begin{quotation}
+        Die BilligMöbel GmbH ist ein Unternehmen mit 1000 Mitarbeitern.
+        Die Akte jedes Mitarbeiters enthält seinen Namen und Alter sowie sein Gehalt und seine Kontonummer.
+        Aufgrund von Massenproduktion kann das Unternehmen seine Möbel sehr billig verkaufen.
+        So werden beispielsweise Stühle für 10€, Liegen für 15€ und Schränke für 32€ angeboten.
+        Alle Möbelstücke sind aus Plastik oder Holz sowie in verschiedenen Farben erhältlich.
+        In einer Kundenkartei vermerkt das Unternehmen jeweils das Geschlecht und die Postleitzahl ihrer Kunden sowie die Kosten des letzten Einkaufs.
+    \end{quotation}
 \end{enumerate}
 
+\begin{Infobox}[HowTo: Operationen von Objekten]
+    Klassen verfügen über Operationen, die von bzw. auf ihren Objekten ausgeführt werden können.
+    Als Beispiel betrachten wir ein Auto. Es kann fahren, bremsen, abbiegen und den Motor an-/abschalten.\\
 
-\begin{Infobox}[Operationen von Neo]
-    Wir wollen uns nun die Syntax von Operationen etwas genauer anschauen. 
-    Dafür betrachten wir beispielhaft den folgenden Programmcode:
-
-    \begin{lstlisting}[numbers=none]
-public class Neo extends Human {
-
-    // ...
-
-    public void turnAround() {
-        this.turnClockWise();
-        this.turnClockWise();
-    }
-
-    // ...
-}
-    \end{lstlisting}
-
-    In dem Beispiel haben wir die unwichtigen Zeilen durch \lstinline{// ...} Kommentare ersetzt.
-    Die Operation \lstinline{turnAround()} existiert noch nicht.\\
-
-    In Blatt 1 habt ihr schonmal die Syntax von Operationen kennengelernt.
-    Operationen müssen immer in einer Klasse definiert werden.
-    Die Operationen können dann auf ein spezielles Objekt der Klasse ausgeführt werden.\\
-
-    Um Neo eine neue Fähigkeit zu geben, müssen wir die Operation in der Klasse \lstinline{Neo} definieren.\\
-
-    Da \lstinline{turnAround()} ein Kommando ist, geben wir \lstinline{void} als Rückgabewert an.
-    Die leeren runden Klammern \lstinline{()} bedeuten, dass die Operation keinen Parameter hat.\\
-
-    Um in der Operation \lstinline{turnAround()} andere Operationen desselben Objekts aufzurufen, nutzen wir das Schlüsselwort \lstinline{this}.
-    Dieses Schlüsselwort kann ähnlich wie eine Variable verwendet werden und wird später auch nochmal genauer erklärt.\\
-
-    Ihr könnt den Wert von \lstinline{this} aber nicht selber bestimmen.
-    Java bestimmt den Wert von \lstinline{this} für euch (nämlich eine Referenz auf das aktuelle Objekt in der \lstinline{this} geschrieben wurde).\\
-
-    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{player}. aufgerufen habt.
-
+    Dabei können Operationen auch sogenannte Parameter besitzen wie z.B. abbiegen(links) oder fahren(50) (für 50 km/h).
+    Wie man genau bestimmt was diese Parameter bedeuten erklären wir noch.
 \end{Infobox}
-
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Anstatt Neo \textit{manuell} drei Mal im Uhrzeigersinn drehen zu lassen, wollen wir nun das fehlende Kommando \lstinline{turnCounterClockwise()} in der Klasse \lstinline{Neo} implementieren.
+    \item Überlege dir für die folgenden drei Klassen Operationen.
+    Es ist nicht notwendig Parameter zu verwenden.
+    Der Stuhl ist wieder ein Beispiel:
 
-        Finde dafür zunächst die richtige Klasse und die dazugehörige Stelle im Code, in welcher das Kommando eingefügt werden soll (diese Stelle ist auch durch ein Kommentar vorgegeben).
+    \begin{tikzpicture}
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A) {\textbf{Stuhl}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B) {Umfallen\\Ächzen\\Kaputt gehen\\};
 
-        Implementiere anschließend das fehlende Kommando \lstinline{turnCounterClockwise()}.
-        
-        Du kannst dafür die Operation aus dem Beispiel oben kopieren und den Namen anpassen.
-        Den Inhalt des Kommandos musst du natürlich auch noch anpassen.
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (3.5,0) {\textbf{Ampel}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (3.5,0) {Grün werden\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
 
-        Ebenso kannst du auch gleich noch das Kommando \lstinline{turnAround()} aus dem Beispiel an der gleichen Stelle einfügen.
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (7,0) {\textbf{Fernseher}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (7,0) {Kanal wechseln\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
 
-    \item Gehe als Nächstes zurück in die \lstinline{Sheet2Task7} Klasse und löse die Aufgabe c) ein weiteres Mal.
-        Diesmal solltest du aber das neue Kommando \lstinline{turnCounterClockwise()} benutzen, um Neo nach links zu drehen.
+        \node[draw, rectangle, minimum height=0.75cm,minimum width=3cm, anchor=south] (A1) at (10.5,0) {\textbf{Wecker}};
+        \node[draw, rectangle, minimum height= 4cm, minimum width=3cm,align=left, anchor=north] (B1) at (10.5,0) {$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\$\rule{2cm}{0.15mm}$\\};
+    \end{tikzpicture}
+
+    \item Überlege dir nun eine eigene Klasse und finde zu ihr 3 Eigenschaften und 3 Operationen.
+        Dann überlege dir 3 Objekte dieser Klasse mit unterschiedlichen Eigenschaften.\\
+        Wenn du in einer Gruppe arbeitest, könnt ihr gerne durchtauschen damit jeder Objekte für die Klasse eines anderen finden kann.
 \end{enumerate}
 
 
-\begin{Infobox}[Javadoc]
-    Du hast schon in mehreren Aufgaben Javadoc von Operationen gelesen.
+    \begin{Infobox}[Info: Objekte vs. reale Objekte]
+        Wichtig zu verstehen ist, dass Klassen und Objekte keine physischen Objekte repräsentieren müssen.\\
+        Man kann auch z.B. eine Klasse für Useraccounts oder eine Klasse für Personengruppen haben.\\
+        Auch werden Klassen verwendet, um technische Teile des Programms zu repräsentieren, wie z.B. das Fenster, welches angezeigt wird beim Starten der Simulation, oder ein Paket, das durchs Internet geschickt wird.
+    \end{Infobox}
 
-    Dieser befindet sich als Kommentar vor einer Operation oder Klasse.
+\begin{enumerate} \setcounter{enumi}{5}
+    \item \optional Versuche erneut drei Klassen mit je drei Eigenschaften  zu identifizieren. Diese Aufgabe soll etwas schwieriger sein als die c)
+    \begin{quotation}
+    Du betrittst das Gebäude und schaust dich um.
+    Es sind sehr viele Menschen hier.
+    Doch niemanden den du kennst, also bewegst du dich direkt auf den Aufzug zu.
+    Doch bevor du in dein Stockwerk fahren kannst, musst du deine Personalkarte vor den Leser halten.
+    Nachdem deine Sicherheitsstufe ausgelesen wurde, kannst du den Knopf für das 5. Stockwerk drücken.
+    Langsam fährt der Aufzug los.
+    Langsamer als sonst.
+    Larry wird ihn wohl wieder neu eingestellt haben.
 
-    Wie andere Kommentare wird er nicht als Programmcode ausgeführt.
-    Eclipse kann diese Kommentare aber benutzen und zeigt sie an, wenn man mit der Maus über einen Aufruf einer Operation fährt.
+    Im 5. Stockwerk angekommen erwartet dich ein Sicherheitsposten.
+    Er ist nur mit einer statt mit zwei Personen besetzt, doch das macht dir keine Sorgen.
+    Immerhin ist es Sonntag.
+    Der Mann fragt nach deiner Personalkarte und scannt sie.
+    Auf seinem Bildschirm taucht ein Foto auf, welches er mit deinem Gesicht vergleicht.
+    Doch ihm fällt nichts auf.
+    Also grüßt er dich und lässt dich vorbei.
+    Für einen Moment fragst du dich, woher er deinen Namen kennt, doch der wurde vermutlich einfach mit dem Foto angezeigt.
+    Heute ist einfach alles auf diesen Karten gespeichert.
 
-    \begin{lstlisting}[numbers=none]
-    /**
-     * Turn Neo around.
-     *
-     * This operation turns Neo around by calling
-     * turnClockWise twice. This operation will fail 
-     * if Neo is not on a Playfield of a Simulation.
-     *
-     */
-     public void turnAround() {
-        this.turnClockWise();
-        this.turnClockWise();
-    }
-    \end{lstlisting}
+    Du schlenderst durch das Labyrinth aus Gängen, bis du zu deinem Ziel kommst.
+    Die Tür ist unscheinbar und das Büro dahinter ist es auch.
+    Kaum 10 Quadratmeter groß.
+    Und die Fenster zeigen auf nichts Beachtenswertes.
+    Aber das ist dir egal.
+    Dich interessiert der Tresor in der obersten Schublade des Schreibtischs.
+    Ein Model 4452 von SuperSecure.
 
-    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt \lstinline{/*} anfängt.\\
-    
-    Der erste Satz ist eine kurze Beschreibung was die Operation macht.
-    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.\\
+    Du versicherst dich kurz, dass die Tür zu ist und dann machst du dich an das Knacken des digitalen Schlosses.
+    Es dauert kaum 2 Minuten, dann schwingt die 3cm dicke Stahltür auf und ermöglicht die Sicht auf einige USB-Sticks.
+    Schnell suchst du den blauen mit 16 GB Kapazität und lässt ihn in deiner Hosentasche verschwinden.
 
-    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.
-
-    In dem Javadoc Kommentar soll dabei insbesondere Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
-    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
-
-\end{Infobox}
-
-
-\begin{enumerate}\setcounter{enumi}{5}
-    \item Nun wollen wir natürlich dafür sorgen, dass andere Programmierer auch verstehen was passiert wenn sie das Kommando \lstinline{turnCounterClockwise()} benutzen.
-        Schreibe Javadoc für diese Operation.\\
-
-    \textbf{Hinweis}: Eclipse kann dir einen Javadoc Kommentar generieren, den du nur noch ausfüllen musst.
-
-        Dafür musst du in der Zeile direkt über der Operation anfangen \lstinline{/**} einzugeben.
-        Wenn du dann mit Enter eine neue Zeile anfängst, sollte Eclipse den Rest des Javadoc Kommentars für dich ergänzen.
-
-        Falls das nicht passiert, solltest du nochmal prüfen, ob du in der richtigen Zeile warst.
-
-    \item Die Dokumentation von Operationen soll überraschendes Verhalten bei der Ausführung verhindern.
-
-        Wenn du Neo um 180° umdrehen willst, kannst du dafür jetzt zweimal \lstinline{turnClockwise()} oder deine neue Operation benutzen.
-
-        Verhalten sich die beiden Operationen dabei gleich?
-
-        Wenn nein: Kannst du das unterschiedliche Verhalten vorhersagen, indem du nur die Dokumentation der beiden Operationen vergleichst?
-
-        Falls nicht, war deine Dokumentation noch nicht genau genug und du solltest sie nochmal verbessern.
+    Jetzt nur noch den gleichen Weg zurück.
+    \end{quotation}
 \end{enumerate}
-
-
-\begin{Infobox}[Javadoc Nachtrag]
-    Um Parameter, Rückgabewerte und möglicherweise auftretende Exceptions zu dokumentieren gibt es folgende Tags die man am Zeilenanfang eines Javadoc Kommentars schreiben kann:
-
-    \begin{enumerate}[label=\roman*)]
-        \item \lstinline{@param}: 
-            Gefolgt von einem Parameternamen (bspw. \lstinline{@param n}) erklärt die Bedeutung des Parameters n.
-            Die Reihenfolge der \lstinline{@param} Tags sollte mit der Reihenfolge der Parameter übereinstimmen, die an die Operation übergaben wird.
-        \item \lstinline{@return}: 
-            Beschreibt den zurückgegebenen Wert unter Annahme, dass die Eingabe korrekt ist und alle Vorbedingungen erfüllt sind.
-        \item \lstinline{@throws}: 
-            Gefolgt von der geworfenen Exception beschreibt unter welchen Bedingungen die genannte Exception geworfen wird.
-    \end{enumerate}
-
-    Beispiel für die Anwendung der Parameter:
-
-    \begin{lstlisting}[numbers=none]
-    /**
-     * Add two positive Intergers together.
-     * 
-     * @param numberA
-     *     the first positive Integer to add
-     * @param numberB
-     *     the second positive Integer to add
-     * @return the result of the addition of numberA and numberB
-     * @throws IllegalArgumentException
-     *     if one or both of the numbers are negative
-     */
-    public Integer addPositiveNumbers(Integer numberA, Integer numberB) {
-        if (numberA < 0) {
-            throw new IllegalArgumentException("The parameter numberA must be a positive Integer!");
-        }
-        if (numberB < 0) {
-            throw new IllegalArgumentException("The parameter numberB must be a positive Integer!");
-        }
-        return numberA + numberB;
-    }
-    \end{lstlisting}
-\end{Infobox}

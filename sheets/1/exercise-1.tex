@@ -61,78 +61,26 @@
     Aktuell musst du den Code noch nicht verstehen, es geht darum den Code Editor in Eclipse kennenzulernen.
     Achte also darauf was passiert während du die fehlenden Zeilen eingibst.
 
-    \includegraphics[width=\linewidth]{./figures/code.1.png}
+    \begin{lstlisting}
+        public class Main {
+            /**
+            * The main entry point of the project
+            *
+            * @param args
+            *     the command line args; not used
+            */
+            public static void main(String[] args) {
+            // implement task 1 (from sheet 1) here
+            Game demoGame = new Game("Hello World", new DemoTask(), new DemoTaskVerifier());
+            demoGame.run();
+                }
+        }   
+    \end{lstlisting}
 
     Wenn das Programm jetzt ausgeführt wird, geht ein Fenster mit der Simulator Ansicht auf.
     Suche als nächstes die (rote) Stop Taste in Eclipse um das Programm abzubrechen.
     Die Taste befindet sich in Eclipse unten in der Titelleiste der Console.
     \item Versuche nun den Code so zu verändern, dass dein Name im Fenstertitel steht.
-\end{enumerate}
-
-
-\begin{Infobox}[HowTo: Auskommentieren]
-    Manchmal möchte man, dass bestimmter Code nicht ausgeführt wird.
-    Vielleicht möchten man ihn erst später ausführen, ihn einfach nicht verlieren oder etwas Neues ausprobieren.
-    In solchen Fällen Kommentieren man die Code-Zeilen einfach aus.
-    Dies geht, indem du in der Code-Zeile zwei Schrägstriche (\emph{eng.} slashes)(\lstinline{//}) voranstellst.
-    Als Beispiel schaue dir folgenden Code an:\\
-
-    \hfill
-    \begin{minipage}{.96\textwidth}
-        \begin{lstlisting}
-    public void run(Simulation sim) {
-        PlayfieldModifier pm =
-                new PlayfieldModifier(sim.getPlayfield());
-        pm.placeEntityAt(new Coin(), new Position(0, 0));
-    }
-        \end{lstlisting}
-    \end{minipage}
-
-    Wenn du nun die letzte Zeile auskommentieren willst, dann stellt sich der Code wie folgt dar.\\
-
-    \hfill
-    \begin{minipage}{.96\textwidth}
-        \begin{lstlisting}
-    public void run(Simulation sim) {
-        PlayfieldModifier pm =
-                new PlayfieldModifier(sim.getPlayfield());
-        //pm.placeEntityAt(new Coin(), new Position(0, 0));
-    }
-        \end{lstlisting}
-    \end{minipage}
-
-    Alles ab den zwei Schrägstrichen bis zum Zeilen Ende wird nun vom Computer ignoriert, was durch eine andere Färbung in Eclipse deutlich wird.
-\end{Infobox}
-
-
-\begin{Infobox}[Fehler]
-    Einige Aufgaben in Blatt 1 (auch auf den anderen Blättern) verlangen von dir den Code absichtlich kaputtzumachen.
-    Ziel davon ist es das du die verschiedenen Fehler bereits kennenlernst.
-    Achte also bei solchen Aufgaben darauf, welche Änderung zu welchem Fehler geführt hat.
-    Falls du nun später einen Fehler beim Programmieren machst, kann dir dieses Wissen helfen den Code zu reparieren.
-
-    Du brauchst auch keine Angst haben, dass du etwas nachhaltig kaputt machen könntest.
-    Eclipse hat eine \q{Undo}-Funktion welche Änderungen rückgängig macht.
-    Diese findest du im Menü oben unter \fbox{edit} (deutsch \fbox{Bearbeiten}) oder über wird ausgeführt durch \fbox{Strg + z}.
-    Falls du trotzdem Hilfe brauchst, kannst (\emph{und sollst!}) du dich gerne bei den Tutoren melden.
-\end{Infobox}
-
-
-\begin{enumerate} \setcounter{enumi}{3}
-\item Finde heraus was passiert, wenn man die erste oder die zweite Zeile in der Main-Funktion auskommentiert.
-
-Hinweis: Nicht alle Varianten funktionieren zwangsläufig, Überlege warum dies der Fall sein könnte.
-\item Vielleicht sind dir beim Ausprobieren in a) schon einige Dinge aufgefallen, die der Eclipse Editor anders macht als Textverarbeitungsprogramme, wie zum Beispiel Word.
-Wenn du \lstinline{demoGame.} eingibst erscheint ein \textit{Overlay} mit möglichen \textit{Autocompletions}.
-Wenn du dann mit der Maus über andere Stellen im Code gehst, verschwindet das Overlay wieder.
-Öffne das Overlay manuell, indem du den Cursor direkt nach \lstinline{demoGame.} platzierst und \fbox{Strg + Space} (Space ist die Leertaste) drückst.
-\item
-Wenn du die Maus über \lstinline{Game} bewegst, siehst du ein Overlay mit der Dokumentation.
-Das funktioniert auch an anderen Stellen im Code.
-Was steht im Overlay von \lstinline{DemoTask()}? Sollte sich das Overlay nicht öffnen, dann kannst du \fbox{F2} drücken
-\item
-Wenn du \fbox{Strg + Shift + f} (Shift ist die Taste mit der man Großbuchstaben schreibt) drückst, formatiert Eclipse den Code für dich.
-Füge an verschiedenen Stellen neue Zeilen und Leerzeichen ein und beobachte was passiert, wenn du \fbox{Strg + Shift + f} drückst
 \end{enumerate}
 
 
@@ -144,15 +92,8 @@ Füge an verschiedenen Stellen neue Zeilen und Leerzeichen ein und beobachte was
 \end{Infobox}
 
 
-\begin{enumerate} \setcounter{enumi}{5}
+\begin{enumerate} \setcounter{enumi}{3}
 \item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
 Dafür benötigst du den folgenden Code, den du aber noch auf deinen Namen anpassen musst: \lstinline{demoGame.getGameWindow().setWindowTitle("");}
-\item \optional Benenne \lstinline{demoGame} in \lstinline{myDemoGame} um.
-Wenn du nur die eine Stelle \lstinline{Game demoGame} anpasst, wirst du eine Fehlermeldung bekommen.
-Mache deine Änderung nochmal rückgängig und platziere den Cursor in dem Wort \lstinline{demoGame}.
-Mit der Tastenkombination \fbox{Shift + Alt + r} kommst du in den \q{Refactor}-Modus, in dem du alle Vorkommen des Namens gleichzeitig umbenennen kannst.
-Das Gleiche geht auch über Rechtsklick > \fbox{Refactor} > \fbox{Rename}.
-
-Mit \fbox{Strg + Shift + l} kannst du eine Liste alle Tastenkombinationen ansehen.
 \item \optional Versuche, drei Fenster gleichzeitig zu starten.
 \end{enumerate}

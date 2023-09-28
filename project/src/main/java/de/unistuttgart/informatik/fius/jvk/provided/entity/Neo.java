@@ -24,7 +24,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.exceptions.NoCoinException;
  * @author Tim Neumann
  */
 public class Neo extends Human {
-
+    
     /*
      *   TODO: Implement the operation "turnCounterClockwise" here
      */
@@ -32,12 +32,12 @@ public class Neo extends Human {
     /*
      *   TODO: Paste your operation of sheet 3 task 4d here 
      */
-
+    
     @Override
     protected String getTextureHandle() {
         return Texture.NEO.getHandle(this.getLookingDirection());
     }
-
+    
     /**
      * collects a coin from the actual field
      *
@@ -46,11 +46,15 @@ public class Neo extends Human {
      */
     @InspectionMethod()
     public void collectCoin() {
-        if (!this.canCollectCoin()) throw new NoCoinException();
-        Coin coin = this.getCurrentlyCollectableEntities(Coin.class, true).get(0);
-        this.collect(coin);
+        if (this.canCollectCoin()) {
+            Coin coin = this.getCurrentlyCollectableEntities(Coin.class, true).get(0);
+            this.collect(coin);
+        } else {
+            throw new NoCoinException();
+        }
+        
     }
-
+    
     /**
      * drops a coin from Neo's inventory to the actual field
      *
@@ -62,7 +66,7 @@ public class Neo extends Human {
         if (!this.canDropCoin()) throw new NeoIsBrokeException();
         this.drop(this.getCurrentlyDroppableEntities(Coin.class, true).get(0));
     }
-
+    
     /**
      *
      * @return whether Neo can drop a coin
@@ -71,7 +75,7 @@ public class Neo extends Human {
     public boolean canDropCoin() {
         return this.getCurrentlyDroppableEntities(Coin.class, true).size() > 0;
     }
-
+    
     /**
      *
      * @return whether there is a coin to collect
@@ -83,12 +87,12 @@ public class Neo extends Human {
     
     /**
      * 
-     * @return a List of all Coins on Neos field 
+     * @return a List of all Coins on Neos field
      */
-    public List<Coin> getCurrentlyCollectableCoins(){
+    public List<Coin> getCurrentlyCollectableCoins() {
         return this.getCurrentlyCollectableEntities(Coin.class, true);
     }
-
+    
     /**
      * Add the amount of coins to the inventory
      *
@@ -109,7 +113,7 @@ public class Neo extends Human {
             }
         }
     }
-
+    
     /**
      * Helper Method that sets a fixed amount of coins for easier verification. Used in Verification of Task 2.1
      *
@@ -119,7 +123,7 @@ public class Neo extends Human {
     public void setCoinsInWallet(int amountOfCoins) {
         this.setCoins(amountOfCoins);//calling real method for good measure.
     }
-
+    
     /**
      * @return the number of coins in neos wallet
      */

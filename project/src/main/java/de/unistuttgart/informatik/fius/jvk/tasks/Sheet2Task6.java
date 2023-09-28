@@ -8,12 +8,23 @@ import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
-public class Sheet1Task4 implements Task {
+public class Sheet2Task6 implements Task{
+    private PlayfieldModifier pm;
+
+    public Sheet2Task6() {
+    }
 
     @Override
     public void run(Simulation sim) {
-        // Implementation here
+        this.pm = new PlayfieldModifier(sim.getPlayfield());
+        Neo neo = new Neo();
+        this.pm.placeEntityAt(neo, new Position(0, 0));
+        buildEnvironment();
 
+        //implement subtasks here
     }
 
+    private void buildEnvironment(){
+        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -1), new Position(9, 9)));
+    }
 }

@@ -14,19 +14,20 @@ import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Morpheus;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.GreedyNeo;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
 
 
 /**
- * @author Maximilian Reichel
+ * @author Sara Galle
  */
 public class Sheet3Task6 implements Task {
     
     @Override
     public void run(Simulation sim) {
-        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
-        
+        PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());      
         // put your implementation below this comment
         
     }
