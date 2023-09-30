@@ -3,25 +3,29 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.uni-stuttgart.informatik.fius</groupId>
 	<artifactId>FIUS-JVK</artifactId>
-	<version>1.0.1-Snapshot</version>
-	<name>JVK 2020 Project</name>
+	<version>1.1.0-Snapshot</version>
+	<name>JVK 2023 Project</name>
+
 	<properties>
-		<java.version>11</java.version>
-		<icge.version>2.3.6</icge.version>
+		<java.version>17</java.version>
+		<icge.version>2.3.6</icge.version> <!-- TODO update to the 2.3.7 snapshot ?? -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass> <!-- Class to be executed when running the jar/ mvn exec:java-->
 	</properties>
+
 	<repositories>
 		<repository>
 			<id>c-hack-internal</id>
-			<name>C-Hack Repositroy</name>
+			<name>C-Hack Repository</name>
 			<url>https://maven.c-hack.de/repository/internal/</url>
 		</repository>
 		<repository>
 			<id>c-hack-snapshot</id>
-			<name>C-Hack Repositroy Snapshot</name>
+			<name>C-Hack Repository Snapshot</name>
 			<url>https://maven.c-hack.de/repository/snapshot/</url>
 		</repository>
 	</repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>de.uni-stuttgart.informatik.fius</groupId>
@@ -29,23 +33,26 @@
 			<version>${icge.version}</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.11.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+			<!-- Creates jar including the dependencies -->
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.6.0</version>
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass>
+							<mainClass>${mainClass}</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
@@ -54,6 +61,7 @@
 				</configuration>
 				<executions>
 					<execution>
+						<id>make-assembly</id>
 						<phase>package</phase>
 						<goals>
 							<goal>single</goal>
@@ -63,17 +71,8 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.10</version>
-				<configuration>
-					<downloadSources>true</downloadSources>
-					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.1</version>
+				<version>3.6.0</version>
 				<configuration>
 					<additionalOptions>--show-packages=all</additionalOptions>
 					<excludePackageNames>de.unistuttgart.informatik.fius.jvk.tasks:de.unistuttgart.informatik.fius.jvk.verifier</excludePackageNames>
@@ -86,9 +85,9 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>1.6.0</version>
+				<version>3.1.0</version>
 				<configuration>
-					<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass>
+					<mainClass>${mainClass}</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
