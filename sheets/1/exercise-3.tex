@@ -4,8 +4,8 @@
 \label{ex3}
 
 \begin{enumerate}
-    \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten.
-        Dieses Mal nur mit dem \lstinline{Sheet1Task3Task} und noch ohne den \lstinline{Sheet1Task3TaskVerifier}:
+    \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten. Dazu ersetzen wir den \lstinline{ new demoTask} und \lstinline{new demoTaskVerifier} durch 
+        den \lstinline{Sheet1Task3Task} und noch ohne den \lstinline{Sheet1Task3TaskVerifier}:
 
     \begin{lstlisting}
 Game myGame = new Game("Hello World", new Sheet1Task3Task());
@@ -56,11 +56,12 @@ Game myGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3Task
 
     \item Nun wollen wir endlich mal selber Münzen auf das Spielfeld platzieren.
         Hierfür bearbeitest du die Klasse \lstinline{Sheet1Task3}.\\
-        Platziere mindestens 5 Münzen auf beliebigen Felder.
+        Platziere mindestens 5 Münzen auf beliebigen Feldern.
 
         Benutze den \q{Task Status} um herauszufinden, ob du die Aufgabe erfolgreich gelöst hast.
 
         Wie ist der Zusammenhang zwischen Position der Münze und die Koordinaten im Koordinatensystem?
 
         Tipp: Wenn du nicht genau weißt, wie man eine Münze erzeugt, schaue dir den Code, welchen du in Teilaufgabe d) gefunden hast, nochmal an.
+    \item Du kannst auch im Fenster selbst Münzen und Wände platzieren, dies geht rechts oben mit dem + und - Button. Versuche die Aufgabe e) nun nochmal zu lösen ohne im Code Münzen zu platzieren.
 \end{enumerate}

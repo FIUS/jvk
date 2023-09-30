@@ -46,7 +46,9 @@ public class Neo extends Human {
 
     In Blatt 1 habt ihr schonmal die Syntax von Operationen kennengelernt.
     Operationen müssen immer in einer Klasse definiert werden.
-    Die Operationen können dann auf ein spezielles Objekt der Klasse ausgeführt werden.\\
+    Diese Operationen können dann auf allen Objekten (= Instanzen
+der Klassen, im Code durch ein Konstruktoraufruf mit \lstinline{new} sichtbar) dieser Klasse ausgeführt
+werden\\
 
     Um Neo eine neue Fähigkeit zu geben, müssen wir die Operation in der Klasse \lstinline{Neo} definieren.\\
 
@@ -59,7 +61,7 @@ public class Neo extends Human {
     Ihr könnt den Wert von \lstinline{this} aber nicht selber bestimmen.
     Java bestimmt den Wert von \lstinline{this} für euch (nämlich eine Referenz auf das aktuelle Objekt in der \lstinline{this} geschrieben wurde).\\
 
-    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{player}. aufgerufen habt.
+    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{neo}. aufgerufen habt.
 
 \end{Infobox}
 
