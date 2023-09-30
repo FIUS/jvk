@@ -29,19 +29,23 @@ on:
 
 jobs:
   generate_javadoc:
+    permissions:
+      packages: write
     name: Generate Javadoc
     runs-on: ubuntu-latest
     steps:
     - name: Calculate ref
       run: echo "REF_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
-    - name: Setup java
-      uses: actions/setup-java@v1
+    - uses: actions/checkout@v3
+    - name: Setup Oracle JDK 17
+      uses: actions/setup-java@v3
       with:
-        java-version: 11
-    - uses: actions/checkout@v2
-    - name: Generate javadoc
-      run: cd ./project; ./mvnw -B install javadoc:javadoc
-    - name: Deploy
+        java-version: 17
+        distribution: oracle # Might also be the distribution used by the students
+        cache: maven
+    - name: Generate Javadoc with Maven
+      run: cd ./project; mvn -B install javadoc:javadoc
+    - name: Deploy Javadoc to `/project/target/site/apidocs/`
       uses: peaceiris/actions-gh-pages@v3.7.0-4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -69,4 +73,3 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
         commit_message: Update index
-
