@@ -8,7 +8,7 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<icge.version>2.3.6</icge.version> <!-- TODO update to the 2.3.7 snapshot ?? -->
+		<icge.version>2.3.7</icge.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass> <!-- Class to be executed when running the jar/ mvn exec:java-->
 	</properties>
@@ -85,7 +85,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
-				<version>3.1.0</version>
+				<version>3.0.0</version>
 				<configuration>
 					<mainClass>${mainClass}</mainClass>
 				</configuration>
