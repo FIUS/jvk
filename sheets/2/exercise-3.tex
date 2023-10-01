@@ -11,10 +11,8 @@ Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{
         Wenn Neo auf einem Feld mit Münzen steht kann er mit dem Kommando \lstinline{collectCoin()} eine Münze aufheben.\\
         Lass Neo nun alle Goldmünzen auf dem Spielfeld aufheben.
     \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen auf welchem sich Neo befindet.\\
-        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die Neo aufgesammelt hat auf das Feld (3,3) zu legen.
-    \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
-        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
-        \textbf{Tipp}: Überprüfe deine Vermutung auch auf dem Spielfeld.\\
+        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die Neo aufgesammelt hat auf das Feld (3,3) zu legen.\\
+        Hinweis: auf dem Spielfeld liegen genau 6 Münzen.
 \end{enumerate}
 
 
@@ -30,3 +28,45 @@ Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{
 
 
 \end{Infobox}
+\begin{Infobox}[Javadoc]
+    Im Zusammenhang mit Vor- und Nachbedinungen, ist wichtig zu erwähnen, dass diese im Javadoc einer Operation zu finden sind.
+
+    Dieser befindet sich als Kommentar vor einer Operation oder Klasse.
+
+    Wie andere Kommentare wird er nicht als Programmcode ausgeführt.
+    Eclipse kann diese Kommentare aber benutzen und zeigt sie an, wenn man mit der Maus über einen Aufruf einer Operation fährt.
+
+    \begin{lstlisting}[numbers=none]
+    /**
+     * Turn Neo around.
+     *
+     * This operation turns Neo around by calling
+     * turnClockWise twice. This operation will fail 
+     * if Neo is not on a Playfield of a Simulation.
+     *
+     */
+     public void turnAround() {
+        this.turnClockWise();
+        this.turnClockWise();
+    }
+    \end{lstlisting}
+
+    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt \lstinline{/*} anfängt.\\
+    
+    Der erste Satz ist eine kurze Beschreibung was die Operation macht.
+    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.\\
+
+    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.
+
+    In dem Javadoc Kommentar soll dabei insbesondere wir vorhin schon erwähnt Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
+    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
+
+    Mit \lstinline{Strg + Linksclick} kannst du dir den Javadoc zu einer Funktion asnzeigen lassn.
+
+\end{Infobox}
+
+\begin{enumerate}\setcounter{enumi}{3}
+    \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
+        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
+        \textbf{Tipp}: Überprüfe deine Vermutung auch auf dem Spielfeld.\\
+\end{enumerate}

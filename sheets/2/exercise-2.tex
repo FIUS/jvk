@@ -4,6 +4,7 @@
 
 Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren. 
 Dabei soll Neo in einem potenziell gefährlichen Situation so schnell wie möglich zur nächsten Telefonstation laufen.
+Für alle die Matrix nicht kennen, Tank ist der Antagonist.
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task2} und \lstinline{Sheet2Task2Verifier}) und mache dich mit dieser vertraut.
@@ -39,8 +40,16 @@ public class Main{
     }
 }
     \end{lstlisting}
+    Exkurs: Operatoren sind in eine Programmiersprache eingebaute Funktion, die durch ein
+Zeichen repräsentiert werden. Beispielsweise können wir zwei Zahlen durch den - -Operator
+voneinander abziehen, z.B. mit 42 - 73 . Damit wird das Ergebnis auch ansehen können und
+es nicht nur ausgeführt wird und dann verschwindet, kann man es entweder in einer Variable
+speichern oder etwa in anderen Funktionen verwenden. Wenn man beispielsweise das
+Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als
+Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
+Die meisten Programmiersprachen haben eingebaute, einfache Operatoren wie + , - , * oder /.\\
 
-    Dabei lässt sich erkennen, dass an irgendeinem Punkt der Programmausführung durch 0 geteilt wird.\\
+    Dabei lässt sich erkennen, dass in Zeile 9 der Programmausführung durch 0 geteilt wird.\\
     Dieses ungewollte (''verbotene'') Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich:
 
     \begin{lstlisting}[keywords={}, breaklines=true, numbers=none]
@@ -101,10 +110,6 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
 
     \textbf{Hinweis}: In Aufgabe 1 hast du noch ein weiteres Kommando kennengelernt mit dem du Neo bewegen kannst.
         Du kannst Neo aber auch um die Wand herum gehen lassen.
-    \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{.move()} Aufrufen jeweils Leerzeilen einfügt?
-    \item \optional Versuche möglichst viele unterschiedliche Möglichkeiten zu finden, um die Exception zu verhindern ohne eine der Zeilen vor dem Kommentar zu verändern.
-        Werde Kreativ und versuche auch drastische Lösungen wie eine Wand zu löschen.\\
-        Du kannst für diese Aufgabe auch Code von anderen Klassen vorübergehend ändern, solltest diese Änderungen aber hinterher auf jeden Fall wieder rückgängig machen.
-        Wie viele unterschiedliche Möglichkeiten kannst du finden?
+    \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{neo.move()} Aufrufen jeweils Leerzeilen einfügt?
 \end{enumerate}
  
