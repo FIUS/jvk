@@ -12,17 +12,20 @@ In dieser Aufgabe wollen wir uns Conditions näher anschauen.
 \begin{Infobox}[Bool'sche Werte]
     Um if-Verzweigung verstehen zu können, müssen wir uns zuerst Bool'sche Werte anschauen. Bool'sche Werte sind Variablen oder auch Rückgabewerte von Funktionen, welche nur den Wert \lstinline{true} oder \lstinline{false} (also wahr oder falsch) annehmen können. \\
     Im Quellcode hat jeder Wert, ob Rückgabe einer Funktion oder eben Variablen, einen Typ.
-Dieser Typ bestimmt, welche Werte für diesen Wert zulässig sind. Beispielsweise gibt es
-einfachen - primitive - Werte wie zum Beispiel Ganzzahlen oder Zeichenketten, die wir schon
-kennengelernt haben. Eine Zeichenkette (in Programmiersprachen in der Regel als \lstinline{String}
-bezeichnet) kann beispielsweise den Inhalt \lstinline{''Hello World''} haben, diesen Wert einer Variable,
-die nur Ganzzahlen speichert (= \lstinline{int} für Integer) zuweisen, macht allerdings weniger Sinn. \
-Genau wie \lstinline{Integer} und \lstinline{String} gibt es noch ein paar andere primitive Typen, welche häufig
-verwendet werden. Am häufigsten kommen wohl bool'sche Werte zum Einsatz. Der zugehörige
-Typ ist der primitive Typ boolean . Da es sich um einen primitiven Typ handelt, wird er genau
-wie \lstinline{int} in smallCamelCase geschrieben.\\
-Es ist wichtig zu erwähnen, dass in Java \lstinline{int} und \lstinline{Integer} dieselben Werte speichern können, aber nicht derselbe Typ sind. Den genauen Unterschied werdet ihr noch in der PSE kennenlernen.
-    Die Funktion \lstinline{player.canMove()} zum Beispiel gibt den boolschen Wert \lstinline{true} zurück wenn der Player (z.B. Neo) eine Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse. 
+    Dieser Typ bestimmt, welche Werte für diesen Wert zulässig sind.
+    Beispielsweise gibt es einfachen - primitive - Werte wie zum Beispiel Ganzzahlen oder Zeichenketten, die wir bisher sogar schon verwendet haben.
+    Eine Zeichenkette (in Programmiersprachen in der Regel als \lstinline{String} bezeichnet) kann beispielsweise den Inhalt \lstinline{''Hello World''} haben.
+    Diesen Wert allerdings in einer Variable, die nur Ganzzahlen speichert (= \lstinline{int} für Integer) zuweisen, macht allerdings weniger Sinn.
+    
+    Genau wie \lstinline{int} gibt es noch ein paar andere primitive Typen, welche häufig verwendet werden.
+    Am häufigsten kommen dabei wohl bool'sche Werte mit dem zugehörige primitive Typ \lstinline{boolean} zur Verwendung.
+    Da es sich um einen primitiven Typ handelt, wird er genau wie \lstinline{int} in klein geschrieben.\\
+    
+    Es ist wichtig zu erwähnen, dass in Java \lstinline{int} und \lstinline{Integer} dieselben Werte speichern können, aber nicht derselbe Typ sind.
+    Den genauen Unterschied ziwschen deb beiden Typen werdet ihr noch in der PSE kennenlernen.
+    
+    Die Funktion \lstinline{player.canMove()} zum Beispiel gibt den boolschen Wert \lstinline{true} zurück wenn der Player (z.B. Neo) eine Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse.
+    Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
     
 \end{Infobox}
 
