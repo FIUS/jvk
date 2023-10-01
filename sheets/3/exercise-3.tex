@@ -1,7 +1,7 @@
 \excercise{Operationen }
 
 \begin{enumerate}
-	\item 
+	\item
 	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task3} und \lstinline{Sheet3Task3Verifier}) und mache dich mit dieser vertraut.
 	\item
 		Lass Neo das folgende Muster laufen:
@@ -25,24 +25,24 @@
 
 
 \begin{Infobox}[Operation um Code mehrfach zu verwenden]
-	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. 
-	Stattdessen kann man den Code in eine Operation auslagern. 
+	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren.
+	Stattdessen kann man den Code in eine Operation auslagern.
 	Dann kann man den gesamten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
-	
+
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public class DemoTask implements Task {
-    
+
     @Override
     public void run(Simulation sim) {
         Neo neo = new Neo();
         // Anfang für Beispiel weggelassen
-        
+
         neo.collectCoin();
         this.moveTwiceAndTurn(neo);
         neo.collectCoin();
         this.moveTwiceAndTurn(neo);
     }
-    
+
     public void moveTwiceAndTurn(Neo neo) {
         // move
         neo.move();
@@ -50,29 +50,29 @@ public class DemoTask implements Task {
         // and turn
         neo.turnClockWise();
     }
-    
+
 }
 	\end{lstlisting}
 
-	In Aufgabenblatt 2 hast du schon eine Operation auf Neo implementiert.
-	Da auch die Operation im Beispiel ein Kommando ist, hat sie ebenfalls keinen Rückgabewert.
+	In Aufgabenblatt 2 hast du schon eine Operation in der Neo-Klasse implementiert.
+	Da die Operation im Beispiel oben ein sogenanntes \textit{Kommando} ist, hat sie ebenfalls keinen Rückgabewert.
 	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.
 
 	Anders als bei dem Kommando in der Klasse Neo können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
-	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der Task Klasse selbst.
+	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der \lstinline{Task} Klasse selbst.
 	In dem Beispiel oben können wir \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen.
 
-	Achtung: Wenn ihr in \lstinline{moveTwiceAndTurn} wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufruft, habt ihr eine Rekursion gebaut.
-	Theoretisch könnte die Rekursion endlos weitergehen, aber Java bricht eine endlose Rekursion ab einem bestimmten Zeitpunkt ab.
-	(Wenn ihr mehr über Rekursion wissen wollt, dann sucht am besten auf Google nach Rekursion.)
+	Achtung: Wenn ihr in der \lstinline{moveTwiceAndTurn}-Methode wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufruft, entsteht eine endlose Rekursion.
+	Die Methode würde sich dadurch theoretisch unendlich oft selber aufrufen, was aufgrund von technischen Details nach einigen Aufrufen abgebrochen wird.
+	Wenn ihr mehr über Rekursion wissen wollt, dann sucht am besten im Internet danach.
 
-	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation Neo als Parameter übergeben.
+	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation eine Variable vom Typ Neo als Parameter übergeben.
 	Parameter werden in Aufgabe 4 nochmal genauer erklärt.
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{3}
-	\item 
+	\item
 		Lagere nun den Code aus b) in die gegebene Operation \lstinline{movePattern} aus.
 
 	\item
@@ -89,7 +89,7 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 }
 		\end{lstlisting}
 
-		Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen. 
+		Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen.
 		Ersetze den Kommentar in der Operation durch die passenden Kommandos.
 
 	\item
@@ -97,9 +97,9 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 		Der Schleifenkörper sollte beide Operationen enthalten.
 
 	\item
-		Nun möchten wir eine eigene Operation schreiben. 
+		Nun möchten wir eine eigene Operation schreiben.
 		Kopiere dazu erst mal die \lstinline{movePattern} Operation und ändere den Namen in etwas anderes (z.B. \lstinline{moveStraight}).
-		Ersetze nun in der Schleife aus c) \lstinline{movePattern} durch die neue Operation.
+		Ersetze nun in der Schleife aus c) den Aufruf von \lstinline{movePattern} durch einen Aufruf der neuen Operation.
 
 		Du solltest jetzt in der Klasse \lstinline{Sheet3Task3} zwei Operationen haben, die sich nur im Namen unterscheiden.
 
