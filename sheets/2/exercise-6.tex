@@ -5,7 +5,7 @@
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task6} und \lstinline{Sheet2Task6Verifier}) und mache dich mit dieser vertraut.
     \item Lasse Neo im Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
-        Implementiere das Verhalten an der markierten Stelle in der Klasse \lstinline{Sheet2Task6}.
+        Implementiere das Verhalten an der markierten Stelle in der Klasse \lstinline{Sheet2Task6}. Verwende die Konzepte welche du in den vorherigen Aufgaben kennengelernt hast um die Menge an zu kopierenden Code zu minimieren.
     \item Lasse nun Neo gegen den Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
         Welche der beiden Varianten ist die schnellere?
 
@@ -46,7 +46,9 @@ public class Neo extends Human {
 
     In Blatt 1 habt ihr schonmal die Syntax von Operationen kennengelernt.
     Operationen müssen immer in einer Klasse definiert werden.
-    Die Operationen können dann auf ein spezielles Objekt der Klasse ausgeführt werden.\\
+    Diese Operationen können dann auf allen Objekten (= Instanzen
+der Klassen, im Code durch ein Konstruktoraufruf mit \lstinline{new} sichtbar) dieser Klasse ausgeführt
+werden\\
 
     Um Neo eine neue Fähigkeit zu geben, müssen wir die Operation in der Klasse \lstinline{Neo} definieren.\\
 
@@ -59,7 +61,7 @@ public class Neo extends Human {
     Ihr könnt den Wert von \lstinline{this} aber nicht selber bestimmen.
     Java bestimmt den Wert von \lstinline{this} für euch (nämlich eine Referenz auf das aktuelle Objekt in der \lstinline{this} geschrieben wurde).\\
 
-    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{player}. aufgerufen habt.
+    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{neo}. aufgerufen habt.
 
 \end{Infobox}
 
@@ -81,40 +83,7 @@ public class Neo extends Human {
 \end{enumerate}
 
 
-\begin{Infobox}[Javadoc]
-    Du hast schon in mehreren Aufgaben Javadoc von Operationen gelesen.
 
-    Dieser befindet sich als Kommentar vor einer Operation oder Klasse.
-
-    Wie andere Kommentare wird er nicht als Programmcode ausgeführt.
-    Eclipse kann diese Kommentare aber benutzen und zeigt sie an, wenn man mit der Maus über einen Aufruf einer Operation fährt.
-
-    \begin{lstlisting}[numbers=none]
-    /**
-     * Turn Neo around.
-     *
-     * This operation turns Neo around by calling
-     * turnClockWise twice. This operation will fail 
-     * if Neo is not on a Playfield of a Simulation.
-     *
-     */
-     public void turnAround() {
-        this.turnClockWise();
-        this.turnClockWise();
-    }
-    \end{lstlisting}
-
-    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt \lstinline{/*} anfängt.\\
-    
-    Der erste Satz ist eine kurze Beschreibung was die Operation macht.
-    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.\\
-
-    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.
-
-    In dem Javadoc Kommentar soll dabei insbesondere Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
-    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
-
-\end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{5}

@@ -3,9 +3,7 @@
 \excercise{Vor- und Nachbedingungen}
 
 In dieser Aufgabe wollen wir eine neue Funktion von Neo einführen. 
-Wer die Doku aufmerksam gelesen hat, kennt sie vielleicht schon:
-Neo kann Goldmünzen aufheben und niederlegen. 
-Dazu stehen die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} zur Verfügung.
+Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} aufheben und niederlegen. 
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task3} und \lstinline{Sheet2Task3Verifier}) und mache dich mit dieser vertraut.
@@ -13,10 +11,8 @@ Dazu stehen die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} z
         Wenn Neo auf einem Feld mit Münzen steht kann er mit dem Kommando \lstinline{collectCoin()} eine Münze aufheben.\\
         Lass Neo nun alle Goldmünzen auf dem Spielfeld aufheben.
     \item Mit dem Kommando \lstinline{dropCoin()} kannst du eine Münze wieder auf dem Spielfeld ablegen auf welchem sich Neo befindet.\\
-        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die Neo aufgesammelt hat auf das Feld (3,3) zu legen.
-    \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
-        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
-        \textbf{Tipp}: Überprüfe deine Vermutung auch auf dem Spielfeld.\\
+        Verwende das \lstinline{dropCoin()} Kommando, um alle Münzen die Neo aufgesammelt hat auf das Feld (3,3) zu legen.\\
+        Hinweis: auf dem Spielfeld liegen genau 6 Münzen.
 \end{enumerate}
 
 
@@ -32,3 +28,50 @@ Dazu stehen die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} z
 
 
 \end{Infobox}
+\begin{Infobox}[Javadoc]
+    Im Zusammenhang mit Vor- und Nachbedingungen, ist wichtig zu erwähnen, dass diese neben einer detaillierteren Beschreibung der Funktion im Javadoc einer Operation zu finden sein sollten.
+    Dieser befindet sich als spezieller Kommentar in Quellcode vor einer Operation oder Klasse.
+    Wie andere Kommentare wird er nicht als Programmcode ausgeführt, sondern dienen zur Dokumentation der zugeordneten Elemente.
+
+    In den letzten Aufgaben haben wir bis jetzt immer recht \enquote{einfache} Methoden verwendet, deren Zweck Du vielleicht ganz gut aus dem Quellcode oder Beispielen ableiten konntest.
+    Beim schreiben von eigenen Methoden ist es daher sehr wichtig darauf zu achten, dass der Name der Funktion und die Werte, die diese "empfangen" kann, für sich sprechende Namen zu geben.
+    Vielleicht sind dir die Funktion von machen Methoden allerdings auch noch nicht ganz klar geworden oder der Name hat zu wenig Kontext hergegeben, um die Funktion der Methode
+zu verstehen.
+    Genau hier setzt die Dokumentation in Form von JavaDoc ein.
+
+    \begin{lstlisting}[numbers=none]
+    /**
+     * Turn Neo around.
+     *
+     * This operation turns Neo around by calling
+     * turnClockWise twice. This operation will fail 
+     * if Neo is not on a Playfield of a Simulation.
+     *
+     */
+     public void turnAround() {
+        this.turnClockWise();
+        this.turnClockWise();
+    }
+    \end{lstlisting}
+
+    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt \lstinline{/*} anfängt.\\
+    
+    Der erste Satz ist eine kurze Beschreibung was die Operation macht.
+    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.\\
+
+    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.
+
+    In dem Javadoc Kommentar soll dabei insbesondere wir vorhin schon erwähnt Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
+    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
+
+    Eclipse kann diese speziellen JavaDoc-Kommentare erkennen und anzeigt, wenn man mit der Maus im Quelltext über einen Aufruf einer Operation fährt.
+    Außerdem kann man im Quellcode durch Ctrl + Linksklick auf Operationen oder Klassen zu den Definitionen von diesen gelangen, wo man auch die zugehörige JavaDoc finden sollte.
+    Letzteres kann man natürlich auch nutzen, um die Funktion einer Operation durch das Lesen des Quellcodes besser zu verstehen.
+
+\end{Infobox}
+
+\begin{enumerate}\setcounter{enumi}{3}
+    \item Die Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} funktionieren nicht immer.
+        Welche Bedingungen müssen stimmen damit du die Kommandos korrekt benutzen kannst und wann funktionieren sie nicht?\\
+        \textbf{Tipp}: Überprüfe deine Vermutung auch auf dem Spielfeld.\\
+\end{enumerate}
