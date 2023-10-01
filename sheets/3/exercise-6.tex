@@ -1,6 +1,6 @@
 \excercise{Verebung}
 \begin{enumerate}
-	\item 
+	\item
 	Instanziiere die Simulation (\lstinline{Sheet3Task6} und  \lstinline{Sheet3Task6Verifier}) und mache dich mit dieser vertraut.
 
 \item In Blatt 2 hast du gesehen wie man ein Objekt der Klasse Neo erstellt. Überlege dir nun wie man eine Version dieses Objektes erstellen kann, welche immer alle Münzen auf einem Feld mit dem Befehl \lstinline{collectCoin()} einsammelt.
@@ -10,26 +10,26 @@ Um so ein Objekt zu erstellen braucht man Vererbung.
 \begin{Infobox}[Vererbung]
 
 
-Bei der Vererbung gibt es sogennante Elternklassen und Kindklassen. Die Kindklassen ''erben'' die Funktionen und Attribute der Elternklasse und können diese somit verwenden. Die Kindklassen können auch Funktionen aus der Elternklasse überschreiben und somit zum Beispiel Neo zwei statt einem, zwei Schritte hintereinander laufen lassen. In Java kann jede Kindklasse nur eine Elternklasse haben, Elternklassen hingegen können hingegen beliebig viele Kindklassen haben.
+Bei der Vererbung gibt es sogenannte Elternklassen und Kindklassen. Die Kindklassen ''erben'' die Funktionen und Attribute der Elternklasse und können diese somit verwenden. Die Kindklassen können auch Funktionen aus der Elternklasse überschreiben und somit zum Beispiel Neo zwei statt einem, zwei Schritte hintereinander laufen lassen. In Java kann jede Kindklasse nur eine Elternklasse haben, Elternklassen hingegen können hingegen beliebig viele Kindklassen haben.
 
-Im Code wird Verebung durch das Schlüsselwort ''extends'' erzeugt. 
+Im Code wird Vererbung durch das Schlüsselwort ''extends'' erzeugt.
 \begin{lstlisting}[xleftmargin=0.5cm]
 	public class GreedyNeo extends Neo
 		\end{lstlisting}
- Bedeutet das SpeedyNeo alle Funktionen von Neo verwenden kann.
+ Bedeutet das \lstinline{GreedyNeo} alle Funktionen von Neo verwenden kann.
 
  Kindklassen können Funktionen ihrer Elternklasse mit dem Schlüsselwort Override überschreiben. Überschreiben heißt hier das die Funktion nur ihren Namen behält und sonst das macht was in der neuen Version programmiert wurde.
  \begin{lstlisting}[xleftmargin=0.5cm]
 	public class Neo{
 		public void collectCoin(){
-			...
+			// ...
 		}
 	}
-	
+
 	public class GreedyNeo extends Neo{
 		@Override
 		public void collectCoin(){
-			...
+			// ...
 		}
 	}
 		\end{lstlisting}
@@ -37,16 +37,29 @@ Im Code wird Verebung durch das Schlüsselwort ''extends'' erzeugt.
 
 
 \begin{enumerate}\setcounter{enumi}{2}
-\item Schreibe nun die Klasse \lstinline{GreedyNeo} so um, dass sie eine Kindklasse der Klasse Neo ist und initalisiere ein \lstinline{GreedyNeo} in \lstinline{Sheet3Task6}.
+\item Schreibe nun die Klasse \lstinline{GreedyNeo} aus dem \texttt{de.unistuttgart.informatik.fius.jvk.provided.entity}-Paket so um, dass sie eine Kindklasse der Klasse Neo ist.
 
-\item Überschreibe nun die \lstinline{collectCoin()} Funktion der \lstinline{GreedyNeo} Klasse, sodass \lstinline{GreedyNeo} immer alle Münzen auf einem Feld einsammelt, wenn die Funktion aufgerufen wird. Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} 5 Münzen auf \lstinline{GreedyNeo} Feld plazierst und einmal \lstinline{collectCoin()} ausführst.\\
+Initialisiere danach ein \lstinline{GreedyNeo} in \lstinline{Sheet3Task6} und schau dir die verfügbaren Operationen an.
+
+\item Überschreibe nun die \lstinline{collectCoin()} Funktion der \lstinline{GreedyNeo} Klasse, sodass \lstinline{GreedyNeo} immer alle Münzen auf einem Feld einsammelt, wenn die Funktion aufgerufen wird.
+Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} 5 Münzen auf \lstinline{GreedyNeo} Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
+\textbf{Hinweis:} Die
 
 Tipp: schaue die dazu die \lstinline{collectCoin()} Funktion der \lstinline{Neo} Klasse genauer an.
 
-\item Wir wollen nun Morpheus in die Matrix laden. Wir wollen Morpheuses \lstinline{collectCoin()} Funktion so abändern, dass er falls keine Münze unter ihm ist, er einfach nichts macht und keine Fehlermeldung erscheint. Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} keien Münzen auf \lstinline{Morpheus} Feld plazierst und einmal \lstinline{collectCoin()} ausführst.\\
-\item Morpheus soll in seiner \lstinline{move()} Funktion automatisch Wände erkennen und nicht in sie versuchen reinzulaufen. Statdessen, soll Morpheus wenn das Feld, das in seiner Blickrichtung liegt eine Wand ist, erst prüfen ob er links, rechts oder rückwärts weiterlaufen kann. Er soll, falls er in eine der genannten Richtungen weiterlaufen kann, in diese Richtung laufen. Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} 1 Wand auf dem Feld neben \lstinline{Morpheus} in seiner Blickrichtung plazierst und einmal \lstinline{collectCoin()} ausführst.\\
-\item \optional Dir ist vielleichtt aufgefallen, dass Morpheus in der Simulation anders aussieht als Neo, GreedyNeo aber aussieht wie Neo. Finde den Codeteil der dies verursacht. Im Projekt ist noch eine Mario Textur hinterlegt. Wenn ihr den verantwortlichen Codeteil gefunden habt, könnt ihr Neo, GreedyNeo oder Morpheuses Textur durch Marios ersetzten.
+\item Wir wollen nun Morpheus in die Matrix laden.
+Wir wollen Morpheus' \lstinline{collectCoin()} Funktion so abändern, dass er falls keine Münze unter ihm ist, er einfach nichts macht und keine Fehlermeldung erscheint.
+Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} keinen Münzen auf \lstinline{Morpheus} Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
+
+\item Morpheus soll in seiner \lstinline{move()} Funktion automatisch Wände erkennen und nicht in sie versuchen hineinzulaufen.
+Stattdessen, soll Morpheus prüfen, ob das Feld links, rechts oder hinter ihm frei ist und in der entsprechende Richtung weiterlaufen.
+
+Teste diese Funktionalität, indem du in der\lstinline{Sheet3Task6}-Klasse eine Wand auf dem Feld vor dem \lstinline{Morpheus}-Objekt platzierst und einmal \lstinline{move()} ausführst.
+
+\item \optional Dir ist vielleicht aufgefallen, dass Morpheus in der Simulation anders aussieht als Neo, GreedyNeo aber aussieht wie Neo.
+Finde den Codeteil der dies verursacht.
+Im Projekt ist noch eine Mario Textur hinterlegt.
+Versuche die Textur von Morpheus durch die von Mario zu ersetzten.
+Wenn Dir danach immer noch langweilig sein sollte, kannst du versuchen den Matrix-Simulator zu zweckentfremden und ein kleines, automatisches Jump-and-Run in ihm zu bauen.
+
 \end{enumerate}
-
-
-
