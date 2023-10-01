@@ -29,12 +29,15 @@ Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{
 
 \end{Infobox}
 \begin{Infobox}[Javadoc]
-    Im Zusammenhang mit Vor- und Nachbedinungen, ist wichtig zu erwähnen, dass diese im Javadoc einer Operation zu finden sind.
+    Im Zusammenhang mit Vor- und Nachbedinungen, ist wichtig zu erwähnen, dass diese neben einer detaillierteren Beschreibung der Funktion im Javadoc einer Operation zu finden sein sollten.
+    Dieser befindet sich als spezieller Kommentar in Quellcode vor einer Operation oder Klasse.
+    Wie andere Kommentare wird er nicht als Programmcode ausgeführt, sondern dienen zur Dokumentation der zugeordneten Elemente.
 
-    Dieser befindet sich als Kommentar vor einer Operation oder Klasse.
-
-    Wie andere Kommentare wird er nicht als Programmcode ausgeführt.
-    Eclipse kann diese Kommentare aber benutzen und zeigt sie an, wenn man mit der Maus über einen Aufruf einer Operation fährt.
+    In den letzten Aufgaben haben wir bis jetzt immer recht \enquote{einfache} Methoden verwendet, deren Zweck Du vielleicht ganz gut aus dem Quellcode oder Beispielen ableiten konntest.
+    Beim schreiben von eigenen Methoden ist es daher sehr wichtig darauf zu achten, dass der Name der Funktion und die Werte, die diese "empfangen" kann, für sich sprechende Namen zu geben.
+    Vielleicht sind dir die Funktion von machen Methoden allerdings auch noch nicht ganz klar geworden oder der Name hat zu wenig Kontext hergegeben, um die Funktion der Methode
+zu verstehen.
+    Genau hier setzt die Dokumentation in Form von JavaDoc ein.
 
     \begin{lstlisting}[numbers=none]
     /**
@@ -61,7 +64,9 @@ Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{
     In dem Javadoc Kommentar soll dabei insbesondere wir vorhin schon erwähnt Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
     Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
 
-    Mit \lstinline{Strg + Linksclick} kannst du dir den Javadoc zu einer Funktion asnzeigen lassn.
+    Eclipse kann diese speziellen JavaDoc-Kommentare erkennen und anzeigt, wenn man mit der Maus im Quelltext über einen Aufruf einer Operation fährt.
+    Außerdem kann man im Quellcode durch Ctrl + Linksklick auf Operationen oder Klassen zu den Definitionen von diesen gelangen, wo man auch die zueghörige JavaDoc finden sollte.
+    Letzteres kann man natürlich auch nutzen, um die Funktion einer Operation durch das Lesen des Quellcodes besser zu verstehen.
 
 \end{Infobox}
 
