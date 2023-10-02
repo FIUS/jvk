@@ -26,8 +26,12 @@
 
 \begin{Infobox}[Operation um Code mehrfach zu verwenden]
 	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren.
-	Stattdessen kann man den Code in eine Operation auslagern.
-	Dann kann man den gesamten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
+	Bei wenig Code denkt man vielleicht bei einer Änderung daran, dass man ihn kopiert hat und passt die andere Stelle an.
+	Wenn der Code allerdings länger wird und man ihn an mehrere Stellen kopiert hat, ist es sehr schwer den Überblick zu behalten und es kommt zu ungewollten Inkonsistenzen bei der Ausführung.\newline
+
+	Deshalb sollte man Code, der an mehreren Stellen verwendet wird, in Operationen auslagern.
+	So kann man dann die Operation an mehreren Stellen aufrufen und bei Bedarf für Änderungen einfach den Code in der Methode anpassen um Inkonsistenzen zu vermeiden.
+	Als netten Nebeneffekt erhält man zudem noch besser verständlichen Code, wenn man die Methodennamen gut wählt.
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public class DemoTask implements Task {
@@ -43,31 +47,33 @@ public class DemoTask implements Task {
         this.moveTwiceAndTurn(neo);
     }
 
+    /**
+	 * This method moves the neo parameter twice and then turns him clockwise.
+	 */
     public void moveTwiceAndTurn(Neo neo) {
-        // move
         neo.move();
         neo.move();
-        // and turn
         neo.turnClockWise();
     }
 
 }
 	\end{lstlisting}
 
-	In Aufgabenblatt 2 hast du schon eine Operation in der Neo-Klasse implementiert.
+	Auf Aufgabenblatt 2 hast du schon eine Operation in der Neo-Klasse implementiert.
 	Da die Operation im Beispiel oben ein sogenanntes \textit{Kommando} ist, hat sie ebenfalls keinen Rückgabewert.
-	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.
+	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.\newline
 
-	Anders als bei dem Kommando in der Klasse Neo können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
-	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der \lstinline{Task} Klasse selbst.
-	In dem Beispiel oben können wir \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen.
-
-	Achtung: Wenn ihr in der \lstinline{moveTwiceAndTurn}-Methode wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufruft, entsteht eine endlose Rekursion.
-	Die Methode würde sich dadurch theoretisch unendlich oft selber aufrufen, was aufgrund von technischen Details nach einigen Aufrufen abgebrochen wird.
-	Wenn ihr mehr über Rekursion wissen wollt, dann sucht am besten im Internet danach.
+	Anders als bei dem Kommando in der Klasse \lstinline{Neo} können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
+	In einer Klasse \lstinline{Task} haben wir mit \lstinline{this} nämlich nur Zugriff auf die Operationen und Attribute der \lstinline{Task}-Klasse selbst.
+	In dem Beispiel oben könnten wir also \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen, da das Methoden sind, die in dieser Klasse definiert wurden.\newline
 
 	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation eine Variable vom Typ Neo als Parameter übergeben.
-	Parameter werden in Aufgabe 4 nochmal genauer erklärt.
+	Parameter werden in Aufgabe 4 nochmal genauer erklärt.\newline
+
+	\textbf{Achtung:} Wenn in der \lstinline{moveTwiceAndTurn}-Methode wieder \lstinline{this.moveTwiceAndTurn(...)} aufgerufen wird, entsteht eine sogenannte endlose Rekursion.
+	Die Methode würde sich dadurch theoretisch unendlich oft immer wieder selber aufrufen, was aufgrund von technischen Details nach einigen (tausenden?) Aufrufen automatisch abgebrochen werden würde.
+	Wenn du mehr über Rekursion wissen wollt, dann sucht am besten im Internet \href{https://www.google.de/search?q=recursion}{danach}.
+
 \end{Infobox}
 
 
