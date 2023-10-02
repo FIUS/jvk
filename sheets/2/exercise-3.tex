@@ -2,8 +2,8 @@
 
 \excercise{Vor- und Nachbedingungen}
 
-In dieser Aufgabe wollen wir eine neue Funktion von Neo einführen. 
-Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} aufheben und niederlegen. 
+In dieser Aufgabe wollen wir eine neue Funktion von Neo einführen.
+Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{dropCoin()} aufheben und niederlegen.
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task3} und \lstinline{Sheet2Task3Verifier}) und mache dich mit dieser vertraut.
@@ -17,34 +17,41 @@ Neo kann Goldmünzen mit den Kommandos \lstinline{collectCoin()} und \lstinline{
 
 
 \begin{Infobox}[Vor- und Nachbedingungen]
-    Damit Operationen richtig funktionieren, müssen oft bestimme Bedingungen gelten, bevor man diese aufruft.\\
-    Z.B. darf sich bei dem \lstinline{move()} Kommando, wie wir in der letzten Aufgabe gelernt haben, vor dem Spieler keine Wand befinden.\\
-    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie Vorbedingungen.\\
-    Meistens findet man diese Vorbedingungen im Javadoc Kommentar (Dokumentation) der Operation. Welchen man sehen kann wenn man mit der Maus, wie in Blatt 1 Aufgabe 2 beschrieben, über dem Funktionsnamen hovert.\\
+    Damit Operationen richtig funktionieren, müssen oft bestimme Bedingungen gelten, bevor man diese aufruft.
+    Zum Beispiel darf sich bei dem \lstinline{move()} Kommando, wie wir in der letzten Aufgabe gesehen haben, vor dem Spieler keine Wand befinden.\newline
 
-    So wie bei Vorbedingungen bestimmte Zustände gelten müssen bevor man die Operation aufrufen darf, sind Nachbedingungen Zustände die nach einer Operation gelten.\\
-    Nach dem Ausführen von \lstinline{move()} hat sich Neo eine Position nach vorne (in seine Blickrichtung) bewegt.\\
-    Das gilt allerdings, nur wenn vor dem Aufruf von \lstinline{move()} die Vorbedingungen erfüllt sind z.B. es darf sich keine Wand vor Neo befinden.\\
+    Da diese Bedingungen gelten müssen bevor man die Operation aufruft, nennt man sie \textit{Vorbedingungen}.
+    Meistens findet man diese Vorbedingungen im Javadoc Kommentar (Dokumentation) der Operation.
+    Diese kann man einsehen, wenn man mit der Maus - wie im Nachschlagwerk beschrieben - über dem Funktionsnamen hovert.
+    Auch gelangst du mit \fbox{Strg} + Linke Maustaste zur Definition einer Methode, Klasse oder Variable, um dir die entsprechende JavaDoc oder den Code dort genauer anzusehen.\newline
+
+    So wie bei Vorbedingungen bestimmte Zustände gelten müssen bevor man die Operation aufrufen darf, sind Nachbedingungen Zustände die nach einer Operation gelten.
+    Nach dem Ausführen von \lstinline{move()} hat sich Neo beispielsweise eine Position nach vorne (in seine Blickrichtung) bewegt, was also die Nachbedingung dieser Operation ist.
+    Diese gilt allerdings, nur wenn vor dem Aufruf von \lstinline{move()} die Vorbedingungen erfüllt sind, also unter anderen, dass sich keine Wand vor Neo befindet.
 
 
 \end{Infobox}
 \begin{Infobox}[Javadoc]
-    Im Zusammenhang mit Vor- und Nachbedingungen, ist wichtig zu erwähnen, dass diese neben einer detaillierteren Beschreibung der Funktion im Javadoc einer Operation zu finden sein sollten.
-    Dieser befindet sich als spezieller Kommentar in Quellcode vor einer Operation oder Klasse.
-    Wie andere Kommentare wird er nicht als Programmcode ausgeführt, sondern dienen zur Dokumentation der zugeordneten Elemente.
+    Im Zusammenhang mit Vor- und Nachbedingungen, ist wichtig zu erwähnen, dass diese neben einer detaillierteren Beschreibung der Funktion im Javadoc einer Operation zu finden sein sollten.\newline
+
+    Javadoc-Kommentare sind spezielle Kommentare in Quellcode vor einer Operation, einer Klassenvariable oder Klasse.
+    Wie andere Kommentare werden sie nicht als Programmcode ausgeführt, sondern dienen zur Dokumentation der zugeordneten Elemente.\newline
 
     In den letzten Aufgaben haben wir bis jetzt immer recht \enquote{einfache} Methoden verwendet, deren Zweck Du vielleicht ganz gut aus dem Quellcode oder Beispielen ableiten konntest.
-    Beim schreiben von eigenen Methoden ist es daher sehr wichtig darauf zu achten, dass der Name der Funktion und die Werte, die diese "empfangen" kann, für sich sprechende Namen zu geben.
+    Beim schreiben von eigenen Methoden ist es daher sehr wichtig darauf zu achten, dass der Name der Funktion und die Werte, die diese "empfangen" kann, für sich sprechende Namen zu geben.\newline
+
     Vielleicht sind dir die Funktion von machen Methoden allerdings auch noch nicht ganz klar geworden oder der Name hat zu wenig Kontext hergegeben, um die Funktion der Methode
 zu verstehen.
-    Genau hier setzt die Dokumentation in Form von JavaDoc ein.
+    Genau hier setzt die Dokumentation in Form von JavaDoc ein.\newpage
+
+    Hier ein Beispiel, wie ein Javadoc-Kommentar aussehen kann:
 
     \begin{lstlisting}[numbers=none]
     /**
      * Turn Neo around.
      *
      * This operation turns Neo around by calling
-     * turnClockWise twice. This operation will fail 
+     * turnClockWise twice. This operation will fail
      * if Neo is not on a Playfield of a Simulation.
      *
      */
@@ -54,19 +61,14 @@ zu verstehen.
     }
     \end{lstlisting}
 
-    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt \lstinline{/*} anfängt.\\
-    
+    Ein Javadoc Kommentar unterscheidet sich nur dahingehend von einem normalen Kommentar, dass dieser mit \lstinline{/**} statt von \lstinline{/*} beginnt.\newline
+
     Der erste Satz ist eine kurze Beschreibung was die Operation macht.
-    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.\\
+    Gefolgt davon kommt eine ausführliche Beschreibung der Operation oder Klasse.
+    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.\newline
 
-    Der Kommentar sollte alles enthalten, was man jemals über die Operation wissen muss.
-
-    In dem Javadoc Kommentar soll dabei insbesondere wir vorhin schon erwähnt Vorbedingungen beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
-    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann.
-
-    Eclipse kann diese speziellen JavaDoc-Kommentare erkennen und anzeigt, wenn man mit der Maus im Quelltext über einen Aufruf einer Operation fährt.
-    Außerdem kann man im Quellcode durch Ctrl + Linksklick auf Operationen oder Klassen zu den Definitionen von diesen gelangen, wo man auch die zugehörige JavaDoc finden sollte.
-    Letzteres kann man natürlich auch nutzen, um die Funktion einer Operation durch das Lesen des Quellcodes besser zu verstehen.
+    In dem Javadoc Kommentar soll dabei insbesondere wir vorhin schon erwähnt \textit{Vorbedingungen} beschrieben werden, also was der Programmierer beachten muss bevor er die Operation nutzen darf.
+    Wenn dies nicht passiert oder das Javadoc ungenau ist, ist es sehr wahrscheinlich das daraus ein Bug entstehen kann, weil die Nutzer vielleicht nicht angegebene Vorbedingungen der Methode nicht erfüllen.
 
 \end{Infobox}
 

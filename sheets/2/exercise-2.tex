@@ -2,7 +2,7 @@
 
 \excercise{Exceptions}
 
-Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren. 
+Tank und Neo wollen nun in einer neuen Simulationsumgebung trainieren.
 Dabei soll Neo in einem potenziell gefährlichen Situation so schnell wie möglich zur nächsten Telefonstation laufen.
 
 \begin{enumerate}
@@ -10,40 +10,35 @@ Dabei soll Neo in einem potenziell gefährlichen Situation so schnell wie mögli
     \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
         Betrachte die Klasse \lstinline{Sheet2Task2} mit der Operation \lstinline{run} an der markierten Stelle.
 
-        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kann und platziere es dort. Falls du nicht weißt wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 3 oder die Klasse \lstinline{Sheet2Task2} genauer an.
+        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kannst und platziere es dort.
+        Falls du nicht weißt wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 3 oder die Klasse \lstinline{Sheet2Task2} genauer an.
 
-        Was passiert, wenn man jetzt die Simulation wie zuvor ausführt?\\
-        
+        Was passiert, wenn man jetzt die Simulation wie zuvor ausführt?
+
 \end{enumerate}
 
-\textbf{Antwort}: Es wird  eine Excepion geworfen.\\
-\begin{Infobox}[Exception]
-    Eine Exception ist ein Fehler der beim Ausführen des Programmes passieren kann wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\\
+\begin{Infobox}[Exceptions]
+    Eine Exception ist ein Fehler der beim Ausführen des Programmes passieren kann wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\newline
 
-
-    \textbf{Notiz}: Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions und Errors,... wir wollen das ganze hier mal vereinfacht betrachten. Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\\
+    \textbf{Hinweis:} Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions und Errors, wir wollen das ganze hier mal vereinfacht betrachten.
+    Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\newline
 
     Als nächstes wollen wir den Aufbau einer Exception genauer verstehen.
     Überlege dazu was der folgende Programmausschnitt macht:
 
     \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
-public class Main{
+public class Main {
     //Programmeinstieg
-    public void main(){
+    public void main() {
         //some other code
         divide(1, 0);
     }
-    
-    public Integer divide(Integer a, Integer b){
+
+    public int divide(int a, int b) {
         return a / b;
     }
 }
     \end{lstlisting}
-    Exkurs: Operatoren sind in eine Programmiersprache eingebaute Funktion, die durch ein Zeichen repräsentiert werden.
-    Beispielsweise können wir zwei Zahlen durch den \texttt{-}-Operator voneinander abziehen, z.B. mit \texttt{42 - 73}.
-    Damit wir das Ergebnis auch ansehen können und die Rechnung nicht nur ausgewertet wird und dann verschwindet, kann man es entweder in einer Variable speichern (siehe Nachschlagwerk) oder etwa als Argument in einer Funktionen verwenden.
-    Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
-    Die meisten Programmiersprachen haben eingebaute, einfache arithmetische Operatoren wie \texttt{+}, \texttt{-}, \texttt{*} oder \texttt{/}.\\
 
     Dabei lässt sich erkennen, dass in Zeile 9 der Programmausführung durch 0 geteilt wird.\\
     Dieses ungewollte (''verbotene'') Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich:
@@ -52,7 +47,7 @@ public class Main{
 java.lang.ArithmeticException: / by zero
     at de.unistuttgart.informatik.fius.jvk.Main.divide(Main.java:9)
     at de.unistuttgart.informatik.fius.jvk.Main.main(Main.java:5)
-    \end{lstlisting}    
+    \end{lstlisting}
 
     Der Inhalt der Fehlermeldung, lässt sich in folgende Teile aufteilen:
 
@@ -63,8 +58,16 @@ java.lang.ArithmeticException: / by zero
             In unserem Fall ist die Nachricht \lstinline{"/ by zero"}.
         \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, wo im Programm die Exception geflogen also passiert ist. Genauer, welche Klassen wo Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
             Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception expliziet in der \lstinline{Main} Klasse in der \lstinline{divide}
-        Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte. 
+        Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte.
     \end{enumerate}
+
+    \textit{Exkurs:} Operatoren sind in eine Programmiersprache eingebaute Funktion, die durch ein oder mehrere Zeichen repräsentiert werden.\newline
+
+    Beispielsweise können wir zwei Zahlen durch den \texttt{-}-Operator voneinander abziehen, z.B. mit \texttt{42 - 73}.
+    Damit wir das Ergebnis auch ansehen können und die Rechnung nicht nur ausgewertet wird und dann verschwindet, kann man es entweder in einer Variable speichern (siehe Nachschlagwerk) oder etwa als Argument in einer Funktionen verwenden.\newline
+
+    Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
+    Die meisten Programmiersprachen haben eingebaute arithmetische Operatoren wie \texttt{+}, \texttt{-}, \texttt{*} oder \texttt{/}.
 
 \end{Infobox}
 
@@ -108,4 +111,3 @@ at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8
         Du kannst Neo aber auch um die Wand herum gehen lassen.
     \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{neo.move()} Aufrufen jeweils Leerzeilen einfügt?
 \end{enumerate}
- 
