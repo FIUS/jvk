@@ -1,7 +1,7 @@
 \excercise{Operationen }
 
 \begin{enumerate}
-	\item 
+	\item
 	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task3} und \lstinline{Sheet3Task3Verifier}) und mache dich mit dieser vertraut.
 	\item
 		Lass Neo das folgende Muster laufen:
@@ -25,54 +25,60 @@
 
 
 \begin{Infobox}[Operation um Code mehrfach zu verwenden]
-	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren. 
-	Stattdessen kann man den Code in eine Operation auslagern. 
-	Dann kann man den gesamten Code an verschiedenen Stellen mit nur einer Zeile aufrufen.
-	
+	Wenn man den selben Code an mehreren Stellen verwenden möchte ist es nicht sinnvoll diesen mehrmals zu kopieren.
+	Bei wenig Code denkt man vielleicht bei einer Änderung daran, dass man ihn kopiert hat und passt die andere Stelle an.
+	Wenn der Code allerdings länger wird und man ihn an mehrere Stellen kopiert hat, ist es sehr schwer den Überblick zu behalten und es kommt zu ungewollten Inkonsistenzen bei der Ausführung.\newline
+
+	Deshalb sollte man Code, der an mehreren Stellen verwendet wird, in Operationen auslagern.
+	So kann man dann die Operation an mehreren Stellen aufrufen und bei Bedarf für Änderungen einfach den Code in der Methode anpassen um Inkonsistenzen zu vermeiden.
+	Als netten Nebeneffekt erhält man zudem noch besser verständlichen Code, wenn man die Methodennamen gut wählt.
+
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public class DemoTask implements Task {
-    
+
     @Override
     public void run(Simulation sim) {
         Neo neo = new Neo();
         // Anfang für Beispiel weggelassen
-        
+
         neo.collectCoin();
         this.moveTwiceAndTurn(neo);
         neo.collectCoin();
         this.moveTwiceAndTurn(neo);
     }
-    
+
+    /**
+	 * This method moves the neo parameter twice and then turns him clockwise.
+	 */
     public void moveTwiceAndTurn(Neo neo) {
-        // move
         neo.move();
         neo.move();
-        // and turn
         neo.turnClockWise();
     }
-    
+
 }
 	\end{lstlisting}
 
-	In Aufgabenblatt 2 hast du schon eine Operation auf Neo implementiert.
-	Da auch die Operation im Beispiel ein Kommando ist, hat sie ebenfalls keinen Rückgabewert.
-	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.
+	Auf Aufgabenblatt 2 hast du schon eine Operation in der Neo-Klasse implementiert.
+	Da die Operation im Beispiel oben ein sogenanntes \textit{Kommando} ist, hat sie ebenfalls keinen Rückgabewert.
+	Deshalb ist hier vor dem Operationsnamen \lstinline{moveTwiceAndTurn} \lstinline{void} angegeben.\newline
 
-	Anders als bei dem Kommando in der Klasse Neo können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
-	In einer Task Klasse haben wir mit \lstinline{this} nur Zugriff auf die Operationen in der Task Klasse selbst.
-	In dem Beispiel oben können wir \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen.
+	Anders als bei dem Kommando in der Klasse \lstinline{Neo} können wir diesmal nicht mit \lstinline{this} auf die Operationen von einem Objekt der Klasse \lstinline{Neo} zugreifen.
+	In einer Klasse \lstinline{Task} haben wir mit \lstinline{this} nämlich nur Zugriff auf die Operationen und Attribute der \lstinline{Task}-Klasse selbst.
+	In dem Beispiel oben könnten wir also \lstinline{this.run(/*...*/)} oder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufrufen, da das Methoden sind, die in dieser Klasse definiert wurden.\newline
 
-	Achtung: Wenn ihr in \lstinline{moveTwiceAndTurn} wieder \lstinline{this.moveTwiceAndTurn(/*...*/)} aufruft, habt ihr eine Rekursion gebaut.
-	Theoretisch könnte die Rekursion endlos weitergehen, aber Java bricht eine endlose Rekursion ab einem bestimmten Zeitpunkt ab.
-	(Wenn ihr mehr über Rekursion wissen wollt, dann sucht am besten auf Google nach Rekursion.)
+	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation eine Variable vom Typ Neo als Parameter übergeben.
+	Parameter werden in Aufgabe 4 nochmal genauer erklärt.\newline
 
-	Da wir die Operationen von Neo nicht über \lstinline{this} aufrufen können, müssen wir der neuen Operation Neo als Parameter übergeben.
-	Parameter werden in Aufgabe 4 nochmal genauer erklärt.
+	\textbf{Achtung:} Wenn in der \lstinline{moveTwiceAndTurn}-Methode wieder \lstinline{this.moveTwiceAndTurn(...)} aufgerufen wird, entsteht eine sogenannte endlose Rekursion.
+	Die Methode würde sich dadurch theoretisch unendlich oft immer wieder selber aufrufen, was aufgrund von technischen Details nach einigen (tausenden?) Aufrufen automatisch abgebrochen werden würde.
+	Wenn du mehr über Rekursion wissen wollt, dann sucht am besten im Internet \href{https://www.google.de/search?q=recursion}{danach}.
+
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{3}
-	\item 
+	\item
 		Lagere nun den Code aus b) in die gegebene Operation \lstinline{movePattern} aus.
 
 	\item
@@ -89,7 +95,7 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 }
 		\end{lstlisting}
 
-		Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen. 
+		Neo soll in dieser Operation 4 Münzen fallen lassen und sich nach links drehen.
 		Ersetze den Kommentar in der Operation durch die passenden Kommandos.
 
 	\item
@@ -97,9 +103,9 @@ private void dropFourCoinsAndTurnLeft(Neo neo) {
 		Der Schleifenkörper sollte beide Operationen enthalten.
 
 	\item
-		Nun möchten wir eine eigene Operation schreiben. 
+		Nun möchten wir eine eigene Operation schreiben.
 		Kopiere dazu erst mal die \lstinline{movePattern} Operation und ändere den Namen in etwas anderes (z.B. \lstinline{moveStraight}).
-		Ersetze nun in der Schleife aus c) \lstinline{movePattern} durch die neue Operation.
+		Ersetze nun in der Schleife aus c) den Aufruf von \lstinline{movePattern} durch einen Aufruf der neuen Operation.
 
 		Du solltest jetzt in der Klasse \lstinline{Sheet3Task3} zwei Operationen haben, die sich nur im Namen unterscheiden.
 
