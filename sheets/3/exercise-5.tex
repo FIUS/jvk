@@ -6,32 +6,29 @@
 		Verwende den selben Task und Verifier wie in Aufgabe 4.
 
 	\item
-		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \lstinline{Integer.MAX_VALUE}) \\
+		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \\\lstinline{Integer.MAX_VALUE})
 		Was passiert?
 \end{enumerate}
 
 
 \begin{Infobox}[Return]
 	Mit dem Schlüsselwort \lstinline{return} kannst du den Rückgabewert einer Operation festlegen.
-	Der Rückgabewert muss nach dem Schlüsselwort \lstinline{return} und vor dem \lstinline{;} stehen.
-
-	Return ist immer die letzte Anweisung einer Operation, die ausgeführt wird.
-	Du kannst mit \lstinline{return} also die Operation beenden.
-	Das funktioniert sogar in Kommandos, die ja keinen Rückgabewert haben.
-	In diesem Fall darf man aber natürlich auch keinen Wert hinter das \lstinline{return} - also einfach nur \lstinline{return;} - schreiben.
-
-	Wenn nach dem \lstinline{return} noch Anweisungen stehen, die ganz sicher nicht mehr erreicht werden können, dann wird Java das Programm nicht mehr ausführen wollen.
-	Ihr könnt die Zeilen nach dem Return (bis zum Ende des Code-Blocks der Operation) auskommentieren, damit Java das Programm wieder ausführt.
-
-	Beispiel für \lstinline{return} in einer Abfrage:
+	Der Rückgabewert muss nach dem Schlüsselwort \lstinline{return} und vor dem \lstinline{;} stehen.\newline
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
-public int getAnswer(){
-    return 42;
-}
+	public int getAnswer(){
+		return 42;
+	}
 	\end{lstlisting}
 
-	Wenn man \lstinline{getAnswer()} aufruft bekommt man den Wert 42 zurück.
+	Wenn die \lstinline{getAnswer}-Methode aus dem Beispiel aufrufen würde, würde man den Wert 42 zurückbekommen.\newline
+
+	Return ist immer die letzte Anweisung einer Operation, die ausgeführt wird, da die Ausführung danach zu der Operation \enquote{zurückkehrt}, die die jetzige Methode aufgerufen hat.
+	Du kannst mit dem \lstinline{return}-Schlüsselwort also Operationen beenden.
+	Das funktioniert sogar in Kommandos, aber da diese ja keinen Rückgabewert (= \lstinline{void} als Rückgabetyp) haben, muss man \lstinline{return;} schreiben.\newline
+
+	Wenn nach dem \lstinline{return} noch Anweisungen stehen, die ganz sicher nicht mehr erreicht werden können, dann wird Java das Programm nicht mehr ausführen wollen.
+	Ihr könnt die Zeilen nach dem Return (bis zum Ende des Code-Blocks der Operation) auskommentieren, damit Java das Programm wieder ausführt.\newline
 
 	Beispiel für \lstinline{return} in einem Kommando:
 
@@ -67,9 +64,9 @@ public void printNumbers(){
 \begin{Infobox}[Throwing Exceptions]
 	Wir möchten nicht, dass ungültige User-Eingaben einfach ignoriert werden.
 	Darum sollte man bei ungültigen Eingaben eine Exception werfen.
-	Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.
+	Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.\newline
 
-	Um eine Exception zu werfen verwendet man das Schlüsselwort \lstinline{throw}.
+	Um eine Exception zu werfen verwendet man das Schlüsselwort \lstinline{throw}:
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbersTo(Integer to) {
@@ -99,7 +96,7 @@ public void printNumbersTo(Integer to) {
 
 		Noch besser wäre es, wenn wir den Fehler gar nicht erst verursachen würden.
 		Dazu müssen wir wissen, dass diese Operation eine Exception wirft, wenn der Parameter zu groß ist.
-		Das kann man im Javadoc Kommentar der Operation dokumentieren.
+		Das kann man im Javadoc Kommentar der Operation dokumentieren, damit Nutzer der Methode über Existenz der geworfenen Exception im klaren sind.
 
 		Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären wann die Exception geworfen wird.
 		Verwende dafür \lstinline{@throws} in dem Javadoc Kommentar.
