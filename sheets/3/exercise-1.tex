@@ -43,7 +43,7 @@
 	Nur wenn sie den Wert \lstinline{true} zurück gibt, ist wird der Code-Block der Schleife ausgeführt.\newline
 
 	Der Ausdruck \lstinline{i < 5} überprüft hier, ob der Wert der Variable \texttt{i} größer (echt) kleiner als die Ganzzahl \texttt{5} ist.
-	Bei \texttt{<} handelt es sich also wie schon bei \texttt{+},\texttt{-},\texttt{/}, \texttt{*} und \texttt{\%} um eine Operator - genauer einen Vergleichsoperator - der in den meisten Programmiersprachen vorhanden ist.
+	Bei \texttt{<} handelt es sich also wie schon bei \texttt{+},\texttt{-},\texttt{/} und \texttt{*} um eine Operator - genauer einen Vergleichsoperator - der in den meisten Programmiersprachen vorhanden ist.
 	Weiter Vergleichsoperatoren sind \texttt{>} für \enquote{Ist $\langle$links$\rangle$ (echt) kleiner als $\langle$rechts$\rangle$?}, \texttt{<=}, \texttt{>=}, \texttt{!=} und \texttt{==}.
 	Genaueres erfährst du hierzu noch in Aufgabe 2.\newline
 
@@ -52,7 +52,7 @@
 	Das \lstinline{i++} ist also nichts anderes als eine Abkürzung für das Kommando \lstinline{i = i + 1}.\newline
 
 	Die obige Schleife wird 5 Mal ausgeführt.
-	Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} prüft.
+	Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} (<= bedeuted i < 5 oder i == 5 gilt) prüft.
 	Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}, wird dann nach der Ausführung des Rumpfes um eins erhöht, wodurch die Bedingung zu \lstinline{flase} ausgewertet wird und der Rumpf nicht weiter ausgeführt wird.
 \end{Infobox}
 
@@ -75,7 +75,7 @@
 		Hebe alle Münzen auf Neo's Startposition auf.
 		Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab, wie du schon Schritte gelaufen bist.
 
-		Hinweis: Dafür musst du eine For-Schleife in der For-Schleife verwenden.
+		\textbf{Hinweis:} Dafür musst du eine For-Schleife in der For-Schleife verwenden.
 		Du kannst die Variable \lstinline{i} der äußeren For-Schleife in der Schleifenbedingung (an der 2. Stelle im Schleifenkopf) der inneren For-Schleife benutzen.
 		Überlege Dir, welcher Vergleichsoperator hier am besten passt.
 
@@ -84,22 +84,11 @@
 
 		Laufe 10 Schritte und hebe dabei maximal 5 Münzen pro Feld auf.
 
-		Hinweis: In dieser Aufgabe kannst du if-Statements oder (etwas schwieriger) eine While-Schleife mit einer Zählvariable und 2 Bedingungen verwenden.
-		Damit letzteres funktioniert, musst du die beiden Bedingungen mit einem \lstinline{\&\&} (=also und-verknüpfen) verbinden.
-		Dadurch wird der Rumpf der Schleife nur ausgeführt, wenn die beiden Bedingungen links und rechts vom \lstinline{&&} zu \lstinline{true} ausgewertet werden.
-		All das wird in den Infoboxen der nächsten Aufgabe genauer erklärt.
-
-		\begin{lstlisting}
-if (neoG.canCollectCoin()) {
-    neoG.collectCoin();
-}
-		\end{lstlisting}
-
 	\item
 		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.
 
 		Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
 
-		Hinweis: Hier musst du eine For- und eine While-Schleife verwenden.
+		\textbf{Hinweis:} Hier musst du eine For- und eine While-Schleife verwenden.
 \end{enumerate}
 \newpage

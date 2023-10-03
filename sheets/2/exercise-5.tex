@@ -22,8 +22,8 @@ while(neo.canMove()) {
 
     Das Verhalten von While Schleifen lässt sich einfach darstellen:
     \begin{enumerate}
-        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{palyer.canMove()} erfüllt ist, also das sich kein Hindernis im Weg befindet, wenn NEIN springe zu Punkt 4.
-        \item[2:] Das Schleifeninnere \lstinline{player.move()} wird ausgeführt.
+        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{neo.canMove()} erfüllt ist, also ob sich kein Hindernis im Weg befindet. Wenn ein Hindernis im Weg ist, springe zu Punkt 4.
+        \item[2:] Das Schleifeninnere \lstinline{neo.move()} wird ausgeführt.
         \item[3:] Springe zurück zu Punkt 1
         \item[4:] Verlasse die Schleife
     \end{enumerate}
@@ -51,7 +51,7 @@ while(neo.canDropCoin()){
         Dafür kannst du eine der Schleifen von oben verwenden.
 
     \textbf{Hinweis}: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.
-    \item Platziere jetzt alle Münzen auf dem rechten mittleren Spielfeld an der Wand.
+    \item Platziere jetzt alle Münzen auf dem rechten mittleren Spielfeld an der Wand. 
         Hier kannst du dich wieder an den Beispielen oben orientieren.
         \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur, beginnend auf dem Feld neben Neo.
         Auf jedem Feld in der mittleren Reihe sollte jetzt eine Münze liegen.\\
@@ -63,9 +63,10 @@ while(neo.canDropCoin()){
 
     \textbf{Hinweis}: Hier sollte es ausreichen den Code-Block der Schleife aus der Teilaufgabe davor anzupassen.
     \item Platziere auf jedem zweiten Feld eine Münze.\\
-        Also die Linie soll abwechselnd eine Münze und ein leeres Feld nacheinander haben.
+        Also die Linie soll abwechselnd eine Münze und ein leeres Feld nacheinander haben.\\
+        
         \textbf{Hinweis}: Hier kannst du entweder die Abfolge direkt kodieren oder mit Variablen vom Typ \lstinline{boolean} und if-Verzweigungen aus Aufgabe 4 arbeiten.
-    \item \optional Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab.
+    \item \optional Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. 
         Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert werden.
 
     \textbf{Hinweis}: Hier musst du neben einer While Schleife auch IF-Statements verwenden.\\

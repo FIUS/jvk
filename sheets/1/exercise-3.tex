@@ -4,17 +4,17 @@
 \label{ex3}
 
 \begin{enumerate}
-    \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten. Dazu ersetzen wir den \lstinline{ new demoTask} und \lstinline{new demoTaskVerifier} durch 
-        den \lstinline{Sheet1Task3Task} und noch ohne den \lstinline{Sheet1Task3TaskVerifier}:
+    \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten. Dazu ersetzen wir den \lstinline{ new demoTask} und \lstinline{new demoTaskVerifier} in der Main Klasse, durch 
+        den \lstinline{Sheet1Task3Task} wie hier gezeigt:
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new Sheet1Task3Task());
+Game demoGame = new Game("Hello World", new Sheet1Task3Task());
     \end{lstlisting}
 
-    Du startest das Spiel in der Variable \lstinline{myGame} indem du die Operation \lstinline{run()} darauf aufrufst.
+    Du startest das Spiel in der Variable \lstinline{demoGame} indem du die Operation \lstinline{run()} darauf aufrufst.
 
     \begin{lstlisting}
-myGame.run();
+demoGame.run();
     \end{lstlisting}
 
     Starte das Programm in Eclipse, mit dem kleinen Play-Button oben in der Werkzeugleiste und schau dich ein wenig im Fenster, das dann aufgeht um.
@@ -29,7 +29,7 @@ myGame.run();
         Finde den \q{Task Status} Tab und drücke den Refresh Button.
 
     \begin{lstlisting}
-Game myGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3TaskVerifier());
+Game demoGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3TaskVerifier());
     \end{lstlisting}
 
 \end{enumerate}
@@ -63,6 +63,6 @@ Game myGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3Task
 
         Wie ist der Zusammenhang zwischen Position der Münze und die Koordinaten im Koordinatensystem?
 
-        Tipp: Wenn du nicht genau weißt, wie man eine Münze erzeugt, schaue dir den Code, welchen du in Teilaufgabe d) gefunden hast, nochmal an.
+        \textbf{Tipp:} Wenn du nicht genau weißt, wie man eine Münze erzeugt, schaue dir den Code, welchen du in Teilaufgabe d) gefunden hast, nochmal an.
     \item Du kannst auch im Fenster selbst Münzen und Wände platzieren, dies geht rechts oben mit dem + und - Button. Versuche die Aufgabe e) nun nochmal zu lösen ohne im Code Münzen zu platzieren.
 \end{enumerate}

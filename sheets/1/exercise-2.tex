@@ -165,12 +165,12 @@ Nimm diesen Teil als Referenz zum Nachschauen, wenn du dir später bei etwas nic
 \begin{Infobox}
 	\subsubsection*{Kommandos und Abfragen:}
 	\begin{itemize}
-		\item Kommando: Sie ändern eventuell was an dem Objekt z.B. benennen den Hund um
+		\item Kommando: Sie ändern eventuell was an dem Objekt z.B. benennen den Hund um oder lasse den Hund einen Schritt nach vorne gehen
 		\item Abfragen: Sie ändern nichts an dem Objekt, geben dafür aber was zurück z.B. den Hundename
 	\end{itemize}
 	Um Operationen eines Objekts aufzurufen, wird zuerst der Objektname geschrieben, gefolgt von einem Punkt und dem Operationsname.
 	Am Ende stehen paar Rundeklammern \q{()}, in denen Parameter stehen können.\\
-	{\color{red} Wichtig: } Operationen können nur auf Objekten und nicht auf Klassen aufgerufen werden.
+	\textbf{Wichtig:} Operationen können nur auf Objekten und nicht auf Klassen aufgerufen werden.
 	Es gibt hier einen Sonderfall, diesen wirst du in PSE kennenlernen.
 \end{Infobox}
 \begin{lstlisting}[title=\textbf{Kommando/Abfrage Syntax}]
@@ -213,6 +213,7 @@ Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit And
 		\item Abfragen sollen mit \lstinline{get} beginnen $\rightarrow$ ''getName''
 		\item Kommandos, die einen Wert setzen, sollen mit \lstinline{set} beginnen $\rightarrow$ ''setName''
 		\item Keine Umlaute (ä, ö, ß,...)
+		\item Einheitliche Sprache, also entweder alles auf Englisch oder Deutsch 
 
 	\end{itemize}
 \end{Infobox}
@@ -220,7 +221,7 @@ Da man dieses Problem in der Informatik oft antrifft, vor allem wenn man mit And
 \vspace{5mm}
 
 \noindent
-Allgemein sollen alle Namen auf Englisch formuliert werden.
+Allgemein sollten aber alle Namen auf Englisch formuliert werden.
 Variablen und Operationen werden immer mit einem Kleinbuchstaben angefangen.\\
 
 \noindent
@@ -250,7 +251,7 @@ Das nennt man dann \lstinline{PascalCase} oder \lstinline{UpperCamelCase}. Z.B. 
 Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie endet, rückt man den Code in einer Operation (übrigens auch in Klassen) um eine Stufe ein (Eine \fbox{TAB} Stufe).\\
 
 \noindent
-{\color{red} Wichtig: }Achte unbedingt darauf das alle Klammern, die du öffnest auch wieder in der richtigen Reihenfolge schließest werden!
+\textbf{Wichtig:} Achte unbedingt darauf das alle Klammern, die du öffnest auch wieder in der richtigen Reihenfolge schließest werden!
 
 
 \begin{lstlisting}[title=\textbf{Beispiel gute Namensgebung}]
@@ -331,7 +332,9 @@ Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie ende
     Wie du vielleicht bereits gemerkt hast, ist das sehr hilfreich eine gute Dokumentation zu haben.
     Ziel sollte es also sein so gut wie möglich zu beschreiben was bei einer Operation passiert (auch welche Parameter sie braucht und was sie zurück gibt) oder wofür eine Klasse zuständig ist.\\
 
-    Diese Dokumentation kannst du zum Beispiel online nachschauen oder direkt in der IDE (Eclipse) indem du den Mauszeiger über den Namen einer Operation bewegst, wird ein Kasten mit der Dokumentation dieser Operation angezeigt.
+    Diese Dokumentation kannst du zum Beispiel online nachschauen oder direkt in der IDE (Eclipse) indem du den Mauszeiger über den Namen einer Operation bewegst, wird ein Kasten mit der Dokumentation dieser Operation angezeigt.\\
+
+	Mehr zu Dokumentation und JavaDoc folgt noch in späteren Aufgaben.
 \end{Infobox}
 
 \begin{Infobox}[Autocompletion]
@@ -358,7 +361,9 @@ Um direkt auf einen Blick zu erkennen, wo die Operation anfängt und wo sie ende
 	Mit \fbox{Strg + Shift + l} kannst du eine Liste alle Tastenkombinationen ansehen.\\
 	\\
 	Wenn du \fbox{Strg} drückst während du auf einen Klassennamen oder einen Operationsnamen im Code klickst, öffnet Eclipse die entsprechende Java-Datei wo sich diese Operation oder Klasse befindet.\\
+
 	Wenn du \fbox{Strg + F11} drückst wird das Programm gestartet/so zu sagen der Run Button gedrückt.\\
+	
 	Mit \fbox{Strg + Space} kannst du Autocompletion triggern.
 \end{Infobox}
 
