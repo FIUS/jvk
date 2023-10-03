@@ -62,7 +62,7 @@ if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 
 
 \begin{Infobox}[\lstinline{==} und die \lstinline{equals()}-Methode]
-	Vorsicht: Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen die wir der Einfachheit halber hier weglassen) vergleichen!\newline
+	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen die wir der Einfachheit halber hier weglassen) vergleichen!\newline
 
 	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{equals}-Methode, die auf jedem Objekt definiert ist, verwendet werden:
 
@@ -182,7 +182,7 @@ if (neo.canMove() || neo.getCurrentlyCollectableCoins().size() == 7) {
 		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
 		Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neo's Inventory abfragen.
 
-		\textit{Tipp}: Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
+		\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
 		Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
 \end{enumerate}
 \newpage
