@@ -5,10 +5,10 @@
 
 \begin{enumerate}
     \item Nun wollen wir wie in Aufgabe 1 ein Spiel starten. Dazu ersetzen wir den \lstinline{ new demoTask} und \lstinline{new demoTaskVerifier} in der Main Klasse, durch 
-        den \lstinline{Sheet1Task3Task} wie hier gezeigt:
+        den \lstinline{Sheet1Task3} wie hier gezeigt:
 
     \begin{lstlisting}
-Game demoGame = new Game("Hello World", new Sheet1Task3Task());
+Game demoGame = new Game("Hello World", new Sheet1Task3());
     \end{lstlisting}
 
     Du startest das Spiel in der Variable \lstinline{demoGame} indem du die Operation \lstinline{run()} darauf aufrufst.
@@ -29,7 +29,7 @@ demoGame.run();
         Finde den \q{Task Status} Tab und drücke den Refresh Button.
 
     \begin{lstlisting}
-Game demoGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3TaskVerifier());
+Game demoGame = new Game("Hello World", new Sheet1Task3(), new Sheet1Task3Verifier());
     \end{lstlisting}
 
 \end{enumerate}
@@ -52,8 +52,8 @@ Game demoGame = new Game("Hello World", new Sheet1Task3Task(), new Sheet1Task3Ta
     In der Konsole siehst du, dass eine Münze (\texttt{Coin}) gespawnt (erzeugt) wurde.
     Finde die Koordinaten des Feldes, auf welchem die Münze gespawnt wurde.
 
-    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{Sheet1Task3Task}, in dem die erste Münze erzeugt wird.\\
-    Hinweis: \lstinline{Sheet1Task3Task} findest du im \lstinline{project/src/main/java/de/unistuttgart/informaitk/fuis/jvk/tasks}-Ordner des Projektes.
+    \item Nun suche nach der Stelle im Code in der Klasse \lstinline{Sheet1Task3}, in dem die erste Münze erzeugt wird.\\
+    Hinweis: \lstinline{Sheet1Task3} findest du im \lstinline{project/src/main/java/de/unistuttgart/informaitk/fuis/jvk/tasks}-Ordner des Projektes.
 
     \item Nun wollen wir endlich mal selber Münzen auf das Spielfeld platzieren.
         Hierfür bearbeitest du die Klasse \lstinline{Sheet1Task3}.\\
