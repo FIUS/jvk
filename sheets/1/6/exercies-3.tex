@@ -1,0 +1,156 @@
+% !TeX root = ./jvk-blatt1.tex
+
+\subsection*{\textit{Dog}-Klasse in Java}
+
+Java ist eine sogenannte \textit{objektorientierte} Programmiersprache.
+Das heißt, dass wir in Java hauptsächlich mit Objekten interagieren.
+Wenn wir das also einen Hund in Java erstellen wollen, müssen wir zunächst die zugehörige Klasse erstellen.
+
+\begin{figure}[H]
+    \caption{Schemenhafte Java-Implementierung der \textit{Dog}-Klasse}
+    \label{t1:dog-class-scheme}
+    \begin{lstlisting}
+class Dog {
+    String name;
+    String ownerName;
+    Integer age;
+
+    // ...
+
+    void bark() {
+        // Code to make bark
+    }
+    void fetchStick() {
+        // Code to fetch a stick
+    }
+}
+    \end{lstlisting}
+\end{figure}
+
+In \ref{t1:dog-class-scheme} finden sich die Attribute (Z. 2-4) und Methoden (Z.45,48) wieder, die wir uns oben ausgedacht haben.
+Vor den Namen der Attribute muss man Datentypen angeben, in welchen diese gespeichert werden sollen.
+Da Java Objektorientiert ist, sind diese Datentypen andere Klassen mit ihren eigenen Attributen und Funktionen.
+Bei \texttt{String} handelt es sich dabei um eine Zeichenkette, bei \texttt{Integer} um eine Ganzzahl.
+
+Vor den Methodennamen , die wir uns ausgedacht haben, (Z.45,48) befindet sich jeweils das \textit{Schlüsselwort} \texttt{void}, das eine Methode ohne \textit{Rückgabewert} anzeigt.
+Was genau das bedeutet, wird später noch erklärt.
+
+Momentan ist die Klasse \texttt{Dog} aus \ref{t1:dog-class-scheme} noch nicht vollständig, da die beiden Methoden noch keinen Code beinhalten.
+Daher soll dieser nun ergänzt werden, damit wir die ersten \texttt{Dog}-Objekte erstellen können.
+
+\begin{figure}[H]
+    \caption{Vollständige Implementierung der \textit{Dog}-Klasse}
+    \label{t1:dog-class}
+    \begin{lstlisting}
+class Dog {
+    String name;
+    String ownerName;
+    Integer age;
+
+    // Constructor: Necessary to create Dog-Objects
+    Dog(String name, String ownerName, Integer age) {
+        this.name = name;
+        this.ownerName = ownerName;
+        this.age = age;
+    }
+
+    void bark() {
+        System.out.println("Woff!");
+    }
+    void fetchStick() {
+        System.out.println("Running");
+        System.out.println("Picking stick up");
+        System.out.println("Returning stick");
+    }
+}
+    \end{lstlisting}
+\end{figure}
+
+In \autoref{t1:dog-class} wurde den Methoden \texttt{bark} und \texttt{fetchStick} Inhalt gegeben.
+Dafür wurde die Funktion \texttt{System.out.println} verwendet, die Zeichenketten auf der \textit{Konsole} ausgibt.
+Zeichenketten werden in Java in \texttt{"Anführungszeichen"} angegeben und wurden in den beiden Methoden jeweils schon an die \texttt{System.out.println} Funktion übergeben, indem man sie in die runden Klammern \texttt{( )} hinter der Funktion geschrieben hat.
+So würde beim Aufrufen der Methode \texttt{bark} auf einem \texttt{Dog}-Objekt der Text \texttt{Woff!} auf der Konsole erscheinen.
+
+In Z.6-10 wurde der Klasse \texttt{Dog} außerdem ein sogenannter \textit{Konstruktor} hinzugefügt.
+Dieser muss mit dem Namen der Klasse beginnen und sorgt dafür, dass wir später \texttt{Dog}-Objekte erstellen können.
+Der Konstruktor erhält drei Werte als \textit{Argumente}, die er dann den Attributen der Klasse zugewiesen werden.
+Diese drei Argumente muss man beim Aufrufen des Konstruktors der \texttt{Dog}-Klasse angeben, damit man einen \texttt{Dog}-Objekt erstellen kann.
+
+\begin{figure}[H]
+    \caption{Instanziierung der \texttt{Dog}-Klasse}
+    \label{t1:dog-class-instantiation}
+    \begin{lstlisting}
+class Main {
+    public static void main(String[] args) {
+        Dog joey = new String("Jeoy", "Justin", 14);
+    }
+}
+    \end{lstlisting}
+\end{figure}
+
+Durch das Aufrufen des Konstruktors, was in Java immer durch das \texttt{Schlüsselwort} \texttt{new} gekennzeichnet wird, wurde in \ref{t1:dog-class-instantiation} in Z.3 so ein \texttt{Dog}-Objekt erstellt.
+Damit wir das neu erstellte Objekt auch verwalten können, wird es in einer Variable namens \texttt{joey} gespeichert.
+Das Speichern in der Variable nennt man \texttt{Zuweisung} und ist gut, um auf dem erstellten Objekt Methoden aufzurufen, die Attribute zu ändern (bspw. wenn \texttt{joey} Geburtstag hat) oder das Objekt als Argument an andere Methoden oder Funktionen zu übergeben.
+Zum Speichern wird der Zuweisungsoperator \texttt{=} verwendet, der auch schon im Konstruktor von \texttt{Dog} \ref{t1:dog-class} zum Einsatz kam um die Argumente abzuspeichern.
+
+% TODO Aufgabenidee: Wir stellen eine Katzen-Klasse (mit einem extra Attribut) und Main-Klasse zur Verfügung und sie sollen eine Katze instanziieren
+
+% TODO Nächste kurze Erklärung hieran
+
+% \begin{figure}[H]
+%     \caption{\textit{Dog}-Klasse mit \texttt{barkName}-Methode}
+%     \label{t1:dog-class-mod1}
+%     \begin{lstlisting}
+% class Dog {
+%     // ...
+%     void fetchStick() {
+%         // ...
+%     }
+%     void barkName() {
+%         System.out.println("Woff! " + this.name + "! Woff!"); // TODO This is silly...
+%     }
+% }
+%     \end{lstlisting}
+% \end{figure}
+
+% TODO Nächste Erklärung hieran (das könnte schon nach Blatt 2 Kapitel 1 gehören)
+
+% \begin{figure}[H]
+%     \caption{\textit{Dog}-Klasse mit \texttt{barkName}-Methode}
+%     \label{t1:dog-class-mod1}
+%     \begin{lstlisting}
+% class Dog {
+%     // ...
+%     void markName() {
+%         // ...
+%     }
+%     void greet(Dog otherDog) {
+%         System.out.println("Woff " + otherDog.name + "!");
+%     }
+% }
+%     \end{lstlisting}
+% \end{figure}
+
+% TODO Nächste Aufgabenidee: \texttt{greet}-Methode auf Klasse mit Implementierung aufrufen
+
+% TODO Erklärung für Variablen von üb1 2023 verkürzt eingliedern
+
+% Variablen:
+% Variablen werden genutzt, um (tempor\"ar) Werte zu speichern. Sie sind in den F\"allen n\"utzlich,
+% in denen du einen bestimmten Wert mehrfach im selben Code nutzen willst. Au\ss erdem auch
+% wenn ein Wert beim Starten des Programms noch nicht fest steht oder sich noch \"andert.
+% Stell dir Variablen wie Schubladen vor. Du kannst Sachen in die Schubladen reinlegen um
+% sie sp\"ater wieder zu benutzen. Um die Sachen aber wieder finden zu k\"onnen geben wir den
+% Schubladen Namen.
+% Variablen besitzen immer einen Typ (was man in die Schublade legen darf / passt) und einen
+% Namen (Name der Schublade). Mit einem = kann einer Variable ein Wert zugewiesen werden
+% (Etwas in die Schublade legen).
+% \"Uber den Namen der Variable kann dann auf dessen Wert (Inhalt der Schublade) zugegriffen
+% werden.
+% Einige wichtige Typen sind:
+% • String: zum speichern von Text, z.B. ''Das ist ein String''
+% • boolean: true oder false (wahr oder falsch), wird sp\"ater noch genauer erkl\"art
+% • Integer: positive und negative ganze Zahlen
+% • Double: positive und negative Zahlen, welche Nachkommastellen haben k\"onnen
+% Wenn man ein Objekt erzeugt, weist man es oft direkt einer Variable zu, damit man es sp\"ater
+% im Code noch benutzen kann.

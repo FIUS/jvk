@@ -13,6 +13,7 @@
             gnumake
             texliveFull
             temurin-bin-17
+            maven
           ];
         };
       });

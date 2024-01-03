@@ -1,0 +1,72 @@
+% !TeX root = ./jvk-blatt1.tex
+
+\excercise{Programmstart}
+\label{ex1}
+
+\begin{Infobox}[Klassendateien]
+    Ein Java Programm setzt sich aus vielen Klassen zusammen, die einzelne Funktionen eines Programms beinhalten.
+    Klassen sind dabei jeweils in einer \texttt{.java}-Datei enthalten.
+\end{Infobox}
+
+\begin{enumerate}
+    \item
+    \begin{itemize}
+        \item
+        Um das Programm starten zu können, musst Du die \texttt{Main}-Klasse ausführen.
+        Öffne dazu bitte die \texttt{Main}-Klasse im Packet Explorer von IntelliJ.
+        Die Klassendatei befindet sich genauer im \texttt{src/main/java/de/unistuttgart/informatik/fius/jvk} Ordner des Projekts.
+        % TODO Hier ein Bild aus dem IntelliJ Package Explorer einfügen
+
+        \item
+        Um die \texttt{Main}-Klasse auszuführen, drücke bitte den grünen Play Button $\vartriangleright$ in IntelliJ.
+        \item Wenn du bei der Installation alles richtig gemacht hast, sollte sich (spätestens jetzt) die Konsole der IDE öffnen.
+        Auf dieser sollte der Text \texttt{Hallo FIUS Java Vorkurs!} erscheinen.
+        % TODO Dieses sout in die Main-Klasse einfügen des Codes einfügen
+
+        Wenn hingegen ein roter Text auf der Konsole erscheinen sollte, ist beim Setup etwas schief gelaufen.
+        Schaue in diesem Fall nochmal genau nach, ob du einen Schritt bei der Einrichtung vergessen hast und melde dich dann bei einem Helfer.
+    \end{itemize}
+
+    \item
+    Finde die folgende Zeile in der \lstinline{Main} Klasse:
+    \begin{lstlisting}
+        // implement task 1 (from sheet 1) here
+    \end{lstlisting}
+
+    Um den \simlator starten zu können, musst du den Code aus \autoref{s1c1:program-start-code} hier einfügen.
+    Aktuell musst Du den Code noch nicht verstehen, es geht lediglich darum das Programm einmal gestartet zu haben.
+
+    \begin{figure}
+        \caption{Code zum Starten des \simulator s in der \texttt{Main}-Klasse}
+        \label{s1c1:program-start-code}
+        \begin{lstlisting}
+        // implement task 1 (from sheet 1) here
+        Game demoGame = new Game("FIUS Demo Simulator", new DemoTask(), new DemoTaskVerifier());
+        demoGame.run();
+        \end{lstlisting}
+    \end{figure}
+
+    Wenn Du das Programm jetzt erneut wie in der letzten Teilaufgabe ausführst, sollte sich ein Fenster mit dem \simulator~öffnen.
+    Probiere die Elemente im Simulator, die Du in der letzten Teilaufgabe kennengelernt hast, aus.
+
+    Betätige schließlich die (rote) Stop Taste $\square$ in IntelliJ, um das Programm zu stoppen.
+
+% TODO In die Demo-Task ein paar mehr Objekte einfügen, sodass die folgenden Teilaufgaben möglich werden
+%\item Lösche die letzte Mauer auf Neo’s Weg. Was passiert?
+%\item Stelle Neo eine Mauer in den Weg. Was passiert?
+\end{enumerate}
+
+\begin{Infobox}[Optionale Aufgaben] % TODO find a better place for this
+    Aufgaben die mit \optional markiert, stellen Herausforderungen dar und sind müssen daher nicht bearbeitet werden.
+    Sie setzen meistens Vorkenntnisse mit dem Programmieren voraus und sind deshalb auch oft deutlich schwerer als die normalen Aufgaben.
+
+    Wenn du also an einer optionalen Aufgabe festhängst, dann solltest du mit der nächsten normalen Aufgabe weitermachen.
+\end{Infobox}
+
+
+% \begin{enumerate} \setcounter{enumi}{3}
+%\item \optional Versuche nun den Code aus \ref{s1c1:program-start-code} so zu verändern, dass dein Name im Fenstertitel steht.
+% \item \optional Finde eine Möglichkeit, den Fenstertitel nach der \lstinline{demoGame.run();} Zeile zu ändern.
+% Dafür benötigst du den folgenden Code, den du aber noch auf deinen Namen anpassen musst: \lstinline{demoGame.getGameWindow().setWindowTitle("");}
+% \item \optional Versuche, drei Fenster gleichzeitig zu starten.
+% \end{enumerate}
