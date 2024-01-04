@@ -1,0 +1,125 @@
+% !TeX root = ../jvk-blatt2.tex
+
+\vkchapter{Variablen und Datentypen}
+
+Um komplexere Algorithmen umzusetzen, müssen immer wieder Zwischenergebnisse der Berechnung gespeichert werden.
+Um diese nun wiederverwenden zu können, gibt man den entsprechenden Speicherstellen Namen.
+Diese Namen können dann anstelle der dort gespeicherten Werte im Programm verwendet werden.
+Außerdem kann man den Namen (auch Bezeichner genannt) auch nutzen um Variablen einen neuen Wert zuzuweisen.
+
+Da Computer intern alle Daten durch sogenannte Bits repräsentieren müssen, sehen die Inhalte auf den ersten Blick alle gleich aus.
+Daher müssen die Daten nach dem Lesen aus dem Speicher wieder richtig interpretiert werden.
+Damit das klappt unterscheidet der Computer verschiedenaddexcercisee Datentypen, die unterschiedliche Bedeutung haben.
+
+Eine neue Variable wird immer nach dem gleichen Schema angelegt: \lstinline|Typ bezeichner = Wert;|.
+Sobald die Variable angelegt wurde, kann sie im gleichen Gültigkeitsbereich verwendet werden ohne, dass der Typ mit angegeben werden muss.
+
+
+\begin{Infobox}[Primitive Datentypen]
+
+Es gibt einige \q{einfache} Datentypen, die genau einen Wert enthalten.
+Solche Datentypen bezeichnet man auch als \q{primitive} Datentypen, weil sie nicht aus mehreren Teilen bestehen.
+
+In PSE werden solche Datentypen vermieden, weil sie weniger Funktionen haben, als ihre komplexen Gegenstücke.
+
+\begin{center}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Datentyp} & \textbf{Beschreibung} & \textbf{Beispiel} \\
+    \hline
+    \texttt{byte} & 8-Bit Ganzzahl & \lstinline|byte myByte = 127;| \\
+    \hline
+    \texttt{short} & 16-Bit Ganzzahl & \lstinline|short myShort = 32000;| \\
+    \hline
+    \texttt{int} & 32-Bit Ganzzahl & \lstinline|int myInt = 2147483647;| \\
+    \hline
+    \texttt{long} & 64-Bit Ganzzahl & \lstinline|long myLong = 9223372036854775807L;| \\
+    \hline
+    \texttt{float} & 32-Bit Gleitkommazahl & \lstinline|float myFloat = 3.14f;| \\
+    \hline
+    \texttt{double} & 64-Bit Gleitkommazahl & \lstinline|double myDouble = 3.14;| \\
+    \hline
+    \texttt{char} & 16-Bit Unicode-Zeichen & \lstinline|char myChar = 'A';| \\
+    \hline
+    \texttt{boolean} & Wahrheitswert & \lstinline|boolean myBoolean = true;| \\
+    \hline
+  \end{tabular}
+\end{center}
+Eine einfache Rechnung könnte dann folgendermaßen aussehen:
+
+\begin{lstlisting}[numbers=none]
+int x = 4;
+int y = 5;
+
+x = x+y;
+\end{lstlisting}
+
+Man kann auch mehrere Datentypen in einer Rechnung mischen:\\
+
+\begin{lstlisting}[numbers=none]
+int x = 1;
+int y = 2;
+
+float z = x/y;
+\end{lstlisting}
+
+\end{Infobox}
+
+\begin{Infobox}[Rückgabewerte von Operationen und Varibalen]
+
+Bisher wurden Operationen nur in Form von \textit{Kommandos} vorgestellt.
+Man kann allerdings auch \textit{Abfragen} verwenden.
+Solche Operationen verändern den Zustand eines Objekts nicht, sondern geben Informationen über den Zustand des Objekts zurück.
+Damit auch das Ergebnis einer Abfrage korrekt interpretiert wird, brauchen Operationen einen \q{Rückgabetyp}.
+Beispielsweise könnte man den Rückgabewert einer Operation \lstinline|public int getDummy()| auf einem Objekt \lstinline|obj| folgendermaßen verwenden:
+
+\begin{lstlisting}[numbers=none]
+int dummy = obj.getDummy();
+\end{lstlisting}
+
+Diesen Wert kann man nun wie jede andere Variable auch verwenden um damit weiterzuarbeiten.
+
+\end{Infobox}
+
+\addexcercise
+
+\begin{Infobox}[Zusammengesetzte Datentypen]
+
+Den primitiven Datentypen stehen die zusammengesetzten Datentypen gegenüber.
+Diese bestehen aus mehreren atomaren Datentypen, die (üblicherweise mit Operationen zusammen) zusammengefasst wurden.
+Solche Datentypen repräsentieren komplexe Strukturen und ihre Eigenschaften und Fähigkeiten.
+Einige Beispiele für häufig verwendete komplexe Datentypen sind in der nachstehenden Tabelle aufgeführt.
+
+\begin{center}
+  \begin{tabular}{|l|l|l|}
+    \hline
+    \textbf{Datentyp} & \textbf{Beschreibung} & \textbf{Beispiel} \\
+    \hline
+    \texttt{String} & Zeichenkette & \lstinline|String myString = "Hello, World!";| \\
+    \hline
+    \texttt{List} & Liste & \lstinline|List<String> myList = new ArrayList<>();| \\
+    \hline
+    \texttt{Array} & Array & \lstinline|int[] myArray = {1, 2, 3, 4, 5};| \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\end{Infobox}
+\addexcercise
+
+\begin{Infobox}[Sichtbarkeit]
+Man unterscheidet \q{lokale} und \q{globale} Variablen.
+Der Unterschied liegt in der Sichtbarkeit für andere Operationen.
+Wie der Name bereits vermuten lässt, sind lokale Variablen in ihrer Sichtbarkeit auf die Operation beschränkt in der sie definiert wurden.
+Außerdem werden die Variablen und ihre Werte verworfen sobald die Operation beendet ist.
+
+Will man allerdings Werte länger speichern, braucht man globale (auch objektglobal genannt) Variablen.
+Diese sind in ihrer Lebensdauer und ihrer Sichtbarkeit an das Objekt geknüpft, in dessen Klassendefinition sie definiert sind.
+Da globale Variablen an Objekte geknüpft sind stellt sich die Frage, ob die Variablen außerhalb des Objekts verfügbar sein soll oder nicht.
+Auch diese Art der Sichtbarkeit kann man für jede Varibale einzeln mit einem Schlüsselwort festlegen.
+In einer Klasse werden Variablen also nach folgendem Schema definiert: \lstinline|Sichtbarkeit Typ Bezeichner = initialerWert|.
+\end{Infobox}
+
+\begin{Infobox}[Rechenoperationen]
+
+\end{Infobox}
