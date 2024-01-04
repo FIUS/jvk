@@ -1,0 +1,45 @@
+%!TEX root = ./jvk-blatt4.tex
+\excercise{break und continue}
+
+\begin{Infobox}[Endlosschleifen und \lstinline{break}]
+	Eine While-Schleife, in der die Schleifenbedingung \lstinline{true} ist, nennt man eine Endlosschleife.
+	Das heißt, dass die Schleife niemals aufhören wird den Code im Schleifenrumpf auszuführen, wenn das nicht durch eine Exception oder den Stop der Ausführung des Programms verhindert wird!
+	Deshalb kann es passieren, dass du den Stopp Knopf in der IntelliJ brauchst, um die Schleife wieder abzubrechen.\newline
+
+	Endlosschleifen möchte man in der Regel wann immer möglich vermeiden.
+	Aber man kann auch eine \lstinline{while(true)}-Schleife planmäßig im Quellcode und ohne das Auslösen von Exceptions beenden.
+	Dafür braucht man das Schlüsselwort \lstinline{break}.\newline
+
+	Wenn du im Rumpf einer Schleife \lstinline{break;} aufrufst, dann wird die Schleife sofort unterbrochen.
+	Auch die Schleifenbedingung wird dann nicht mehr überprüft und der Code nach der Schleife wird weiter ausgeführt.
+
+	\begin{lstlisting}[numbers=none]
+	while(condition){
+		// do something
+		if (hadEnough) {
+			break;
+		}
+	}
+	\end{lstlisting}
+\end{Infobox}
+
+\begin{enumerate} \setcounter{enumi}{0}
+    \item gegeben ist eine Endlosschleife, schreibe deinen Code in den Schleifenkörper, sodass neoA bis zur gegenüberliegenden Wand läuft und vor ihr stehen bleibt
+    \item lasse neoB laufen bis er an der genenüberliegenden Wand ankommt oder bis er auf einem Feld mit genau zwei Münzen steht.  
+\end{enumerate}
+
+\begin{Infobox}[\lstinline{continue}]
+	Wenn du im Rumpf einer Schleife \lstinline{continue;} aufrufst, dann geht die Schleife sofort in den nächsten Schleifendurchlauf.
+	Die Schleifenbedingung wird erneut überprüft und die Schleife wird von anfang an ausgeführt falls die Schleifenbedingung wahr ist.
+
+	\begin{lstlisting}[numbers=none]
+	while(condition){
+		// do something
+		if (want_to_skip) {
+			continue;
+		}
+		// code that is skipped if continued
+	}
+	\end{lstlisting}
+
+\end{Infobox}
