@@ -51,27 +51,14 @@ public class Chapter13Task2Verifier implements TaskVerifier {
         if (this.sim.getPlayfield().getEntitiesOfTypeAt(new Position(14, 1), Coin.class, true).isEmpty()) {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
-
-        boolean failedC = false;
         Position collectionPosition = new Position(0, 0);
-        checkB:
-        for (int i = 1; i < 15; i++) {
-            if (this.sim.getPlayfield().getEntitiesOfTypeAt(new Position(i, 3), Coin.class, true).size() == 2) {
-                failedC = true;
-                break;
-            }
-            for (EntityCollectAction action : actionLog.getActionsOfType(EntityCollectAction.class, true)) {
-                if ((action.getCollectedEntityPosition().getY() == 3)) {
-                    if (collectionPosition.equals(new Position(0, 0))) {
-                        collectionPosition = action.getCollectedEntityPosition();
-                    } else {
-                        failedC = true;
-                        break checkB;
-                    }
-                }
+        for (EntityCollectAction action : actionLog.getActionsOfType(EntityCollectAction.class, true)) {
+            if ((action.getCollectedEntityPosition().getY() == 3)) {
+                collectionPosition = action.getCollectedEntityPosition();
             }
         }
-        if (((sim.getPlayfield().getEntitiesOfTypeAt(collectionPosition, Neo.class, true).size()==1) || this.sim.getPlayfield().getEntitiesOfTypeAt(new Position(14, 3), Coin.class, true).isEmpty()) && !failedC) {
+
+        if (((sim.getPlayfield().getEntitiesOfTypeAt(collectionPosition, Neo.class, true).size() == 1) || this.sim.getPlayfield().getEntitiesOfTypeAt(new Position(14, 3), Coin.class, true).isEmpty()) && (actionLog.getActionsOfType(EntityCollectAction.class, true).size() <= 2)) {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
 
