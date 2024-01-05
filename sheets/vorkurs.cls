@@ -158,31 +158,58 @@
 	\ifthenelse{\value{excerciseCounter}=1}{}{
 		\vspace{2em}
 	}
-	\section{-\quad#1}
+	\subsection{-\quad#1}
 	%\large\textbf{Aufgabe \arabic{excerciseCounter}:} #1\normalsize\\
 	\medskip
 }
+
 \makeatletter
-\renewcommand\thesection{Aufgabe \@arabic\c@section}
+\renewcommand\thesubsection{Aufgabe \@arabic\c@subsection}
 \makeatother
 \setenumerate{label=\alph*)}
 
+\newcounter{vkchapterCounter}\setcounter{vkchapterCounter}{\firstChapter}
+\newcommand{\vkchapter}[1]{
+	\ifthenelse{\value{vkchapterCounter}=\firstChapter}{}{
+		\vspace{2em}
+	}
+	\section{-\quad#1}
+	\medskip
+}
+
+\newcounter{vkCurrentChapter}\setcounter{vkCurrentChapter}{0}
+
+\makeatletter
+\renewcommand\thesection{Kapitel \@arabic\c@vkchapterCounter}
+\makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Automatic Document inclusion %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\addexcercise}{
-	\IfFileExists{exercise-\arabic{excerciseCounter}.tex}{
+	\message{Section: \arabic{vkCurrentChapter},Excercise: \arabic{excerciseCounter}}
+	\IfFileExists{\arabic{vkCurrentChapter}/exercise-\arabic{excerciseCounter}.tex}{
 		\begin{samepage}
-	    	\input{exercise-\arabic{excerciseCounter}.tex}
+	    	\input{\arabic{vkCurrentChapter}/exercise-\arabic{excerciseCounter}.tex}
 	    	\pagebreak[4]
 		\end{samepage}
 		\stepcounter{excerciseCounter}
-		\addexcercise
 	}{}
 }
 
+\newcommand{\addchapter}{
+	\stepcounter{vkCurrentChapter}
+	\IfFileExists{\arabic{vkCurrentChapter}/chapter.tex}{
+		\begin{samepage}
+	    	\input{\arabic{vkCurrentChapter}/chapter.tex}
+	    	\pagebreak[4]
+		\end{samepage}
+		\stepcounter{vkchapterCounter}
+		\setcounter{excerciseCounter}{1}
+		\addchapter
+	}{}
+}
 
 %%%%%%%%%%%
 % Infobox %
@@ -284,6 +311,6 @@
 				\input{intro.tex}
 			\end{samepage}
 		}{}
-		\addexcercise
+		\addchapter
 	\end{document}
 }
