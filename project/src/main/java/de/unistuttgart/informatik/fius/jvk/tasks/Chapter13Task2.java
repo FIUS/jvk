@@ -13,10 +13,14 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.CoinFactory;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.WallFactory;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
+
+import java.util.Random;
 
 
 /**
@@ -28,7 +32,7 @@ public class Chapter13Task2 implements Task {
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         // put your implementation below this comment
-        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(0, 0), new Position(15, 4)));
+        buildEnvironment(pm);
         Neo neoA = new Neo();
         Neo neoB = new Neo();
         neoA.setCoinsInWallet(1);
@@ -41,5 +45,16 @@ public class Chapter13Task2 implements Task {
 
 
         //b)
+    }
+
+    private void buildEnvironment(PlayfieldModifier pm){
+        // build the outside wall
+        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(0, 0), new Position(15, 4)));
+        Random r = new Random();
+        for(int i = 2; i < 14; i++){
+            pm.placeMultipleEntitiesAt(new CoinFactory(), (int)Math.round(r.nextDouble()*9), new Position(i, 3));
+        }
+        pm.placeEntityAt(new Coin(),new Position(14,1));
+        pm.placeEntityAt(new Coin(),new Position(14,3));
     }
 }
