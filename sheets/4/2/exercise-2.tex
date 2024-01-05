@@ -2,9 +2,6 @@
 
 \begin{enumerate}
 	\item
-	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}) und mache dich mit dieser vertraut.
-
-	\item
 		Mit dem folgenden Codebeispiel kannst du die Anzahl der Münzen in dem Feld unter Neo abfragen und auf der Konsole ausgeben.
 
 		\begin{lstlisting}
@@ -24,28 +21,19 @@ System.out.println(coinsUnderNeo);
 
 		Dazu wollen wir Neo erstmals so lange geradeaus laufen lasse, bis sich unter ihm eine oder mehrere Münzen befinden.
 		Wenn Neo auf eine Münze trifft, sollst du erst mal anhalten.
-
+		Wenn Neo auf einem Feld mit genau einer Münzen steht, soll er die Münze aufsammeln, sich dann nach rechts drehen und wieder nach vorne laufen bis er erneut auf ein Feld mit Münzen trifft.
 	\item
-		Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
-
-		Wenn Neo also auf einem Feld mit genau einer Münzen steht, soll er die Münze aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
-		Wenn sich mehr als eine Münze unter Neo befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
-		Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Münzen auftauchen.
-
-	\item
-		Wenn sich nun mehr als eine Münze unter Neo befinden sollten, dann soll Neo genau eine Münze aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
+		Wenn sich nun mehr als eine Münze unter Neo befinden sollten, dann soll Neo genau eine Münze aufsammeln, sich nach links drehen und wieder nach vorne laufen bis er erneut auf auf ein Feld mit Münzen trifft.
 
 		Momentan soll Neo noch nicht alle Münzen aufgesammelt bekommen, ohne gegen eine Wand zu laufen.
-
 	\item
 		Bevor Neo gegen eine Wand läuft soll er sich umdrehen.
-		Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Neo sich überhaupt nach vorne bewegen kann.
-
 	\item
 		Jetzt wollen wir, dass Neo auch irgendwann aufhört.
-		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
+		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn neo schon 70 Schritte gegangen ist oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
 		Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neo's Inventory abfragen.
 
-		\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
-		Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
+		\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern, \lstinline{break} verwenden oder die Schleife zu einer For Schleife zu ändern.
+		Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein\\
+		\lstinline{else if(...)} einführen.
 \end{enumerate}

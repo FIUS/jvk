@@ -38,9 +38,6 @@
 	Nur wenn sie den Wert \lstinline{true} zurück gibt, ist wird der Code-Block der Schleife ausgeführt.\newline
 
 	Der Ausdruck \lstinline{i < 5} überprüft hier, ob der Wert der Variable \texttt{i} größer (echt) kleiner als die Ganzzahl \texttt{5} ist.
-	Bei \texttt{<} handelt es sich also wie schon bei \texttt{+},\texttt{-},\texttt{/} und \texttt{*} um eine Operator - genauer einen Vergleichsoperator - der in den meisten Programmiersprachen vorhanden ist.
-	Weiter Vergleichsoperatoren sind \texttt{>} für \enquote{Ist $\langle$links$\rangle$ (echt) kleiner als $\langle$rechts$\rangle$?}, \texttt{<=}, \texttt{>=}, \texttt{!=} und \texttt{==}.
-	Genaueres erfährst du hierzu noch in Aufgabe 2.\newline
 
 	Die dritte Anweisung \lstinline{i++} wird nach jedem Durchlauf des Codes im Schleifenrumpf ausgeführt, bevor die Bedingung erneut überprüft wird.
 	\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf um \lstinline{1} erhöht wird.
@@ -48,7 +45,7 @@
 
 	Die obige Schleife wird 5 Mal ausgeführt.
 	Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} (<= bedeuted i < 5 oder i == 5 gilt) prüft.
-	Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}, wird dann nach der Ausführung des Rumpfes um eins erhöht, wodurch die Bedingung zu \lstinline{flase} ausgewertet wird und der Rumpf nicht weiter ausgeführt wird.
+	Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}, wird dann nach der Ausführung des Rumpfes um eins erhöht, wodurch die Bedingung zu \lstinline{false} ausgewertet wird und der Rumpf nicht weiter ausgeführt wird.
 \end{Infobox}
 
 
