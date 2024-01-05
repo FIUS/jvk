@@ -1,0 +1,28 @@
+% !TeX root = ../jvk-blatt3.tex
+
+\vkchapter{Exceptions}
+
+In diesem Kapitel werden Exceptions erklärt. Desweiteren werdet ihr lernen Stacktraces zu lesen und auch eigene Exceptions zu werfen. 
+
+\begin{Infobox}[Exception]
+    Eine Exception ist ein Fehler, der den normalen Ablauf stört. Diese treten dann auf, wenn die Korrektheit des Programmes nicht mehr gewährleistet werden kann. Als Beispiel wird
+    \begin{lstlisting}[breaklines=true, numbers=none]
+        Integer a = 1;
+        Integer b = 0;
+        System.out.println(a/b);
+    \end{lstlisting}
+    folgende Fehlermeldung: \lstinline{Exception in thread "main" java.lang.ArithmeticException: / by zero at Main.main Main.java:9} ausgeben, weil eine Division durch null in der Mathematik nicht definiert ist.
+
+    Desweiteren kann ein Programmierer auch dem Programm sagen, dass eine Exception gewerfen wird, wenn die Eingabe nicht korrekt ist.
+    Eine Exception wird mit \lstinline{throw} new Exception() geworfen. 
+
+\end{Infobox}
+
+\begin{Infobox}[Stacktrace]
+    Als ein Stacktrace wird die Ausgabe einer Konsole bezeichnet, wenn eine Exception geworfen wird. 
+    Auf dem Stacktrace werden Addressen hinterlegt, die im Programm aufgerufen wurden. Desweiteren wird auch dargelegt, um welche Art einer Exception es sich handelt.
+\end{Infobox}
+
+\addexcercise
+
+\addexcercise

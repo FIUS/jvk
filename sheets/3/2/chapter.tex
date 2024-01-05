@@ -1,0 +1,143 @@
+% !TeX root = ../jvk-blatt3.tex
+
+\vkchapter{IF und Conditionals}
+
+In diesem Kapitel werden If-Verzweigungen behandelt sowie logische Vergleichsoperationen.
+
+\begin{Infobox}[Bool'sche Werte]
+    Um if-Verzweigung verstehen zu können, müssen wir uns zuerst Bool'sche Werte anschauen. Bool'sche Werte sind Variablen oder auch Rückgabewerte von Funktionen, welche nur den Wert \lstinline{true} oder \lstinline{false} (also wahr oder falsch) annehmen können. \\
+    
+    Es ist wichtig zu erwähnen, dass in Java der primitive Datentyp \lstinline{boolean} und das Objekt \lstinline{Boolean} dieselben Werte speichern können, aber nicht derselbe Typ sind.
+    Den genauen Unterschied zwischen den beiden Typen werdet ihr noch in der PSE (Programmierung und Softwareentwicklung) kennenlernen.
+    
+    Die Funktion \lstinline{neo.canMove()} zum Beispiel gibt den bool'schen Wert \lstinline{true} zurück, wenn Neo eine Schritt in seine Blickrichtung gehen kann, also auf diesem Feld keine Hindernisse sind.
+    Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
+    
+\end{Infobox}
+
+\begin{Infobox}[IF-Verzweigung]
+    Nun betrachten wir ein beispielhaftes IF-Statement:
+
+    \begin{lstlisting}[breaklines=true, numbers=none]
+        if (neo.canMove()) {
+            neo.move();
+        } 
+    \end{lstlisting}
+
+    Das beispielhafte IF-Statement bedeutet informal, dass falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{true} hat, wird \lstinline{neo.move()} ausgeführt. Falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{false} hat wird der Code in den geschweiften Klammern übersprungen.
+
+    \begin{lstlisting}[breaklines=true, numbers=none]
+    if (neo.canMove()) {
+        neo.move();
+    } else {
+        System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
+    }
+    \end{lstlisting}
+
+    Nun wurde noch ein ELSE-Statement angehängt. Dadurch dient der Code als Verzweigung mit der Bedingung, dass falls etwas gilt mache etwas, falls nicht mache irgendwas anderes. In unserem Beispiel, falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{false} hat wird auf der Konsole der Text ''Morpheus: There is a difference between knowing the path and walking the path'' ausgegeben.\\
+
+    Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den geschweiften Klammern beliebig viel Code stehen kann, nicht nur eine Zeile wie in unserem Beispiel.
+\end{Infobox}
+
+\addexcercise
+
+\begin{Infobox}[If-Statements 2]
+
+	If-Statements und die Vergleichsoperatoren (wie z.B. \lstinline{<=}) kennst du ja schon.
+	Diese können wie schonmal erwähnt zusammen mit primitiven Datentypen wie Ganzzahlen (\lstinline{int}s) verwendet werden.\newline
+
+	Hier ein Beispiel:
+
+	\begin{lstlisting}[numbers=none]
+	int x = 2;
+	if ( x < 3 ) {
+		System.out.println("x ist kleiner als 3!");
+	}
+	\end{lstlisting}
+
+	Das kann man zum Beispiel dazu verwenden, um zu schauen wie viele Münzen Neo hat.
+	In Java kannst du die folgenden Vergleichsoperatoren verwenden:
+
+	\begin{center}
+		\begin{tabular}{ c | c | c | l }
+			Natürliche Sprache & Mathematisches Zeichen & Java Operator \\
+			\hline
+			größer als & $>$ & \texttt{>} \\
+			kleiner als & $<$ & \texttt{<} \\
+			gleich & $=$ & \texttt{==}\\
+			ungleich & $\neq$ & \texttt{!=} \\
+			größer gleich & $\geq$ & \texttt{>=} \\
+			kleiner gleich & $\leq$ & \texttt{<=} \\
+        \end{tabular} \\
+	\end{center}
+
+	Damit können wir nun prüfen, ob sich auf Neo's Feld genau 3 Münzen befinden:
+
+	\begin{lstlisting}[numbers=none]
+if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
+	System.out.println("neo hat genau 3 Münzen!");
+}
+	\end{lstlisting}
+\end{Infobox}
+
+\begin{Infobox}[\lstinline{==} und die \lstinline{equals()}-Methode]
+	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen die wir der Einfachheit halber hier weglassen) vergleichen!\newline
+
+	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{equals}-Methode, die auf jedem Objekt definiert ist, verwendet werden:
+
+	\begin{lstlisting}[numbers=none]
+if (neo1.getPosition().equals(new Position(1, 1))){
+	System.out.println("Neo is on Position (1, 1)");
+}
+	\end{lstlisting}
+
+	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen müssen, wenn man zwei Objekte vergleichen will.
+
+	\begin{lstlisting}[numbers=none]
+System.out.println(new Position(1,1) == new Position(1,1)); // false
+System.out.println(new Position(1,1).equals(new Position(1,1))); // true
+	\end{lstlisting}
+
+\end{Infobox}
+
+\begin{Infobox}[Logische Operatoren]
+
+	Wenn mehrere Bedingungen (also bool'sche Werte) für ein Ereignis eine Rolle spielen, muss man diese logisch verknüpfen.
+	Es folgt eine Auflistung der häufigsten Operatoren:
+
+	\begin{center}
+		\begin{tabular}{ c | c | c | l}
+			Natürliche Sprache & logische Operatoren & Java Operatoren & Bemerkung \\
+			\hline
+			und  & $\wedge$ & \texttt{\&\&} & \minibox{Das einfache \texttt{\&} hat eine\\etwas andere Funktion} \\
+			oder & $\vee$ & \texttt{||} & Dasselbe gilt für \texttt{|} \\
+			nicht & $\neg$ & \texttt{!} &\\
+		\end{tabular}\\
+	\end{center}
+
+	Hier ein paar Beispiele der Anwendung dieser in Java-Verzweigungen.
+	Natürlich kann man die logischen Operatoren aber auch in while- oder for-Schleifeköpfen, oder sonst wo verwenden:
+
+	\begin{lstlisting}[numbers=none]
+if (neo.canMove() && neo.getCurrentlyCollectableCoins().size() == 7) {
+	//neo hat genau 7 Münzen UND kann nach vorne gehen.
+}
+	\end{lstlisting}
+
+	\begin{lstlisting}[numbers=none]
+if (!neo.canMove() && neo.getCurrentlyCollectableCoins().size() == 7) {
+	//neo hat genau 7 Münzen UND kann sich NICHT nach vorne gehen.
+}
+	\end{lstlisting}
+
+	\begin{lstlisting}[numbers=none]
+if (neo.canMove() || neo.getCurrentlyCollectableCoins().size() == 7) {
+	//neo hat genau 7 Münzen ODER kann nach vorne gehen.
+}
+	\end{lstlisting}
+
+	Zu beachten ist außerdem, dass das \q{oder} \lstinline{||} kein ausschließendes \q{oder} ist, daher ist \lstinline{((2 < 3) || (42 != 4))} eine wahre Aussage.
+
+\end{Infobox}
+
+\addexcercise

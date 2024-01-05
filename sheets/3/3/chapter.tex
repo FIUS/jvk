@@ -1,0 +1,19 @@
+% !TeX root = ../jvk-blatt3.tex
+
+\vkchapter{Kommentare, Stil und JavaDoc}
+
+In diesem Kapitel werdet ihr lernen, wie ihr euren Code sauber und lesbar haltet und gut kommentiert, sodass dieser einfach zu verstehen ist.
+
+\begin{Infobox}[Kommentare]
+    In allen gängigen Programmiersprachen ist es dem Programmierer möglich Kommentare zu verfassen, welche kein Code sind, sondern den Code erklären sollen.
+    In Java werden einzeilige Kommentare mit \lstinline{//} gestartet. Jegweige Zeichen folgend werden vom Compiler ignoriert, bis eine neue Zeile anbricht.
+    Ein Mehrzeiliger Kommentar wird mit \lstinline{/*} eingeleitet und endet auf \lstinline{*/}. Hierbei wird vom Compiler jegweige Zeichen ignoriert, bis das Ende des mehrzeiligen Kommentars gelesen wird.
+    Als Beispiel wird im folgenden Code
+    \begin{lstlisting}[breaklines=true, numbers=none]
+        System.out.println("Hello, World!");
+        //System.out.println("Diese Ausgabe ist ein Kommentar und wird daher nicht ausgegeben");
+    \end{lstlisting}
+    nur \lstinline{Hello, World!} ausgegeben.
+\end{Infobox}
+
+\addexcercise
