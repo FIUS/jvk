@@ -12,6 +12,9 @@
 \def\jvkpackage{Release 1.0.1}
 \def\javadocRoot{https://fius.github.io/ICGE2/master/}
 \def\jvkpackageurl{https://github.com/FIUS/jvk/releases/latest}
+\def\intellijurl{https://www.jetbrains.com/idea/download/}
+\def\eduroamurl{https://www.geteduroam.app/}
+\def\eduroamurllinux{https://uni-stuttgart.de/eduroam}
 
 
 %% Java:
