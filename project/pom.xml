@@ -15,7 +15,7 @@
 
 	<dependencies>
 		<dependency>
-			<groupId>de.uni-stuttgart.informatik.fius</groupId>
+			<groupId>de.fius</groupId>
 			<artifactId>icge-simulation</artifactId>
 			<version>${icge.version}</version>
 		</dependency>
