@@ -1,0 +1,26 @@
+%!TEX root = ./jvk-blatt3.tex
+
+\excercise{Verzweigung}
+
+In dieser Aufgabe wollen wir uns Conditions (Verzweigungen) näher anschauen.
+% Chapter11Task1 ist alte Sheet2Task4
+\begin{enumerate}                           
+    \item Instanziiere die Simulation wie bekannt (\lstinline{Chapter11Task1} und \lstinline{Chapter11Task1Verifier}) und mache dich mit dieser vertraut.
+        Was passiert bei der Ausführung?
+    \item Betrachte die Operation \lstinline{movement} der Klasse \lstinline{Chapter11Task1}.\\
+        Füge das obige IF-Statement an einer geeigneten Stelle ein und führe die Simulation erneut aus.
+        Dabei sollten die dann noch vorhandenen \lstinline{.move()} Kommandos in den ersten Code-Block vom IF verschoben werden.
+        Der \lstinline{else} Code-Block soll erstmal leer bleiben.
+    \item Schließe nun das Fenster und öffne es erneut.
+        Lösche die Wand in dem Spielfenster.
+        Dazu musst du oben rechts das rote Minus auswählen und dann auf die Wand klicken.
+        Starte dann die Simulation.\\
+        Neo sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
+    \item Jetzt wollen wir den Code so anpassen, dass Neo die Telefonstation auch erreicht wenn eine Wand im Weg ist.
+
+        Du musst also einmal den Fall betrachten, dass keine Wand im Weg ist und einmal den Fall, dass eine Wand im Weg ist.\\
+
+        Überprüfe deinen Code, indem du einmal die Simulation startest, ohne die Wand zu löschen und einmal, wenn du die Wand davor gelöscht hast.
+        In beiden Fällen sollte Neo die Telefonzelle erreichen.
+
+\end{enumerate}
