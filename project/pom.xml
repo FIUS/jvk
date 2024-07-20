@@ -8,28 +8,16 @@
 
 	<properties>
 		<java.version>17</java.version>
-		<icge.version>2.3.7</icge.version>
+		<icge.version>2.3.8</icge.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass> <!-- Class to be executed when running the jar/ mvn exec:java-->
+		<mainClass>de.unistuttgart.informatik.fius.jvk.Main</mainClass>
+		<!-- Class to be executed when running the jar/ mvn exec:java-->
 	</properties>
-
-	<repositories>
-		<repository>
-			<id>c-hack-internal</id>
-			<name>C-Hack Repository</name>
-			<url>https://maven.c-hack.de/repository/internal/</url>
-		</repository>
-		<repository>
-			<id>c-hack-snapshot</id>
-			<name>C-Hack Repository Snapshot</name>
-			<url>https://maven.c-hack.de/repository/snapshot/</url>
-		</repository>
-	</repositories>
 
 	<dependencies>
 		<dependency>
-			<groupId>de.uni-stuttgart.informatik.fius</groupId>
-			<artifactId>ICGE-Simulation</artifactId>
+			<groupId>de.fius</groupId>
+			<artifactId>icge-simulation</artifactId>
 			<version>${icge.version}</version>
 		</dependency>
 	</dependencies>
