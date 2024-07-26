@@ -24,20 +24,19 @@ System.out.println(coinsUnderNeo);
 \begin{Infobox}[If-Statements 2]
 
 	If-Statements und die Vergleichsoperatoren (wie z.B. \lstinline{<=}) kennst du ja schon.
-	Diese können wie schonmal erwähnt zusammen mit primitiven Datentypen wie Ganzzahlen (\lstinline{int}s) verwendet werden.\newline
+Diese können wie schonmal erwähnt zusammen mit primitiven Datentypen wie Ganzzahlen (\lstinline{int}s) verwendet werden.\newline
 
-	Hier ein Beispiel:
+Hier ein Beispiel:
 
-	\begin{lstlisting}[numbers=none]
-	int x = 2;
-	if ( x < 3 ) {
-		System.out.println("x ist kleiner als 3!");
-	}
-	\end{lstlisting}
+\begin{lstlisting}[numbers=none]
+int x = 2;
+if ( x < 3 ) {
+System.out.println("x ist kleiner als 3!");
+}
+\end{lstlisting}
 
-	Das kann man zum Beispiel dazu verwenden, um zu schauen wie viele Münzen Neo hat.
-	In Java kannst du die folgenden Vergleichsoperatoren verwenden:
-
+Das kann man zum Beispiel dazu verwenden, um zu schauen, wie viele Münzen Neo hat.
+In Java kannst du die folgenden Vergleichsoperatoren verwenden:
 	\begin{center}
 		\begin{tabular}{ c | c | c | l }
 			Natürliche Sprache & Mathematisches Zeichen & Java Operator \\
@@ -62,16 +61,16 @@ if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
 
 
 \begin{Infobox}[\lstinline{==} und die \lstinline{equals()}-Methode]
-	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen die wir der Einfachheit halber hier weglassen) vergleichen!\newline
+	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen, die wir der Einfachheit halber hier weglassen) vergleichen!\newline
 
 	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{equals}-Methode, die auf jedem Objekt definiert ist, verwendet werden:
-
+	
 	\begin{lstlisting}[numbers=none]
-if (neo1.getPosition().equals(new Position(1, 1))){
+	if (neo1.getPosition().equals(new Position(1, 1))){
 	System.out.println("Neo is on Position (1, 1)");
-}
+	}
 	\end{lstlisting}
-
+	
 	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen müssen, wenn man zwei Objekte vergleichen will.
 
 	\begin{lstlisting}[numbers=none]
@@ -118,21 +117,20 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
-		Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
+	Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
 
-		Wenn Neo also auf einem Feld mit genau einer Münzen steht, soll er die Münze aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
-		Wenn sich mehr als eine Münze unter Neo befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
-		Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Münzen auftauchen.
-
+	Wenn Neo also auf einem Feld mit genau einer Münze steht, soll er die Münze aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
+	Wenn sich mehr als eine Münze unter Neo befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
+	Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Münzen auftauchen.
+	
 	\item
-		Wenn sich nun mehr als eine Münze unter Neo befinden sollten, dann soll Neo genau eine Münze aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
-
-		Momentan soll Neo noch nicht alle Münzen aufgesammelt bekommen, ohne gegen eine Wand zu laufen.
-\end{enumerate}
-
-
-\begin{Infobox}[Logische Operatoren]
-
+	Wenn sich jetzt mehr als eine Münze unter Neo befinden sollten, dann soll Neo genau eine Münze aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
+	
+	Momentan soll Neo noch nicht alle Münzen aufgesammelt bekommen, ohne gegen eine Wand zu laufen.
+	\end{enumerate}
+	
+	\begin{Infobox}[Logische Operatoren]
+	
 	Wenn mehrere Bedingungen (also bool'sche Werte) für ein Ereignis eine Rolle spielen, muss man diese logisch verknüpfen.
 	Es folgt eine Auflistung der häufigsten Operatoren:
 
@@ -174,15 +172,15 @@ if (neo.canMove() || neo.getCurrentlyCollectableCoins().size() == 7) {
 
 \begin{enumerate}\setcounter{enumi}{5}
 	\item
-		Bevor Neo gegen eine Wand läuft soll er sich umdrehen.
-		Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Neo sich überhaupt nach vorne bewegen kann.
-
+	Bevor Neo gegen eine Wand läuft, soll er sich umdrehen.
+	Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Neo sich überhaupt nach vorne bewegen kann.
+	
 	\item
-		Jetzt wollen wir, dass Neo auch irgendwann aufhört.
-		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
-		Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neo's Inventory abfragen.
-
-		\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
-		Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
+	Jetzt wollen wir, dass Neo auch irgendwann aufhört.
+	Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
+	Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neo's Inventory abfragen.
+	
+	\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
+	Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
 \end{enumerate}
 \newpage

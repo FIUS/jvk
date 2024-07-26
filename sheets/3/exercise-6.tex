@@ -1,15 +1,14 @@
 \excercise{Verebung}
 \begin{enumerate}
 	\item
-	Instanziiere die Simulation (\lstinline{Sheet3Task6} und  \lstinline{Sheet3Task6Verifier}) und mache dich mit dieser vertraut.
+	Instanziiere die Simulation (\lstinline{Sheet3Task6} und \lstinline{Sheet3Task6Verifier}) und mache dich mit dieser vertraut.
 
-	\item In Blatt 2 hast du gesehen wie man ein Objekt der Klasse \lstinline{Neo} erstellt.
-	Überlege dir nun wie man eine Version dieses Objektes erstellen kann, welche immer alle Münzen auf einem Feld mit dem Befehl \lstinline{collectCoin()} einsammelt.
-	Dabei wollen wir die normale \lstinline{collectCoin}-Methode allerdings nicht wort-wörtlich mit neuen Code überschreiben, wie wir das bis jetzt getan haben.
+\item In Blatt 2 hast du gesehen wie man ein Objekt der Klasse \lstinline{Neo} erstellt.
+Überlege dir nun wie man eine Version dieses Objektes erstellen kann, welche immer alle Münzen auf einem Feld mit dem Befehl \lstinline{collectCoin()} einsammelt.
+Dabei wollen wir die normale \lstinline{collectCoin}-Methode allerdings nicht Wort-wörtlich mit neuem Code überschreiben, wie wir das bis jetzt getan haben.
 \end{enumerate}
 
 \begin{Infobox}[Vererbung]
-
 
 Bei der Vererbung spricht man von sogenannten Elternklassen (manchmal auch Superklassen genannt) und ihren Kindklassen (Subklassen).
 Die Kindklassen \enquote{erben} manche der Funktionen und Attribute der Elternklasse und können diese somit genauso verwenden wie ihre \enquote{Eltern}.\newline
@@ -42,16 +41,27 @@ public class GreedyNeo extends Neo {
 	}
 }
 \end{lstlisting}
+Die ursprüngliche Funktion der Elternklasse, die von der Kindklasse überschrieben wurde, kann mit dem Schlüsselwort \lstinline{super} aufgerufen werden:
+\begin{lstlisting}[xleftmargin=0.5cm]
+public class FastNeo extends Neo {
+	//fast Neo moves two spaces every time move() is called
+	@Override
+	public void move(){
+		super.move();
+		super.move();
+	}
+}
+\end{lstlisting}
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{2}
-\item Schreibe nun die Klasse \lstinline{GreedyNeo} aus dem \texttt{de.unistuttgart.informatik.fius.jvk.provided.}\\\texttt{entity}-Paket so um, dass sie eine Kindklasse der Klasse Neo ist.
+\item Schreibe nun die Klasse \lstinline{GreedyNeo} aus dem \texttt{de.unistuttgart.informatik.fius.jvk.provided.}\\\texttt{entity}-Paket so um, dass sie eine Kindklasse der KlasseNeo ist.
 
 Initialisiere danach ein \lstinline{GreedyNeo} in \lstinline{Sheet3Task6} und schau dir die verfügbaren Operationen an.
 
 \item Überschreibe nun die \lstinline{collectCoin()} Funktion der \lstinline{GreedyNeo} Klasse, sodass \lstinline{GreedyNeo} immer alle Münzen auf einem Feld einsammelt, wenn die Funktion aufgerufen wird.
-Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} 5 Münzen auf \lstinline{GreedyNeo} Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
+Teste diese Funktionalität, indem du in \lstinline{Sheet3Task6} 5 Münzen auf \lstinline{GreedyNeo} Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
 
 \textbf{Tipp:} schaue die dazu die \lstinline{collectCoin()} Funktion der \lstinline{Neo} Klasse genauer an.
 
@@ -67,7 +77,7 @@ Teste diese Funktionalität, indem du in \lstinline{Sheet3Task6} keine Münzen a
 Stattdessen soll Morpheus prüfen, ob das Feld links, rechts oder hinter ihm frei ist und in die entsprechende Richtung weiterlaufen.
 
 Teste diese Funktionalität, indem du in der\lstinline{Sheet3Task6}-Klasse eine Wand auf dem Feld vor dem \lstinline{Morpheus}-Objekt platzierst und ein paar angrenzende Felder blockierst.
-Was passiert, wenn Du Morpheus komplett einschließt und die \lstinline{move}-Operation ein paar Male ausführst?
+Was passiert, wenn du Morpheus komplett einschließt und die \lstinline{move}-Operation ein paar Male ausführst?
 
 \item \optional Dir ist vielleicht aufgefallen, dass Morpheus in der Simulation anders aussieht als \lstinline{Neo}, \lstinline{GreedyNeo} allerdings aussieht wie \lstinline{Neo}.
 Finde den Codeteil der dieses Verhalten bewirkt.

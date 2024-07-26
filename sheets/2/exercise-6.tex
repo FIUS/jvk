@@ -5,11 +5,11 @@
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task6} und \lstinline{Sheet2Task6Verifier}) und mache dich mit dieser vertraut.
     \item Lasse Neo im Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
-        Implementiere das Verhalten an der markierten Stelle in der Klasse \lstinline{Sheet2Task6}. Verwende die Konzepte welche du in den vorherigen Aufgaben kennengelernt hast um die Menge an zu kopierenden Code zu minimieren.
+    Implementiere das Verhalten an der markierten Stelle in der Klasse \lstinline{Sheet2Task6}. Verwende die Konzepte, welche du in den vorherigen Aufgaben kennengelernt hast um die Menge an zu kopierenden Code zu minimieren.
     \item Lasse nun Neo gegen den Uhrzeigersinn an der Wand entlang laufen, bis er wieder an seinem Startpunkt angekommen ist.\\
-        Welche der beiden Varianten ist die schnellere?\\
-        Welche hat weniger Code?
-
+    Welche der beiden Varianten ist die schnellere?\\
+    Welche hat weniger Code?
+    
     \textbf{Hinweis}: Du kannst dir die Zeit des aktuellen Zeitpunktes der Simulation mit dem folgenden Programmcode auf der Konsole ausgeben lassen.
 
         \begin{lstlisting}
@@ -43,44 +43,44 @@ public class Neo extends Human {
     \end{lstlisting}
 
     In dem Beispiel haben wir die unwichtigen Zeilen durch \lstinline{// ...} Kommentare ersetzt.
-    Die Operation \lstinline{turnAround()} existiert noch nicht.\\
+Die Operation \lstinline{turnAround()} existiert noch nicht.\\
 
-    In Blatt 1 habt ihr schonmal die Syntax von Operationen kennengelernt.
-    Operationen müssen immer in einer Klasse definiert werden.
-    Diese Operationen können dann auf allen Objekten (= Instanzen
+In Blatt 1 habt ihr schonmal die Syntax von Operationen kennengelernt.
+Operationen müssen immer in einer Klasse definiert werden.
+Diese Operationen können dann auf allen Objekten (= Instanzen
 der Klassen, im Code durch ein Konstruktoraufruf mit \lstinline{new} sichtbar) dieser Klasse ausgeführt
 werden\\
 
-    Um Neo eine neue Fähigkeit zu geben, müssen wir die Operation in der Klasse \lstinline{Neo} definieren.\\
+Um Neo eine neue Fähigkeit zu geben, müssen wir die Operation in der Klasse \lstinline{Neo} definieren.\\
 
-    Da \lstinline{turnAround()} ein Kommando ist, geben wir \lstinline{void} als Rückgabewert an.
-    Die leeren runden Klammern \lstinline{()} bedeuten, dass die Operation keinen Parameter hat.\\
+Da \lstinline{turnAround()} ein Kommando ist, geben wir \lstinline{void} als Rückgabewert an.
+Die leeren runden Klammern \lstinline{()} bedeuten, dass die Operation keinen Parameter hat.\\
 
-    Um in der Operation \lstinline{turnAround()} andere Operationen desselben Objekts aufzurufen, nutzen wir das Schlüsselwort \lstinline{this}.
-    Dieses Schlüsselwort kann ähnlich wie eine Variable verwendet werden. Es hat den Typen der Klasse in der es verwendet wird, z.B. in der Klasse Neo hat this den Typ Neo.\\
+Um in der Operation \lstinline{turnAround()} andere Operationen desselben Objekts aufzurufen, nutzen wir das Schlüsselwort \lstinline{this}.
+Dieses Schlüsselwort kann ähnlich wie eine Variable verwendet werden. Es hat den Typen der Klasse, in der es verwendet wird, z.B. in der Klasse Neo hat this den Typ Neo.\\
 
-    Ihr könnt den Wert von \lstinline{this} aber nicht selber bestimmen.
-    Java bestimmt den Wert von \lstinline{this} für euch (nämlich eine Referenz auf das aktuelle Objekt der Klasse in der \lstinline{this} geschrieben wurde).\\
+Ihr könnt den Wert von \lstinline{this} aber nicht selber bestimmen.
+Java bestimmt den Wert von \lstinline{this} für euch (nämlich eine Referenz auf das aktuelle Objekt der Klasse in der \lstinline{this} geschrieben wurde).\\
 
-    Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{neo}. aufgerufen habt.
+Innerhalb der ganzen Klasse \lstinline{Neo} und damit auch in der Operation \lstinline{turnAround()} könnt ihr mit \lstinline{this}. alle Operationen aufrufen, die ihr bisher über \lstinline{neo}. aufgerufen habt.
 
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Anstatt Neo \textit{manuell} drei Mal im Uhrzeigersinn drehen zu lassen, wollen wir nun das fehlende Kommando \lstinline{turnCounterClockwise()} in der Klasse \lstinline{Neo} implementieren.
+    \item Anstatt Neo \textit{manuell} dreimal im Uhrzeigersinn drehen zu lassen, wollen wir nun das fehlende Kommando \lstinline{turnCounterClockwise()} in der Klasse \lstinline{Neo} implementieren.
 
-        Finde dafür zunächst die richtige Klasse und die dazugehörige Stelle im Code, in welcher das Kommando eingefügt werden soll (diese Stelle ist auch durch ein Kommentar vorgegeben).
-
-        Implementiere anschließend das fehlende Kommando \lstinline{turnCounterClockwise()}.
-        
-        Du kannst dafür die Operation aus dem Beispiel oben kopieren und den Namen anpassen.
-        Den Inhalt des Kommandos musst du natürlich auch noch anpassen.
-
-        Ebenso kannst du auch gleich noch das Kommando \lstinline{turnAround()} aus dem Beispiel an der gleichen Stelle einfügen.
-
+    Finde dafür zunächst die richtige Klasse und die dazugehörige Stelle im Code, in welcher das Kommando eingefügt werden soll (diese Stelle ist auch durch einen Kommentar vorgegeben).
+    
+    Implementiere anschließend das fehlende Kommando \lstinline{turnCounterClockwise()}.
+    
+    Du kannst dafür die Operation aus dem Beispiel oben kopieren und den Namen anpassen.
+    Den Inhalt des Kommandos musst du natürlich auch noch anpassen.
+    
+    Ebenso kannst du auch gleich noch das Kommando \lstinline{turnAround()} aus dem Beispiel an der gleichen Stelle einfügen.
+    
     \item Gehe als Nächstes zurück in die \lstinline{Sheet2Task6} Klasse und löse die Aufgabe c) ein weiteres Mal.
-        Diesmal solltest du aber das neue Kommando \lstinline{turnCounterClockwise()} benutzen, um Neo nach links zu drehen.
+    Diesmal solltest du aber das neue Kommando \lstinline{turnCounterClockwise()} benutzen, um Neo nach links zu drehen.
 \end{enumerate}
 
 
@@ -88,42 +88,42 @@ werden\\
 
 
 \begin{enumerate}\setcounter{enumi}{5}
-    \item Nun wollen wir natürlich dafür sorgen, dass andere Programmierer auch verstehen was passiert wenn sie das Kommando \lstinline{turnCounterClockwise()} benutzen.
-        Schreibe Javadoc für diese Operation.\\
-
-    \textbf{Hinweis}: Eclipse kann dir einen Javadoc Kommentar generieren, den du nur noch ausfüllen musst.
-
-        Dafür musst du in der Zeile direkt über der Operation anfangen \lstinline{/**} einzugeben.
-        Wenn du dann mit Enter eine neue Zeile anfängst, sollte Eclipse den Rest des Javadoc Kommentars für dich ergänzen.
-
-        Falls das nicht passiert, solltest du nochmal prüfen, ob du in der richtigen Zeile warst.
-
+    \item Nun wollen wir natürlich dafür sorgen, dass andere Programmierer auch verstehen was passiert, wenn sie das Kommando \lstinline{turnCounterClockwise()} benutzen.
+    Schreibe Javadoc für diese Operation.\\
+    
+    \textbf{Hinweis}: IntelliJ kann dir einen Javadoc Kommentar generieren, den du nur noch ausfüllen musst.
+    
+    Dafür musst du in der Zeile direkt über der Operation anfangen \lstinline{/**} einzugeben.
+    Wenn du dann mit Enter eine neue Zeile anfängst, sollte IntelliJ den Rest des Javadoc Kommentars für dich ergänzen.
+    
+    Falls das nicht passiert, solltest du nochmal prüfen, ob du in der richtigen Zeile warst.
+    
     \item Die Dokumentation von Operationen soll überraschendes Verhalten bei der Ausführung verhindern.
-
-        Wenn du Neo um 180° umdrehen willst, kannst du dafür jetzt zweimal \lstinline{turnClockwise()} oder deine neue Operation benutzen.
-
-        Verhalten sich die beiden Operationen dabei gleich?
-
-        Wenn nein: Kannst du das unterschiedliche Verhalten vorhersagen, indem du nur die Dokumentation der beiden Operationen vergleichst?
-
-        Falls nicht, war deine Dokumentation noch nicht genau genug und du solltest sie nochmal verbessern.
+    
+    Wenn du Neo um 180° umdrehen willst, kannst du dafür jetzt zweimal \lstinline{turnClockwise()} oder deine neue Operation benutzen.
+    
+    Verhalten sich die beiden Operationen dabei gleich?
+    
+    Wenn nein: Kannst du das unterschiedliche Verhalten vorhersagen, indem du nur die Dokumentation der beiden Operationen vergleichst?
+    
+    Falls nicht, war deine Dokumentation noch nicht genau genug und du solltest sie nochmal verbessern.
 \end{enumerate}
 
 
 \begin{Infobox}[Javadoc Nachtrag]
-    Um Parameter, Rückgabewerte und möglicherweise auftretende Exceptions zu dokumentieren gibt es folgende Tags die man am Zeilenanfang eines Javadoc Kommentars schreiben kann:
+    Um Parameter, Rückgabewerte und möglicherweise auftretende Exceptions zu dokumentieren gibt es folgende Tags, die man am Zeilenanfang eines Javadoc Kommentars schreiben kann:
 
-    \begin{enumerate}[label=\roman*)]
-        \item \lstinline{@param}: 
-            Gefolgt von einem Parameternamen (bspw. \lstinline{@param n}) erklärt die Bedeutung des Parameters n.
-            Die Reihenfolge der \lstinline{@param} Tags sollte mit der Reihenfolge der Parameter übereinstimmen, die an die Operation übergaben wird.
-        \item \lstinline{@return}: 
-            Beschreibt den zurückgegebenen Wert unter Annahme, dass die Eingabe korrekt ist und alle Vorbedingungen erfüllt sind.
-        \item \lstinline{@throws}: 
-            Gefolgt von der geworfenen Exception beschreibt unter welchen Bedingungen die genannte Exception geworfen wird.
-    \end{enumerate}
+\begin{enumerate}[label=\roman*)]
+\item \lstinline{@param}:
+Gefolgt von einem Parameternamen (bspw. \lstinline{@param n}) erklärt die Bedeutung des Parameters n.
+Die Reihenfolge der \lstinline{@param} Tags sollte mit der Reihenfolge der Parameter übereinstimmen, die an die Operation übergaben, wird.
+\item \lstinline{@return}:
+Beschreibt den zurückgegebenen Wert unter Annahme, dass die Eingabe korrekt ist und alle Vorbedingungen erfüllt sind.
+\item \lstinline{@throws}:
+Gefolgt von der geworfenen Exception beschreibt unter welchen Bedingungen die genannte Exception geworfen wird.
+\end{enumerate}
 
-    Beispiel für die Anwendung der Parameter:
+Beispiel für die Anwendung der Parameter:
 
     \begin{lstlisting}[numbers=none]
     /**

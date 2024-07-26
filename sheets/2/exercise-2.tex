@@ -10,21 +10,20 @@ Dabei soll Neo in einem potenziell gefährlichen Situation so schnell wie mögli
     \item Als Operator hat Tank die Möglichkeit Hindernisse zwischen Neo und der Telefonstation einzufügen.
         Betrachte die Klasse \lstinline{Sheet2Task2} mit der Operation \lstinline{run} an der markierten Stelle.
 
-        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kann und platziere es dort. Falls du nicht weißt wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 3 oder die Klasse \lstinline{Sheet2Task2} genauer an.
+        Überlege dir wie du an Tank's Stelle ein solches Hindernis an einer geeigneten Stelle platzieren kann und platziere es dort. Falls du nicht weißt wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 5 oder die Klasse \lstinline{Sheet2Task2} genauer an.
 
         Was passiert, wenn man jetzt die Simulation wie zuvor ausführt?\\
         
 \end{enumerate}
 
-\textbf{Antwort:} Es wird  eine Excepion geworfen.\\
+\textbf{Antwort:} Es wird eine Excepion geworfen.\\
 \begin{Infobox}[Exception]
-    Eine Exception ist ein Fehler der beim Ausführen des Programmes passieren kann wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\\
+    Eine Exception ist ein Fehler, der beim Ausführen des Programmes passieren kann, wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\\
 
+\textbf{Notiz:} Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions, Errors usw. wir wollen das ganze hier mal vereinfacht betrachten. Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\\
 
-    \textbf{Notiz:} Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions, Errors usw. wir wollen das ganze hier mal vereinfacht betrachten. Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\\
-
-    Als nächstes wollen wir den Aufbau einer Exception genauer verstehen.
-    Überlege dazu was der folgende Programmausschnitt macht:
+Als Nächstes wollen wir den Aufbau einer Exception genauer verstehen.
+Überlege dazu, was der folgende Programmausschnitt macht:
 
     \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
 public class Main{
@@ -40,72 +39,47 @@ public class Main{
 }
     \end{lstlisting}
     \textbf{Exkurs:} Operatoren sind in eine Programmiersprache eingebaute Funktion, die durch ein Zeichen repräsentiert werden.
-    Beispielsweise können wir zwei Zahlen durch den \texttt{-} Operator voneinander abziehen, z.B. mit \texttt{42 - 73}.
-    Damit wir das Ergebnis auch ansehen können und die Rechnung nicht nur ausgewertet wird und dann verschwindet, kann man es entweder in einer Variable speichern (siehe Nachschlagwerk) oder als Argument in einer Funktionen verwenden.
-    Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
-    Die meisten Programmiersprachen haben eingebaute, einfache arithmetische Operatoren wie \texttt{+}, \texttt{-}, \texttt{*} oder \texttt{/}.\\
+Beispielsweise können wir zwei Zahlen durch den \texttt{-} Operator voneinander abziehen, z.B. mit \texttt{42 - 73}.
+Damit wir das Ergebnis auch ansehen können und die Rechnung nicht nur ausgewertet wird und dann verschwindet, kann man es entweder in einer Variable speichern oder als Argument in einer Funktion verwenden.
+Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
+Die meisten Programmiersprachen haben eingebaute, einfache arithmetische Operatoren wie \texttt{+}, \texttt{-}, \texttt{*} oder \texttt{/}.\\
 
-    Im oberen Programmausschnitt lässt sich erkennen, dass in Zeile 9 der Programmausführung durch 0 geteilt wird.\\
-    Dieses ungewollte (''verbotene'') Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich:
-
+Im oberen Programmausschnitt lässt sich erkennen, dass in Zeile 9 der Programmausführung durch 0 geteilt wird.\\
+Dieses ungewollte (''verbotene'') Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich:
     \begin{lstlisting}[keywords={}, breaklines=true, numbers=none]
 java.lang.ArithmeticException: / by zero
     at de.unistuttgart.informatik.fius.jvk.Main.divide(Main.java:9)
     at de.unistuttgart.informatik.fius.jvk.Main.main(Main.java:5)
     \end{lstlisting}    
 
-    Der Inhalt der Fehlermeldung, lässt sich in folgende Teile aufteilen:
+    Der Inhalt der Fehlermeldung lässt sich in folgende Teile aufteilen:
 
-    \begin{enumerate}[label=\roman*)]
-        \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden.\\
-            In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
-        \item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggfs. mehr Informationen über den Fehler selbst geben.\\
-            In unserem Fall ist die Nachricht \lstinline{"/ by zero"}.
-        \item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, wo im Programm die Exception geflogen also passiert ist. Genauer, welche Klassen wo Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
-            Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception expliziet in der \lstinline{Main} Klasse in der \lstinline{divide}
-        Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte. 
+\begin{enumerate}[label=\roman*)]
+\item Art der Exception: Diese kann in der ersten Zeile abgelesen werden.\\
+In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
+\item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggf. mehr Informationen über den Fehler selbst geben.\\
+In unserem Fall ist die Nachricht \lstinline{"/ by zero"}.
+\item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, wo im Programm die Exception geflogen also passiert ist. Genauer, welche Klassen wo Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
+Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception explizit in der \lstinline{Main} Klasse in der \lstinline{divide}
+Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte.
     \end{enumerate}
 
 \end{Infobox}
 
 
 \begin{enumerate}[label=\alph*)] \setcounter{enumi}{2}
-    \item Im Folgenden betrachten wir beispielhaft den Stacktrace einer Exception:
-        \definecolor{ForestGreen}{rgb}{0.0, 0.5, 0.0}
-        \begin{lstlisting}[keywords={}, breaklines=true, escapeinside={(*@}{@*)}]
-de.unistuttgart.informatik.fius.icge.simulation.exception.IllegalMoveException: Solid Entity in the way
-at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.internalMove(MovableEntity.java:(*@{\color{ForestGreen}linenumber1}@*))
-at de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity.move(MovableEntity.java:(*@{\color{ForestGreen}linenumber2}@*))
-at de.unistuttgart.informatik.fius.jvk.tasks.Sheet2Task2.run(Sheet2Task2.java:(*@{\color{ForestGreen}linenumber3}@*))
-at de.unistuttgart.informatik.fius.icge.simulation.internal.tasks.StandardTaskRunner.executeTask(StandardTaskRunner.java:(*@{\color{ForestGreen}linenumber4}@*))
-at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:(*@{\color{ForestGreen}linenumber5}@*))
-at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber6}@*))
-at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:(*@{\color{ForestGreen}linenumber7}@*))
-at java.base/java.lang.Thread.run(Thread.java:(*@{\color{ForestGreen}linenumber8}@*))
-        \end{lstlisting}
 
-        Dieser soll nun genauer analysiert werden:
+    \item Wie wir gelernt haben, sind Exceptions ein Anzeichen, das etwas passiert ist was nicht passieren sollte, jetzt wollen wir die Exception verhindern.\\
+Dazu benutzen wir die Technik des Auskommentierens, die daraus besteht // vor eine Zeile Code zu schreiben, damit dieser Code beim Ausführen übersprungen wird.\\
+Kommentiere in \lstinline{Sheet2Task2} so lange \lstinline{.move()} Kommandos aus, bis die Exception nicht mehr auftritt.
 
-        \begin{enumerate}
-            \item[i)] Welche Exception wurde geworfen und was ist die Nachricht der Exception?
-            \item[ii)] In welcher Operation wurde die Exception geworfen?
-            \item[iii)] In dem obigen Stacktrace sind die dazugehörigen Zeilennummern verloren gegangen. Ersetze diese!
+Spielt die Reihenfolge, in der du die Kommandos auskommentierst eine Rolle für das Ergebnis?
+\item Kommentiere erstmal wieder alle Zeilen ein.
+Kannst du trotzdem verhindern, dass die Exception auftritt?
+Wenn ja wie?
 
-            \textbf{Tipp:} Schaue dazu in die Console.\\
-            \textbf{Warum diese Analyse:} Stacktraces können vorallem bei komplexerem Code helfen rauszufinden, was wo nicht funktioniert hat und helfen somit bei der Fehlersuche.
-        \end{enumerate}
+\textbf{Hinweis}: In Aufgabe 1 hast du noch ein weiteres Kommando kennengelernt, mit dem du Neo bewegen kannst.
 
-    \item Wie wir gelernt haben sind Exceptions ein Anzeichen das etwas passiert ist was nicht passieren sollte, jetzt wollen wir die Exception verhindern.\\
-        Dazu benutzen wir die Technik des Auskommentierens die ihr in Blatt 1 Aufgabe 2 (Nachschlagwerk) gesehen habt.\\
-        Kommentiert in \lstinline{Sheet2Task2} so lange \lstinline{.move()} Kommandos aus, bis die Exception nicht mehr auftritt.
-
-        Spielt die Reihenfolge in der ihr die Kommandos auskommentiert eine Rolle für das Ergebnis?
-    \item Kommentiere erstmal wieder alle Zeilen ein.
-        Kannst du Trotzdem verhindern, dass die Exception auftritt?
-        Wenn ja wie ?
-
-    \textbf{Hinweis}: In Aufgabe 1 hast du noch ein weiteres Kommando kennengelernt mit dem du Neo bewegen kannst.
-        
-    \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{neo.move()} Aufrufen jeweils Leerzeilen einfügt?
+\item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{neo.move()} Aufrufen jeweils Leerzeilen einfügt?
 \end{enumerate}
  
