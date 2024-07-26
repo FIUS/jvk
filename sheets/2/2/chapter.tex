@@ -4,15 +4,24 @@
 
 Beim schreiben von Programmen kommt unweigerlich der Punkt an dem sich ein Fehler einschleicht.
 Manchmal ist direkt ersichtlich, woher der Fehler kommt und wie er zu beheben ist.
-In anderen Fällen kann es allerdings  passieren, dass der Fehler nur schwer zu finden ist.
+In anderen Fällen kann es allerdings passieren, dass der Fehler nur schwer zu finden ist.
 
 In diesem Kapitel geht es um einige Werkzeuge, die in diesen Fällen hilfreich sein können.
 
-\begin{Infobox}[Quick-Fixes in IntelliJ]
+\begin{Infobox}[Debugging im Simulator]
+Der Simulator hat von sich aus die Funktion Programme einfach nur zu starten, oder sie Schrittweise zu durchlaufen. Falls euer Programm immer an gewissen stellen Fehler produziert kann man mit dem Schrittweisen durchlaufen explizit zu den kritischen Stellen gehen und dort stoppen.
 
+Zusätzlich dazu zeigt der Simulator unten in der Console immer den aktuellen Status von jedem Objekt auf dem Spielfeld an. 
 
+Mit diesen Infos könnt ihr in vielen Fällen eingrenzen oder sogar herausfinden in welchem Code-Abschnitt der Fehler ist.
+
+In den folgenden Aufgaben werden wir diesen "Debbuger" Simulator-Debbuger nennen.
 \end{Infobox}
 
 \begin{Infobox}[Der Debugger]
-
+    Da nicht jedes Programm direkt den Status jedes Objektes anzeigt, gibt es in vielen Programmieroberflächen einen Debugger. Mit diesem Debugger kann man manuell Stopppunkte in den Code legen, welche dafür sorgen, dass das Programm gestoppt wird wenn es diesen Punkt erreicht hat, bis es manuell fortgesetzt wird. Der Debugger zeigt auch wie unser Simulator den momentanen Status jedes Objektes in dem Programm. IntelliJ hat auch so einen Debugger, allerdings ist es für diesen Vorkurs einfacher den Simulator selbst zum Debuggen zu verwenden.
 \end{Infobox}
+
+\addexcercise
+
+\addexcercise

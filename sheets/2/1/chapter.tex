@@ -2,14 +2,14 @@
 
 \vkchapter{Variablen und Datentypen}
 
-Um komplexere Algorithmen umzusetzen, müssen immer wieder Zwischenergebnisse der Berechnung gespeichert werden.
-Um diese nun wiederverwenden zu können, gibt man den entsprechenden Speicherstellen Namen.
+Um komplexere Programme umzusetzen, müssen immer wieder Zwischenergebnisse von Berechnungen gespeichert werden.
+Um diese wieder zu erkennen, gibt man den entsprechenden Speicherstellen Namen.
 Diese Namen können dann anstelle der dort gespeicherten Werte im Programm verwendet werden.
 Außerdem kann man den Namen (auch Bezeichner genannt) auch nutzen um Variablen einen neuen Wert zuzuweisen.
 
 Da Computer intern alle Daten durch sogenannte Bits repräsentieren müssen, sehen die Inhalte auf den ersten Blick alle gleich aus.
 Daher müssen die Daten nach dem Lesen aus dem Speicher wieder richtig interpretiert werden.
-Damit das klappt unterscheidet der Computer verschiedenaddexcercisee Datentypen, die unterschiedliche Bedeutung haben.
+Damit das klappt unterscheidet der Computer verschiedene Datentypen, die unterschiedliche Bedeutung haben.
 
 Eine neue Variable wird immer nach dem gleichen Schema angelegt: \lstinline|Typ bezeichner = Wert;|.
 Sobald die Variable angelegt wurde, kann sie im gleichen Gültigkeitsbereich verwendet werden ohne, dass der Typ mit angegeben werden muss.
@@ -45,6 +45,24 @@ In PSE werden solche Datentypen vermieden, weil sie weniger Funktionen haben, al
     \hline
   \end{tabular}
 \end{center}
+
+Einfache Rechenoperationen in Java:
+\begin{center}
+  \begin{tabular}{|l|l|}
+    \hline
+    \textbf{Rechenoperation} & \textbf{Symbol} \\
+    \hline
+    Multiplikation & * \\
+    \hline
+    Division & / \\
+    \hline
+    Addition & + \\
+    \hline
+    Subtraktion & - \\
+    \hline
+  \end{tabular}
+\end{center}
+
 Eine einfache Rechnung könnte dann folgendermaßen aussehen:
 
 \begin{lstlisting}[numbers=none]
@@ -83,6 +101,36 @@ Diesen Wert kann man nun wie jede andere Variable auch verwenden um damit weiter
 
 \addexcercise
 
+\begin{Infobox}[Sichtbarkeit]
+  Man unterscheidet \q{lokale} und \q{globale} Variablen.
+  Der Unterschied liegt in der Sichtbarkeit für andere Operationen.
+  Wie der Name bereits vermuten lässt, sind lokale Variablen in ihrer Sichtbarkeit auf die Operation beschränkt in der sie definiert wurden.
+  Außerdem werden die Variablen und ihre Werte verworfen sobald die Operation beendet ist.
+
+  Will man allerdings Werte länger speichern, braucht man globale (auch objektglobal genannt) Variablen.
+  Diese sind in ihrer Lebensdauer und ihrer Sichtbarkeit an das Objekt geknüpft, in dessen Klassendefinition sie definiert sind.
+  Da globale Variablen an Objekte geknüpft sind stellt sich die Frage, ob die Variablen außerhalb des Objekts verfügbar sein soll oder nicht.
+  Auch diese Art der Sichtbarkeit kann man für jede Variable einzeln mit einem Schlüsselwort festlegen.
+  
+  \begin{center}
+    \begin{tabular}{|l|l|}
+      \hline
+      \textbf{Sichtbarkeit} & \textbf{Beschreibung} \\
+      \hline
+      \texttt{public} & Überall sichtbar \\
+      \hline
+      \texttt{protected} & Nur innerhalb des Paketes oder in Kindklassen sichtbar \\
+      \hline
+      \texttt{private} & Nur innerhalb der Klasse sichtbar \\
+      \hline
+      \texttt{default} & Nur innerhalb des Paketes sichtbar \\
+      \hline
+    \end{tabular}
+  \end{center}
+  
+  In einer Klasse werden Variablen also nach folgendem Schema definiert: \lstinline|Sichtbarkeit Typ Bezeichner = initialerWert|.
+\end{Infobox}
+
 \begin{Infobox}[Zusammengesetzte Datentypen]
 
 Den primitiven Datentypen stehen die zusammengesetzten Datentypen gegenüber.
@@ -107,19 +155,5 @@ Einige Beispiele für häufig verwendete komplexe Datentypen sind in der nachste
 \end{Infobox}
 \addexcercise
 
-\begin{Infobox}[Sichtbarkeit]
-Man unterscheidet \q{lokale} und \q{globale} Variablen.
-Der Unterschied liegt in der Sichtbarkeit für andere Operationen.
-Wie der Name bereits vermuten lässt, sind lokale Variablen in ihrer Sichtbarkeit auf die Operation beschränkt in der sie definiert wurden.
-Außerdem werden die Variablen und ihre Werte verworfen sobald die Operation beendet ist.
 
-Will man allerdings Werte länger speichern, braucht man globale (auch objektglobal genannt) Variablen.
-Diese sind in ihrer Lebensdauer und ihrer Sichtbarkeit an das Objekt geknüpft, in dessen Klassendefinition sie definiert sind.
-Da globale Variablen an Objekte geknüpft sind stellt sich die Frage, ob die Variablen außerhalb des Objekts verfügbar sein soll oder nicht.
-Auch diese Art der Sichtbarkeit kann man für jede Varibale einzeln mit einem Schlüsselwort festlegen.
-In einer Klasse werden Variablen also nach folgendem Schema definiert: \lstinline|Sichtbarkeit Typ Bezeichner = initialerWert|.
-\end{Infobox}
 
-\begin{Infobox}[Rechenoperationen]
-
-\end{Infobox}
