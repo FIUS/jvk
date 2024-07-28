@@ -16,7 +16,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 
 
-public class Sheet2Task4Verifier implements TaskVerifier {
+public class Chapter11Task1Verifier implements TaskVerifier {
 
     private BasicTaskInformation task;
 
@@ -28,7 +28,7 @@ public class Sheet2Task4Verifier implements TaskVerifier {
     private ActionLog actionLog;
     private Simulation sim;
 
-    public Sheet2Task4Verifier() {
+    public Chapter11Task1Verifier() {
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
