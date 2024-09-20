@@ -15,6 +15,6 @@ import de.unistuttgart.informatik.fius.icge.simulation.exception.SimulationExcpe
  * TODO: Description
  * @author Tim-Julian Ehret
  */
-public class NeoIsBrokeException extends SimulationExcpetion{
+public class TotoroIsHungryException extends SimulationExcpetion{
 
 }

@@ -5,7 +5,7 @@
 		Verwende \lstinline{Sheet4Task4}, auch in dieser Aufgabe gibt es keinen Verifier.
 		Diese Aufgabe ist mehr als ''Ideensammlung'' zu verstehen und wird nicht überprüft.
 		Spiele mit den Konzepten, die eingeführt wurden.
-	\item Erzeuge ein Programm, das Neo geradeaus laufen lässt, bis er keine Schritte mehr machen kann.
+	\item Erzeuge ein Programm, das Totoro geradeaus laufen lässt, bis er keine Schritte mehr machen kann.
 \end{enumerate}
 
 \begin{Infobox}[Programme]
@@ -14,12 +14,12 @@
 	Um ein Programm zu erstellen, solltest du eine neue Java-Datei anlegen und darin das Verhalten wie bekannt definieren.
 
 	\begin{lstlisting}[title=SicherLaufenProgram.java, numbers=none,xleftmargin=0.5cm]
-public class SicherLaufenProgram implements Program<Neo> {
+public class SicherLaufenProgram implements Program<Totoro> {
 	@Override
-	public void run(Neo neo) {
-		// neo läuft nur, wenn das auch geht:
-		if (neo.canMove()) {
-			neo.move();
+	public void run(Totoro totoro) {
+		// totoro läuft nur, wenn das auch geht:
+		if (totoro.canMove()) {
+			totoro.move();
 		}
 	}
 }
@@ -28,14 +28,14 @@ public class SicherLaufenProgram implements Program<Neo> {
 	Um ein Programm zu verwenden, musst du wie gewohnt ein Objekt erzeugen und kannst dann die Operation \lstinline{run} mit dem Objekt aufrufen, die sich wie im Programm angegeben verhalten soll:
 
 	\begin{lstlisting}[numbers=none,xleftmargin=0.5cm]
-	Neo neo; // definiert und auf dem Playfield verfügbar
+	Totoro totoro; // definiert und auf dem Playfield verfügbar
 	SicherLaufenProgram laufen = new SicherLaufenProgram();
-	laufen.run(neo);
+	laufen.run(totoro);
 	\end{lstlisting}
 \end{Infobox}
 
 \begin{Infobox}[Generische Objekte]
-	Beim definieren von \lstinline{SicherLaufenProgramm} könnte dir aufgefallen sein, dass \mbox{\lstinline{Program<Neo>}} etwas neues ist.
+	Beim Definieren von \lstinline{SicherLaufenProgramm} könnte dir aufgefallen sein, dass \mbox{\lstinline{Program<Totoro>}} etwas Neues ist.
 	Java bietet die Möglichkeit eine Art ''Typvariable'' zu definieren.
 	Die Definition dieser Typvariablen kannst du dir in der Klasse \lstinline{Program} anschauen.
 

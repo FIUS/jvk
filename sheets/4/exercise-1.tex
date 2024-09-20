@@ -16,9 +16,9 @@
 
     \item Nachdem wir auf Blatt 1 die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}.
         Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. \\
-        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können.\\
+        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Nüssen (\lstinline{Nut}), Büschen (\lstinline{Bush}) und Spielfiguren verwenden können.\\
 
-        Versuche entweder mit Autocomplete von Eclipse oder mit der Dokumentation auf \url{\javadocRoot} herauszufinden, wie diese heißen.\\
+        Versuche entweder mit Autocomplete von IntelliJ oder mit der Dokumentation auf \url{\javadocRoot} herauszufinden, wie diese heißen.\\
 
         Falls du noch mehr Infos brauchst über Operationen o.ä. findest du die Dokumentation der \newline \lstinline{PlayfieldModifier} Klasse unter dem Link \url{\javadocRoot de.unistuttgart.informatik.fius.icge.simulation/de/unistuttgart/informatik/fius/icge/simulation/tools/PlayfieldModifier.html}.
 
@@ -29,30 +29,30 @@
 
 
 \begin{enumerate} \setcounter{enumi}{2}
-    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Münzen in einer Zelle platzieren.
+    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Nüsse in einer Zelle platzieren.
 
-        Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert.
-
-        Du sollst also nicht 19mal den Code kopieren um eine Münze zu erzeugen!
-
-        Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
-        Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
+    Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert.
+    
+    Du sollst also nicht 19-mal den Code kopieren, um eine Nuss zu erzeugen!
+    
+    Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new NutFactory()} verwenden.
+    Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
 
 
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Platziere nun 3 horizontale Reihen mit jeweils 7 Münzen länge.
-        Diese sollen jeweils ein Feld Abstand zueinander haben.
-
-        Nutze dafür die Klasse \lstinline{Line}.\\
-        Sie befindet sich im Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes}.\\
-
-        Die Line Klasse erwartet eine Startposition und auch eine Endposition.\\
-        Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
-
-        \textbf{Übringens:} In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest du die anderen Shapes aus unserer Shape Sammlung.
+    \item Platziere nun 3 horizontale Reihen mit jeweils 7 Nüsse Länge.
+    Diese sollen jeweils ein Feld Abstand zueinander haben.
+    
+    Nutze dafür die Klasse \lstinline{Line}.\\
+    Sie befindet sich im Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes}.\\
+    
+    Die Line Klasse erwartet eine Startposition und auch eine Endposition.\\
+    Ebenso solltest du in der Dokumentation von der \lstinline{PlayfieldModifier} Klasse nachschauen welche Operation du jetzt benutzen musst, um mehrere Entitäten an mehreren Positionen zu erzeugen.\\
+    
+    \textbf{Übringens:} In dem Paket \texttt{de.unistuttgart.informatik.fius.jvk.provided.shapes} findest du die anderen Shapes aus unserer Shape Sammlung.
 
     \begin{lstlisting}
 // Beispiel: eine Reihe von der Position (0,0) bis (5,0)

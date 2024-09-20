@@ -13,30 +13,30 @@ public class Sheet2Task2 implements Task{
     public void run(Simulation sim) {
         //build environment for the task
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));        
+        Totoro totoro = new Totoro();
+        pm.placeEntityAt(totoro, new Position(0, 0));
 
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(-1, -2), new Position(11, -2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(0, 2), new Position(3, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(7, 2), new Position(10, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(-1, -1), new Position(-1, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(11, -1), new Position(11, 2)));
-        pm.placeEntityAt(new PhoneBooth(), new Position(10, 0));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(-1, -2), new Position(11, -2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(0, 2), new Position(3, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(7, 2), new Position(10, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(-1, -1), new Position(-1, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(11, -1), new Position(11, 2)));
+        pm.placeEntityAt(new Home_Tree(), new Position(10, 0));
 
-        // TODO: Implement Task 2 b) (spawn your wall here)
+        // TODO: Implement Task 2 b) (spawn your bush here)
 
 
         // All tasks after b) should only modify code after this comment!
 
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
     }
 }

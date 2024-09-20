@@ -5,17 +5,17 @@
 	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task2} und \lstinline{Sheet3Task2Verifier}) und mache dich mit dieser vertraut.
 
 	\item
-		Mit dem folgenden Codebeispiel kannst du die Anzahl der Münzen in dem Feld unter Neo abfragen und auf der Konsole ausgeben.
+		Mit dem folgenden Codebeispiel kannst du die Anzahl der Nüsse in dem Feld unter Totoro abfragen und auf der Konsole ausgeben.
 
 		\begin{lstlisting}
-int coinsUnderNeo = neo.getCurrentlyCollectableCoins().size();
-System.out.println(coinsUnderNeo);
+int nutsUnderTotoro = totoro.getCurrentlyCollectableNuts().size();
+System.out.println(nutsUnderTotoro);
 		\end{lstlisting}
 
-		Laufe mit Neo bis zum ersten Feld mit einer Münze und gib die Anzahl der Münzen unter Neo auf der Konsole aus.\newline
+		Laufe mit Totoro bis zum ersten Feld mit einer Nuss und gib die Anzahl der Nüsse unter Totoro auf der Konsole aus.\newline
 
-		\textbf{Wichtig}: Mit der Operation \lstinline{neo.getCurrentlyCollectableCoins();} bekommt man eine Liste aller Münzen-Objekte, die auf Neo's aktuellem Feld liegen.
-		Du kannst die den Datentyp List wie eine Sequenz (Aneinanderreihung) von Objekten desselben Typs - in diesem Fall des Typs \lstinline{Coin} - vorstellen.
+		\textbf{Wichtig}: Mit der Operation \lstinline{totoro.getCurrentlyCollectableNuts();} bekommt man eine Liste aller Nuss-Objekte, die auf Totoro's aktuellem Feld liegen.
+		Du kannst die den Datentyp List wie eine Sequenz (Aneinanderreihung) von Objekten desselben Typs - in diesem Fall des Typs \lstinline{Nut} - vorstellen.
 		Eine Liste hat eine Länge die angibt wie viele Elemente in ihr enthalten sind.
 		Diese Länge kann mit der \lstinline{size()}-Methode auf Listen-Objekten abgefragt werden.
 \end{enumerate}
@@ -24,20 +24,19 @@ System.out.println(coinsUnderNeo);
 \begin{Infobox}[If-Statements 2]
 
 	If-Statements und die Vergleichsoperatoren (wie z.B. \lstinline{<=}) kennst du ja schon.
-	Diese können wie schonmal erwähnt zusammen mit primitiven Datentypen wie Ganzzahlen (\lstinline{int}s) verwendet werden.\newline
+Diese können wie schonmal erwähnt zusammen mit primitiven Datentypen wie Ganzzahlen (\lstinline{int}s) verwendet werden.\newline
 
-	Hier ein Beispiel:
+Hier ein Beispiel:
 
-	\begin{lstlisting}[numbers=none]
-	int x = 2;
-	if ( x < 3 ) {
-		System.out.println("x ist kleiner als 3!");
-	}
-	\end{lstlisting}
+\begin{lstlisting}[numbers=none]
+int x = 2;
+if ( x < 3 ) {
+System.out.println("x ist kleiner als 3!");
+}
+\end{lstlisting}
 
-	Das kann man zum Beispiel dazu verwenden, um zu schauen wie viele Münzen Neo hat.
-	In Java kannst du die folgenden Vergleichsoperatoren verwenden:
-
+Das kann man zum Beispiel dazu verwenden, um zu schauen, wie viele Nüsse Totoro hat.
+In Java kannst du die folgenden Vergleichsoperatoren verwenden:
 	\begin{center}
 		\begin{tabular}{ c | c | c | l }
 			Natürliche Sprache & Mathematisches Zeichen & Java Operator \\
@@ -51,27 +50,27 @@ System.out.println(coinsUnderNeo);
         \end{tabular} \\
 	\end{center}
 
-	Damit können wir nun prüfen, ob sich auf Neo's Feld genau 3 Münzen befinden:
+	Damit können wir nun prüfen, ob sich auf Totoro's Feld genau 3 Nüsse befinden:
 
 	\begin{lstlisting}[numbers=none]
-if ( neo.getCurrentlyCollectableCoins().size() == 3 ){
-	System.out.println("neo hat genau 3 Münzen!");
+if ( totoro.getCurrentlyCollectableNuts().size() == 3 ){
+	System.out.println("Totoro hat genau 3 Nüsse!");
 }
 	\end{lstlisting}
 \end{Infobox}
 
 
 \begin{Infobox}[\lstinline{==} und die \lstinline{equals()}-Methode]
-	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen die wir der Einfachheit halber hier weglassen) vergleichen!\newline
+	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen, die wir der Einfachheit halber hier weglassen) vergleichen!\newline
 
 	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{equals}-Methode, die auf jedem Objekt definiert ist, verwendet werden:
-
+	
 	\begin{lstlisting}[numbers=none]
-if (neo1.getPosition().equals(new Position(1, 1))){
-	System.out.println("Neo is on Position (1, 1)");
-}
+	if (totoro.getPosition().equals(new Position(1, 1))){
+	System.out.println("Totoro is on Position (1, 1)");
+	}
 	\end{lstlisting}
-
+	
 	Mit dem folgenden Codebeispiel kannst du in der Konsole sehen, dass \lstinline{==} und \lstinline{.equals} nicht zu dem gleichen Ergebnis kommen müssen, wenn man zwei Objekte vergleichen will.
 
 	\begin{lstlisting}[numbers=none]
@@ -84,10 +83,10 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-	 	Nun wollen wir daran arbeiten möglichst viele Münzen auf dem Spielfeld einzusammeln.
+	 	Nun wollen wir daran arbeiten möglichst viele Nüsse auf dem Spielfeld einzusammeln.
 
-		Dazu wollen wir Neo erstmals so lange geradeaus laufen lasse, bis sich unter ihm eine oder mehrere Münzen befinden.
-		Wenn Neo auf eine Münze trifft, sollst du erst mal anhalten.
+		Dazu wollen wir Totoro erstmals so lange geradeaus laufen lasse, bis sich unter ihm eine oder mehrere Nüsse befinden.
+		Wenn Totoro auf eine Nuss trifft, sollst du erst mal anhalten.
 \end{enumerate}
 
 
@@ -118,21 +117,20 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
-		Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
+	Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
 
-		Wenn Neo also auf einem Feld mit genau einer Münzen steht, soll er die Münze aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
-		Wenn sich mehr als eine Münze unter Neo befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
-		Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Münzen auftauchen.
-
+	Wenn Totoro also auf einem Feld mit genau einer Nuss steht, soll er die Nuss aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
+	Wenn sich mehr als eine Nuss unter Totoro befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
+	Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Nüsse auftauchen.
+	
 	\item
-		Wenn sich nun mehr als eine Münze unter Neo befinden sollten, dann soll Neo genau eine Münze aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
-
-		Momentan soll Neo noch nicht alle Münzen aufgesammelt bekommen, ohne gegen eine Wand zu laufen.
-\end{enumerate}
-
-
-\begin{Infobox}[Logische Operatoren]
-
+	Wenn sich jetzt mehr als eine Nuss unter Totoro befinden sollten, dann soll Totoro genau eine Nuss aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
+	
+	Momentan soll Totoro noch nicht alle Nüsse aufgesammelt bekommen, ohne gegen einen Busch zu laufen.
+	\end{enumerate}
+	
+	\begin{Infobox}[Logische Operatoren]
+	
 	Wenn mehrere Bedingungen (also bool'sche Werte) für ein Ereignis eine Rolle spielen, muss man diese logisch verknüpfen.
 	Es folgt eine Auflistung der häufigsten Operatoren:
 
@@ -150,20 +148,20 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 	Natürlich kann man die logischen Operatoren aber auch in while- oder for-Schleifeköpfen, oder sonst wo verwenden:
 
 	\begin{lstlisting}[numbers=none]
-if (neo.canMove() && neo.getCurrentlyCollectableCoins().size() == 7) {
-	//neo hat genau 7 Münzen UND kann nach vorne gehen.
+if (totoro.canMove() && totoro.getCurrentlyCollectableNuts().size() == 7) {
+	//totoro hat genau 7 Nüsse UND kann nach vorne gehen.
 }
 	\end{lstlisting}
 
 	\begin{lstlisting}[numbers=none]
-if (!neo.canMove() && neo.getCurrentlyCollectableCoins().size() == 7) {
-	//neo hat genau 7 Münzen UND kann sich NICHT nach vorne gehen.
+if (!totoro.canMove() && totoro.getCurrentlyCollectableNuts().size() == 7) {
+	//totoro hat genau 7 Nüsse UND kann sich NICHT nach vorne gehen.
 }
 	\end{lstlisting}
 
 	\begin{lstlisting}[numbers=none]
-if (neo.canMove() || neo.getCurrentlyCollectableCoins().size() == 7) {
-	//neo hat genau 7 Münzen ODER kann nach vorne gehen.
+if (totoro.canMove() || totoro.getCurrentlyCollectableNuts().size() == 7) {
+	//totoro hat genau 7 Nüsse ODER kann nach vorne gehen.
 }
 	\end{lstlisting}
 
@@ -174,15 +172,15 @@ if (neo.canMove() || neo.getCurrentlyCollectableCoins().size() == 7) {
 
 \begin{enumerate}\setcounter{enumi}{5}
 	\item
-		Bevor Neo gegen eine Wand läuft soll er sich umdrehen.
-		Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Neo sich überhaupt nach vorne bewegen kann.
-
+	Bevor Totoro gegen einen Busch läuft, soll er sich umdrehen.
+	Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Totoro sich überhaupt nach vorne bewegen kann.
+	
 	\item
-		Jetzt wollen wir, dass Neo auch irgendwann aufhört.
-		Er soll aufhören zu laufen oder Münzen einzusammeln, wenn er schon 20 Münzen gesammelt hat oder wenn er auf einem Feld mit exakt 9 Münzen ankommt.
-		Mit \lstinline{neo.getCoinsInWallet()} kannst du die Anzahl der Münzen in Neo's Inventory abfragen.
-
-		\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
-		Falls du die Entscheidung, was Neo auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
+	Jetzt wollen wir, dass Totoro auch irgendwann aufhört.
+	Er soll aufhören zu laufen oder Nüsse einzusammeln, wenn er schon 20 Nüsse gesammelt hat oder wenn er auf einem Feld mit exakt 9 Nüssen ankommt.
+	Mit \lstinline{totoro.getNutsInPocket()} kannst du die Anzahl der Nüsse in Totoro's Inventory abfragen.
+	
+	\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
+	Falls du die Entscheidung, was Totoro auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
 \end{enumerate}
 \newpage

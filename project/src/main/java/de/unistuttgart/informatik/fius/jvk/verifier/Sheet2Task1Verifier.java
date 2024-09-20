@@ -4,12 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
-import java.util.Iterator;
 import java.util.stream.Collectors;
 
-import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
@@ -26,9 +22,9 @@ public class Sheet2Task1Verifier implements TaskVerifier {
     private BasicTaskInformation task;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select This Task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Spawn the Player", "Spawn the Player on the field.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Move the Player", "Move and turn the player.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Turning Counterclockwise", "Turn the player counterclockwise.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Spawn Totoro", "Spawn Totoro on the field.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Move Totoro", "Move and turn Totoro.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Turning Counterclockwise", "Turn Totoro counterclockwise.");
     private BasicTaskInformation taskE = new BasicTaskInformation("e) Follow the Map", "Follow the instructions from the task sheet.");
 
     private List<String> mapMoves;
@@ -42,7 +38,7 @@ public class Sheet2Task1Verifier implements TaskVerifier {
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
         subTasks.add(this.taskE);
-        this.task = new BasicTaskInformation("Sheet 2 Task 1", "Learn how to use the Player.", subTasks);
+        this.task = new BasicTaskInformation("Sheet 2 Task 1", "Learn how to use Totoro.", subTasks);
 
         List<String> mapMoves = new ArrayList<>();
         mapMoves.add("move");

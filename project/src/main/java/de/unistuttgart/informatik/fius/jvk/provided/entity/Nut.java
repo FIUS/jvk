@@ -10,24 +10,24 @@
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
 import de.unistuttgart.informatik.fius.icge.simulation.entity.BasicEntity;
-import de.unistuttgart.informatik.fius.icge.simulation.entity.SolidEntity;
+import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
 import de.unistuttgart.informatik.fius.jvk.Texture;
 
+
 /**
- * The wall entity
+ * Basic nut class.
  *
- * @author Tim Neumann
+ * @author Sara Galle
  */
-public class Wall extends BasicEntity implements SolidEntity {
+public class Nut extends BasicEntity implements CollectableEntity {
 
     @Override
     protected String getTextureHandle() {
-        return Texture.WALL.getHandle();
+        return Texture.NUT.getHandle();
     }
 
     @Override
     protected int getZPosition() {
         return 0;
     }
-
 }

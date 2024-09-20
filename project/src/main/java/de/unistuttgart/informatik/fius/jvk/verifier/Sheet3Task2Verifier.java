@@ -1,15 +1,11 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Iterator;
-import java.util.stream.Collectors; 
+import java.util.stream.Collectors;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Direction;
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
@@ -17,16 +13,10 @@ import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.Entity;
-import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Line;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
-import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 
 
 public class Sheet3Task2Verifier implements TaskVerifier {
@@ -36,14 +26,14 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) find the first coin", "Walk until you find the first coin.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) walk straight", "Walk straight until you are on a field with one or more coins.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) left or right", "Turn right on a field with exactly one coin, but don't forget to collect the coin.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) find the first nut", "Walk until you find the first nut.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) walk straight", "Walk straight until you are on a field with one or more nuts.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) left or right", "Turn right on a field with exactly one nut, but don't forget to collect the nut.");
     private BasicTaskInformation taskE = new BasicTaskInformation(
-            "d) the other direction", "When on a field with more than one coin turn left, and collect one of the coins before stepping of the field."
+            "d) the other direction", "When on a field with more than one nut turn left, and collect one of the nuts before stepping of the field."
     );
-    private BasicTaskInformation taskF = new BasicTaskInformation("f) don't walk into walls", "Before you walk into a wall you should turn around.");
-    private BasicTaskInformation taskG = new BasicTaskInformation("g) enough money", "Walk until you have collected 20 coins or step on a field with exactly 9 coins");
+    private BasicTaskInformation taskF = new BasicTaskInformation("f) don't walk into bushes", "Before you walk into a bush you should turn around.");
+    private BasicTaskInformation taskG = new BasicTaskInformation("g) enough food", "Walk until you have collected 20 nuts or step on a field with exactly 9 nuts");
     
     private ActionLog  actionLog;
     private Simulation sim;
@@ -72,13 +62,13 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     @Override
     public void verify() {
         Optional<Entity> maybeNeo = this.actionLog.getActionsOfType(EntitySpawnAction.class, true).stream()
-            .filter((action) -> action.getEntity() instanceof Neo)
+            .filter((action) -> action.getEntity() instanceof Totoro)
             .map((action) -> action.getEntity())
             .findFirst();
 
             
         List<Position> coinSpawns = this.actionLog.getActionsOfType(EntitySpawnAction.class, true).stream()
-            .filter((action) -> action.getEntity() instanceof Coin)
+            .filter((action) -> action.getEntity() instanceof Nut)
             .filter((action) -> action.getTickNumber() < 1)
             .map((action) -> action.getPosition())
             .sorted((a, b) -> {
@@ -93,7 +83,7 @@ public class Sheet3Task2Verifier implements TaskVerifier {
 
             
         Set<Position> walls = this.actionLog.getActionsOfType(EntitySpawnAction.class, true).stream()
-            .filter((action) -> action.getEntity() instanceof Wall)
+            .filter((action) -> action.getEntity() instanceof Bush)
             .filter((action) -> action.getTickNumber() < 1)
             .map((action) -> action.getPosition())
             .collect(Collectors.toSet());

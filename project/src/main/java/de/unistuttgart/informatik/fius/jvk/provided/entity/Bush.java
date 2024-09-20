@@ -10,24 +10,24 @@
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
 import de.unistuttgart.informatik.fius.icge.simulation.entity.BasicEntity;
-import de.unistuttgart.informatik.fius.icge.simulation.entity.CollectableEntity;
+import de.unistuttgart.informatik.fius.icge.simulation.entity.SolidEntity;
 import de.unistuttgart.informatik.fius.jvk.Texture;
 
-
 /**
- * Basic coin class.
+ * The bush entity
  *
- * @author Fabian Bühler
+ * @author Sara Galle
  */
-public class Coin extends BasicEntity implements CollectableEntity {
+public class Bush extends BasicEntity implements SolidEntity {
 
     @Override
     protected String getTextureHandle() {
-        return Texture.COIN.getHandle();
+        return Texture.BUSH.getHandle();
     }
 
     @Override
     protected int getZPosition() {
         return 0;
     }
+
 }

@@ -2,7 +2,7 @@
 
 \begin{enumerate}
 	\item Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task1} und \lstinline{Sheet3Task1Verifier}) und mache dich mit dieser vertraut.
-	\item Probiere Neo mithilfe einer While-Schleife 10 Schritte laufen zu lassen.\\
+	\item Probiere Totoro mithilfe einer While-Schleife 10 Schritte laufen zu lassen.\\
 
 \end{enumerate}
 
@@ -17,78 +17,78 @@
 	Hier ein Beispiel:
 
 	\begin{lstlisting}[numbers=none]
-	// Move neo five times
-	neo.move();
-	neo.move();
-	neo.move();
-	neo.move();
-	neo.move();
+	// Move totoro five times
+	totoro.move();
+	totoro.move();
+	totoro.move();
+	totoro.move();
+	totoro.move();
 	// entspricht
 	for (int i = 0; i < 5; i++) {
-		neo.move();
+		totoro.move();
 	}
 	\end{lstlisting}
 
 	Wie die While-Schleife hat auch die For-Schleife einen Schleifenrumpf, der mehrfach ausgeführt wird.
-	Der Inhalt der runden Klammern \lstinline{(int i = 0; i < 5; i++)} unterscheidet sich aber deutlich von dem einer While-Schleife.\newline
+Der Inhalt der runden Klammern \lstinline{(int i = 0; i < 5; i++)} unterscheidet sich aber deutlich von dem einer While-Schleife.\newline
 
-	In den runden Klammern einer For-Schleife stehen insgesamt drei Anweisungen, die jeweils durch ein Semikolon ''\lstinline{;}'' voneinander getrennt sind.
+In den runden Klammern einer For-Schleife stehen insgesamt drei Anweisungen, die jeweils durch ein Semikolon ''\lstinline{;}'' voneinander getrennt sind.
 
-	Die erste Anweisung \lstinline{int i = 0} setzt die Zählvariable \lstinline{i} der For-Schleife auf den Anfangswert \lstinline{0}.
-	Der Name \enquote{\lstinline{i}} ist hierbei typisch für die Zählvariable einer for-Schleife.
-	Die erste Anweisung wird nur einmal vor Beginn der Schleife ausgeführt.\newline
+Die erste Anweisung \lstinline{int i = 0} setzt die Zählvariable \lstinline{i} der For-Schleife auf den Anfangswert \lstinline{0}.
+Der Name \enquote{\lstinline{i}} ist hierbei typisch für die Zählvariable einer for-Schleife.
+Die erste Anweisung wird nur einmal vor Beginn der Schleife ausgeführt.\newline
 
-	Die zweite Anweisung (\lstinline{i < 5} in unseren Beispiel) ist vergleichbar mit der bool'schen Bedingung einer While-Schleife.
-	Sie wird jedes mal überprüft, bevor der Schleifenrumpf ausgeführt wird.
-	Nur wenn sie den Wert \lstinline{true} zurück gibt, ist wird der Code-Block der Schleife ausgeführt.\newline
+Die zweite Anweisung (\lstinline{i < 5} in unserem Beispiel) ist vergleichbar mit der bool'schen Bedingung einer While-Schleife.
+Sie wird jedes Mal überprüft, bevor der Schleifenrumpf ausgeführt wird.
+Nur wenn sie den Wert \lstinline{true} zurückgibt, wird der Code-Block der Schleife ausgeführt.\newline
 
-	Der Ausdruck \lstinline{i < 5} überprüft hier, ob der Wert der Variable \texttt{i} größer (echt) kleiner als die Ganzzahl \texttt{5} ist.
-	Bei \texttt{<} handelt es sich also wie schon bei \texttt{+},\texttt{-},\texttt{/} und \texttt{*} um eine Operator - genauer einen Vergleichsoperator - der in den meisten Programmiersprachen vorhanden ist.
-	Weiter Vergleichsoperatoren sind \texttt{>} für \enquote{Ist $\langle$links$\rangle$ (echt) kleiner als $\langle$rechts$\rangle$?}, \texttt{<=}, \texttt{>=}, \texttt{!=} und \texttt{==}.
-	Genaueres erfährst du hierzu noch in Aufgabe 2.\newline
+Der Ausdruck \lstinline{i < 5} überprüft hier, ob der Wert der Variable \texttt{i} größer (echt) kleiner als die Ganzzahl \texttt{5} ist.
+Bei \texttt{<} handelt es sich also wie schon bei \texttt{+},\texttt{-},\texttt{/} und \texttt{*} um eine Operator - genauer einen Vergleichsoperator - der in den meisten Programmiersprachen vorhanden ist.
+Weiter Vergleichsoperatoren sind \texttt{>} für \enquote{Ist $\langle$links$\rangle$ (echt) kleiner als $\langle$rechts$\rangle$?}, \texttt{<=}, \texttt{>=}, \texttt{!=} und \texttt{==}.
+Genaueres erfährst du hierzu noch in Aufgabe 2.\newline
 
-	Die dritte Anweisung \lstinline{i++} wird nach jedem Durchlauf des Codes im Schleifenrumpf ausgeführt, bevor die Bedingung erneut überprüft wird.
-	\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf um \lstinline{1} erhöht wird.
-	Das \lstinline{i++} ist also nichts anderes als eine Abkürzung für das Kommando \lstinline{i = i + 1}.\newline
+Die dritte Anweisung \lstinline{i++} wird nach jedem Durchlauf des Codes im Schleifenrumpf ausgeführt, bevor die Bedingung erneut überprüft wird.
+\lstinline{i++} heißt, dass \lstinline{i} jeden Schleifendurchlauf um \lstinline{1} erhöht wird.
+Das \lstinline{i++} ist also nichts anderes als eine Abkürzung für das Kommando \lstinline{i = i + 1}.\newline
 
-	Die obige Schleife wird 5 Mal ausgeführt.
-	Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} (<= bedeuted i < 5 oder i == 5 gilt) prüft.
-	Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}, wird dann nach der Ausführung des Rumpfes um eins erhöht, wodurch die Bedingung zu \lstinline{flase} ausgewertet wird und der Rumpf nicht weiter ausgeführt wird.
+Die obige Schleife wird 5 Mal ausgeführt.
+Beachte, dass \lstinline{i} mit dem Wert \lstinline{0} beginnt und die Schleifenbedingung auf \lstinline{i < 5} und nicht \lstinline{i <= 5} (<= bedeuted i < 5 oder i == 5 gilt) prüft.
+Im letzten Schleifendurchlauf hat \lstinline{i} den Wert \lstinline{4}, wird dann nach der Ausführung des Rumpfes um eins erhöht, wodurch die Bedingung zu \lstinline{flase} ausgewertet wird und der Rumpf nicht weiter ausgeführt wird.
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{2}
 	\item
-		Laufe nun mithilfe einer For-Schleife 10 Schritte ohne die Simulation zu pausieren.
+	Laufe nun mithilfe einer For-Schleife 10 Schritte ohne die Simulation zu pausieren.
 
 	\item
-		Laufe mit Neo jeweils 3, 7, 14 und 22 Schritte indem du die Schleifenbedingung anpasst.
-		Am Ende sollte Neo auf einem Münzhaufen stehen.
-
+	Laufe mit Totoro jeweils 3, 7, 14 und 22 Schritte, indem du die Schleifenbedingung anpasst.
+	Am Ende sollte Totoro auf einem Nusshaufen stehen.
+	
 	\item
-		Hebe jetzt mit Neo jeweils 2, 5, 16 und 20 Münzen vom Feld \texttt{(0,22)} auf.
-		Dazu musst du eine weitere For-Schleife benutzen, in der du auch den Schleifenrumpf anpasst.
-
+	Hebe jetzt mit Totoro jeweils 2, 5, 16 und 20 Nüsse vom Feld \texttt{(0,22)} auf.
+	Dazu musst du eine weitere For-Schleife benutzen, in der du auch den Schleifenrumpf anpasst.
+	
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoF}.
-
-		Hebe alle Münzen auf Neo's Startposition auf.
-		Laufe nun 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Münzen ab, wie du schon Schritte gelaufen bist.
-
-		\textbf{Hinweis:} Dafür musst du eine For-Schleife in der For-Schleife verwenden.
-		Du kannst die Variable \lstinline{i} der äußeren For-Schleife in der Schleifenbedingung (an der 2. Stelle im Schleifenkopf) der inneren For-Schleife benutzen.
-		Überlege Dir, welcher Vergleichsoperator hier am besten passt.
-
+	Verwende für diese Teilaufgabe den Totoro in der Variable \lstinline{totoroF}.
+	
+	Hebe alle Nüsse auf Totoro's Startposition auf.
+	Laufe jetzt 5 Schritte mit einer For-Schleife und lege jeden Schritt so viele Nüsse ab, wie du schon Schritte gelaufen bist.
+	
+	\textbf{Hinweis:} Dafür musst du eine For-Schleife in der For-Schleife verwenden.
+	Du kannst die Variable \lstinline{i} der äußeren For-Schleife in der Schleifenbedingung (an der 2. Stelle im Schleifenkopf) der inneren For-Schleife benutzen.
+	Überlege dir, welcher Vergleichsoperator hier am besten passt.
+	
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoG}.
-
-		Laufe 10 Schritte und hebe dabei maximal 5 Münzen pro Feld auf.
-
+	Verwende für diese Teilaufgabe den Totoro in der Variable \lstinline{totoroG}.
+	
+	Laufe 10 Schritte und hebe dabei maximal 5 Nüsse pro Feld auf.
+	
 	\item
-		Verwende für diese Teilaufgabe den Spieler/Neo in der Variable \lstinline{neoH}.
-
-		Laufe 10 Schritte und hebe dabei alle Münzen auf den Feldern auf.
-
-		\textbf{Hinweis:} Hier musst du eine For- und eine While-Schleife verwenden.
+	Verwende für diese Teilaufgabe den Totoro in der Variable \lstinline{totoroH}.
+	
+	Laufe 10 Schritte und hebe dabei alle Nüsse auf den Feldern auf.
+	
+	\textbf{Hinweis:} Hier musst du eine For- und eine While-Schleife verwenden.
 \end{enumerate}
 \newpage

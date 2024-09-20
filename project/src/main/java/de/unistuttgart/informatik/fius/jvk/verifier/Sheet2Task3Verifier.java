@@ -13,6 +13,7 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 /**
  * A Verifier that checks if all coins left the playing field.
@@ -23,8 +24,8 @@ public class Sheet2Task3Verifier implements TaskVerifier {
     private BasicTaskInformation task;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Collect all Coins", "Collect all coins on the playfield.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Drop all Coins", "Drop all your coins onto the field (3,3).");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Collect all Nuts", "Collect all nutss on the playfield.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Drop all Nuts", "Drop all your nuts onto the field (3,3).");
     private BasicTaskInformation taskD = new BasicTaskInformation("d) Paper only task", "See the task sheet for details.");
 
     private ActionLog actionLog;
@@ -38,7 +39,7 @@ public class Sheet2Task3Verifier implements TaskVerifier {
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
-        this.task = new BasicTaskInformation("Sheet 2 Task 4", "Pickup and drop coins.", subTasks);
+        this.task = new BasicTaskInformation("Sheet 2 Task 4", "Pickup and drop nuts.", subTasks);
     }
 
     @Override
@@ -53,22 +54,22 @@ public class Sheet2Task3Verifier implements TaskVerifier {
 
         List<EntitySpawnAction> spawnActions = this.actionLog.getActionsOfType(EntitySpawnAction.class, true);
 
-        long nrOfCoins = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+        long nrOfNuts = spawnActions.stream()
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
             .distinct()
             .count();
 
         boolean allCollected = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
-            .map((coin) -> this.actionLog.getActionsOfTypeOfEntity(coin, EntityDespawnAction.class, true))
+            .map((nut) -> this.actionLog.getActionsOfTypeOfEntity(nut, EntityDespawnAction.class, true))
             .allMatch((despawns) -> despawns.size() == 1);
 
         boolean allDroppedOnPosition = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
-            .map((coin) -> this.actionLog.getActionsOfTypeOfEntity(coin, EntitySpawnAction.class, true))
+            .map((nut) -> this.actionLog.getActionsOfTypeOfEntity(nut, EntitySpawnAction.class, true))
             .allMatch((spawns) -> spawns.stream().anyMatch(spawn -> spawn.getPosition().equals(this.dropPosition)));
 
         

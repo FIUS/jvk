@@ -13,6 +13,7 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 
 public class Sheet1Task3Verifier implements TaskVerifier {
@@ -20,7 +21,7 @@ public class Sheet1Task3Verifier implements TaskVerifier {
     private BasicTaskInformation task;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("e) Spawn 5 Coins", "Spawn at least 5 coins.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("e) Spawn 5 Coins", "Spawn at least 5 nuts.");
 
     private ActionLog actionLog;
 
@@ -41,8 +42,8 @@ public class Sheet1Task3Verifier implements TaskVerifier {
         System.out.println("Verify");
         List<EntitySpawnAction> spawnActions = this.actionLog.getActionsOfType(EntitySpawnAction.class, true);
 
-        List<Position> coinPositions = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+        List<Position> nutPositions = spawnActions.stream()
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getPosition())
             .sorted((a, b) -> {
                 if (a.getY() < b.getY()) return -1;
@@ -55,8 +56,8 @@ public class Sheet1Task3Verifier implements TaskVerifier {
             .collect(Collectors.toList());
 
         // subtask b)
-        int nrOfCoinsSpawned = coinPositions.size();
-        if (nrOfCoinsSpawned >= 5) {
+        int nrOfNutsSpawned = nutPositions.size();
+        if (nrOfNutsSpawned >= 5) {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
 
@@ -72,18 +73,18 @@ public class Sheet1Task3Verifier implements TaskVerifier {
     }
 
     /**
-     * Check if a field with at least {@code nrOfCoins} exists.
+     * Check if a field with at least {@code nrOfNuts} exists.
      */
-    private boolean checkMultiCoinsField(List<Position> coinPositions, int nrOfCoins) {
+    private boolean checkMultiNutsField(List<Position> nutPositions, int nrOfNuts) {
         Position currentPos = null;
         int currentCount = 0;
 
-        Iterator<Position> positions = coinPositions.iterator();
+        Iterator<Position> positions = nutPositions.iterator();
 
         while (positions.hasNext()) {
             Position p = positions.next();
             if (currentPos == null || !p.equals(currentPos)) {
-                if (currentCount == nrOfCoins) { // found field with right coincount
+                if (currentCount == nrOfNuts) { // found field with right nutcount
                     return true;
                 }
                 currentPos = p;
@@ -91,7 +92,7 @@ public class Sheet1Task3Verifier implements TaskVerifier {
             }
             currentCount++;
             if (!positions.hasNext()) { // special check for end of list
-                if (currentCount == nrOfCoins) { // found field with right coincount
+                if (currentCount == nrOfNuts) { // found field with right coincount
                     return true;
                 }
             }
@@ -103,18 +104,18 @@ public class Sheet1Task3Verifier implements TaskVerifier {
     /**
      * Count the number of horizontal lines of length {@code lineLength}.
      */
-    private int countLines(List<Position> coinPositions, int lineLength) {
-        if(coinPositions.isEmpty()){
+    private int countLines(List<Position> nutPositions, int lineLength) {
+        if(nutPositions.isEmpty()){
             return 0;
         }
-        int currentX = coinPositions.get(0).getX();
-        int currentY = coinPositions.get(0).getY();
+        int currentX = nutPositions.get(0).getX();
+        int currentY = nutPositions.get(0).getY();
         int rowCount = 0;
         int currentLength = 0;
 
         int lineCount = 0;
 
-        Iterator<Position> positions = coinPositions.iterator();
+        Iterator<Position> positions = nutPositions.iterator();
 
         while (positions.hasNext()) {
             Position p = positions.next();

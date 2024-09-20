@@ -1,44 +1,54 @@
 \excercise{Verebung}
 \begin{enumerate}
 	\item
-	Instanziiere die Simulation (\lstinline{Sheet3Task6} und  \lstinline{Sheet3Task6Verifier}) und mache dich mit dieser vertraut.
+	Instanziiere die Simulation (\lstinline{Sheet3Task6} und \lstinline{Sheet3Task6Verifier}) und mache dich mit dieser vertraut.
 
-	\item In Blatt 2 hast du gesehen wie man ein Objekt der Klasse \lstinline{Neo} erstellt.
-	Überlege dir nun wie man eine Version dieses Objektes erstellen kann, welche immer alle Münzen auf einem Feld mit dem Befehl \lstinline{collectCoin()} einsammelt.
-	Dabei wollen wir die normale \lstinline{collectCoin}-Methode allerdings nicht wort-wörtlich mit neuen Code überschreiben, wie wir das bis jetzt getan haben.
+\item In Blatt 2 hast du gesehen wie man ein Objekt der Klasse \lstinline{Totoro} erstellt.
+Überlege dir nun wie man eine Version dieses Objektes erstellen kann, welche immer alle Nüsse auf einem Feld mit dem Befehl \lstinline{collectNut()} einsammelt.
+Dabei wollen wir die normale \lstinline{collectNut}-Methode allerdings nicht Wort-wörtlich mit neuem Code überschreiben, wie wir das bis jetzt getan haben.
 \end{enumerate}
 
 \begin{Infobox}[Vererbung]
 
-
 Bei der Vererbung spricht man von sogenannten Elternklassen (manchmal auch Superklassen genannt) und ihren Kindklassen (Subklassen).
 Die Kindklassen \enquote{erben} manche der Funktionen und Attribute der Elternklasse und können diese somit genauso verwenden wie ihre \enquote{Eltern}.\newline
 
-Kindklassen können die geerbten Funktionen aus der Elternklasse auch überschreiben und somit zum Beispiel in einer Subklasse \lstinline{SpeedyNeo} von \lstinline{Neo} die \lstinline{move}-Operation überscheiben um den \lstinline{SpeedyNeo} zwei statt einen Schritt pro Ausführung der Methode laufen zu lassen.
+Kindklassen können die geerbten Funktionen aus der Elternklasse auch überschreiben und somit zum Beispiel in einer Subklasse \lstinline{SpeedyTotoro} von \lstinline{Totoro} die \lstinline{move}-Operation überscheiben um den \lstinline{SpeedyTotoro} zwei statt einen Schritt pro Ausführung der Methode laufen zu lassen.
 
 Im Code wird Vererbung durch das Schlüsselwort ''extends'' erzeugt:
 
 \begin{lstlisting}[xleftmargin=0.5cm]
-public class GreedyNeo extends Neo {
-	// Neue Methoden oder Methoden, die GreedyNeo von Neo
+public class HungryTotoro extends Totoro {
+	// Neue Methoden oder Methoden, die HungryTotoro von Totoro
 	// überschreiben soll...
 }
 \end{lstlisting}
 
-Das Beispiel sagt also aus, dass \lstinline{SpeedyNeo} alle Funktionen von Neo verwenden kann.\newline
+Das Beispiel sagt also aus, dass \lstinline{SpeedyTotoro} alle Funktionen von Totoro verwenden kann.\newline
 Kindklassen können Funktionen ihrer Elternklasse mit der Annotation \lstinline{@Override} über der Neu-Definition der Methode in der Kindklasse überschreiben.
 
 \begin{lstlisting}[xleftmargin=0.5cm]
-public class Neo {
-	public void collectCoin() {
+public class Totoro {
+	public void collectNut() {
 		// ...
 	}
 }
 
-public class GreedyNeo extends Neo {
+public class HungryTotoro extends Totoro {
 	@Override
-	public void collectCoin() {
+	public void collectNut() {
 		// ...
+	}
+}
+\end{lstlisting}
+Die ursprüngliche Funktion der Elternklasse, die von der Kindklasse überschrieben wurde, kann mit dem Schlüsselwort \lstinline{super} aufgerufen werden:
+\begin{lstlisting}[xleftmargin=0.5cm]
+public class FastTotoro extends Totoro {
+	//fast Totoro moves two spaces every time move() is called
+	@Override
+	public void move(){
+		super.move();
+		super.move();
 	}
 }
 \end{lstlisting}
@@ -46,33 +56,33 @@ public class GreedyNeo extends Neo {
 
 
 \begin{enumerate}\setcounter{enumi}{2}
-\item Schreibe nun die Klasse \lstinline{GreedyNeo} aus dem \texttt{de.unistuttgart.informatik.fius.jvk.provided.}\\\texttt{entity}-Paket so um, dass sie eine Kindklasse der Klasse Neo ist.
+\item Schreibe nun die Klasse \lstinline{HungryTotoro} aus dem \texttt{de.unistuttgart.informatik.fius.jvk.provided.}\\\texttt{entity}-Paket so um, dass sie eine Kindklasse der Klasse Totoro ist.
 
-Initialisiere danach ein \lstinline{GreedyNeo} in \lstinline{Sheet3Task6} und schau dir die verfügbaren Operationen an.
+Initialisiere danach ein \lstinline{HungryTotoro} in \lstinline{Sheet3Task6} und schau dir die verfügbaren Operationen an.
 
-\item Überschreibe nun die \lstinline{collectCoin()} Funktion der \lstinline{GreedyNeo} Klasse, sodass \lstinline{GreedyNeo} immer alle Münzen auf einem Feld einsammelt, wenn die Funktion aufgerufen wird.
-Teste diese Funktionalität indem du in \lstinline{Sheet3Task6} 5 Münzen auf \lstinline{GreedyNeo} Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
+\item Überschreibe nun die \lstinline{collectNut()} Funktion der \lstinline{HungryTotoro} Klasse, sodass \lstinline{HungryTotoro} immer alle Nüsse auf einem Feld einsammelt, wenn die Funktion aufgerufen wird.
+Teste diese Funktionalität, indem du in \lstinline{Sheet3Task6} 5 Nüsse auf \lstinline{HungryTotoro} Feld platzierst und einmal \lstinline{collectNut()} ausführst.
 
-\textbf{Tipp:} schaue die dazu die \lstinline{collectCoin()} Funktion der \lstinline{Neo} Klasse genauer an.
+\textbf{Tipp:} schaue die dazu die \lstinline{collectNut()} Funktion der \lstinline{Totoro} Klasse genauer an.
 
-\item Nun wollen wir Morpheus in die Matrix laden.
+\item Nun wollen wir Rußmännchen (\lstinline{Sooty_mans}) in den Simulator laden.
 
-Außerdem wollen wir Morpheus' \lstinline{collectCoin()} Funktion so abändern, dass er einfach nichts macht, falls sich keine Münze unter ihm befindet.
+Außerdem wollen wir die \lstinline{collectNut()} Funktion von den Rußmännchen so abändern, dass sie einfach nichts machen, falls sich keine Nuss unter ihnen befindet.
 Spezieller soll dabei auch keine Fehlermeldung auf der Konsole erscheinen.
 Gehe dazu analog zu der letzten Teilaufgabe vor.
 
-Teste diese Funktionalität, indem du in \lstinline{Sheet3Task6} keine Münzen auf \lstinline{Morpheus}' Feld platzierst und einmal \lstinline{collectCoin()} ausführst.
+Teste diese Funktionalität, indem du in \lstinline{Sheet3Task6} keine Nüsse auf \lstinline{Sooty_mas}' Feld platzierst und einmal \lstinline{collectNut()} ausführst.
 
-\item Morpheus soll in seiner \lstinline{move()} Funktion nun automatisch Wände erkennen und nicht einfach in sie hineinzulaufen.
-Stattdessen soll Morpheus prüfen, ob das Feld links, rechts oder hinter ihm frei ist und in die entsprechende Richtung weiterlaufen.
+\item Rußmännchen sollen in ihrer \lstinline{move()} Funktion nun automatisch Büsche erkennen und nicht einfach in sie hineinlaufen.
+Stattdessen sollen Rußmännchen prüfen, ob das Feld links, rechts oder hinter ihnen frei ist und in die entsprechende Richtung weiterlaufen.
 
-Teste diese Funktionalität, indem du in der\lstinline{Sheet3Task6}-Klasse eine Wand auf dem Feld vor dem \lstinline{Morpheus}-Objekt platzierst und ein paar angrenzende Felder blockierst.
-Was passiert, wenn Du Morpheus komplett einschließt und die \lstinline{move}-Operation ein paar Male ausführst?
+Teste diese Funktionalität, indem du in der\lstinline{Sheet3Task6}-Klasse einen Busch auf dem Feld vor dem \lstinline{Sooty_masn}-Objekt platzierst und ein paar angrenzende Felder blockierst.
+Was passiert, wenn du Morpheus komplett einschließt und die \lstinline{move}-Operation ein paar Male ausführst?
 
-\item \optional Dir ist vielleicht aufgefallen, dass Morpheus in der Simulation anders aussieht als \lstinline{Neo}, \lstinline{GreedyNeo} allerdings aussieht wie \lstinline{Neo}.
+\item \optional Dir ist vielleicht aufgefallen, dass Rußmännchen in der Simulation anders aussieht als \lstinline{Totoro}, \lstinline{HungryTotoro} allerdings aussieht wie \lstinline{Totoro}.
 Finde den Codeteil der dieses Verhalten bewirkt.
 
-Im Projekt ist noch eine Mario Textur hinterlegt.
+Im Projekt ist noch eine Mario, Neo und Morpheus Textur hinterlegt.
 Versuche die Textur von GreedyNeo durch die von Mario zu ersetzten.
 
 \end{enumerate}

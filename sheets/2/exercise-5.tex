@@ -13,8 +13,8 @@ Ziel dieser Aufgabe ist es, die Syntax und die Funktion von While-Schleifen zu v
     Wir betrachten eine beispielhafte While Schleife:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
-while(neo.canMove()) {
-    neo.move();
+while(totoro.canMove()) {
+    totoro.move();
 }
     \end{lstlisting}
 
@@ -22,53 +22,53 @@ while(neo.canMove()) {
 
     Das Verhalten von While Schleifen lässt sich einfach darstellen:
     \begin{enumerate}
-        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{neo.canMove()} erfüllt ist, also ob sich kein Hindernis im Weg befindet. Wenn ein Hindernis im Weg ist, springe zu Punkt 4.
-        \item[2:] Das Schleifeninnere \lstinline{neo.move()} wird ausgeführt.
+        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{totoro.canMove()} erfüllt ist, also ob sich kein Hindernis im Weg befindet. Wenn ein Hindernis im Weg ist, springe zu Punkt 4.
+        \item[2:] Das Schleifeninnere \lstinline{totoro.move()} wird ausgeführt.
         \item[3:] Springe zurück zu Punkt 1
         \item[4:] Verlasse die Schleife
     \end{enumerate}
 
-    Ebenso sind folgende Beispiele zum Aufheben bzw Ablegen aller (möglichen) Münzen hilfreich:
+    Ebenso sind folgende Beispiele zum Aufheben bzw. Ablegen aller (möglichen) Nüsse hilfreich:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
-// Aufheben aller möglichen Münzen
-while(neo.canCollectCoin()){
-    neo.collectCoin();
+// Aufheben aller möglichen Nüsse
+while(totoro.canCollectNut()){
+    totoro.collectNut();
 }
 
-// Ablegen aller möglichen Münzen
-while(neo.canDropCoin()){
-    neo.dropCoin();
+// Ablegen aller möglichen Nüsse
+while(totoro.canDropNut()){
+    totoro.dropNut();
 }
     \end{lstlisting}
 
-    Dabei prüfen wir mit der Schleifenbedingung jeweils, ob es noch weitere Münzen gibt, die wir aufheben (oder ablegen) können, bevor wir sie aufheben (oder ablegen).
+    Dabei prüfen wir mit der Schleifenbedingung jeweils, ob es noch weitere Nüsse gibt, die wir aufheben (oder ablegen) können, bevor wir sie aufheben (oder ablegen).
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{1}
-        \item Hebe alle Münzen auf dem aktuellen Feld auf.\\
-        Dafür kannst du eine der Schleifen von oben verwenden.
-
-    \textbf{Hinweis}: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Münzen jedes mal anders.
-    \item Platziere jetzt alle Münzen auf dem rechten mittleren Spielfeld an der Wand. 
-        Hier kannst du dich wieder an den Beispielen oben orientieren.
-        \item Zeichne mit den aufgehobenen Münzen eine Linie auf der mittleren Spur, beginnend auf dem Feld neben Neo.
-        Auf jedem Feld in der mittleren Reihe sollte jetzt eine Münze liegen.\\
-        Benutze dazu auch eine While Schleife, anstatt deinen Code mehrmals zu kopieren.
-
+    \item Hebe alle Nüsse auf dem aktuellen Feld auf.\\
+    Dafür kannst du eine der Schleifen von oben verwenden.
+    
+    \textbf{Hinweis}: Bei dieser Aufgabe ist das Spielfeld und die Anzahl der Nüsse jedes Mal anders.
+    \item Platziere jetzt alle Nüsse auf dem rechten mittleren Spielfeld an dem Busch.
+    Hier kannst du dich wieder an den Beispielen oben orientieren.
+    \item Zeichne mit den aufgehobenen Nüssen eine Linie auf der mittleren Spur, beginnend auf dem Feld neben Totoro.
+    Auf jedem Feld in der mittleren Reihe sollte jetzt eine Nuss liegen.\\
+    Benutze dazu auch eine While-Schleife, anstatt deinen Code mehrmals zu kopieren.
+    
     \textbf{Hinweis}: Hier kannst du nicht direkt eine Schleife von den angegebenen Beispielen kopieren.
-        Du musst noch den Code-Block der Schleife anpassen, damit mehr Kommandos bei jedem Schleifendurchlauf ausgeführt werden.
-    \item Platziere nun statt einer Münze auf jedem Feld der Linie drei Münzen.
-
+    Du musst noch den Code-Block der Schleife anpassen, damit mehr Kommandos bei jedem Schleifendurchlauf ausgeführt werden.
+    \item Platziere nun statt einer Nuss auf jedem Feld der Linie drei Nüsse.
+    
     \textbf{Hinweis}: Hier sollte es ausreichen den Code-Block der Schleife aus der Teilaufgabe davor anzupassen.
-    \item Platziere auf jedem zweiten Feld eine Münze.\\
-        Also die Linie soll abwechselnd eine Münze und ein leeres Feld nacheinander haben.\\
-        
-        \textbf{Hinweis}: Hier kannst du entweder die Abfolge direkt kodieren oder mit Variablen vom Typ \lstinline{boolean} und if-Verzweigungen aus Aufgabe 4 arbeiten.
-    \item \optional Lege auf jedem von Neo aus erreichbaren Feld genau eine Münze ab. 
-        Beachte hierbei, dass die Wände auf der oberen und unteren Spur zufällig platziert werden.
-
+    \item Platziere auf jedem zweiten Feld eine Nuss.\\
+    Also die Linie soll abwechselnd eine Nuss und ein leeres Feld nacheinander haben.\\
+    
+    \textbf{Hinweis}: Hier kannst du entweder die Abfolge direkt kodieren oder mit Variablen vom Typ \lstinline{boolean} und if-Verzweigungen aus Aufgabe 4 arbeiten.
+    \item \optional Lege auf jedem von Totoro aus erreichbaren Feld genau eine Nuss ab.
+    Beachte hierbei, dass die Büsche auf der oberen und unteren Spur zufällig platziert werden.
+    
     \textbf{Hinweis}: Hier musst du neben einer While Schleife auch IF-Statements verwenden.\\
-        Schau dir dafür nochmal Aufgabe 4 an.
+    Schau dir dafür nochmal Aufgabe 4 an.
 \end{enumerate}

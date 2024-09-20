@@ -2,16 +2,15 @@
 
 \begin{enumerate}
 	\item
-		Passe die Main Operation an die Aufgabe an.
-		Verwende den selben Task und Verifier wie in Aufgabe 4.
-
+	Passe die Main Operation an die Aufgabe an.
+	Verwende denselben Task und Verifier wie in Aufgabe 4.
+	
 	\item
-		Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \\\lstinline{Integer.MAX_VALUE})
-		Was passiert?
-\end{enumerate}
-
-
-\begin{Infobox}[Return]
+	Probier die Operation aus Aufgabe 4 d) mit unterschiedlichen Werten aus: (10, 1, 0, -1, \\\lstinline{Integer.MAX_VALUE})
+	Was passiert?
+	\end{enumerate}
+	
+	\begin{Infobox}[Return]
 	Mit dem Schlüsselwort \lstinline{return} kannst du den Rückgabewert einer Operation festlegen.
 	Der Rückgabewert muss nach dem Schlüsselwort \lstinline{return} und vor dem \lstinline{;} stehen.\newline
 
@@ -46,62 +45,61 @@ public void printNumbers(){
 	Wenn man nun \lstinline{printNumbers();} aufruft dann ist die Ausgabe in der Konsole \lstinline{012345}, da die Operation bei i=5 beendet wird.
 \end{Infobox}
 
-
 \begin{enumerate}\setcounter{enumi}{2}
-	\item
-		Wir wollen nun, dass Neo in dieser Operation nicht mehr als 50 Schritte laufen kann.
-		Wenn Neo mehr als 50 Schritte laufen soll, dann soll er sich gar nicht bewegen.
-		Füge ein am Anfang des Kommandos aus Aufgabe 4 d) ein IF-Statement ein, in dem du prüfst ob der Parameter für die Anzahl der Schritte größer als 50 ist.
-		Wenn ja, dann nutze \lstinline{return;} um die Ausführung der Operation direkt abzubrechen.
+\item
+Wir wollen jetzt, dass Totoro in dieser Operation nicht mehr als 50 Schritte laufen kann.
+Wenn Totoro mehr als 50 Schritte laufen soll, dann soll er sich gar nicht bewegen.
+Füge ein am Anfang des Kommandos aus Aufgabe 4 d) ein IF-Statement ein, in dem du prüfst, ob der Parameter für die Anzahl der Schritte größer als 50 ist.
+Wenn ja, dann nutze \lstinline{return;} um die Ausführung der Operation direkt abzubrechen.
 
-	\item
-		Probiere nun erneut unterschiedliche Werte, insbesondere die Werte aus b), aus.
-		Das Verhalten der Operation sollte sich geändert haben.
+\item
+Probiere jetzt erneut unterschiedliche Werte, insbesondere die Werte aus b), aus.
+Das Verhalten der Operation sollte sich geändert haben.
 \end{enumerate}
 
 \medskip % for better wrapping in following infobox
 
 \begin{Infobox}[Throwing Exceptions]
 	Wir möchten nicht, dass ungültige User-Eingaben einfach ignoriert werden.
-	Darum sollte man bei ungültigen Eingaben eine Exception werfen.
-	Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.\newline
+Darum sollte man bei ungültigen Eingaben eine Exception werfen.
+Für eine Erklärung von Exceptions kannst du dir nochmal Aufgabe 2 auf Blatt 2 ansehen.\newline
 
-	Um eine Exception zu werfen verwendet man das Schlüsselwort \lstinline{throw}:
+Um eine Exception zu werfen, verwendet man das Schlüsselwort \lstinline{throw}:
 
-	\begin{lstlisting}[xleftmargin=0.5cm]
+\begin{lstlisting}[xleftmargin=0.5cm]
 public void printNumbersTo(Integer to) {
-    if (to < 0) {
-        throw new IllegalArgumentException("negative Number");
-    }
-    for(Integer i=0; i <= to; i++) {
-        System.out.print(i);
-    }
+if (to < 0) {
+throw new IllegalArgumentException("negative Number");
 }
-	\end{lstlisting}
+for(Integer i=0; i <= to; i++) {
+System.out.print(i);
+}
+}
+\end{lstlisting}
 
-	Diese Operation wirft bei negativen Werten eine \lstinline{IllegalArgumentException}.
+Diese Operation wirft bei negativen Werten eine \lstinline{IllegalArgumentException}.
 \end{Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{4}
 	\item
-		Ändere nun die Operation so, dass zu große Zahlen die Operation nicht mehr mit einem \lstinline{return;} abbrechen lassen.
-		Stattdessen soll eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht geworfen werden.
-
-		Wähle eine hilfreiche Nachricht für deine \lstinline{IllegalArgumentException}.
-
+	Ändere nun die Operation so, dass zu große Zahlen die Operation nicht mehr mit einem \lstinline{return;} abbrechen lassen.
+	Stattdessen soll eine \lstinline{IllegalArgumentException} mit einer passenden Nachricht geworfen werden.
+	
+	Wähle eine hilfreiche Nachricht für deine \lstinline{IllegalArgumentException}.
+	
 	\item
-		Jetzt bekommt man eine rote Fehlermeldung, wenn man versucht die Operation mit einem zu großen Parameter aufzurufen.
-		Wir bekommen also den Fehler deutlich mit.
-
-		Noch besser wäre es, wenn wir den Fehler gar nicht erst verursachen würden.
-		Dazu müssen wir wissen, dass diese Operation eine Exception wirft, wenn der Parameter zu groß ist.
-		Das kann man im Javadoc Kommentar der Operation dokumentieren, damit Nutzer der Methode über Existenz der geworfenen Exception im klaren sind.
-
-		Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären wann die Exception geworfen wird.
-		Verwende dafür \lstinline{@throws} in dem Javadoc Kommentar.
-
-		Hier ist nochmal ein Beispiel wie man \lstinline{@throws} in einem Javadoc Kommentar verwendet.
+	Jetzt bekommt man eine rote Fehlermeldung, wenn man versucht die Operation mit einem zu großen Parameter aufzurufen.
+	Wir bekommen also den Fehler deutlich mit.
+	
+	Noch besser wäre es, wenn wir den Fehler gar nicht erst verursachen würden.
+	Dazu müssen wir wissen, dass diese Operation eine Exception wirft, wenn der Parameter zu groß ist.
+	Das kann man im Javadoc Kommentar der Operation dokumentieren, damit Nutzer der Methode über Existenz der geworfenen Exception im Klaren ist.
+	
+	Darum erweitern wir jetzt den Javadoc Kommentar der Operation um zu erklären, wann die Exception geworfen wird.
+	Verwende dafür \lstinline{@throws} in dem Javadoc Kommentar.
+	
+	Hier ist nochmal ein Beispiel wie man \lstinline{@throws} in einem Javadoc Kommentar verwendet.
 
 		\begin{lstlisting}
 /**

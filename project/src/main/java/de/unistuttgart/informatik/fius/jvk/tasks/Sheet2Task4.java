@@ -12,36 +12,36 @@ public class Sheet2Task4 implements Task{
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
+        Totoro totoro = new Totoro();
+        pm.placeEntityAt(totoro, new Position(0, 0));
         buildEnvironment(pm);
         
-        this.movement(neo);
+        this.movement(totoro);
     }
 
-    private void movement(Neo neo) {
+    private void movement(Totoro totoro) {
         //implement subtask here
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
-        neo.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
+        totoro.move();
     }
 
     private void buildEnvironment(PlayfieldModifier pm){
-        pm.placeEntityAt(new PhoneBooth(), new Position(10, 0));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(-1, -2), new Position(11, -2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(0, 2), new Position(3, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(7, 2), new Position(10, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(-1, -1), new Position(-1, 2)));
-        pm.placeEntityAtEachPosition(new WallFactory(), new Line(new Position(11, -1), new Position(11, 2)));
+        pm.placeEntityAt(new Nut(), new Position(10, 0));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(-1, -2), new Position(11, -2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(0, 2), new Position(3, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(7, 2), new Position(10, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(-1, -1), new Position(-1, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Line(new Position(11, -1), new Position(11, 2)));
         
-        //Place Wall between the player and the phone booth
-        pm.placeEntityAt(new Wall(), new Position(5, 0));
+        //Place Wall between the player and the nut
+        pm.placeEntityAt(new Bush(), new Position(5, 0));
     }
 }

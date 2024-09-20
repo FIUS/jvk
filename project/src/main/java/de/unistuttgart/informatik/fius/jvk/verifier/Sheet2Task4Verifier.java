@@ -2,8 +2,6 @@ package de.unistuttgart.informatik.fius.jvk.verifier;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
-import java.util.stream.Collectors;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
@@ -13,7 +11,6 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 
 
 public class Sheet2Task4Verifier implements TaskVerifier {
@@ -23,7 +20,7 @@ public class Sheet2Task4Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
     private BasicTaskInformation taskB = new BasicTaskInformation("b) Handle the Exception", "Avoid the Exception from Exercise 2");
     private BasicTaskInformation taskC = new BasicTaskInformation("c) Test the IF-Condition", "Delete the wall and run the execution again.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Add an ELSE-Block", "Reach the phone booth even if there is an obstacle.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Add an ELSE-Block", "Reach nut even if there is an obstacle.");
 
     private ActionLog actionLog;
     private Simulation sim;
@@ -34,7 +31,7 @@ public class Sheet2Task4Verifier implements TaskVerifier {
         subTasks.add(this.taskB);
         subTasks.add(this.taskC);
         subTasks.add(this.taskD);
-        this.task = new BasicTaskInformation("Sheet 2 Task 3", "What IF there is a Wall?", subTasks);
+        this.task = new BasicTaskInformation("Sheet 2 Task 3", "What IF there is a Bush?", subTasks);
     }
 
     @Override

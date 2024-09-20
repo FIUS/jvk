@@ -13,8 +13,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.exception.SimulationExcpe
 
 /**
  * TODO: Description
- * @author Tim-Julian Ehret
+ * @author Sara Galle
  */
-public class NoCoinException extends SimulationExcpetion{
+public class NoNutException extends SimulationExcpetion{
 
 }

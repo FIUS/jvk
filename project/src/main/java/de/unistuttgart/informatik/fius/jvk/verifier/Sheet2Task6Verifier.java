@@ -1,8 +1,6 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Iterator;
 import java.util.stream.Collectors;
@@ -15,7 +13,6 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 
 
 public class Sheet2Task6Verifier implements TaskVerifier {
@@ -24,8 +21,8 @@ public class Sheet2Task6Verifier implements TaskVerifier {
     private Simulation sim;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Move Clockwise Along the Walls", "Move clockwise along the walls.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Move Counter-Clockwise Along the Walls", "Move counterclockwise along the walls.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Move Clockwise Along the Bushes", "Move clockwise along the bushes.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Move Counter-Clockwise Along the Bushes", "Move counterclockwise along the bushes.");
 
 
 

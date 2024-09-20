@@ -13,6 +13,7 @@ import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 
 public class Sheet4Task1Verifier implements TaskVerifier {
@@ -21,8 +22,8 @@ public class Sheet4Task1Verifier implements TaskVerifier {
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
     private BasicTaskInformation taskB = new BasicTaskInformation("b) Method discovery", "See excercise sheet.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Spawn 20 Coins on the same field", "Spawn exactly 20 coins on the same field.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Spawn 3 horizontal rows of 7 coins", "Spawn 3 or more horizontal rows of 7 coins.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Spawn 20 Nuts on the same field", "Spawn exactly 20 nuts on the same field.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Spawn 3 horizontal rows of 7 Nuts", "Spawn 3 or more horizontal rows of 7 nuts.");
 
     private ActionLog actionLog;
 
@@ -46,7 +47,7 @@ public class Sheet4Task1Verifier implements TaskVerifier {
         List<EntitySpawnAction> spawnActions = this.actionLog.getActionsOfType(EntitySpawnAction.class, true);
 
         List<Position> coinPositions = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getPosition())
             .sorted((a, b) -> {
                 if (a.getY() < b.getY()) return -1;

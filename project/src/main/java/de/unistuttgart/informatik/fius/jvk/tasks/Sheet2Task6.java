@@ -17,14 +17,14 @@ public class Sheet2Task6 implements Task{
     @Override
     public void run(Simulation sim) {
         this.pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        this.pm.placeEntityAt(neo, new Position(0, 0));
+        Totoro totoro = new Totoro();
+        this.pm.placeEntityAt(totoro, new Position(0, 0));
         buildEnvironment();
 
         //implement subtasks here
     }
 
     private void buildEnvironment(){
-        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -1), new Position(9, 9)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Rectangle(new Position(-1, -1), new Position(9, 9)));
     }
 }
