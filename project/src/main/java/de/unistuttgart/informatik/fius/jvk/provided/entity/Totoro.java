@@ -4,9 +4,8 @@
  *
  * Copyright (c) 2020 the FIUS JVK 2020 project authors.
  *
- * This software is available under the MIT license.
- * SPDX-License-Identifier:    MIT
- */
+*/
+
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionAttribute;
