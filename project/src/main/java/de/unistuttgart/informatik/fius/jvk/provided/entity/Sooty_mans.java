@@ -9,28 +9,26 @@
  */
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
-import de.unistuttgart.informatik.fius.icge.simulation.Position;
-import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.Texture;
 
 
 /**
- * Class for Morpheus.
+ * Class for sooty_mans (Rußmännchen)
  *
  * @author Sara Galle
  */
-public class Morpheus extends Neo {
+public class Sooty_mans extends Totoro {
 
     /**
      * changes the appearance of the player in the game from Neo to Morpheus
      */
     @Override
     protected String getTextureHandle() {
-        return Texture.MORPHEUS.getHandle(this.getLookingDirection());
+        return Texture.SOOTY_MANS.getHandle();
     }
     
     /**
-     * TODO: Implement the operations of Morpheus here
+     * TODO: Implement the operations of sooty_mans here
      * 
      */
     

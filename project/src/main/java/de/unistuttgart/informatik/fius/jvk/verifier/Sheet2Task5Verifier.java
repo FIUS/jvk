@@ -5,7 +5,6 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Iterator;
 import java.util.stream.Collectors;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
@@ -15,7 +14,9 @@ import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Bush;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
@@ -25,12 +26,12 @@ public class Sheet2Task5Verifier implements TaskVerifier {
     private BasicTaskInformation task;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Collect all coins", "Collect all coins.");
-    private BasicTaskInformation taskC = new BasicTaskInformation("c) Place all coins in front of the right wall.", "Place all coins in front of the right wall.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Draw a line", "Put down exactly one coin on each field in the middle row.");
-    private BasicTaskInformation taskE = new BasicTaskInformation("e) Draw a thick line", "Put down exactly three coins on each field in the middle row.");
-    private BasicTaskInformation taskF = new BasicTaskInformation("f) Draw a dotted line", "Put down exactly one coin every second step in the middle row. The first field should be empty.");
-    private BasicTaskInformation taskG = new BasicTaskInformation("g) Fill out the Field", "Place a Coin in all reachable Fields.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Collect all nuts", "Collect all nuts.");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c) Place all nuts in front of the right bush.", "Place all nuts in front of the right bush.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Draw a line", "Put down exactly one nut on each field in the middle row.");
+    private BasicTaskInformation taskE = new BasicTaskInformation("e) Draw a thick line", "Put down exactly three nuts on each field in the middle row.");
+    private BasicTaskInformation taskF = new BasicTaskInformation("f) Draw a dotted line", "Put down exactly one nut every second step in the middle row. The first field should be empty.");
+    private BasicTaskInformation taskG = new BasicTaskInformation("g) Fill out the Field", "Place a nut in all reachable Fields.");
 
     private ActionLog actionLog;
     private Simulation sim;
@@ -59,22 +60,22 @@ public class Sheet2Task5Verifier implements TaskVerifier {
     public void verify() {
         List<EntitySpawnAction> spawnActions = this.actionLog.getActionsOfType(EntitySpawnAction.class, true);
 
-        long nrOfCoins = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+        long nrOfNuts = spawnActions.stream()
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
             .distinct()
             .count();
 
         boolean allCollected = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
-            .map((coin) -> this.actionLog.getActionsOfTypeOfEntity(coin, EntityDespawnAction.class, true))
+            .map((nut) -> this.actionLog.getActionsOfTypeOfEntity(nut, EntityDespawnAction.class, true))
             .allMatch((despawns) -> despawns.size() == 1);
 
         boolean allDroppedOnPosition = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getEntity())
-            .map((coin) -> this.actionLog.getActionsOfTypeOfEntity(coin, EntitySpawnAction.class, true))
+            .map((nut) -> this.actionLog.getActionsOfTypeOfEntity(nut, EntitySpawnAction.class, true))
             .allMatch((spawns) -> spawns.stream().anyMatch(spawn -> spawn.getPosition().equals(this.dropPosition)));
 
         Set<Position> linePositionsToFill = new HashSet<>();
@@ -84,20 +85,20 @@ public class Sheet2Task5Verifier implements TaskVerifier {
 
         Comparator<Integer> nat = Comparator.naturalOrder();
         List<Position> coinDrops = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .filter((action) -> (action.getTickNumber() > 0))
             .map((action) -> action.getPosition())
             .sorted((a,b) -> nat.compare(a.getX(), b.getX()))
             .collect(Collectors.toList());
         
         Set<Position> wallsTop = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Wall))
+            .filter((action) -> (action.getEntity() instanceof Bush))
             .map((action) -> action.getPosition())
             .filter((pos) -> (pos.getY() == -1 && pos.getX() < 10 && pos.getX() > -1))
             .collect(Collectors.toSet());
         
         Set<Position> wallsBottom = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Wall))
+            .filter((action) -> (action.getEntity() instanceof Bush))
             .map((action) -> action.getPosition())
             .filter((pos) -> (pos.getY() == 1 && pos.getX() < 10 && pos.getX() > -1))
             .collect(Collectors.toSet());

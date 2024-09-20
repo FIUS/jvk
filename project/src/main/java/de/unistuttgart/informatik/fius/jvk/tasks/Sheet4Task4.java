@@ -29,12 +29,12 @@ public class Sheet4Task4 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(1, 3));
+        Totoro totoro = new Totoro();
+        pm.placeEntityAt(totoro, new Position(1, 3));
 
         Random rng = new Random();
-        Line hindernis = new Line(new Position(3, -rng.nextInt(5)), new Position(3, rng.nextInt(10)));
-        pm.placeEntityAtEachPosition(new WallFactory(), hindernis);
+        Line obstacle = new Line(new Position(3, -rng.nextInt(5)), new Position(3, rng.nextInt(10)));
+        pm.placeEntityAtEachPosition(new BushFactory(), obstacle);
         // put your implementation below this comment
     }
     

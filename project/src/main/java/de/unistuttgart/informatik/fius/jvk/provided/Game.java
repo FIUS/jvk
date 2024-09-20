@@ -9,9 +9,7 @@ import de.unistuttgart.informatik.fius.icge.ui.GameWindow;
 import de.unistuttgart.informatik.fius.icge.ui.TextureRegistry;
 import de.unistuttgart.informatik.fius.icge.ui.WindowBuilder;
 import de.unistuttgart.informatik.fius.jvk.Texture;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Pill;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 
 /**
  * A helper to start a Simulation with a GameWindow.
@@ -130,10 +128,8 @@ public class Game {
      */
     private void prepareEntityTypes(Simulation simulation) {
         EntityTypeRegistry etr = simulation.getEntityTypeRegistry();
-        etr.registerEntityType("Wall", Texture.WALL.getHandle(), Wall.class);
-        etr.registerEntityType("Coin", Texture.COIN.getHandle(), Coin.class);
-        etr.registerEntityType("Red Pill", Texture.REDPILL.getHandle(), () -> new Pill(Color.RED));
-        etr.registerEntityType("Blue Pill", Texture.BLUEPILL.getHandle(), () -> new Pill(Color.BLUE));
+        etr.registerEntityType("Bush", Texture.BUSH.getHandle(), Bush.class);
+        etr.registerEntityType("Nut", Texture.NUT.getHandle(), Nut.class);
     }
 
 }

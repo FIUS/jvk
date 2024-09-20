@@ -9,31 +9,22 @@
  */
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.ActionLog;
-import de.unistuttgart.informatik.fius.icge.simulation.actions.EntityCollectAction;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.EntityDespawnAction;
-import de.unistuttgart.informatik.fius.icge.simulation.actions.EntityMoveAction;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.EntitySpawnAction;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.Entity;
-import de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.GreedyNeo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.PhoneBooth;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 
 
 /**
@@ -49,15 +40,15 @@ public class Sheet3Task6Verifier implements TaskVerifier {
     private BasicTaskInformation taskA = new BasicTaskInformation(
             "a) Select this task", "Select this task.", TaskVerificationStatus.SUCCESSFUL
     );
-    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Place a GreedyNeo object in the simulation");
+    private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Place a HungryTotoro object in the simulation");
     private BasicTaskInformation taskD = new BasicTaskInformation(
-            "d)", "Place 5 coins on GreedyNeos position and collect them."
+            "d)", "Place 5 nuts on HungryTotoros position and collect them."
     );
     private BasicTaskInformation taskE = new BasicTaskInformation(
-            "d)", "Place a Morpheus object in the simulation and try collecting a coin that does not exist."
+            "d)", "Place a Sooty_mans object in the simulation and try collecting a nut that does not exist."
     );
     private BasicTaskInformation taskF = new BasicTaskInformation(
-            "d)", "Try letting Morpheus walk into a wall."
+            "d)", "Try letting the Sotty_mans walk into a wall."
     );
     
     public Sheet3Task6Verifier() {
@@ -83,13 +74,13 @@ public class Sheet3Task6Verifier implements TaskVerifier {
         List<EntitySpawnAction> spawnActions = this.actionLog.getActionsOfType(EntitySpawnAction.class, true);
         Optional<Entity> maybePlayer = spawnActions.stream()
                 .map((action) -> action.getEntity())
-                .filter((entity) -> (entity instanceof GreedyNeo))
+                .filter((entity) -> (entity instanceof HungryTotoro))
                 .findFirst();
         if (maybePlayer.isPresent()) {
             this.taskC = this.taskC.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         List<Position> coinPositions = spawnActions.stream()
-            .filter((action) -> (action.getEntity() instanceof Coin))
+            .filter((action) -> (action.getEntity() instanceof Nut))
             .map((action) -> action.getPosition())
             .sorted((a, b) -> {
                 if (a.getY() < b.getY()) return -1;
@@ -102,23 +93,23 @@ public class Sheet3Task6Verifier implements TaskVerifier {
             .collect(Collectors.toList());
         int nrOfCoinsSpawned = coinPositions.size();
         boolean allCollected = spawnActions.stream()
-                .filter((action) -> (action.getEntity() instanceof Coin))
+                .filter((action) -> (action.getEntity() instanceof Nut))
                 .map((action) -> action.getEntity())
-                .map((coin) -> this.actionLog.getActionsOfTypeOfEntity(coin, EntityDespawnAction.class, true))
+                .map((nut) -> this.actionLog.getActionsOfTypeOfEntity(nut, EntityDespawnAction.class, true))
                 .allMatch((despawns) -> despawns.size() == 1);
         if (nrOfCoinsSpawned >= 5 && allCollected) {
             this.taskD = this.taskD.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         Optional<Entity> maybePlayer2 = spawnActions.stream()
                 .map((action) -> action.getEntity())
-                .filter((entity) -> (entity instanceof GreedyNeo))
+                .filter((entity) -> (entity instanceof HungryTotoro))
                 .findFirst();
         if (maybePlayer2.isPresent()) {
             //assumes task is done
             this.taskE = this.taskE.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }
         List<Position> wallPositions = spawnActions.stream()
-                .filter((action) -> (action.getEntity() instanceof Wall))
+                .filter((action) -> (action.getEntity() instanceof Bush))
                 .map((action) -> action.getPosition())
                 .sorted((a, b) -> {
                     if (a.getY() < b.getY()) return -1;

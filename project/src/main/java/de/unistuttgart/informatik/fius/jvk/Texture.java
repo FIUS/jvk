@@ -24,10 +24,20 @@ public enum Texture {
     MISSING("missing.png"),
     /** The normal wall texture */
     WALL("wall-default.png"),
+    /** The normal bush texture */
+    BUSH("bush.png"),
     /** The normal coin texture */
     COIN("coin-default.png"),
+    /** The normal nut texture */
+    NUT("nut.png"),
+    /** The normal home_tree texture */
+    HOME_TREE("home_tree.png"),
+    /** The normal sooty_mans texture */
+    SOOTY_MANS("sooty_mans.png"),
     /** The default neo textures */
     NEO("neo/neo-east-0.png", "neo/neo-south-0.png", "neo/neo-west-0.png", "neo/neo-north-0.png"),
+    /** the default totoro texture */
+    TOTORO("totoro/totoro_east.png", "totoro/totoro_south.png", "totoro/totoro_west.png", "totoro/totoro_north.png"),
     /** the default morpheus texture */
     MORPHEUS(
             "morpheus/morpheus-east-0.png", "morpheus/morpheus-south-0.png", "morpheus/morpheus-west-0.png", "morpheus/morpheus-north-0.png"

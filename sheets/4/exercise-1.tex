@@ -16,7 +16,7 @@
 
     \item Nachdem wir auf Blatt 1 die Operation \lstinline{placeEntityAt()} aus der Klasse \lstinline{PlayfieldModifier} kennengelernt haben, beschäftigen wir uns nun etwas genauer mit dem \lstinline{PlayfieldModifier}.
         Insbesondere wollen wir nun herausfinden, welche anderen Operationen von dieser Klasse bereitgestellt werden. \\
-        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Münzen (\lstinline{Coin}), Wänden (\lstinline{Wall}) und Spielfiguren verwenden können.\\
+        Es gibt noch zwei weitere Operationen, welche wir zum Platzieren von Nüssen (\lstinline{Nut}), Büschen (\lstinline{Bush}) und Spielfiguren verwenden können.\\
 
         Versuche entweder mit Autocomplete von IntelliJ oder mit der Dokumentation auf \url{\javadocRoot} herauszufinden, wie diese heißen.\\
 
@@ -29,13 +29,13 @@
 
 
 \begin{enumerate} \setcounter{enumi}{2}
-    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Münzen in einer Zelle platzieren.
+    \item Jetzt, da dir weitere Operationen zur Verfügung stehen, wollen wir einfach 20 Nüsse in einer Zelle platzieren.
 
     Dazu musst du das Kommando vom \lstinline{PlayfieldModifier} benutzen, welches mehrere Entities auf demselben Feld platziert.
     
-    Du sollst also nicht 19-mal den Code kopieren, um eine Münze zu erzeugen!
+    Du sollst also nicht 19-mal den Code kopieren, um eine Nuss zu erzeugen!
     
-    Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new CoinFactory()} verwenden.
+    Für den ersten Parameter (\lstinline{entityFactory}) kannst du \lstinline{new NutFactory()} verwenden.
     Wenn dir nicht klar ist, wie dieses Kommando genau funktioniert, dann ließ dir nochmal die Dokumentation der Kommandos der Klasse \lstinline{PlayfieldModifier} durch.
 \end{enumerate}
 
@@ -43,7 +43,7 @@
 
 
 \begin{enumerate} \setcounter{enumi}{3}
-    \item Platziere nun 3 horizontale Reihen mit jeweils 7 Münzen Länge.
+    \item Platziere nun 3 horizontale Reihen mit jeweils 7 Nüsse Länge.
     Diese sollen jeweils ein Feld Abstand zueinander haben.
     
     Nutze dafür die Klasse \lstinline{Line}.\\

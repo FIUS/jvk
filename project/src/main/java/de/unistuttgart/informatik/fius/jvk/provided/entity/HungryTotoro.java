@@ -10,16 +10,12 @@
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
 /**
- * TODO: Description
- * @author Jannik Graef
+ * 
+ * @author Sara Galle
  */
-public class MySmartNeo extends Neo {
-    public void moveSmart() {
-        //your code here
-    }
-    
-    public boolean checkSideWall() {
-        //your code here
-        return true; //change return statement
-    }
+public class HungryTotoro {
+    /**
+     * TODO: Implement HungryTotoro here
+     * 
+     */
 }

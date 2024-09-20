@@ -5,39 +5,39 @@
 	\item
 	Instanziiere die Simulation wie bekannt (\lstinline{Sheet3Task4} und \lstinline{Sheet3Task4Verifier}) und mache dich mit dieser vertraut.
 \item
-Schreibe ähnlich zu den Methoden aus der letzten Aufgabe in der \lstinline{Sheet3Task4}-Klasse ein Kommando, das Neo einen Schritt nach vorne gehen lässt.
+Schreibe ähnlich zu den Methoden aus der letzten Aufgabe in der \lstinline{Sheet3Task4}-Klasse ein Kommando, das Totoro einen Schritt nach vorne gehen lässt.
 \item
-Schreibe je ein Kommando das Neo 2,3 und 4 Schritte nach vorne gehen lässt.
-Du solltest jetzt vier Kommandos haben, mit denen du Neo 1, 2, 3 oder 4 Schritte gehen lassen kannst.
+Schreibe je ein Kommando das Totoro 2,3 und 4 Schritte nach vorne gehen lässt.
+Du solltest jetzt vier Kommandos haben, mit denen du Totoro 1, 2, 3 oder 4 Schritte gehen lassen kannst.
 \end{enumerate}
 
 \begin{Infobox}[Operationsparameter]
 Wenn du eine Operation schreiben möchtest, die je nach Situation mit verschiedenen Variablen dieselbe Operation ausführt, kannst du der Operation einen oder mehre Parameter übergeben.
-Bisher haben wir einer Operation immer Neo übergeben, mit dem die Operation ausgeführt werden sollte.\newline
+Bisher haben wir einer Operation immer Totoro übergeben, mit dem die Operation ausgeführt werden sollte.\newline
 
 Man kann aber beliebig viele Typen als Parameter an eine Funktion übergeben:
 
 	\begin{lstlisting}[xleftmargin=0.5cm]
-public void printNumbers(Neo neo, int from, int to){
+public void printNumbers(Totoro totoro, int from, int to){
     for(int i = from; i <= to; i++){
 		System.out.print(i);
-		neo.turnClockWise();
+		totoro.turnClockWise();
     }
 }
 	\end{lstlisting}
 
 	Diese Abfrage gibt die Zahlen von \lstinline{from} bis \lstinline{to} aus.
 	Z.B. \lstinline{printNumbers(2,7)} gibt \lstinline{234567} aus.
-	Für jede Zahl die ausgegeben wird, dreht sich Neo ein mal nach rechts.
+	Für jede Zahl die ausgegeben wird, dreht sich Totoro ein mal nach rechts.
 \end {Infobox}
 
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
-		Schreibe nun ein Kommando, das Neo $n$ Schritte laufen lässt.
+		Schreibe nun ein Kommando, das Totoro $n$ Schritte laufen lässt.
 
 	\item
-		Verwende das Kommando aus d) um Neo eine größer werdende Spirale laufen zu lassen.
+		Verwende das Kommando aus d) um Totoro eine größer werdende Spirale laufen zu lassen.
 		Das heißt:
 
 		\begin{itemize}
@@ -52,7 +52,7 @@ public void printNumbers(Neo neo, int from, int to){
 			\item[] ...usw.
 		\end{itemize}
 
-		Du solltest mit der Spirale aufhören, wenn Neo 12 oder mehr Schritte am Stück gegangen ist.
+		Du solltest mit der Spirale aufhören, wenn Totoro 12 oder mehr Schritte am Stück gegangen ist.
 \end{enumerate}
 
 \newpage

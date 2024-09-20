@@ -1,13 +1,8 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
-import java.util.Iterator;
-import java.util.stream.Collectors;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
@@ -29,9 +24,9 @@ public class Sheet2Task2Verifier implements TaskVerifier {
     private BasicTaskInformation task;
 
     private BasicTaskInformation taskA = new BasicTaskInformation("a) Select This Task", "Select this task.", TaskVerificationStatus.SUCCESSFUL);
-    private BasicTaskInformation taskB = new BasicTaskInformation("b) Cause an Exception", "Cause an Exception by running the player into a wall.");
+    private BasicTaskInformation taskB = new BasicTaskInformation("b) Cause an Exception", "Cause an Exception by running Totoro into a bush.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c) Paper only Task", "See the task sheet for details.");
-    private BasicTaskInformation taskD = new BasicTaskInformation("d) Stop the Player", "Stop the player before he collides with the wall.");
+    private BasicTaskInformation taskD = new BasicTaskInformation("d) Stop Totoro", "Stop Totoro before he collides with the wall.");
     private BasicTaskInformation taskE = new BasicTaskInformation("e) Stop the Exception", "Stop the Exception in other creative ways.");
 
     private ActionLog actionLog;

@@ -1,27 +1,17 @@
 package de.unistuttgart.informatik.fius.jvk.verifier;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Iterator;
-import java.util.stream.Collectors;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
-import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Line;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
-import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
 
 
 /**
@@ -38,7 +28,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
     private BasicTaskInformation taskB = new BasicTaskInformation("b)", "Walk the pattern on the exercise sheet.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c)", "Walk the patern three times.");
     private BasicTaskInformation taskG = new BasicTaskInformation(
-            "g)", "execute dropFourCoinsAndTurnLeft after movePattern in the Loop Body."
+            "g)", "execute dropFourNutsAndTurnLeft after movePattern in the Loop Body."
     );
     private BasicTaskInformation taskI = new BasicTaskInformation(
             "i)", "See exercise sheet."

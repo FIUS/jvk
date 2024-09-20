@@ -13,9 +13,9 @@
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt und mache dich mit dieser vertraut. 
         Benutze dabei den Task \lstinline{Sheet2Task1} und den Verifier aus \lstinline{Sheet2Task1Verifier}.
-    \item Lade Neo in die Matrix.
-        Dafür musst du zuerst ein Objekt der Klasse \lstinline{Neo} erstellen und in einer Variable (z.B. \lstinline{neo}) speichern.
-        Dann kannst du \lstinline{neo} und die Münze wie bereits gelernt mit dem \lstinline{PlayfieldModifier} auf dem Spielfeld platzieren.
+    \item Lade Totoro in die Matrix.
+        Dafür musst du zuerst ein Objekt der Klasse \lstinline{Totoro} erstellen und in einer Variable (z.B. \lstinline{totoro}) speichern.
+        Dann kannst du \lstinline{totoro} und die Nuss wie bereits gelernt mit dem \lstinline{PlayfieldModifier} auf dem Spielfeld platzieren.
 
         Dein Code sollte in etwa wie folgt aussehen.
 
@@ -24,26 +24,26 @@ public void run(Simulation sim) {
     // Your Implementation here
 
     PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-    Neo neo = new Neo();
-    pm.placeEntityAt(neo, new Position(1,1));
+    Totoro totoro = new Totoro();
+    pm.placeEntityAt(totoro, new Position(1,1));
         \end{lstlisting}
 
         Überprüfe im \fbox{Task Status} Tab, ob dein Code korrekt funktioniert.
-        \item Damit sich Neo bewegt, musst du ihm eines der folgenden Kommandos geben und die Simulation mit dem Play Button starten. Im Simulationsfenster musst du dann den Play Button links oben drücken. \\
+        \item Damit sich Totoro bewegt, musst du ihm eines der folgenden Kommandos geben und die Simulation mit dem Play Button starten. Im Simulationsfenster musst du dann den Play Button links oben drücken. \\
         \textbf{Tipp:} Neben dem Play Button im Simulationsfenster ist ein Geschwindigkeitsschieberegler, mit dem du die Simulationsgeschwindigkeit anpassen kannst.
 
         \begin{lstlisting}[firstnumber=20]
-    neo.move();
-    neo.moveIfPossible();
-    neo.turnClockWise();
+    totoro.move();
+    totoro.moveIfPossible();
+    totoro.turnClockWise();
         \end{lstlisting}
 
         Teste alle 3 Kommandos.\\
-        \item Mit dem gegebenen Kommando, kann sich Neo nur nach rechts drehen.\\
-        Finde un einen Weg, wie du Neo dazu bringen kannst, sich nach links (oder nach hinten) umzudrehen?
+        \item Mit dem gegebenen Kommando, kann sich Totoro nur nach rechts drehen.\\
+        Finde un einen Weg, wie du Totoro dazu bringen kannst, sich nach links (oder nach hinten) umzudrehen?
         
         \textbf{Hinweis:} Du kannst Kommandos mehrfach hintereinander aufrufen.
-        \item Gib Neo nun die folgenden Anweisungen:
+        \item Gib Totoro nun die folgenden Anweisungen:
         
         {
             \setenumerate{label=\roman*.}
@@ -58,6 +58,6 @@ public void run(Simulation sim) {
 \end{enumerate}
 }
 
-Überprüfe im \fbox{Task Status} Tab, ob du Neo die richtigen Kommandos gegeben hast, dazu musst du darauf achten, dass Neo nur diese Kommandos ausführt.
+Überprüfe im \fbox{Task Status} Tab, ob du Totoro die richtigen Kommandos gegeben hast, dazu musst du darauf achten, dass Totoro nur diese Kommandos ausführt.
 \end{enumerate}
 

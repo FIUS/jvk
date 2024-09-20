@@ -16,13 +16,12 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Playfield;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
-import de.unistuttgart.informatik.fius.icge.simulation.SimulationClock;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
-import de.unistuttgart.informatik.fius.icge.simulation.actions.ActionLog;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 /**
  * @author Jannik Graef
@@ -44,19 +43,20 @@ public class ExtraSheetTask3Verifier implements TaskVerifier{
     @Override
     public void attachToSimulation(Simulation sim) {
         this.playfield=sim.getPlayfield();
-        
+
+
     }
 
     @Override
     public void verify() {
-        boolean fib = this.playfield.getEntitiesAt(new Position(0,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count() == 1;
-        fib = fib && this.playfield.getEntitiesAt(new Position(1,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==1;
-        fib = fib && this.playfield.getEntitiesAt(new Position(2,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==2;
-        fib = fib && this.playfield.getEntitiesAt(new Position(3,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==3;
-        fib = fib && this.playfield.getEntitiesAt(new Position(4,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==5;
-        fib = fib && this.playfield.getEntitiesAt(new Position(5,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==8;
-        fib = fib && this.playfield.getEntitiesAt(new Position(6,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==13;
-        fib = fib && this.playfield.getEntitiesAt(new Position(7,0)).stream().filter(entitie -> entitie.getClass().equals(Coin.class)).count()==21;
+        boolean fib = this.playfield.getEntitiesAt(new Position(0,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count() == 1;
+        fib = fib && this.playfield.getEntitiesAt(new Position(1,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==1;
+        fib = fib && this.playfield.getEntitiesAt(new Position(2,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==2;
+        fib = fib && this.playfield.getEntitiesAt(new Position(3,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==3;
+        fib = fib && this.playfield.getEntitiesAt(new Position(4,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==5;
+        fib = fib && this.playfield.getEntitiesAt(new Position(5,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==8;
+        fib = fib && this.playfield.getEntitiesAt(new Position(6,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==13;
+        fib = fib && this.playfield.getEntitiesAt(new Position(7,0)).stream().filter(entitie -> entitie.getClass().equals(Nut.class)).count()==21;
         if(fib) {
             this.taskB = this.taskB.updateStatus(TaskVerificationStatus.SUCCESSFUL);
         }

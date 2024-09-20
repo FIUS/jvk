@@ -24,7 +24,7 @@ Da es sich um einen primitiven Typ handelt, wird er genau wie \lstinline{int} in
 Es ist wichtig zu erwähnen, dass in Java \lstinline{int} und \lstinline{Integer} dieselben Werte speichern können, aber nicht derselbe Typ sind.
 Den genauen Unterschied zwischen den beiden Typen werdet ihr noch in der PSE (Programmierung und Softwareentwicklung) kennenlernen.
 
-Die Funktion \lstinline{neo.canMove()} zum Beispiel gibt den bool'schen Wert \lstinline{true} zurück, wenn Neo einen Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse.
+Die Funktion \lstinline{totoro.canMove()} zum Beispiel gibt den bool'schen Wert \lstinline{true} zurück, wenn Totoro einen Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse.
 Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
     
 \end{Infobox}
@@ -33,22 +33,22 @@ Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
     Nun betrachten wir ein beispielhaftes IF-Statement:
 
     \begin{lstlisting}[breaklines=true, numbers=none]
-        if (neo.canMove()) {
-            neo.move();
+        if (totoro.canMove()) {
+            totoro.move();
         } 
     \end{lstlisting}
 
-    Das beispielhafte IF-Statement bedeutet informal, dass falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{true} hat, wird \lstinline{neo.move()} ausgeführt. Falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{false} hat, wird der Code in den geschweiften Klammern übersprungen.
+    Das beispielhafte IF-Statement bedeutet informal, dass falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{true} hat, wird \lstinline{totoro.move()} ausgeführt. Falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird der Code in den geschweiften Klammern übersprungen.
 
     \begin{lstlisting}[breaklines=true, numbers=none]
-if (neo.canMove()) {
-    neo.move();
+if (totoro.canMove()) {
+    totoro.move();
 } else {
-    System.out.println("Morpheus: There is a difference between knowing the path and walking the path")
+    System.out.println("Totoro is to big to fit through the bush")
 }
     \end{lstlisting}
 
-    Nun wurde noch ein ELSE-Statement angehängt. Dadurch dient der Code als Verzweigung mit der Bedingung, dass falls etwas gilt, mache etwas, falls nicht, mache irgendwas anderes. In unserem Beispiel, falls \lstinline{neo.canMove()} den bool'schen Wert \lstinline{false} hat, wird auf der Konsole der Text ''Morpheus: There is a difference between knowing the path and walking the path'' ausgegeben.\\
+    Nun wurde noch ein ELSE-Statement angehängt. Dadurch dient der Code als Verzweigung mit der Bedingung, dass falls etwas gilt, mache etwas, falls nicht, mache irgendwas anderes. In unserem Beispiel, falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird auf der Konsole der Text "Totoro is to big to fit through the bush" ausgegeben.\\
 
 Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den geschweiften Klammern beliebig viel Code stehen kann, nicht nur eine Zeile wie in unserem Beispiel.
 \end{Infobox}
@@ -60,15 +60,15 @@ Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den geschweiften K
     Dabei sollten die dann noch vorhandenen \lstinline{.move()} Kommandos in den ersten Code-Block vom IF verschoben werden.
     Der \lstinline{else} Code-Block soll erstmal leer bleiben.
     \item Schließe nun das Fenster und öffne es erneut.
-    Lösche die Wand in dem Spielfenster.
-    Dazu musst du oben rechts das rote Minus auswählen und dann auf die Wand klicken.
+    Lösche den Busch in dem Spielfenster.
+    Dazu musst du oben rechts das rote Minus auswählen und dann auf den Busch klicken.
     Starte dann die Simulation.\\
-    Neo sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
-    \item Jetzt wollen wir den Code so anpassen, dass Neo die Telefonstation auch erreicht, wenn eine Wand im Weg ist.
+    Totoro sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
+    \item Jetzt wollen wir den Code so anpassen, dass Totoro die Nuss auch erreicht, wenn ein Busch im Weg ist.
     
-    Du musst also einmal den Fall betrachten, dass keine Wand im Weg ist und einmal den Fall, dass eine Wand im Weg ist.\\
+    Du musst also einmal den Fall betrachten, dass kein Busch im Weg ist und einmal den Fall, dass ein Busch im Weg ist.\\
     
-    Überprüfe deinen Code, indem du einmal die Simulation startest, ohne die Wand zu löschen und einmal wenn du die Wand davor gelöscht hast.
-    In beiden Fällen sollte Neo die Telefonzelle erreichen.
+    Überprüfe deinen Code, indem du einmal die Simulation startest, ohne den Busch zu löschen und einmal wenn du den Busch davor gelöscht hast.
+    In beiden Fällen sollte Totoro die Nuss erreichen.
 
 \end{enumerate}

@@ -15,11 +15,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.provided.factories.CoinFactory;
-import de.unistuttgart.informatik.fius.jvk.provided.factories.WallFactory;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.NutFactory;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
 
 /**
@@ -31,24 +28,24 @@ public class ExtraSheetTask4 implements Task{
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         buildEnvironment(pm);
-        Neo neo = new Neo();
-        neo.setCoinsInWallet(500);
-        pm.placeEntityAt(neo, new Position(1, 2));  
+        Totoro totoro = new Totoro();
+        totoro.setNutsInPocket(500);
+        pm.placeEntityAt(totoro, new Position(1, 2));
         //your code here
         
     }
     
     private void buildEnvironment(PlayfieldModifier pm){
         // build the outside wall
-        pm.placeEntityAtEachPosition(new CoinFactory(), new Rectangle(new Position(0, 0), new Position(11, 4)));
+        pm.placeEntityAtEachPosition(new NutFactory(), new Rectangle(new Position(0, 0), new Position(11, 4)));
 
         Random r = new Random();
         for(int i = 1; i < 11; i++){
             if(r.nextDouble() < 0.4)
-                pm.placeEntityAt(new Coin(), new Position(i, 1));
+                pm.placeEntityAt(new Nut(), new Position(i, 1));
 
             if(r.nextDouble() < 0.4)
-                pm.placeEntityAt(new Coin(), new Position(i, 3));
+                pm.placeEntityAt(new Nut(), new Position(i, 3));
         }
     }
     

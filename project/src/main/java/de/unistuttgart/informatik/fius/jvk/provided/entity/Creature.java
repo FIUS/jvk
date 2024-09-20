@@ -13,11 +13,11 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.GreedyEntity;
 
 
 /**
- * Base class for all Humans.
+ * Base class for all Creature objects.
  *
  * @author Fabian Bühler
  */
-public abstract class Human extends GreedyEntity {
+public abstract class Creature extends GreedyEntity {
 
     @Override
     protected int getZPosition() {

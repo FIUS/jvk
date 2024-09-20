@@ -9,15 +9,17 @@
  */
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
-import de.unistuttgart.informatik.fius.jvk.Texture;
-
 /**
- * 
+ * TODO: Description
  * @author Sara Galle
  */
-public class GreedyNeo {
-    /**
-     * TODO: Implement GreedyNeo here
-     * 
-     */
+public class MySmartTotoro extends Totoro {
+    public void moveSmart() {
+        //your code here
+    }
+    
+    public boolean checkSideWall() {
+        //your code here
+        return true; //change return statement
+    }
 }

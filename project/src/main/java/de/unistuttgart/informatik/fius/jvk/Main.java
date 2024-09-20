@@ -38,6 +38,5 @@ public class Main {
      */
     public static void main(String[] args) {
         // implement task 1 (from sheet 1) here
-        
     }
 }

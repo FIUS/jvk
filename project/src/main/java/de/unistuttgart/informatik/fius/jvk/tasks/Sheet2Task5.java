@@ -18,8 +18,8 @@ public class Sheet2Task5 implements Task{
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         buildEnvironment(pm);
 
-        Neo neo = new Neo();
-        pm.placeEntityAt(neo, new Position(0, 0));
+        Totoro totoro = new Totoro();
+        pm.placeEntityAt(totoro, new Position(0, 0));
 
         // Implement (sub)tasks here
         
@@ -27,17 +27,17 @@ public class Sheet2Task5 implements Task{
 
     private void buildEnvironment(PlayfieldModifier pm){
         // build the outside wall
-        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -2), new Position(10, 2)));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Rectangle(new Position(-1, -2), new Position(10, 2)));
 
         Random r = new Random();
-        pm.placeMultipleEntitiesAt(new CoinFactory(), (int)Math.round(r.nextDouble()*20+45), new Position(1, 0));
+        pm.placeMultipleEntitiesAt(new NutFactory(), (int)Math.round(r.nextDouble()*20+45), new Position(1, 0));
 
         for(int i = 0; i < 10; i++){
             if(r.nextDouble() < 0.4)
-                pm.placeEntityAt(new Wall(), new Position(i, -1));
+                pm.placeEntityAt(new Bush(), new Position(i, -1));
 
             if(r.nextDouble() < 0.4)
-                pm.placeEntityAt(new Wall(), new Position(i, 1));
+                pm.placeEntityAt(new Bush(), new Position(i, 1));
         }
     }
 }

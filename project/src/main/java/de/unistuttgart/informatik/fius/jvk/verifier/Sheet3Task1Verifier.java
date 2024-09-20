@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.Iterator;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
@@ -15,16 +12,12 @@ import de.unistuttgart.informatik.fius.icge.simulation.SimulationClock;
 import de.unistuttgart.informatik.fius.icge.simulation.TaskVerifier;
 import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
 import de.unistuttgart.informatik.fius.icge.simulation.entity.Entity;
-import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Line;
-import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
-import de.unistuttgart.informatik.fius.jvk.tasks.Sheet3Task1;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Totoro;
 
 
 public class Sheet3Task1Verifier implements TaskVerifier {
@@ -37,12 +30,12 @@ public class Sheet3Task1Verifier implements TaskVerifier {
     private BasicTaskInformation taskB = new BasicTaskInformation("b) Walk 10 steps (While)", "Walk 10 steps with a while loop.");
     private BasicTaskInformation taskC = new BasicTaskInformation("c) Walk 10 steps (For)", "Walk exactly 10 steps with a for loop.");
     private BasicTaskInformation taskD = new BasicTaskInformation("d) Walk X steps", "Walk 3, 7, 14, or 22 Steps with a for loop.");
-    private BasicTaskInformation taskE = new BasicTaskInformation("e) Collect X coins", "Collect 2, 5, 16 or 20 coins with a for loop.");
+    private BasicTaskInformation taskE = new BasicTaskInformation("e) Collect X nuts", "Collect 2, 5, 16 or 20 nuts with a for loop.");
     private BasicTaskInformation taskF = new BasicTaskInformation(
-            "f) Nested Loops", "Pick up all the coins on the first field fith the second Neo. Walk 5 steps and drop as many coins as the number of steps you have walked so far."
+            "f) Nested Loops", "Pick up all the nuts on the first field fith the second Neo. Walk 5 steps and drop as many nuts as the number of steps you have walked so far."
     );
-    private BasicTaskInformation taskG = new BasicTaskInformation("g) Nested Loops 2", "Walk 10 steps and pick up a maximum of 5 coins per field");
-    private BasicTaskInformation taskH = new BasicTaskInformation("h) Nested Loops 3", "Walk and pick up every coin on the fields you walk over.");
+    private BasicTaskInformation taskG = new BasicTaskInformation("g) Nested Loops 2", "Walk 10 steps and pick up a maximum of 5 nuts per field");
+    private BasicTaskInformation taskH = new BasicTaskInformation("h) Nested Loops 3", "Walk and pick up every nut on the fields you walk over.");
     
     private ActionLog  actionLog;
     private SimulationClock clock;
@@ -74,7 +67,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
 
         Comparator<Integer> nat = Comparator.naturalOrder();
         List<Entity> neoSpawns = this.actionLog.getActionsOfType(EntitySpawnAction.class, true).stream()
-            .filter((action) -> action.getEntity() instanceof Neo)
+            .filter((action) -> action.getEntity() instanceof Totoro)
             .sorted((a, b) -> nat.compare(a.getPosition().getY(), b.getPosition().getY()))
             .map((action) -> action.getEntity())
             .collect(Collectors.toList());

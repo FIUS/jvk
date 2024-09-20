@@ -13,11 +13,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.Simulation;
 import de.unistuttgart.informatik.fius.icge.simulation.tasks.Task;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.MySmartNeo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.MySmartLefthandedNeo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
+import de.unistuttgart.informatik.fius.jvk.provided.factories.BushFactory;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.WallFactory;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.Rectangle;
 
@@ -34,34 +31,34 @@ public class OptionalLabyrinthTask implements Task {
         // TODO Auto-generated method stub
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
         preparePlayingfield(pm);
-        MySmartNeo smartNeo = new MySmartNeo();
-        pm.placeEntityAt(smartNeo, new Position(0, 0));
+        MySmartTotoro smartTotoro = new MySmartTotoro();
+        pm.placeEntityAt(smartTotoro, new Position(0, 0));
         
         //your Code here
         //Löse das Labyrinth
     }
     
     private void preparePlayingfield(PlayfieldModifier pm) {
-        pm.placeEntityAtEachPosition(new WallFactory(), new Rectangle(new Position(-1, -1), new Position(10, 5)));
-        pm.placeEntityAt(new Wall(), new Position(1, 0));
-        pm.placeEntityAt(new Wall(), new Position(3, 0));
-        pm.placeEntityAt(new Wall(), new Position(5, 0));
-        pm.placeEntityAt(new Wall(), new Position(3, 1));
-        pm.placeEntityAt(new Wall(), new Position(7, 1));
-        pm.placeEntityAt(new Wall(), new Position(8, 1));
-        pm.placeEntityAt(new Wall(), new Position(0, 2));
-        pm.placeEntityAt(new Wall(), new Position(1, 2));
-        pm.placeEntityAt(new Wall(), new Position(5, 2));
-        pm.placeEntityAt(new Wall(), new Position(6, 2));
-        pm.placeEntityAt(new Wall(), new Position(7, 2));
-        pm.placeEntityAt(new Wall(), new Position(1, 3));
-        pm.placeEntityAt(new Wall(), new Position(3, 3));
-        pm.placeEntityAt(new Wall(), new Position(5, 3));
-        pm.placeEntityAt(new Wall(), new Position(7, 3));
-        pm.placeEntityAt(new Wall(), new Position(8, 3));
-        pm.placeEntityAt(new Wall(), new Position(9, 3));
-        pm.placeEntityAt(new Wall(), new Position(3, 4));
-        pm.placeEntityAt(new Coin(), new Position(8, 2));
+        pm.placeEntityAtEachPosition(new BushFactory(), new Rectangle(new Position(-1, -1), new Position(10, 5)));
+        pm.placeEntityAt(new Bush(), new Position(1, 0));
+        pm.placeEntityAt(new Bush(), new Position(3, 0));
+        pm.placeEntityAt(new Bush(), new Position(5, 0));
+        pm.placeEntityAt(new Bush(), new Position(3, 1));
+        pm.placeEntityAt(new Bush(), new Position(7, 1));
+        pm.placeEntityAt(new Bush(), new Position(8, 1));
+        pm.placeEntityAt(new Bush(), new Position(0, 2));
+        pm.placeEntityAt(new Bush(), new Position(1, 2));
+        pm.placeEntityAt(new Bush(), new Position(5, 2));
+        pm.placeEntityAt(new Bush(), new Position(6, 2));
+        pm.placeEntityAt(new Bush(), new Position(7, 2));
+        pm.placeEntityAt(new Bush(), new Position(1, 3));
+        pm.placeEntityAt(new Bush(), new Position(3, 3));
+        pm.placeEntityAt(new Bush(), new Position(5, 3));
+        pm.placeEntityAt(new Bush(), new Position(7, 3));
+        pm.placeEntityAt(new Bush(), new Position(8, 3));
+        pm.placeEntityAt(new Bush(), new Position(9, 3));
+        pm.placeEntityAt(new Bush(), new Position(3, 4));
+        pm.placeEntityAt(new Home_Tree(), new Position(8, 2));
     }
     
 }

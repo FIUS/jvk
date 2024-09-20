@@ -13,7 +13,7 @@ public class Sheet1Task3 implements Task {
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        pm.placeEntityAt(new Coin(), new Position(0, 0));
+        pm.placeEntityAt(new Nut(), new Position(0, 0));
         
     }
 
