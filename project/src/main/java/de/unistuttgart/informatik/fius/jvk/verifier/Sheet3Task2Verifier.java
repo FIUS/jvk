@@ -292,7 +292,7 @@ public class Sheet3Task2Verifier implements TaskVerifier {
         
 
         long coinsInWallet = this.actionLog.getActionsOfTypeOfEntity(neo, EntityCollectAction.class, true).stream()
-            .filter((action) -> action.getCollectedEntity() instanceof Coin)
+            .filter((action) -> action.getCollectedEntity() instanceof Nut)
             .map((action) -> action.getCollectedEntity())
             .distinct()
             .count();
@@ -330,7 +330,7 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     }
     
     private int getNumberOfCoinsAtPosition(Position pos) {
-        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Coin.class, true).size();
+        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Nut.class, true).size();
     }
     
     @Override

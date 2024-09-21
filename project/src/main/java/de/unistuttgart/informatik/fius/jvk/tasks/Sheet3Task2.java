@@ -54,7 +54,7 @@ public class Sheet3Task2 implements Task{
             new Line(new Position(-10, 7), new Position(13, 7)),
             new Line(new Position(14,3), new Position(30,3))
         );
-        pm.placeEntityAtEachPosition(new WallFactory(), bushes);
+        pm.placeEntityAtEachPosition(new BushFactory(), bushes);
             
             
         Random r = new Random();

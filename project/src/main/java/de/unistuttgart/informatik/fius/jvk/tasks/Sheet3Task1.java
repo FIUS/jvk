@@ -88,39 +88,39 @@ public class Sheet3Task1 implements Task {
             new Rectangle(new Position(-1, 3), new Position(11, 5)),
             new Rectangle(new Position(-1, 5), new Position(11, 7))
         );
-        pm.placeEntityAtEachPosition(new WallFactory(), walls);
+        pm.placeEntityAtEachPosition(new BushFactory(), walls);
         
 
         // place coins
         Random r = new Random();
         // e
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15) + 20, new Position(22, 0));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15) + 20, new Position(22, 0));
         
         //f)
-        pm.placeMultipleEntitiesAt(() -> new Coin(), 15, new Position(0, 2));
+        pm.placeMultipleEntitiesAt(() -> new Nut(), 15, new Position(0, 2));
         
         //g)
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(1, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 7, new Position(2, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(3, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(4, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(5, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(6, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(7, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 0, new Position(8, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(9, 4));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(10), new Position(10, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(1, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 7, new Position(2, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 2, new Position(3, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(4, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(5, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(6, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(7, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 0, new Position(8, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(9, 4));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(10), new Position(10, 4));
         
         //h)
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 7, new Position(1, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(2, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(3, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(4, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(5, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 0, new Position(6, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(7, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(8, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 8, new Position(9, 6));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), r.nextInt(15), new Position(10, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 7, new Position(1, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(2, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(3, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(4, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(5, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 0, new Position(6, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(7, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(8, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 8, new Position(9, 6));
+        pm.placeMultipleEntitiesAt(new NutFactory(), r.nextInt(15), new Position(10, 6));
     }
 }

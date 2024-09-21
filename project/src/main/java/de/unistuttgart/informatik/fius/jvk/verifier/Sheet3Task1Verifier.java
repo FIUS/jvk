@@ -15,8 +15,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.Entity;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Neo;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Totoro;
 
 
@@ -142,7 +141,7 @@ public class Sheet3Task1Verifier implements TaskVerifier {
             .findFirst();
 
         long coinsNeoH = this.actionLog.getActionsOfType(EntitySpawnAction.class, true).stream()
-            .filter((action) -> action.getEntity() instanceof Coin)
+            .filter((action) -> action.getEntity() instanceof Nut)
             .filter((action) -> {
                 Position pos = action.getPosition();
                 if (pos.getY() != 6) return false;
