@@ -11,7 +11,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.actions.*;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 
 /**
@@ -145,7 +145,7 @@ public class Sheet3Task3Verifier implements TaskVerifier {
     }
     
     private int getNumberOfCoinsAtPosition(Position pos) {
-        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Coin.class, true).size();
+        return this.sim.getPlayfield().getEntitiesOfTypeAt(pos, Nut.class, true).size();
     }
     
     @Override

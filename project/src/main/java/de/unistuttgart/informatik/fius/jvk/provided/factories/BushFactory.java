@@ -2,7 +2,6 @@ package de.unistuttgart.informatik.fius.jvk.provided.factories;
 
 import de.unistuttgart.informatik.fius.icge.simulation.tools.PlayfieldModifier;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Bush;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
 
 import java.util.function.Supplier;
 

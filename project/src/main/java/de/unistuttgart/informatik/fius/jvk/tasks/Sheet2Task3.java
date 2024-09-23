@@ -25,11 +25,11 @@ public class Sheet2Task3 implements Task{
     @Override
     public void run(Simulation sim) {
         PlayfieldModifier pm = new PlayfieldModifier(sim.getPlayfield());
-        pm.placeEntityAt(new Coin(), new Position(0, 0));
-        pm.placeEntityAt(new Coin(), new Position(0, 1));
-        pm.placeEntityAt(new Coin(), new Position(0, 2));
-        pm.placeEntityAt(new Coin(), new Position(1, 2));
-        pm.placeMultipleEntitiesAt(new CoinFactory(), 2, new Position(2, 2));
+        pm.placeEntityAt(new Nut(), new Position(0, 0));
+        pm.placeEntityAt(new Nut(), new Position(0, 1));
+        pm.placeEntityAt(new Nut(), new Position(0, 2));
+        pm.placeEntityAt(new Nut(), new Position(1, 2));
+        pm.placeMultipleEntitiesAt(new NutFactory(), 2, new Position(2, 2));
 
         Totoro totoro = new Totoro();
         pm.placeEntityAt(totoro, new Position(0, 0));

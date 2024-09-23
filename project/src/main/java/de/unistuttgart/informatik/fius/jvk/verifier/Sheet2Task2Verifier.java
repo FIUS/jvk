@@ -14,9 +14,8 @@ import de.unistuttgart.informatik.fius.icge.simulation.entity.MovableEntity;
 import de.unistuttgart.informatik.fius.icge.ui.TaskInformation;
 import de.unistuttgart.informatik.fius.icge.ui.TaskVerificationStatus;
 import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Coin;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.PhoneBooth;
-import de.unistuttgart.informatik.fius.jvk.provided.entity.Wall;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Bush;
+import de.unistuttgart.informatik.fius.jvk.provided.entity.Home_Tree;
 
 
 public class Sheet2Task2Verifier implements TaskVerifier {
@@ -61,7 +60,7 @@ public class Sheet2Task2Verifier implements TaskVerifier {
         
         Optional<Entity> maybeGoal = spawnActions.stream()
             .map((action) -> action.getEntity())
-            .filter((entity) -> (entity instanceof PhoneBooth))
+            .filter((entity) -> (entity instanceof Home_Tree))
             .findFirst();
         
         Optional<Entity> maybeWall = spawnActions.stream()
@@ -72,7 +71,7 @@ public class Sheet2Task2Verifier implements TaskVerifier {
                     return true; // only spawns between player and goal!
                 })
                 .map((action) -> action.getEntity())
-                .filter((entity) -> (entity instanceof Wall))
+                .filter((entity) -> (entity instanceof Bush))
                 .findFirst();
 
         if (maybePlayer.isEmpty() || maybeGoal.isEmpty()) {
