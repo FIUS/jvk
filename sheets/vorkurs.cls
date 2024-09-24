@@ -55,6 +55,9 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
+
+\RequirePackage{cleveref}
+\crefname{Bild}{Bild}{Bilder}
 %% Testing...
 \RequirePackage{lipsum}
 %\RequirePackage{todo}
@@ -127,7 +130,8 @@
 %% Main Title
 \renewcommand{\maketitle}{
 	\thispagestyle{plain}
-	\includegraphics[height=1cm]{../logos/logo-uni.pdf}
+	\vspace*{-2cm}
+	\includegraphics[height=1.3cm]{../logos/logo-uni.pdf}
 	\hfill\includegraphics[height=3cm]{../logos/fius-logo-neu.png}
 	\begin{center}
 	\Large\textbf{Übungsblatt \sheetNumber}\\
@@ -166,6 +170,7 @@
 \renewcommand\thesection{Aufgabe \@arabic\c@section}
 \makeatother
 \setenumerate{label=\alph*)}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -287,3 +292,5 @@
 		\addexcercise
 	\end{document}
 }
+
+\setlength{\parindent}{0pt}
