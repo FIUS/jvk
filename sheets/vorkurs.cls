@@ -18,6 +18,9 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage[ngerman]{babel}
 
+
+
+
 %% Page formatting
 %\RequirePackage[margin=3cm]{geometry}
 \RequirePackage[
@@ -61,6 +64,7 @@
 %% Testing...
 \RequirePackage{lipsum}
 %\RequirePackage{todo}
+\RequirePackage{dirtytalk}
 
 
 %%%%%%%%%%%%%%%%%%%

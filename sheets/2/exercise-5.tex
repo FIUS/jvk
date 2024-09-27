@@ -2,7 +2,7 @@
 
 \excercise{While Schleife}
 
-Ziel dieser Aufgabe ist es, die Syntax und die Funktion von While-Schleifen zu verstehen.
+Ziel dieser Aufgabe ist es, die Syntax und  Funktion von While-Schleifen zu verstehen.
 
 \begin{enumerate}
     \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task5} und \lstinline{Sheet2Task5Verifier}) und mache dich mit dieser vertraut.
@@ -18,14 +18,15 @@ while(totoro.canMove()) {
 }
     \end{lstlisting}
 
-    Ähnlich wie bei dem If-Statement ist auch bei der While Schleife in den geschweiften Klammern der Code-Block (Schleifen inneres, oft auch: Schleifenrumpf, Englisch: body).\\
+    Ähnlich wie bei dem If-Statement ist auch bei der While Schleife in den geschweiften Klammern der Code-Block (Schleifeninnerem, oft auch: Schleifenrumpf, Englisch: body).\\
 
     Das Verhalten von While Schleifen lässt sich einfach darstellen:
     \begin{enumerate}
-        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{totoro.canMove()} erfüllt ist, also ob sich kein Hindernis im Weg befindet. Wenn ein Hindernis im Weg ist, springe zu Punkt 4.
+        \item[1:] Der Computer prüft als Erstes, ob die Bedienung \lstinline{totoro.canMove()} erfüllt ist. 
+        Wenn ein Hindernis im Weg ist, springe zu Punkt 4.
         \item[2:] Das Schleifeninnere \lstinline{totoro.move()} wird ausgeführt.
-        \item[3:] Springe zurück zu Punkt 1
-        \item[4:] Verlasse die Schleife
+        \item[3:] Springe zurück zu Punkt 1.
+        \item[4:] Verlasse die Schleife.
     \end{enumerate}
 
     Ebenso sind folgende Beispiele zum Aufheben bzw. Ablegen aller (möglichen) Nüsse hilfreich:
@@ -63,10 +64,10 @@ while(totoro.canDropNut()){
     
     \textbf{Hinweis}: Hier sollte es ausreichen den Code-Block der Schleife aus der Teilaufgabe davor anzupassen.
     \item Platziere auf jedem zweiten Feld eine Nuss.\\
-    Also die Linie soll abwechselnd eine Nuss und ein leeres Feld nacheinander haben.\\
+    Die Linie soll abwechselnd eine Nuss und ein leeres Feld nacheinander haben.\\
     
     \textbf{Hinweis}: Hier kannst du entweder die Abfolge direkt kodieren oder mit Variablen vom Typ \lstinline{boolean} und if-Verzweigungen aus Aufgabe 4 arbeiten.
-    \item \optional Lege auf jedem von Totoro aus erreichbaren Feld genau eine Nuss ab.
+    \item \optional Lege auf jedem von Totoro  erreichbarem Feld genau eine Nuss ab.
     Beachte hierbei, dass die Büsche auf der oberen und unteren Spur zufällig platziert werden.
     
     \textbf{Hinweis}: Hier musst du neben einer While Schleife auch IF-Statements verwenden.\\

@@ -10,21 +10,22 @@ In dieser Aufgabe wollen wir uns Conditions (Verzweigungen) näher anschauen.
 \end{enumerate}
 
 \begin{Infobox}[Bool'sche Werte]
-    Um if-Verzweigung verstehen zu können, müssen wir uns zuerst Bool'sche Werte anschauen. Bool'sche Werte sind Variablen oder auch Rückgabewerte von Funktionen, welche nur den Wert \lstinline{true} oder \lstinline{false} (also wahr oder falsch) annehmen können. \\
+    Um if-Verzweigung verstehen zu können, müssen wir uns zuerst bool'sche Werte anschauen. 
+    Bool'sche Werte sind Variablen oder auch Rückgabewerte von Funktionen, welche nur den Wert \lstinline{true} oder \lstinline{false} (wahr oder falsch) annehmen können. \\
 Im Quellcode hat jeder Wert, ob Rückgabe einer Funktion oder eben Variablen, einen Typ.
 Dieser Typ bestimmt, welche Werte für diesen Wert zulässig sind.
 Beispielsweise gibt es einfachen - primitive - Werte wie zum Beispiel Ganzzahlen oder Zeichenketten, die wir bisher sogar schon verwendet haben.
-Eine Zeichenkette (in Programmiersprachen in der Regel als \lstinline{String} bezeichnet) kann beispielsweise den Inhalt \lstinline{''Hello World''} haben.
-Diesen Wert allerdings in einer Variable, die nur Ganzzahlen speichert (= \lstinline{int} für Integer) zu speichern, macht allerdings wenig Sinn.
+Eine Zeichenkette, in Programmiersprachen in der Regel als \lstinline{String} bezeichnet, kann beispielsweise den Inhalt \lstinline{''Hello World''} haben.
+Diesen Wert allerdings in einer Variable, die nur Ganzzahlen speichert (= \lstinline{int} für Integer), zu speichern, macht allerdings wenig Sinn.
 
 Genau wie \lstinline{int} gibt es noch ein paar andere primitive Typen, welche häufig verwendet werden.
 Am häufigsten kommen dabei wohl bool'sche Werte mit dem zugehörigen primitiven Typ \lstinline{boolean} zur Verwendung.
-Da es sich um einen primitiven Typ handelt, wird er genau wie \lstinline{int} in kleingeschrieben.\\
+Da es sich um einen primitiven Typ handelt, wird er genau wie \lstinline{int} kleingeschrieben.\\
 
-Es ist wichtig zu erwähnen, dass in Java \lstinline{int} und \lstinline{Integer} dieselben Werte speichern können, aber nicht derselbe Typ sind.
+In Java können \lstinline{int} und \lstinline{Integer} dieselben Werte speichern, sind aber nicht der selbe Typ sind.
 Den genauen Unterschied zwischen den beiden Typen werdet ihr noch in der PSE (Programmierung und Softwareentwicklung) kennenlernen.
 
-Die Funktion \lstinline{totoro.canMove()} zum Beispiel gibt den bool'schen Wert \lstinline{true} zurück, wenn Totoro einen Schritt in seine Blickrichtung gehen kann, also auf diesem Feld sind keine Hindernisse.
+Die Funktion \lstinline{totoro.canMove()} zum Beispiel gibt den bool'schen Wert \lstinline{true} zurück, wenn Totoro einen Schritt in seine Blickrichtung gehen kann.
 Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
     
 \end{Infobox}
@@ -38,7 +39,8 @@ Die \lstinline{canMove}-Methode hat also den Rückgabewert \lstinline{boolean}.
         } 
     \end{lstlisting}
 
-    Das beispielhafte IF-Statement bedeutet informal, dass falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{true} hat, wird \lstinline{totoro.move()} ausgeführt. Falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird der Code in den geschweiften Klammern übersprungen.
+    Das beispielhafte IF-Statement bedeutet informel, dass wenn \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{true} hat, wird \lstinline{totoro.move()} ausgeführt. 
+    Falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird der Code in den geschweiften Klammern übersprungen.
 
     \begin{lstlisting}[breaklines=true, numbers=none]
 if (totoro.canMove()) {
@@ -48,27 +50,29 @@ if (totoro.canMove()) {
 }
     \end{lstlisting}
 
-    Nun wurde noch ein ELSE-Statement angehängt. Dadurch dient der Code als Verzweigung mit der Bedingung, dass falls etwas gilt, mache etwas, falls nicht, mache irgendwas anderes. In unserem Beispiel, falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird auf der Konsole der Text "Totoro is to big to fit through the bush" ausgegeben.\\
+    Nun wurde noch ein ELSE-Statement angehängt. 
+    Dadurch dient der Code als Verzweigung mit der Bedingung, dass falls etwas gilt, mache etwas, falls nicht, mache irgendwas anderes. 
+    In unserem Beispiel, falls \lstinline{totoro.canMove()} den bool'schen Wert \lstinline{false} hat, wird auf der Konsole der Text ,,Totoro is to big to fit through the bush''  ausgegeben.\\
 
-Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den geschweiften Klammern beliebig viel Code stehen kann, nicht nur eine Zeile wie in unserem Beispiel.
+Für sowohl das IF- als auch das ELSE-Statement gilt, dass in den geschweiften Klammern beliebig viel Code stehen kann und  nicht nur eine Zeile, wie in unserem Beispiel.
 \end{Infobox}
 
 
 \begin{enumerate} \setcounter{enumi}{1}
     \item Betrachte die Operation \lstinline{movement} der Klasse \lstinline{Sheet2Task4}.\\
     Füge das obige IF-Statement an einer geeigneten Stelle ein und führe die Simulation erneut aus.
-    Dabei sollten die dann noch vorhandenen \lstinline{.move()} Kommandos in den ersten Code-Block vom IF verschoben werden.
-    Der \lstinline{else} Code-Block soll erstmal leer bleiben.
+    Dabei sollten die dann  vorhandenen \lstinline{.move()} Kommandos in den ersten Code-Block vom IF verschoben werden.
+    Der \lstinline{else} Code-Block sollte erstmal leer bleiben.
     \item Schließe nun das Fenster und öffne es erneut.
-    Lösche den Busch in dem Spielfenster.
+    Lösche den Busch im Spielfenster.
     Dazu musst du oben rechts das rote Minus auswählen und dann auf den Busch klicken.
     Starte dann die Simulation.\\
     Totoro sollte sich jetzt anders verhalten, obwohl du den Code nicht geändert hast!
     \item Jetzt wollen wir den Code so anpassen, dass Totoro die Nuss auch erreicht, wenn ein Busch im Weg ist.
     
-    Du musst also einmal den Fall betrachten, dass kein Busch im Weg ist und einmal den Fall, dass ein Busch im Weg ist.\\
-    
-    Überprüfe deinen Code, indem du einmal die Simulation startest, ohne den Busch zu löschen und einmal wenn du den Busch davor gelöscht hast.
+    Du musst beide Fälle betrachten.
+
+    Überprüfe deinen Code, indem du einmal die Simulation startest, ohne den Busch zu löschen und einmal, nachdem  du den Busch davor gelöscht hast.
     In beiden Fällen sollte Totoro die Nuss erreichen.
 
 \end{enumerate}
