@@ -61,7 +61,7 @@ public class Totoro extends Creature {
      *     when Totoro has no nuts
      */
     @InspectionMethod()
-    public void dropCoin() {
+    public void dropNut() {
         if (!this.canDropNut()) throw new TotoroIsHungryException();
         this.drop(this.getCurrentlyDroppableEntities(Nut.class, true).get(0));
     }
