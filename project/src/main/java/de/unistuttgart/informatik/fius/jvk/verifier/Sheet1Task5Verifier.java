@@ -15,7 +15,7 @@ import de.unistuttgart.informatik.fius.jvk.provided.BasicTaskInformation;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.Nut;
 
 
-public class Sheet1Task3Verifier implements TaskVerifier {
+public class Sheet1Task5Verifier implements TaskVerifier {
 
     private BasicTaskInformation task;
 
@@ -24,7 +24,7 @@ public class Sheet1Task3Verifier implements TaskVerifier {
 
     private ActionLog actionLog;
 
-    public Sheet1Task3Verifier() {
+    public Sheet1Task5Verifier() {
         List<BasicTaskInformation> subTasks = new ArrayList<>();
         subTasks.add(this.taskA);
         subTasks.add(this.taskB);
