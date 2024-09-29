@@ -58,9 +58,6 @@
 \usetikzlibrary{matrix}
 \tcbuselibrary{listings,breakable}
 
-
-\RequirePackage{cleveref}
-\crefname{Bild}{Bild}{Bilder}
 %% Testing...
 \RequirePackage{lipsum}
 %\RequirePackage{todo}

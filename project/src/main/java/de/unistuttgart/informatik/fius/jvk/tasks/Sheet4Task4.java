@@ -18,6 +18,7 @@ import de.unistuttgart.informatik.fius.icge.simulation.tasks.*;
 import de.unistuttgart.informatik.fius.icge.simulation.tools.*;
 import de.unistuttgart.informatik.fius.jvk.provided.entity.*;
 import de.unistuttgart.informatik.fius.jvk.provided.factories.*;
+import de.unistuttgart.informatik.fius.jvk.provided.programs.SafeWalkProgram;
 import de.unistuttgart.informatik.fius.jvk.provided.shapes.*;
 
 
@@ -36,6 +37,7 @@ public class Sheet4Task4 implements Task {
         Line obstacle = new Line(new Position(3, -rng.nextInt(5)), new Position(3, rng.nextInt(10)));
         pm.placeEntityAtEachPosition(new BushFactory(), obstacle);
         // put your implementation below this comment
+
     }
     
 }
