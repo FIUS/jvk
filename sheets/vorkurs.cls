@@ -131,6 +131,7 @@
 %% Main Title
 \renewcommand{\maketitle}{
 	\thispagestyle{plain}
+	\vspace*{-2cm}
 	\includegraphics[height=1cm]{../logos/logo-uni.pdf}
 	\hfill\includegraphics[height=3cm]{../logos/fius-logo-neu.png}
 	\begin{center}
