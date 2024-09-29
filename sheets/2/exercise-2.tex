@@ -3,10 +3,10 @@
 \excercise{Exceptions}
 
 \begin{enumerate}
-    \item Instanziiere die Simulation wie bekannt (\lstinline{Sheet2Task2} und \lstinline{Sheet2Task2Verifier}) und mache dich mit dieser vertraut.
+    \item Instanziiere die Simulation, wie bereits gelernt (\lstinline{Sheet2Task2} und \lstinline{Sheet2Task2Verifier}), und mache dich mit dieser vertraut.
     \item Betrachte die Klasse \lstinline{Sheet2Task2} mit der Operation \lstinline{run} an der markierten Stelle.
 
-        Überlege dir wie du ein Hindernis an einer Stelle, sodass Tutoro den Baum nicht erreicht, platzieren kannst und platziere es dort. Falls du nicht weißt wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 5 oder die Klasse \lstinline{Sheet2Task2} genauer an.
+        Überlege dir wie du ein Hindernis an einer Stelle platzieren kannst, sodass Tutoro den Baum nicht erreicht, und platziere es dort. Falls du nicht weißt, wie man ein Hindernis platziert, schaue dir nochmal Blatt 1 Aufgabe 5 oder die Klasse \lstinline{Sheet2Task2} genauer an.
 
         Was passiert, wenn man jetzt die Simulation wie zuvor ausführt?\\
         
@@ -16,11 +16,13 @@
 \begin{Infobox}[Exception]
     Eine Exception ist ein Fehler, der beim Ausführen des Programmes passieren kann, wenn z.B. unvorhergesehene oder verbotene Sachen passieren.\\
 
-\textbf{Notiz:} Es gibt in PSE später genauere Unterscheidungen zwischen verschiedene Arten von Exceptions, Errors usw. wir wollen das ganze hier mal vereinfacht betrachten. Dabei werden wir allerdings teilweise nicht hundertprozentig genau sein.\\
+\textbf{Notiz:} Es wird in der Vorlesung PSE später genauer  zwischen verschiedene Arten von Exceptions und Errors unterschieden. 
+Für unsere Zwecke reicht es zunächst, das ganze etwas vereinfacht zu betrachten.
+Dies kann jedoch zu Ungenauigkeiten führen.
 
 Als Nächstes wollen wir den Aufbau einer Exception genauer verstehen.
 Überlege dazu, was der folgende Programmausschnitt macht:
-
+    
     \begin{lstlisting}[numbers=left,xleftmargin=2em,frame=single,framexleftmargin=1.5em]
 public class Main{
     //Programmeinstieg
@@ -34,12 +36,12 @@ public class Main{
     }
 }
     \end{lstlisting}
-    \textbf{Exkurs:} Operatoren sind in eine Programmiersprache eingebaute Funktion, die durch ein Zeichen repräsentiert werden.
+    \textbf{Exkurs:} Operatoren sind in  Programmiersprachen eingebaute Funktionen, die durch ein Zeichen repräsentiert werden.
 Beispielsweise können wir zwei Zahlen durch den \texttt{-} Operator voneinander abziehen, z.B. mit \texttt{42 - 73}.
 Damit wir das Ergebnis auch ansehen können und die Rechnung nicht nur ausgewertet wird und dann verschwindet, kann man es entweder in einer Variable speichern oder als Argument in einer Funktion verwenden.
-Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der Java-internen Funktion \lstinline{System.out.println()} geben.
+Wenn man beispielsweise das Ergebnis der Subtraktion oben auf der Konsole ausgeben möchte, kann man diese einfach als Parameter in die runden Klammern der javainternen Funktion \lstinline{System.out.println()} geben.
 Die meisten Programmiersprachen haben eingebaute, einfache arithmetische Operatoren wie \texttt{+}, \texttt{-}, \texttt{*} oder \texttt{/}.\\
-
+\newpage
 Im oberen Programmausschnitt lässt sich erkennen, dass in Zeile 9 der Programmausführung durch 0 geteilt wird.\\
 Dieses ungewollte (''verbotene'') Verhalten wird bei der Programmausführung durch die folgende Exception ersichtlich:
     \begin{lstlisting}[keywords={}, breaklines=true, numbers=none]
@@ -53,10 +55,12 @@ java.lang.ArithmeticException: / by zero
 \begin{enumerate}[label=\roman*)]
 \item Art der Exception: Diese kann in der ersten Zeile abgelesen werden.\\
 In unserem Beispiel handelt es sich hier um eine \lstinline{ArithmeticException}.
-\item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer ggf. mehr Informationen über den Fehler selbst geben.\\
+\item Nachricht der Exception: Diese befindet sich hinter der Exceptionart und soll dem Programmierer  mehr Informationen über den Fehler selbst geben.\\
 In unserem Fall ist die Nachricht \lstinline{"/ by zero"}.
-\item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, wo im Programm die Exception geflogen also passiert ist. Genauer, welche Klassen wo Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
-Hier interessiert uns fürs Erste nur die zweite Zeile. In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception explizit in der \lstinline{Main} Klasse in der \lstinline{divide}
+\item Fehlerstelle im Programm: Der Stacktrace der Exception beinhaltet Informationen, an welcher Stelle im Programm die Exception geflogen, also passiert, ist. 
+Genauer, welche Klassen an welcher Stelle Fehler geworfen haben und so den eigentlichen Fehler produziert haben.\\
+Hier interessiert uns fürs Erste nur die zweite Zeile. 
+In unserem Beispiel deutet die zweite Zeile darauf hin, dass die Exception explizit in der \lstinline{Main} Klasse in der \lstinline{divide}
 Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funktion hatte.
     \end{enumerate}
 
@@ -65,16 +69,21 @@ Operation in Zeile 9 geflogen ist, was wiederum Auswirkungen auf die Main Funkti
 
 \begin{enumerate}[label=\alph*)] \setcounter{enumi}{2}
 
-    \item Wie wir gelernt haben, sind Exceptions ein Anzeichen, das etwas passiert ist was nicht passieren sollte, jetzt wollen wir die Exception verhindern.\\
-Dazu benutzen wir die Technik des Auskommentierens, die daraus besteht // vor eine Zeile Code zu schreiben, damit dieser Code beim Ausführen übersprungen wird.\\
-Kommentiere in \lstinline{Sheet2Task2} so lange \lstinline{.move()} Kommandos aus, bis die Exception nicht mehr auftritt.
+    \item Wie wir gereade gelernt haben, sind Exceptions ein Anzeichen, dass etwas passiert ist was nicht passieren sollte. 
+    Jetzt wollen wir die Exception verhindern.\\
+Dazu benutzen wir die Technik des Auskommentierens. 
+Für einzelige Kommentare reicht es // vor eine Zeile zu schreiben, damit dieser Code beim Ausführen übersprungen wird.
 
+Mit /* Kommentar */ können wir mehrere Zeilen Code auskommentieren.
+
+Kommentiere jetzt  in \lstinline{Sheet2Task2} so lange \lstinline{.move()} Kommandos aus, bis die Exception nicht mehr auftritt.
 Spielt die Reihenfolge, in der du die Kommandos auskommentierst eine Rolle für das Ergebnis?
-\item Kommentiere erstmal wieder alle Zeilen ein.
+
+\item Kommentiere ersteinmal alle Zeilen wieder ein.
 Kannst du trotzdem verhindern, dass die Exception auftritt?
 Wenn ja wie?
 
-\textbf{Hinweis}: In Aufgabe 1 hast du noch ein weiteres Kommando kennengelernt, mit dem du Tutoro bewegen kannst.
+\textbf{Hinweis}: In \ref{ex1} hast du noch ein weiteres Kommando kennengelernt, mit dem du Tutoro bewegen kannst.
 
 \item \optional Welche \q{linenumber} aus dem obigen Stacktrace ändert sich, wenn man zwischen den \lstinline{totoro.move()} Aufrufen jeweils Leerzeilen einfügt?
 \end{enumerate}
