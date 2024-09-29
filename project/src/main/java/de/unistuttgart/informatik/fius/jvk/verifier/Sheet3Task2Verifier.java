@@ -30,7 +30,7 @@ public class Sheet3Task2Verifier implements TaskVerifier {
     private BasicTaskInformation taskC = new BasicTaskInformation("c) walk straight", "Walk straight until you are on a field with one or more nuts.");
     private BasicTaskInformation taskD = new BasicTaskInformation("d) left or right", "Turn right on a field with exactly one nut, but don't forget to collect the nut.");
     private BasicTaskInformation taskE = new BasicTaskInformation(
-            "d) the other direction", "When on a field with more than one nut turn left, and collect one of the nuts before stepping of the field."
+            "e) the other direction", "When on a field with more than one nut turn left, and collect one of the nuts before stepping of the field."
     );
     private BasicTaskInformation taskF = new BasicTaskInformation("f) don't walk into bushes", "Before you walk into a bush you should turn around.");
     private BasicTaskInformation taskG = new BasicTaskInformation("g) enough food", "Walk until you have collected 20 nuts or step on a field with exactly 9 nuts");

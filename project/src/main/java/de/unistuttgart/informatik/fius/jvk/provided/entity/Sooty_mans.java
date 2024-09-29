@@ -20,7 +20,7 @@ import de.unistuttgart.informatik.fius.jvk.Texture;
 public class Sooty_mans extends Totoro {
 
     /**
-     * changes the appearance of the player in the game from Neo to Morpheus
+     * changes the appearance of the player in the game from Totoro to Sooty_mans
      */
     @Override
     protected String getTextureHandle() {
@@ -31,5 +31,4 @@ public class Sooty_mans extends Totoro {
      * TODO: Implement the operations of sooty_mans here
      * 
      */
-    
 }

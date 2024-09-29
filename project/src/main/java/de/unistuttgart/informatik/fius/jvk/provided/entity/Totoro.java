@@ -8,6 +8,7 @@
 
 package de.unistuttgart.informatik.fius.jvk.provided.entity;
 
+import de.unistuttgart.informatik.fius.icge.simulation.Position;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionAttribute;
 import de.unistuttgart.informatik.fius.icge.simulation.inspection.InspectionMethod;
 import de.unistuttgart.informatik.fius.jvk.Texture;
@@ -61,7 +62,7 @@ public class Totoro extends Creature {
      *     when Totoro has no nuts
      */
     @InspectionMethod()
-    public void dropCoin() {
+    public void dropNut() {
         if (!this.canDropNut()) throw new TotoroIsHungryException();
         this.drop(this.getCurrentlyDroppableEntities(Nut.class, true).get(0));
     }
@@ -88,7 +89,7 @@ public class Totoro extends Creature {
      * 
      * @return a List of all Nuts on Totoros field
      */
-    public List<Nut> getCurrentlyCollectableCoins() {
+    public List<Nut> getCurrentlyCollectableNuts() {
         return this.getCurrentlyCollectableEntities(Nut.class, true);
     }
     
@@ -130,4 +131,6 @@ public class Totoro extends Creature {
     public int getNutsInPocket() {
         return this.getInventory().get(Nut.class, true).size();
     }
+    
+
 }

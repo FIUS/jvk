@@ -30,17 +30,18 @@ public class Sheet3Task3 implements Task {
         pm.placeEntityAt(totoro, new Position(0, 0));
 
         //Implementation here
-        
+
     }
     
     private void movePattern(Totoro totoro) {
         
     }
     
-    private void dropFourCoinsAndTurnLeft(Totoro totoro) {
+    private void dropFourNutsAndTurnLeft(Totoro totoro) {
         //write the Code for f) here
         //make totoro drop four nuts
         //make totoro turn Left
+
     }
     
 }
