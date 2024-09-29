@@ -136,7 +136,7 @@
 	\hfill\includegraphics[height=3cm]{../logos/fius-logo-neu.png}
 	\begin{center}
 	\Large\textbf{Übungsblatt \sheetNumber}\\
-	\large\kurs (\semester)
+	\large\kurs \, \semester
 	\normalsize
 	\end{center}
 }
