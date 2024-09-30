@@ -15,8 +15,8 @@ System.out.println(nutsUnderTotoro);
 		Laufe mit Totoro bis zum ersten Feld mit einer Nuss und gib die Anzahl der Nüsse unter Totoro auf der Konsole aus.\newline
 
 		\textbf{Wichtig}: Mit der Operation \lstinline{totoro.getCurrentlyCollectableNuts();} bekommt man eine Liste aller Nuss-Objekte, die auf Totoro's aktuellem Feld liegen.
-		Du kannst die den Datentyp List wie eine Sequenz (Aneinanderreihung) von Objekten desselben Typs - in diesem Fall des Typs \lstinline{Nut} - vorstellen.
-		Eine Liste hat eine Länge die angibt wie viele Elemente in ihr enthalten sind.
+		Du kannst dir den Datentyp List wie eine Sequenz (Aneinanderreihung) von Objekten desselben Typs, in diesem Fall des Typs \lstinline{Nut}, e vorstellen.
+		Eine Liste hat eine Länge, die angibt wie viele Elemente in ihr enthalten sind.
 		Diese Länge kann mit der \lstinline{size()}-Methode auf Listen-Objekten abgefragt werden.
 \end{enumerate}
 
@@ -64,7 +64,7 @@ if ( totoro.getCurrentlyCollectableNuts().size() == 3 ){
 	\textbf{Vorsicht:} Mit dem Vergleichsoperator \enquote{\lstinline{==}} sollte man in der Regel nur primitive Datentypen (= etwa Werte vom Typ \lstinline{int}, Fließkommazahlen wie \lstinline{double} und ein paar andere Typen, die wir der Einfachheit halber hier weglassen) vergleichen!\newline
 
 	Zum Vergleichen von zwei Objekten sollte immer die \lstinline{equals}-Methode, die auf jedem Objekt definiert ist, verwendet werden:
-	
+
 	\begin{lstlisting}[numbers=none]
 	if (totoro.getPosition().equals(new Position(1, 1))){
 	System.out.println("Totoro is on Position (1, 1)");
@@ -86,22 +86,22 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 	 	Nun wollen wir daran arbeiten möglichst viele Nüsse auf dem Spielfeld einzusammeln.
 
 		Dazu wollen wir Totoro erstmals so lange geradeaus laufen lasse, bis sich unter ihm eine oder mehrere Nüsse befinden.
-		Wenn Totoro auf eine Nuss trifft, sollst du erst mal anhalten.
+		Wenn Totoro auf eine Nuss trifft, sollte er erst mal anhalten.
 \end{enumerate}
 
 
 \begin{Infobox}[Endlosschleifen und \lstinline{break}]
 	Eine While-Schleife, in der die Schleifenbedingung \lstinline{true} ist, nennt man eine Endlosschleife.
-	Das heißt, dass die Schleife niemals aufhören wird den Code im Schleifenrumpf auszuführen, wenn das nicht durch eine Exception oder den Stop der Ausführung des Programms verhindert wird!
-	Deshalb kann es passieren, dass du den Stopp Knopf in der Eclipse Konsole brauchst, um die Schleife wieder abzubrechen.\newline
+	Das heißt, dass die Schleife niemals aufhören wird, den Code im Schleifenrumpf auszuführen, wenn das nicht durch eine Exception oder den Stop der Ausführung des Programms verhindert wird!
+	Deshalb kann es passieren, dass du den Stopp Knopf in der IntelliJ Konsole benötigst, um die Schleife wieder abzubrechen.\newline
 
-	Endlosschleifen möchte man in der Regel wann immer möglich vermeiden.
-	Aber man kann auch eine \lstinline{while(true)}-Schleife planmäßig im Quellcode und ohne das Auslösen von Exceptions beenden.
+	Endlosschleifen möchte man wenn  möglich immer vermeiden.
+	Man kann jedoch auch eine \lstinline{while(true)}-Schleife planmäßig in den Quellcode einbauen und ohne das Auslösen von Exceptions beenden.
 	Dafür braucht man das Schlüsselwort \lstinline{break}.\newline
 
 	Wenn du im Rumpf einer Schleife \lstinline{break;} aufrufst, dann wird die Schleife sofort unterbrochen.
 	Auch die Schleifenbedingung wird dann nicht mehr überprüft und der Code nach der Schleife wird weiter ausgeführt.
-	Das funktioniert auch in For-Schleifen, ist aber hier eher untypisch, da man dort meistens die Zählvariablen zur Begrenzung der Wiederholungen benutzt.
+	Das funktioniert auch in For-Schleifen, ist aber hier eher untypisch, da  dort meistens die Zählvariablen zur Begrenzung der Wiederholungen benutzt wird.
 
 	\begin{lstlisting}[numbers=none]
 	while(true){
@@ -117,16 +117,17 @@ System.out.println(new Position(1,1).equals(new Position(1,1))); // true
 
 \begin{enumerate}\setcounter{enumi}{3}
 	\item
-	Mit dem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
+	Mit diesem neuen Wissen wollen wir nun an unserem Code aus Teilaufgabe c) weiterarbeiten.
 
-	Wenn Totoro also auf einem Feld mit genau einer Nuss steht, soll er die Nuss aufsammeln, sich dann nach rechts drehen und einen weiteren Schritt machen.
+	Wenn Totoro also auf einem Feld mit genau einer Nuss steht, soll er die Nuss aufsammeln und 
+	sich dann nach rechts drehen und einen weiteren Schritt machen.
 	Wenn sich mehr als eine Nuss unter Totoro befinden, soll er die Schleife erstmals mit einem \lstinline{break} verlassen.
-	Dann soll der wieder anfangen zu laufen, bis unter ihm wieder eine oder mehrere Nüsse auftauchen.
-	
+	Dannach soll er wieder weiter laufen, bis er Nüsse findet.	
 	\item
-	Wenn sich jetzt mehr als eine Nuss unter Totoro befinden sollten, dann soll Totoro genau eine Nuss aufsammeln, sich nach links drehen und dann wieder einen Schritt nach vorne machen.
+	Wenn sich jetzt mehr als eine Nuss unter Totoro befinden, 
+	soll Totoro genau eine Nuss aufsammeln, und sich dann nach links drehen und  wieder einen Schritt nach vorne machen.
 	
-	Momentan soll Totoro noch nicht alle Nüsse aufgesammelt bekommen, ohne gegen einen Busch zu laufen.
+	Momentan sollte Totoro noch nicht in der Lage sein, alle Nüsse aufzusammlen, ohne gegen einen Busch zu laufen.
 	\end{enumerate}
 	
 	\begin{Infobox}[Logische Operatoren]
@@ -155,7 +156,7 @@ if (totoro.canMove() && totoro.getCurrentlyCollectableNuts().size() == 7) {
 
 	\begin{lstlisting}[numbers=none]
 if (!totoro.canMove() && totoro.getCurrentlyCollectableNuts().size() == 7) {
-	//totoro hat genau 7 Nüsse UND kann sich NICHT nach vorne gehen.
+	//totoro hat genau 7 Nüsse UND kann sich NICHT nach vorne bewegen.
 }
 	\end{lstlisting}
 
@@ -176,11 +177,11 @@ if (totoro.canMove() || totoro.getCurrentlyCollectableNuts().size() == 7) {
 	Dafür musst du vor jedem \lstinline{move()} Kommando prüfen, ob Totoro sich überhaupt nach vorne bewegen kann.
 	
 	\item
-	Jetzt wollen wir, dass Totoro auch irgendwann aufhört.
-	Er soll aufhören zu laufen oder Nüsse einzusammeln, wenn er schon 20 Nüsse gesammelt hat oder wenn er auf einem Feld mit exakt 9 Nüssen ankommt.
+	Totoro's Taschen sind leider relativ klein, daher soll er 
+	aufhören zu laufen oder Nüsse einzusammeln, wenn er schon 20 Nüsse gesammelt hat oder  er auf einem Feld mit exakt 9 Nüssen ankommt.
 	Mit \lstinline{totoro.getNutsInPocket()} kannst du die Anzahl der Nüsse in Totoro's Inventory abfragen.
 	
-	\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} Verwenden.
+	\textbf{Tipp:} Hierfür kannst du entweder das Argument der Endlosschleife ändern oder \lstinline{break} verwenden.
 	Falls du die Entscheidung, was Totoro auf einem Feld machen soll, mit einem \lstinline{if-else}-Verzweigung implementiert hast, kannst du hier ein \lstinline{else if(...)} einführen.
 \end{enumerate}
 \newpage

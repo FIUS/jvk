@@ -4,11 +4,14 @@
 \item Implementiere das \lstinline{moveTo(Position position)} Kommando in der Klasse Totoro, welches totoro zu der übergebenen Position laufen lässt. Um das Kommando zu testen, lasse totoro zu (2,4) laufen (Tipp: In dieser Aufgabe gibt es keine Büsche auf dem Spielfeld. Du musst daher keinen komplexen Wegfindungsalgorithmus implementieren.)
 \item Totoro ist umgeben von Nüssen. Wir wollen auch nun das innere dieser Form mit Nüssen füllen. Dafür verwenden wir einen beliebten (rekursiven) Füllalgorithmus der funktioniert wie folgt:\\
 Fill(Position pos(x,y)):\\
--lege eine Nuss auf pos\\
--falls (x-1,y) leer ist: Fill(x-1,y)\\
--falls (x+1,y) leer ist: Fill(x+1,y)\\
--falls (x,y-1) leer ist: Fill(x,y-1)\\
--falls (x,y+1) leer ist: Fill(x,y+1)\\
+\begin{enumerate}[label=\arabic*.]
+    \item lege eine Nuss auf pos
+    \item falls (x-1,y) leer ist: Fill(x-1,y)
+    \item falls (x+1,y) leer ist: Fill(x+1,y)
+    \item falls (x,y-1) leer ist: Fill(x,y-1)
+    \item falls (x,y+1) leer ist: Fill(x,y+1)
+\end{enumerate}
 
-implementieren diesen Füllalgorithmus, und lasse totoro die Form mit Nüssen füllen
+
+Implementiere diesen Füllalgorithmus und lasse totoro die Form mit Nüssen füllen.
 \end{enumerate}
