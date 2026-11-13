@@ -1,6 +1,9 @@
 # jvk
 Sheets and project for the annual Java-Vorkurs of the Fachgruppe Informatik der Universität Stuttgart
 
+# WICHTIG 
+> Dieses Repo ist unmaintained die neuen Folien u.ä. sind in JVL-2025 zu finden. Schönes Java schreiben noch
+
 ## Compiling Exercise Sheets (LaTeX)
 
 Each exercise sheet can be compiled standalone using `pdflatex`.
